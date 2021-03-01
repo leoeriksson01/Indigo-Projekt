@@ -1,4 +1,5 @@
 import React from "react";
+import style from "../css/AboutPage.module.css";
 import aboutImage from "../assets/aboutimage.jpg";
 
 function AboutPage(props) {
