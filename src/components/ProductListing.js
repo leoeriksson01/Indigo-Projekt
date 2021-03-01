@@ -5,6 +5,8 @@ const ProductListing = () => {
   return (
     <div className={style.product_list}>
       <ProductCard />
+      <ProductCard />
+      <ProductCard />
     </div>
   );
 };
