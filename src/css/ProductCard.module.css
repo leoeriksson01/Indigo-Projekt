@@ -1,3 +1,25 @@
+h2 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+p {
+  color: #353336;
+}
+
+img {
+  max-width: 100%;
+}
+
+.card_description {
+}
+
+.card_information {
+}
+
 .product_card {
-    
+  border: 1px solid black;
+}
+
+.image_wrapper {
 }
