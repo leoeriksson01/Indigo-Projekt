@@ -7,9 +7,9 @@ export default function App() {
   return (
     <CarContextProvider>
       <div className="App">
-        <Home />
         <Router>
           <Navbar />
+          <Home />
           <Route exact path="/" />
           <Route exact path="/About-us" />
         </Router>
