@@ -1,6 +1,8 @@
+import style from "../css/ProductList.module.css";
+
 const ProductListing = () => {
   return (
-    <div>
+    <div className="product_list">
       <h2>Product Listing</h2>
     </div>
   );
