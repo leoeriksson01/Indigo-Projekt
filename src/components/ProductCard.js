@@ -5,33 +5,38 @@ import { CarContext } from "../components/contexts/CarContext";
 const ProductCard = () => {
   const { cars } = useContext(CarContext);
 
-  return (
-    <div className={style.product_card}>
-      <div className={style.img_wrapper}>
-        <img
-          src="https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-          alt="product-image"
-        />
+  const product = cars.map((car) => {
+    return (
+      <div className={style.product_card} key={car.vin}>
+        <div className={style.img_wrapper}>
+          <img
+            src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
+            alt="product-image"
+          />
+        </div>
+        <p className={style.card_information}>
+          <span>Make: {car.make}</span> <br />
+          <span>Model: {car.model} </span> <br />
+          <span>Year: {car.year}</span>
+          <br />
+          <span>VIN: {car.vin}</span>
+          <br />
+          <span>City: {car.city}</span>
+          <br />
+          <span>Price: {car.price}</span> <br />
+          <span>Distance: {car.miles} miles</span>
+          <br />
+        </p>
+        <p className={style.card_description}>
+          <span className={style.car_description_title}>Car description:</span>
+          <br />
+          <span>{car.descShort}</span>
+          <br />
+        </p>
       </div>
-      <p className={style.card_information}>
-        <span>Make:</span> <br />
-        <span>Model:</span> <br />
-        <span>Year:</span>
-        <br />
-        <span>VIN:</span>
-        <br />
-        <span>City:</span>
-        <br />
-        <span>Price:</span> <br />
-        <span>Distance:</span>
-        <br />
-      </p>
-      <p className={style.card_description}>
-        <span className={style.car_description_title}>Car description:</span>{" "}
-        <br />
-      </p>
-    </div>
-  );
+    );
+  });
+  return <div>{product}</div>;
 };
 
 export default ProductCard;
