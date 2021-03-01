@@ -11,6 +11,10 @@ img {
   max-width: 100%;
 }
 
+.car_description_title {
+  font-weight: 600;
+}
+
 .card_description {
 }
 

@@ -19,10 +19,12 @@ const ProductCard = () => {
         <span>City:</span>
         <br />
         <span>Price:</span> <br />
-        <span>Distance: 39,333 miles</span>
+        <span>Distance:</span>
         <br />
       </p>
       <p className={style.card_description}>
+        <span className={style.car_description_title}>Car description:</span>{" "}
+        <br />
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere,
         delectus eaque quasi debitis perspiciatis ratione nobis ipsum ab!
         Ratione, facilis.
