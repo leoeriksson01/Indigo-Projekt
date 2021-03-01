@@ -8,7 +8,7 @@ const sidebar = () => {
     <div className={styles.sidebar}>
       <div className={styles.heading}>
         <div><p>Filter</p></div>
-       <div><FontAwesomeIcon class={styles.filter} icon={faFilter} /></div>
+       <div><FontAwesomeIcon className={styles.filter} icon={faFilter} /></div>
       </div>
       <form>
         <label htmlFor="make">Make</label>
