@@ -1,0 +1,22 @@
+
+.sidebar{
+  border: 1px solid grey;  
+  width: 20vw;
+  height: 80vh; 
+  padding: 2rem;
+}
+
+.heading{
+  width: 100%;
+  display: flex; 
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+}
+
+.heading p {
+  font-size: 1.2rem;
+}
+
+.heading p:first-child {
+  color: black;
+}
