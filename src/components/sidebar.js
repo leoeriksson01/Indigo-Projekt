@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "../css/Sidebar.module.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
 
 const sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.heading}>
-        <p>Search Filters</p>
-
+        <div><p>Filter</p></div>
+       <div><FontAwesomeIcon class={styles.filter} icon={faFilter} /></div>
       </div>
       <form>
         <label htmlFor="make">Make</label>
