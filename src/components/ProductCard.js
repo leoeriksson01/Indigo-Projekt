@@ -1,6 +1,10 @@
 import style from "../css/ProductCard.module.css";
+import { useContext } from "react";
+import { CarContext } from "../components/contexts/CarContext";
 
 const ProductCard = () => {
+  const { cars } = useContext(CarContext);
+
   return (
     <div className={style.product_card}>
       <div className={style.img_wrapper}>
