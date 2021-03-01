@@ -4,7 +4,10 @@ const ProductCard = () => {
   return (
     <div className={style.product_card}>
       <div className={style.img_wrapper}>
-        <img src="" alt="product-image" />
+        <img
+          src="https://images.unsplash.com/photo-1597404294360-feeeda04612e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          alt="product-image"
+        />
       </div>
       <p className={style.card_information}>
         <span>Make:</span> <br />
