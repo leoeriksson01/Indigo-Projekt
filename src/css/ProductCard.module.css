@@ -23,6 +23,8 @@ img {
 
 .product_card {
   border: 1px solid black;
+  border-radius: 1%;
+  padding: 10px;
 }
 
 .image_wrapper {
