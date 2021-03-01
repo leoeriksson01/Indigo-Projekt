@@ -1,7 +1,8 @@
 
 .sidebar{
   height: 100vh; 
-  padding: 2rem;
+  width: 80%;
+  margin: 0 auto; 
 }
 
 .heading{
@@ -9,11 +10,26 @@
   display: flex; 
   justify-content: space-between;
   border-bottom: 1px solid black;
+  margin-bottom: 2rem;
+}
+.heading p{
+  color: #767674;
 }
 
 .heading p:first-child {
   color: black;
 }
+
+form {
+  display: flex;
+  flex-direction: column; 
+}
+
+input{
+margin-bottom: 2rem; 
+}
+
+
 
 /* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
