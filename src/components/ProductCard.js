@@ -36,7 +36,7 @@ const ProductCard = () => {
       </div>
     );
   });
-  return <div>{product}</div>;
+  return <div className={style.product_card_wrapper}>{product}</div>;
 };
 
 export default ProductCard;

@@ -27,5 +27,13 @@ img {
   padding: 10px;
 }
 
+.product_card_wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30%);
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  justify-content: center;
+}
+
 .image_wrapper {
 }
