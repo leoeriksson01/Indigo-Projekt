@@ -20,7 +20,7 @@ const Sidebar = () => {
       <div className={styles.heading} onClick={handleShow}>
         <div className={styles.filter}>
           <p>Filter</p>
-          <FontAwesomeIcon icon={faFilter} />
+          <FontAwesomeIcon className={styles.filter_icon} icon={faFilter} />
         </div>
       </div>
 
