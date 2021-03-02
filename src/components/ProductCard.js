@@ -7,6 +7,10 @@ const ProductCard = () => {
   const history = useHistory();
   const { cars } = useContext(CarContext);
 
+  const buttonRead = (car) => {
+    // redirects customer to "Detaljsidan"
+    history.push(`/car/${car.vin}`);
+  };
 
   const product = cars.map((car) => {
     return (
@@ -38,7 +42,14 @@ const ProductCard = () => {
         </p>
         <div className={style.button_wrapper}>
           <button className={style.button_add}>Add to cart</button>
-          <button className={style.button_read}>Read more</button>
+          <button
+            onClick={() => {
+              buttonRead(car);
+            }}
+            className={style.button_read}
+          >
+            Read more
+          </button>
         </div>
       </div>
     );
