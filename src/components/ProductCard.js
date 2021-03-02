@@ -1,9 +1,12 @@
 import style from "../css/ProductCard.module.css";
 import { useContext } from "react";
 import { CarContext } from "../components/contexts/CarContext";
+import { useHistory } from "react-router-dom";
 
 const ProductCard = () => {
+  const history = useHistory();
   const { cars } = useContext(CarContext);
+
 
   const product = cars.map((car) => {
     return (
@@ -11,7 +14,7 @@ const ProductCard = () => {
         <div className={style.img_wrapper}>
           <img
             src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
-            alt="product-image"
+            alt="product"
           />
         </div>
         <p className={style.card_information}>
