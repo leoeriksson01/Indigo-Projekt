@@ -11,6 +11,11 @@ img {
   max-width: 100%;
 }
 
+.button_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .car_description_title {
   font-weight: 600;
 }

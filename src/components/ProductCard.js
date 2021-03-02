@@ -33,6 +33,9 @@ const ProductCard = () => {
           <span>{car.descShort}</span>
           <br />
         </p>
+        <div className={style.button_wrapper}>
+          <button>Add to cart</button> <button>Read More</button>
+        </div>
       </div>
     );
   });
