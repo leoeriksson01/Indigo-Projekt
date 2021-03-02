@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as CloseMenu } from "../assets/x.svg";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
@@ -38,7 +39,11 @@ const Header = () => {
 
       <div className="cart-container" onClick={toggleCart}>
             <Cart className="cart" />
- <div className="cartList"></div>
+ <div className="cartList">
+   <NavLink exact to="/">
+              To Checkout
+            </NavLink>
+ </div>
            
             
         </div>
