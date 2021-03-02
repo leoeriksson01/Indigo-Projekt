@@ -1,9 +1,18 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { ReactComponent as CloseMenu } from "../assets/x.svg";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import "./Navbar.css";
+
+function toggleCart() {
+
+  document.querySelector(".cartList").classList.toggle("hidden");
+  console.log("hello")
+  
+
+}
 
 const Header = () => {
   const [click, setClick] = useState(false);
@@ -28,10 +37,15 @@ const Header = () => {
         
       </div>
 
-      <div className="cart-container">
-          <a href="#">
+      <div className="cart-container" onClick={toggleCart}>
             <Cart className="cart" />
-          </a>
+ <div className="cartList">
+   <NavLink exact to="/">
+              To Checkout
+            </NavLink>
+ </div>
+           
+            
         </div>
         
       <div className="mobile-menu" onClick={handleClick}>
