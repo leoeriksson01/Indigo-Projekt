@@ -7,7 +7,7 @@ const ProductCard = () => {
   const history = useHistory();
   const { cars } = useContext(CarContext);
 
-  const buttonRead = (car) => {
+  const handleButtonRead = (car) => {
     // redirects customer to "Detaljsidan"
     history.push(`/car/${car.vin}`);
   };
@@ -44,7 +44,7 @@ const ProductCard = () => {
           <button className={style.button_add}>Add to cart</button>
           <button
             onClick={() => {
-              buttonRead(car);
+              handleButtonRead(car);
             }}
             className={style.button_read}
           >
