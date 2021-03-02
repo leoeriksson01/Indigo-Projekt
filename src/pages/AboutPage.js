@@ -7,6 +7,7 @@ function AboutPage(props) {
     <div id={style.aboutContainer}>
       <div>
         <img src={aboutImage} id={style.aboutImage} alt="Image of a car dealership."/>
+        <h1 id={style.heroText}>ABOUT BILGAGNAT</h1>
       </div>
         <p>About me yo.</p>
     </div>
