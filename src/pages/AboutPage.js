@@ -4,8 +4,10 @@ import aboutImage from "../assets/aboutimage.jpg";
 
 function AboutPage(props) {
   return (
-    <div className="about-container">
-        <img src={aboutImage} alt="Image of a car dealership."/>
+    <div id={style.aboutContainer}>
+      <div>
+        <img src={aboutImage} id={style.aboutImage} alt="Image of a car dealership."/>
+      </div>
         <p>About me yo.</p>
     </div>
   )
