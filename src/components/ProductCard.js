@@ -5,7 +5,11 @@ import { useHistory } from "react-router-dom";
 
 const ProductCard = () => {
   const history = useHistory();
-  const { cars } = useContext(CarContext);
+  const { cars, addToCart } = useContext(CarContext);
+
+  const handleButtonAdd = (car) => {
+    addToCart(car);
+  };
 
   const handleButtonRead = (car) => {
     // redirects customer to "Detaljsidan"
@@ -41,7 +45,12 @@ const ProductCard = () => {
           <br />
         </p>
         <div className={style.button_wrapper}>
-          <button className={style.button_add}>Add to cart</button>
+          <button
+            onClick={() => handleButtonAdd(car)}
+            className={style.button_add}
+          >
+            Add to cart
+          </button>
           <button
             onClick={() => {
               handleButtonRead(car);
