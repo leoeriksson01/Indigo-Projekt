@@ -22,7 +22,7 @@ export default function App() {
               <Car />
             </Route>
           </Switch>
-          <Footer/>
+          {/* <Footer/> */}
         </Router>
       </div>
     </CarContextProvider>
