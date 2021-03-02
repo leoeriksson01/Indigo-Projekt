@@ -34,7 +34,8 @@ const ProductCard = () => {
           <br />
         </p>
         <div className={style.button_wrapper}>
-          <button>Add to cart</button> <button>Read more</button>
+          <button className={style.button_add}>Add to cart</button>
+          <button className={style.button_read}>Read more</button>
         </div>
       </div>
     );

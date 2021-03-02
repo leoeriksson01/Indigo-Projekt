@@ -11,6 +11,16 @@ img {
   max-width: 100%;
 }
 
+.button_add {
+  color: white;
+  background-color: #2e856e;
+}
+
+.button_read {
+  color: white;
+  background-color: #2e856e;
+}
+
 .button_wrapper {
   display: flex;
   justify-content: space-between;
