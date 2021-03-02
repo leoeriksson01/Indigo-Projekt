@@ -1,4 +1,4 @@
-import Sidebar from "../components/Sidebar.js";
+import Sidebar from "../components/sidebar.js";
 import style from "../css/Home.module.css";
 
 const Home = () => {
