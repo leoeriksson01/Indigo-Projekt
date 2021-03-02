@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as CloseMenu } from "../assets/x.svg";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
-import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
+import elvs from "../assets/elvs.png";
 import "./Navbar.css";
 
 function toggleCart() {
@@ -22,10 +22,8 @@ const Header = () => {
     <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
-          <a href="#">
-            <Logo className="logo" />
-          </a>
-        </div>
+          <img src={elvs}/>
+       </div>
         <ul className={click ? "nav-options active" : "nav-options"}>
           <li className="option" onClick={closeMobileMenu}>
             <a href="#">HOME</a>
