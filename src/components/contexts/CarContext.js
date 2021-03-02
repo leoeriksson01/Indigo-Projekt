@@ -11,6 +11,8 @@ export default function CarContextProvider({ children }) {
     setCars(defaultCars);
   }, []);
 
+  useEffect(() => {}, [shoppingCart]);
+
   // Adds product to shopping cart
   function addToCart(car) {
     const newShoppingList = [...shoppingCart, car];
@@ -40,7 +42,7 @@ export default function CarContextProvider({ children }) {
   }
 
   return (
-    <CarContext.Provider value={{ cars, find, findOne, remove }}>
+    <CarContext.Provider value={{ addToCart, cars, find, findOne, remove }}>
       {children}
     </CarContext.Provider>
   );
