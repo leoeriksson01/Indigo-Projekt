@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CarContextProvider from "./components/contexts/CarContext";
 import Home from "./pages/Home";
 import Car from "./pages/Car";
+import AboutPage from "./pages/AboutPage";
 export default function App() {
   return (
     <CarContextProvider>
@@ -16,7 +17,7 @@ export default function App() {
               <Home />
             </Route>
             <Route exact path="/about">
-              About us
+              <AboutPage />
             </Route>
             <Route exact path="/car/:vin">
               <Car />
