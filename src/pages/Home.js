@@ -1,5 +1,6 @@
 import Sidebar from "../components/sidebar.js";
 import style from "../css/Home.module.css";
+import ProductListing from "../components/ProductListing";
 
 const Home = () => {
   return (
@@ -7,7 +8,9 @@ const Home = () => {
       <div id={style.search_field_container}>
         <Sidebar />
       </div>
-      <div id={style.product_listing_container}>Product Listing</div>
+      <div id={style.product_listing_container}>
+        <ProductListing />
+      </div>
     </div>
   );
 };
