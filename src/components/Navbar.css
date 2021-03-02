@@ -27,7 +27,20 @@ a {
 
 .cart-container {
   position: absolute;
-  right: 0vw;
+  right: 10vw;
+  top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartList {
+  width: 200px;
+  height: 300px;
+  background: black;
+  opacity: 0.2;
+  margin-top: 15px;
 }
 
 .logo {
@@ -40,6 +53,7 @@ a {
   height: 50px;
   color: white;
 }
+
 .nav-options {
   padding-left: 25px;
   display: grid;
@@ -56,6 +70,9 @@ a {
 }
 
 .mobile-menu {
+  display: none;
+}
+.hidden {
   display: none;
 }
 @media (max-width: 648px) {

@@ -5,6 +5,14 @@ import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import "./Navbar.css";
 
+function toggleCart() {
+
+  document.querySelector(".cartList").classList.toggle("hidden");
+  console.log("hello")
+  
+
+}
+
 const Header = () => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -28,10 +36,11 @@ const Header = () => {
         
       </div>
 
-      <div className="cart-container">
-          <a href="#">
+      <div className="cart-container" onClick={toggleCart}>
             <Cart className="cart" />
-          </a>
+ <div className="cartList"></div>
+           
+            
         </div>
         
       <div className="mobile-menu" onClick={handleClick}>
