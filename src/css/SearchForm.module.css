@@ -21,21 +21,18 @@ form {
   display: flex;
   flex-direction: column;
   background: white;
-  overflow: scroll;
 }
 
 input {
   margin-bottom: 2rem;
 }
 
-/* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
   .active input {
     margin-bottom: 0.5rem;
   }
 }
 
-/* // Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
   .heading {
     border-bottom: 0px;
@@ -48,6 +45,7 @@ input {
 
   .active {
     display: flex;
+    width: 90vw;
   }
 
   .active input {
@@ -56,3 +54,4 @@ input {
   }
 
 }
+
