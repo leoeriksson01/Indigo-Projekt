@@ -14,10 +14,14 @@ const useForm = () => {
         setValues({
             ...values,
             [name] : value 
-        })
+        });
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault();
     }
 
-    return {handleChange, values}
+    return {handleChange, values, handleSubmit}
 }
 
 export default useForm;

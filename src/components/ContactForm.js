@@ -4,11 +4,11 @@ import useForm from "./useForm"
 
 
 function ContactForm (props) {
-    const {handleChange, values} = useForm();
+    const {handleChange, values, handleSubmit} = useForm();
 
     return (
         <div id={style.formContainer}>
-            <form id={style.form}> 
+            <form id={style.form} onSubmit={handleSubmit}> 
                 <h1>Get in touch! Send us a message below:</h1>
                 <div id={style.formInputs}>
                     <label htmlFor="username" 
