@@ -6,7 +6,8 @@ const useForm = (validate) => {
        email: '',
        message: ''
     })
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
 
     const handleChange = e => {
@@ -21,6 +22,7 @@ const useForm = (validate) => {
         e.preventDefault();
 
         setErrors(validate(values));
+        setIsSubmitting(true)
     }
 
     return {handleChange, values, handleSubmit, errors}
