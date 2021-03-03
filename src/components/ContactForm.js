@@ -9,7 +9,7 @@ function ContactForm (props) {
                 <h1>Get in touch! Send us a message below:</h1>
                 <div id={style.formInputs}>
                     <label htmlFor="name" 
-                    id={style.formLabel}>
+                    id={style.formLabel}>Name: 
                     </label>
                     <input 
                         type="text" 
@@ -20,7 +20,7 @@ function ContactForm (props) {
                 </div>
                 <div id={style.formInputs}>
                     <label htmlFor="email" 
-                    id={style.formLabel}>
+                    id={style.formLabel}>Email: 
                     </label>
                     <input 
                         type="email" 
@@ -29,6 +29,9 @@ function ContactForm (props) {
                         placeholder="Enter your email"
                     />
                 </div>
+                <button id={style.formInputBtn} type="submit">
+                    Send message
+                </button>
             </form>
         </div>
     )
