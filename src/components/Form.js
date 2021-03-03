@@ -6,24 +6,26 @@ import contactUs from "../assets/email-us.svg";
 
 
 const Form = () => {
-    const [isSubmitted, setIsSubmitted] = useState(false)
-
-    function submitForm(){
-        setIsSubmitted(true);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+  
+    function submitForm() {
+      setIsSubmitted(true);
     }
     return (
-        <>
-            <div id={style.formContainer}>
-                <div id={style.formContentLeft}>
-                    <img id={style.formImage} src={contactUs} alt='Email icon.' />
-                </div>
-                {!isSubmitted ? 
-                    (<ContactForm submitForm={submitForm}/>) : 
-                    (<FormSuccess/>)
-                }
-            </div>   
-        </>
+      <>
+        <div className='form-container'>
+          <span className='close-btn'>×</span>
+          <div className='form-content-left'>
+            <img id={style.formImage} src={contactUs} alt='Email icon.' />
+          </div>
+          {!isSubmitted ? (
+            <ContactForm submitForm={submitForm} />
+          ) : (
+            <FormSuccess />
+          )}
+        </div>
+      </>
     );
-};
-
-export default Form;
+  };
+  
+  export default Form;
