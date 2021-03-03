@@ -22,7 +22,7 @@ const Header = () => {
     <div className="header">
       <div className="logo-nav">
         <div className="logo-container">
-          <img src={elvs}/>
+          {/* <img src={elvs}/> */}
        </div>
         <ul className={click ? "nav-options active" : "nav-options"}>
           <li className="option" onClick={closeMobileMenu}>
