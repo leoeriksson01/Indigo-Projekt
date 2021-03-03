@@ -6,7 +6,6 @@ export default function ShopCartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
-    console.log(shoppingCart);
   }, [shoppingCart]);
 
   // Adds product to shopping cart
