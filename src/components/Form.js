@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ContactForm from "./ContactForm";
 import FormSuccess from "./FormSuccess";
 import style from "../components/ContactForm.module.css";
-import contactUs from "../assets/email-us.svg";
+import contactUs from "../assets/customer-service.jpg";
 
 
 const Form = () => {
