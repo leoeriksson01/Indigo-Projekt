@@ -36,16 +36,20 @@ a {
   width: 300px;
 }
 
-/* img {
-  width: 70px;
-  height: 70px;
-} */
-
 .cartList {
   width: 300px;
-  height: 400px;
+  overflow-y: scroll;
   background: #353336;
+  min-height: 70px;
   margin-top: 15px;
+  max-height: 400px;
+  margin-bottom: 40px;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.cartList::-webkit-scrollbar {
+  display: none;
 }
 
 .logo {
@@ -90,8 +94,14 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  bottom: 0px;
+  margin-top: 10px;
+  padding: 10px;
+}
+.totalprice {
+  text-align: center;
+  color: white;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 648px) {

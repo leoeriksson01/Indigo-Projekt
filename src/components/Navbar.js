@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { ShopCartContext } from "./contexts/ShopCartContext";
 import { ReactComponent as CloseMenu } from "../assets/x.svg";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
+import { useContext } from "react";
 import elvs from "../assets/elvs.png";
+import ShoppingCart from "../components/ShoppingCart"
 import "./Navbar.css";
 
+
+
 function toggleCart() {
+
 
   document.querySelector(".cartList").classList.toggle("hidden");
   console.log("hello")
@@ -15,6 +21,7 @@ function toggleCart() {
 }
 
 const Header = () => {
+  const {totalPrice } = useContext(ShopCartContext);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -35,12 +42,16 @@ const Header = () => {
         
       </div>
 
-      <div className="cart-container" onClick={toggleCart}>
-            <Cart className="cart" />
+      <div className="cart-container" >
+            <Cart className="cart" onClick={toggleCart} />
  <div className="cartList">
+   <ShoppingCart/> 
+   <div className="totalprice"> 
+   Total price: ${totalPrice} 
    <NavLink exact to="/">
               To Checkout
             </NavLink>
+            </div>
  </div>
            
             
