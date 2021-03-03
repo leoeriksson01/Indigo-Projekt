@@ -1,12 +1,13 @@
-import Sidebar from "../components/sidebar.js";
 import style from "../css/Home.module.css";
 import ProductListing from "../components/ProductListing";
+import Form from "../components/SearchForm";
+
 
 const Home = () => {
   return (
     <div className={style.wrapper}>
       <div id={style.search_field_container}>
-        <Sidebar />
+      <Form/>
       </div>
       <div id={style.product_listing_container}>
         <ProductListing />
@@ -16,3 +17,5 @@ const Home = () => {
 };
 
 export default Home;
+
+
