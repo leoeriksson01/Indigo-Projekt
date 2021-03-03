@@ -28,7 +28,7 @@ const ProductCard = () => {
           />
         </div>
 
-        <div className={style.card_information_wrapper}>
+        <div className={style.card_text_wrapper}>
           <p className={style.card_information}>
             <span>Make: {car.make}</span> <br />
             <span>Model: {car.model} </span> <br />
