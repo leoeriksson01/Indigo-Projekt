@@ -22,6 +22,6 @@ export default function ShopCartContextProvider({ children }) {
     }
   }
   return (
-    <ShopCartContext.Provider value={{}}>{children}</ShopCartContext.Provider>
+    <ShopCartContext.Provider value={{addToCart, shoppingCart, setShoppingCart}}>{children}</ShopCartContext.Provider>
   );
 }
