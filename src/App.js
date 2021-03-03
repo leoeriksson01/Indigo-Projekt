@@ -12,7 +12,7 @@ export default function App() {
       <div className="App">
         <Router>
           <Navbar />
-          <Footer/>
+          {/* <Footer/> */}
           <Home />
           <Route exact path="/" />
           <Route exact path="/About-us" />

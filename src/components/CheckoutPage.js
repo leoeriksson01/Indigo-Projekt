@@ -1,10 +1,14 @@
-import CheckoutForm from './CheckoutForm';
+import style from '../css/CheckoutPage.module.css'
+import CheckoutContainer from './CheckoutContainer';
+
 
 const CheckoutPage = () => {
   return (
-    <div className="checkout-page">
-      <h1>CheckoutPage works</h1>
-      <CheckoutForm />
+    <div className={style.checkoutPage}>
+      <div className={style.checkoutWrapper}>
+        <h2>Checkout</h2>
+        <CheckoutContainer />
+      </div>
     </div>
   );
 }
