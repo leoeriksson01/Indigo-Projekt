@@ -3,60 +3,52 @@ import style from '../css/CheckoutPage.module.css'
 
 const CheckoutForm = () => {
   return (
-    <div className={style.checkoutForm}>
+    <div className={style.checkouthtmlForm}>
       <h3>Billing and Shipping Details</h3>
       <form>
         <fieldset className={style.fieldset}>
-          <label for="name">First and last name:</label>
+          <label htmlFor="name">First and last name:</label>
           <input type="text" name="name" id="name" />
 
-          <label for="email">Email adress</label>
+          <label htmlFor="email">Email adress</label>
           <input type="text" name="email" id="email" />
 
-          <label for="county">County</label>
+          <label htmlFor="county">County</label>
           <input type="text" name="county" id="county" />
 
-          <label for="zip">Zip Code</label>
+          <label htmlFor="zip">Zip Code</label>
           <input type="text" name="zip" id="zip" maxLength="5" />
         </fieldset>
-        <br/>
-        <div className={style.radioButtons}>
-          <h5>Shipping</h5>
-          <hr/>
+
+        <fieldset className={style.fieldset}>
+          <legend>Shipping</legend>
           <div className={style.radio}>
             <input type="radio" id="radio1" name="sex" value="male" />
-            <label class="search-radio-text" for="radio1">Delivered to adress</label>
+            <label htmlFor="radio1">Delivered to adress</label>
           </div>
           <div>
             <input type="radio" id="radio2" name="sex" value="female" />
-            <label class="search-radio-text" for="radio2">Pick up</label>
+            <label htmlFor="radio2">Pick up</label>
           </div>
-        </div>
-        <br/>
-        <h5>Payment Details</h5>
-        <br/>
-        <fieldset className={style.fieldset}>
-          <label for="card">Name on Card</label>
+        </fieldset>
+
+        <fieldset className={style.fieldset}>  
+          <legend>Payment Details</legend>
+          <label htmlFor="card">Name on Card</label>
           <input type="text" name="card" id="card" />
 
-          <label for="ccn">Credit Card Number</label>
-          <input 
-            id="ccn" 
-            type="text" 
-            maxlength="19"
-          />
+          <label htmlFor="ccn">Credit Card Number</label>
+          <input id="ccn" type="text" maxLength="19" />
 
-          <label for="valid">Valid through</label>
+          <label htmlFor="valid">Valid through</label>
           <input type="text" name="valid" id="valid" />
 
-          <label for="cvc">CVC code</label>
+          <label htmlFor="cvc">CVC code</label>
           <input type="text" name="cvc" id="cvc" />
         </fieldset>
       </form>
     </div>
   );
 }
-
-//https://stackoverflow.com/questions/41296668/reactjs-form-input-validation
 
 export default CheckoutForm;
