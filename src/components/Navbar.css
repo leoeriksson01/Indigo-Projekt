@@ -166,11 +166,7 @@ a {
     right: 10vw;
   }
   .cartList {
-    width: 50vw;
-  }
-
-  .cartList a {
-    width: 50vw;
+    width: 250px;
   }
 }
 .mobile-menu {
