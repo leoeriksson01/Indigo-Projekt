@@ -29,17 +29,26 @@ const ProductCard = () => {
         </div>
 
         <div className={style.card_text_wrapper}>
+          <h2>
+            {car.make} {car.model} {car.year}
+          </h2>
+          <p className={style.subheading}>
+            <span>{Number(car.miles).toLocaleString()} miles</span>
+          </p>
           <p className={style.card_information}>
-            <span>Make: {car.make}</span> <br />
-            <span>Model: {car.model} </span> <br />
-            <span>Year: {car.year}</span>
+            <span className={style.information_category}>Make: </span>
+            {car.make} <br />
+            <span className={style.information_category}>Model:</span>
+            {car.model}
             <br />
-            <span>VIN: {car.vin}</span>
+            <span className={style.information_category}>Year: </span>
+            {car.year}
             <br />
-            <span>City: {car.city}</span>
+            <span className={style.information_category}>City: </span>
+            {car.city}
             <br />
-            <span>Price: {car.price}</span> <br />
-            <span>Distance: {car.miles} miles</span>
+            <span className={style.information_category}>Price: </span>
+            {car.price}
             <br />
           </p>
           <p className={style.card_description}>
