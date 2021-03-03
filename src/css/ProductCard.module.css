@@ -11,14 +11,27 @@ img {
   max-width: 100%;
 }
 
+button:hover {
+  color: #fff;
+  background-color: #2e856edc;
+  border-color: #000;
+}
+
 .button_add {
-  color: white;
   background-color: #2e856e;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  padding: 6px 12px;
 }
 
 .button_read {
-  color: white;
   background-color: #2e856e;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+
+  padding: 6px 12px;
 }
 
 .button_wrapper {
