@@ -4,8 +4,11 @@ import useForm from "./useForm";
 import validate from "./validateForm";
 
 
-function ContactForm (props) {
-    const {handleChange, values, handleSubmit, errors} = useForm(validate);
+function ContactForm ({submitForm}) {
+    const {handleChange, values, handleSubmit, errors} = useForm(
+        submitForm, 
+        validate
+        );
 
     return (
         <div id={style.formContainer}>
