@@ -10,24 +10,24 @@ function ContactForm (props) {
                 <div id={style.formInputs}>
                     <label htmlFor="name" 
                     id={style.formLabel}>
-                        <input 
+                    </label>
+                    <input 
                         type="text" 
                         name="name" 
                         id={style.formInput}
                         placeholder="Enter your name"
-                        />
-                    </label>
+                    />
                 </div>
                 <div id={style.formInputs}>
                     <label htmlFor="email" 
                     id={style.formLabel}>
-                        <input 
+                    </label>
+                    <input 
                         type="email" 
                         name="email" 
                         id={style.formInput}
                         placeholder="Enter your email"
-                        />
-                    </label>
+                    />
                 </div>
             </form>
         </div>
