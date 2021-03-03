@@ -68,5 +68,12 @@ img {
 }
 
 /* // Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) {
+@media (min-width: 577px) and (max-width: 768px) {
+  .product_card_wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 45%);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    justify-content: center;
+  }
 }
