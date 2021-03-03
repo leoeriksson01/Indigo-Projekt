@@ -1,11 +1,11 @@
 import React from "react";
-import style from "../components/ContactForm.css";
+import style from "../components/ContactForm.module.css";
 import useForm from "./useForm";
 import validate from "./validateForm";
 
 
 function ContactForm (props) {
-    const {handleChange, values, handleSubmit} = useForm(validate);
+    const {handleChange, values, handleSubmit, errors} = useForm(validate);
 
     return (
         <div id={style.formContainer}>
@@ -23,6 +23,7 @@ function ContactForm (props) {
                         value={values.username}
                         onChange={handleChange}
                     />
+                    {errors.username && <p>{errors.username}</p>}
                 </div>
                 <div id={style.formInputs}>
                     <label htmlFor="email" 
@@ -36,6 +37,7 @@ function ContactForm (props) {
                         value={values.email}
                         onChange={handleChange}
                     />
+                    {errors.email && <p>{errors.email}</p>}
                 </div>
                 <div id={style.formInputs}>
                     <label htmlFor="message" 
@@ -49,6 +51,7 @@ function ContactForm (props) {
                         value={values.message}
                         onChange={handleChange}
                     />
+                    {errors.message && <p>{errors.message}</p>}
                 </div>
                 <button id={style.formInputBtn} type="submit">
                     Send message
