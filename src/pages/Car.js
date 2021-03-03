@@ -23,24 +23,38 @@ export default function Car() {
     `;
 
     const Wrapper = styled(Row)`
-        margin: 100px 0 0 0;
+        margin: 100px 0;
+        @media (max-width: 1200px) {
+            margin: 50px 0;
+        }
     `;
 
     const Container = styled.article`
         max-width: 1200px;
         margin: auto;
         color: rgb(50, 50, 50);
+        @media (max-width: 1200px) {
+            flex-direction: column;
+        }
     `;
 
     const Preview = styled.img`
         object-fit: cover;
         height: auto;
         width: 60%;
+        @media (max-width: 1200px) {
+            width: 100%;
+            margin-bottom: 15px;
+        }
     `;
 
     const Sidebar = styled(Col)`
         margin-left: 25px;
         flex-grow: 1;
+        @media (max-width: 1200px) {
+            margin: 0;
+            padding: 0 25px;
+        }
     `;
 
     const Header = styled.h2`
@@ -71,10 +85,22 @@ export default function Car() {
         color: black;
     `;
 
-    const Price = styled.h5`
+    const Price = styled.h4`
         font-weight: bold;
         color: rgb(25, 25, 25);
         margin-top: 20px;
+        @media (max-width: 1200px) {
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+    `;
+
+    const PriceNumber = styled.span`
+        @media (max-width: 1200px) {
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
     `;
 
     const Buy = styled.button`
@@ -85,6 +111,9 @@ export default function Car() {
         padding: 10px;
         font-size: 1.25rem;
         font-weight: bold;
+        @media (max-width: 1200px) {
+            font-size: 1.5rem;
+        }
     `;
 
     if (!car) {
@@ -103,7 +132,9 @@ export default function Car() {
                             <City>{car.city}</City>   
                         </CityWrapper>
                     <Description>{car.descLong}</Description>
-                    <Price>Price: ${Number(car.price).toLocaleString()}</Price>
+                    <Price>
+                        <span>Price:</span> <PriceNumber>${Number(car.price).toLocaleString()}</PriceNumber>
+                    </Price>
                     <Buy>Add to cart</Buy>
                 </Sidebar>
             </Container>
