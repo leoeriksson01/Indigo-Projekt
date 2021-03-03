@@ -5,13 +5,13 @@ export const ShopCartContext = createContext();
 export default function ShopCartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState([]);
 
+  useEffect(() => {
+    console.log(shoppingCart);
+  }, [shoppingCart]);
+
   // Adds product to shopping cart
   function addToCart(car) {
     const newShoppingList = [...shoppingCart, car];
-
-     useEffect(() => {
-       setCars(defaultCars);
-     }, []);
 
     // Checks if shoppingCart already contains car/product
     if (shoppingCart.some((product) => product.vin === car.vin)) {
@@ -22,6 +22,10 @@ export default function ShopCartContextProvider({ children }) {
     }
   }
   return (
-    <ShopCartContext.Provider value={{addToCart, shoppingCart, setShoppingCart}}>{children}</ShopCartContext.Provider>
+    <ShopCartContext.Provider
+      value={{ addToCart, shoppingCart, setShoppingCart }}
+    >
+      {children}
+    </ShopCartContext.Provider>
   );
 }

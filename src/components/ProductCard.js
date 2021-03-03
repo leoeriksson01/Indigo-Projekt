@@ -1,11 +1,13 @@
 import style from "../css/ProductCard.module.css";
 import { useContext } from "react";
 import { CarContext } from "../components/contexts/CarContext";
+import { ShopCartContext } from "../components/contexts/ShopCartContext";
 import { useHistory } from "react-router-dom";
 
 const ProductCard = () => {
   const history = useHistory();
-  const { cars, addToCart } = useContext(CarContext);
+  const { cars } = useContext(CarContext);
+  const { addToCart } = useContext(ShopCartContext);
 
   const handleButtonAdd = (car) => {
     addToCart(car);
