@@ -36,6 +36,9 @@ img {
 .card_information {
 }
 
+.card_information_wrapper {
+}
+
 .product_card {
   border: 1px solid black;
   border-radius: 1%;
@@ -56,15 +59,14 @@ img {
 /* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
   .product_card_wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 95%);
-  grid-template-rows: auto;
-  grid-gap: 20px;
-  justify-content: center;
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 95%);
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    justify-content: center;
+  }
 }
 
 /* // Medium devices (tablets, 768px and up) */
 @media (max-width: 768px) {
-  
 }
