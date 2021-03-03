@@ -1,21 +1,26 @@
 import React from "react";
 import style from "../components/ContactForm.css";
+import useForm from "./useForm"
 
 
 function ContactForm (props) {
+    const {handleChange, values} = useForm();
+
     return (
         <div id={style.formContainer}>
             <form id={style.form}> 
                 <h1>Get in touch! Send us a message below:</h1>
                 <div id={style.formInputs}>
-                    <label htmlFor="name" 
+                    <label htmlFor="username" 
                     id={style.formLabel}>Name: 
                     </label>
                     <input 
                         type="text" 
-                        name="name" 
+                        name="username" 
                         id={style.formInput}
                         placeholder="Enter your name"
+                        value={values.username}
+                        onChange={handleChange}
                     />
                 </div>
                 <div id={style.formInputs}>
@@ -27,6 +32,8 @@ function ContactForm (props) {
                         name="email" 
                         id={style.formInput}
                         placeholder="Enter your email"
+                        value={values.email}
+                        onChange={handleChange}
                     />
                 </div>
                 <div id={style.formInputs}>
@@ -38,6 +45,8 @@ function ContactForm (props) {
                         name="message" 
                         id={style.formInput}
                         placeholder="Enter your message"
+                        value={values.message}
+                        onChange={handleChange}
                     />
                 </div>
                 <button id={style.formInputBtn} type="submit">
