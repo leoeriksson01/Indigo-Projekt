@@ -13,4 +13,5 @@ export default function validateInfo(values) {
         errors.message = "Message required."
     }
 
+    return errors;
 }

@@ -1,10 +1,11 @@
 import React from "react";
 import style from "../components/ContactForm.css";
-import useForm from "./useForm"
+import useForm from "./useForm";
+import validate from "./validateForm";
 
 
 function ContactForm (props) {
-    const {handleChange, values, handleSubmit} = useForm();
+    const {handleChange, values, handleSubmit} = useForm(validate);
 
     return (
         <div id={style.formContainer}>
