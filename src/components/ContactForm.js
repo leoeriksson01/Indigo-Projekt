@@ -29,6 +29,17 @@ function ContactForm (props) {
                         placeholder="Enter your email"
                     />
                 </div>
+                <div id={style.formInputs}>
+                    <label htmlFor="message" 
+                    id={style.formLabel}>Message: 
+                    </label>
+                    <input 
+                        type="textarea" 
+                        name="message" 
+                        id={style.formInput}
+                        placeholder="Enter your message"
+                    />
+                </div>
                 <button id={style.formInputBtn} type="submit">
                     Send message
                 </button>
