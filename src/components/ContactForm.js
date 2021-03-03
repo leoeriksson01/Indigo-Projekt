@@ -6,7 +6,7 @@ import validate from "./validateForm";
 
 function ContactForm ({submitForm}) {
     const {handleChange, values, handleSubmit, errors} = useForm(
-        submitForm, 
+        submitForm,
         validate
         );
 
