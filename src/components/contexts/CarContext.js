@@ -5,24 +5,10 @@ export const CarContext = createContext();
 
 export default function CarContextProvider({ children }) {
   const [cars, setCars] = useState([]);
-  const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
     setCars(defaultCars);
   }, []);
-
-  useEffect(() => {}, [shoppingCart]);
-
-  // Adds product to shopping cart
-  function addToCart(car) {
-    // Checks if shoppingCart already contains car/product
-    if (shoppingCart.some(product => product.vin === car.vin)) {
-      return;
-    } else {
-      // if shoppingCart does not already contains car/product, new product/car will be pushed into the shoppingCart
-      setShoppingCart(p => [ ...p, car ]);
-    }
-  }
 
   // Remove car whose vin property matches the one being sent in
   function remove(carToRemove = {}) {
@@ -40,7 +26,7 @@ export default function CarContextProvider({ children }) {
   }
 
   return (
-    <CarContext.Provider value={{ addToCart, cars, find, findOne, remove }}>
+    <CarContext.Provider value={{ cars, find, findOne, remove }}>
       {children}
     </CarContext.Provider>
   );
