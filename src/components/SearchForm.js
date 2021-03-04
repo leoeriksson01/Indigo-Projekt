@@ -6,7 +6,7 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 const SearchForm = () => {
   //Car data
-  const { cars, maxPrice, handleFilterChange } = useContext(CarContext);
+  const { cars, maxPrice, maxMiles, handleFilterChange } = useContext(CarContext);
 
   // Set and setState being initialized
   const [show, setShow] = useState(false); // In order to show form on tablet and mobile
@@ -74,7 +74,8 @@ const SearchForm = () => {
         <div>{maxPrice}</div>
 
         <label htmlFor="make">Miles</label>
-        <input type="range" min="1" max="10000000" />
+        <input type="range" min="1" max="100000" onChange={(e) => handleFilterChange(e, "maxMiles")}  />
+        <div>{maxMiles}</div>
       </form>
     </div>
   );
