@@ -119,6 +119,18 @@ button:hover {
     grid-gap: 20px;
     justify-content: center;
   }
+
+  .button_load {
+  background-color: #2e856e;
+  border-style: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  margin: 2rem 0.6rem 1rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  width: 100%;
+}
 }
 
 /* // Medium devices (tablets, 768px and up) */
