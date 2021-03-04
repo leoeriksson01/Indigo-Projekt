@@ -4,8 +4,9 @@ export const ShopCartContext = createContext();
 
 export default function ShopCartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
-  useEffect(() => {}, [shoppingCart]);
+  useEffect(() => [shoppingCart]);
 
   // Adds product to shopping cart
   function addToCart(car) {
@@ -15,12 +16,27 @@ export default function ShopCartContextProvider({ children }) {
     } else {
       // if shoppingCart does not already contains car/product, new product/car will be pushed into the shoppingCart
       setShoppingCart((p) => [...p, car]);
+
+      // sets total price of shoppingCart
+      setTotalPrice(totalPrice + car.price);
     }
+  }
+  //Removes product from shoppingCart
+  function removeProduct(car) {
+    const newList = shoppingCart.filter((product) => product.vin !== car.vin);
+    setShoppingCart(newList);
+    setTotalPrice(totalPrice - car.price);
   }
 
   return (
     <ShopCartContext.Provider
-      value={{ addToCart, shoppingCart, setShoppingCart }}
+      value={{
+        addToCart,
+        shoppingCart,
+        setShoppingCart,
+        removeProduct,
+        totalPrice,
+      }}
     >
       {children}
     </ShopCartContext.Provider>
