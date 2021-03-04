@@ -32,10 +32,14 @@ const Header = () => {
         </div>
         <ul className={`${style.nav_options} ${click ? style.active : ""}`}>
           <li className={style.option} onClick={closeMobileMenu}>
-            <a href="#">HOME</a>
+            <NavLink className={style.a} exact to="/">
+              Home
+            </NavLink>
           </li>
           <li className={style.option} onClick={closeMobileMenu}>
-            <a href="#">ABOUT US</a>
+            <NavLink className={style.a} exact to="/about">
+              About
+            </NavLink>
           </li>
         </ul>
       </div>
@@ -46,7 +50,7 @@ const Header = () => {
           <ShoppingCart />
           <div className={style.totalprice}>
             Total price: ${totalPrice}
-            <NavLink exact to="/">
+            <NavLink className={style.a} exact to="/checkout">
               To Checkout
             </NavLink>
           </div>
