@@ -27,7 +27,7 @@ const ProductCard = () => {
             alt="product"
           />
         </div>
-
+        {/* /.img_wrapper */}
         <div className={style.card_text_wrapper}>
           <h2>
             {car.make} {car.model} {car.year}
@@ -60,7 +60,8 @@ const ProductCard = () => {
             <br />
           </p>
         </div>
-        {/* /.card_information_wrapper */}
+        {/* /.card_text_wrapper */}
+
         <div className={style.button_wrapper}>
           <button
             onClick={() => handleButtonAdd(car)}
@@ -77,6 +78,7 @@ const ProductCard = () => {
             Read more
           </button>
         </div>
+        {/* /.button_wrapper */}
       </div>
     );
   });
