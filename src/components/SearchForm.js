@@ -1,23 +1,23 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { CarContext } from "../components/contexts/CarContext";
 import styles from "../css/SearchForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 const SearchForm = () => {
-  //States
-  const [show, setShow] = useState(false);
+  //Car data
+  const { cars, handleFilterChange } = useContext(CarContext);
+  
+  // Set and setState being initialized
+  const [show, setShow] = useState(false); // In order to show form on tablet and mobile
 
-  //Context
-  const { cars } = useContext(CarContext);
 
-  //Functions
+  //Toggle true/false to be able to show form on tablet and mobile
   const handleShow = () => {
     setShow(!show);
-    console.log(show);
   };
 
-  // Add class active
+  // Add class active in order to show form on toggle
   const activeClass = show ? styles.active : "";
 
   return (
@@ -29,21 +29,27 @@ const SearchForm = () => {
         </div>
       </div>
 
-      <form className={`${activeClass}`}>
+      <form className={`${activeClass}`} >
         <label htmlFor="make">Make</label>
-        <select>
-          {Array.from(
-            new Set(cars.map((obj) => obj.make))
-          ).map((make) => {
-            return <option value={make}>{make}</option>;
+        <select name="make" id="make" onChange={(e) => handleFilterChange(e, "make")}> {/*listens for when input field is changed*/}
+          <option value="all">All</option>
+          {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
+            return (
+              <option key={make} value={make}>
+                {make}
+              </option>
+            );
           })}
         </select>
 
         <label htmlFor="model">Model</label>
-        <input type="text" placeholder="Camry" />
+        <input id="model" type="text"  placeholder="Camry" />
 
         <label htmlFor="year">Year</label>
-        <input type="number" placeholder="1972" />
+        <div className={styles.year}>
+          <input type="number" onChange={(e) => handleFilterChange(e, "fromYear")} placeholder="From" />
+          <input type="number" onChange={(e) => handleFilterChange(e, "toYear")} placeholder="To" />
+        </div>
 
         <label htmlFor="make">Price</label>
         <input type="range" min="1" max="10000000" />

@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 const ProductCard = () => {
   const history = useHistory();
-  const { cars, addToCart } = useContext(CarContext);
+  const { cars, products, addToCart } = useContext(CarContext);
 
   const handleButtonAdd = (car) => {
     addToCart(car);
@@ -16,7 +16,7 @@ const ProductCard = () => {
     history.push(`/car/${car.vin}`);
   };
 
-  const product = cars.map((car) => {
+  const product = products.map((car) => {
     return (
       <div className={style.product_card} key={car.vin}>
         <div className={style.img_wrapper}>

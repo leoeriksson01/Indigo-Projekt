@@ -41,8 +41,63 @@ export default function CarContextProvider({ children }) {
     return cars.find((car) => car[key] === value) ?? null;
   }
 
+  //--- FILTER ---
+  const [products, setProducts] = useState(cars);
+  const [make, setMake] = useState("all");
+  const [fromYear, setFromYear] = useState("");
+  const [toYear, setToYear] = useState("");
+
+  const handleFilterChange = (e, filterType) => {
+    //Change state
+    switch (filterType) {
+      case "make":
+        setMake(e.target.value);
+        break;
+
+      case "fromYear":
+        setFromYear(e.target.value);
+        break;
+
+      case "toYear":
+        setToYear(e.target.value);
+        break;
+
+      //Fortsätt med de andra filter typerna här
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    let filteredProducts = cars;
+    if (make !== "all") {
+      filteredProducts = filteredProducts.filter((car) => car.make === make);
+    }
+
+    if (fromYear !== "") {
+      filteredProducts = filteredProducts.filter((car) => car.year >= fromYear);
+    }
+
+    if (toYear !== "") {
+      filteredProducts = filteredProducts.filter((car) => car.year < toYear);
+    }
+
+    //Fortsätt if med  filter typerna här
+    setProducts(filteredProducts);
+  }, [make, fromYear, toYear]);
+
   return (
-    <CarContext.Provider value={{ addToCart, cars, find, findOne, remove }}>
+    <CarContext.Provider
+      value={{
+        addToCart,
+        cars,
+        find,
+        findOne,
+        remove,
+        handleFilterChange,
+        products,
+      }}
+    >
       {children}
     </CarContext.Provider>
   );
