@@ -70,7 +70,7 @@ a {
   grid-gap: 50px;
   list-style-type: none;
 }
-.mobile_option {
+.mobile-option {
   display: none;
 }
 
@@ -161,7 +161,7 @@ a {
   .signin_up {
     display: none;
   }
-  .cart-container {
+  .cart_container {
     position: absolute;
     right: 10vw;
   }
