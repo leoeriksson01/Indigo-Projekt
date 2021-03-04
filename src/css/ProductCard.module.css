@@ -35,13 +35,29 @@ button:hover {
   border-radius: 25px;
   color: white;
   cursor: pointer;
-
   padding: 6px 12px;
+}
+
+.button_load {
+  background-color: #2e856e;
+  border-style: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  margin: 2rem 1.2rem 1rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  width: 100%;
 }
 
 .button_wrapper {
   display: flex;
   justify-content: space-between;
+}
+
+.button_load_wrapper {
+  display: flex;
+  justify-content: stretch;
 }
 
 .car_description_title {
@@ -80,6 +96,9 @@ button:hover {
   grid-template-rows: auto;
   grid-gap: 20px;
   justify-content: center;
+}
+
+.product_list_container {
 }
 
 .image_wrapper {
