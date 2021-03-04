@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../components/ContactForm.module.css";
+import style from "./ContactForm.module.css";
 import useForm from "./useForm";
 import validate from "./validateForm";
 

@@ -2,7 +2,9 @@ import React from "react";
 import style from "../css/AboutPage.module.css";
 import aboutImage from "../assets/aboutimage.jpg";
 import staff from "../assets/bilgagnat-staff.jfif";
-import Form from "../components/Form";
+import Form from "../components/formComponents/Form.js"
+
+
 
 function AboutPage(props) {
   return (
