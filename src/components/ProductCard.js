@@ -57,7 +57,7 @@ const ProductCard = () => {
               {car.city}
               <br />
               <span className={style.information_category}>Price: </span>
-              {car.price}
+              <span>${Number(car.price).toLocaleString()}</span>
               <br />
             </p>
 
