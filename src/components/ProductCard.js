@@ -51,32 +51,36 @@ const ProductCard = () => {
             {car.price}
             <br />
           </p>
-          <p className={style.card_description}>
-            <span className={style.car_description_title}>
-              Car description:
-            </span>
-            <br />
-            <span>{car.descShort}</span>
-            <br />
-          </p>
-        </div>
-        {/* /.card_text_wrapper */}
 
-        <div className={style.button_wrapper}>
-          <button
-            onClick={() => handleButtonAdd(car)}
-            className={style.button_add}
-          >
-            Add to cart
-          </button>
-          <button
-            onClick={() => {
-              handleButtonRead(car);
-            }}
-            className={style.button_read}
-          >
-            Read more
-          </button>
+          <div className={style.card_description_button_wrapper}>
+            <p className={style.card_description}>
+              <span className={style.car_description_title}>
+                Car description:
+              </span>
+              <br />
+              <span>{car.descShort}</span>
+              <br />
+            </p>
+          </div>
+          {/* /.card_text_wrapper */}
+
+          <div className={style.button_wrapper}>
+            <button
+              onClick={() => handleButtonAdd(car)}
+              className={style.button_add}
+            >
+              Add to cart
+            </button>
+            <button
+              onClick={() => {
+                handleButtonRead(car);
+              }}
+              className={style.button_read}
+            >
+              Read more
+            </button>
+          </div>
+          {/* /.car_description_button_wrapper */}
         </div>
         {/* /.button_wrapper */}
       </div>
