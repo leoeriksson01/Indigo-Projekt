@@ -18,6 +18,7 @@ function ContactForm ({submitForm}) {
                     <label htmlFor="username" 
                     id={style.formLabel}>Name: 
                     </label>
+                    <br></br>
                     <input 
                         type="text" 
                         name="username" 
@@ -32,6 +33,7 @@ function ContactForm ({submitForm}) {
                     <label htmlFor="email" 
                     id={style.formLabel}>Email: 
                     </label>
+                    <br></br>
                     <input 
                         type="email" 
                         name="email" 
@@ -46,6 +48,7 @@ function ContactForm ({submitForm}) {
                     <label htmlFor="message" 
                     id={style.formLabel}>Message: 
                     </label>
+                    <br></br>
                     <input 
                         type="textarea" 
                         name="message" 
@@ -56,6 +59,7 @@ function ContactForm ({submitForm}) {
                     />
                     {errors.message && <p>{errors.message}</p>}
                 </div>
+                <br></br>
                 <button id={style.formInputBtn} type="submit">
                     Send message
                 </button>

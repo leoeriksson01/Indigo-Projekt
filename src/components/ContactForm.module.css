@@ -1,7 +1,28 @@
 #formContainer {
     background-color: #F8F8F8;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
 }
 
 #formContainer p {
     color: red;
 }
+
+#form{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3rem;
+}
+
+
+#successContainer{
+    background-color: #F8F8F8;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+}
+#successDiv{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 3rem
+}
+
