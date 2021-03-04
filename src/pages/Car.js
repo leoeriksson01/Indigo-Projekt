@@ -16,17 +16,23 @@ const Col = styled.div`
 `;
 
 const Wrapper = styled(Row)`
-    margin: 100px 0;
+    padding: 100px 0;
     @media (max-width: 1200px) {
-        margin: 50px 0;
+        padding: 25px;
     }
 `;
 
 const Container = styled.article`
-    max-width: 1000px;
+    max-width: 1400px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
     margin: auto;
+    padding: 50px;
+    border-radius: 5px;
     color: rgb(50, 50, 50);
-    @media (max-width: 1200px) {
+    @media (max-width: 1600px) {
+        max-width: 1000px;
+    }
+    @media (max-width: 992px) {
         flex-direction: column;
         max-width: unset;
     }
@@ -38,7 +44,12 @@ const Preview = styled.img`
     width: 60%;
     @media (max-width: 1200px) {
         width: 100%;
-        margin-bottom: 15px;
+    }
+`;
+
+const Upper = styled(Row)`
+    @media (max-width: 1200px) {
+        flex-direction: column;
     }
 `;
 
@@ -49,7 +60,7 @@ const Sidebar = styled(Col)`
     flex-grow: 1;
     @media (max-width: 1200px) {
         margin: 0;
-        padding: 0 25px;
+        margin-top: 15px;
     }
 `;
 
@@ -80,6 +91,15 @@ const Description = styled.p`
     margin: 0;
     margin-top: 15px;
     color: black;
+    @media (max-width: 1200px) {
+        display: none;
+    }
+`;
+
+const DescriptionMobile = styled(Description)`
+    @media (max-width: 1200px) {
+        display: block;
+    }
 `;
 
 const Price = styled.h4`
@@ -113,6 +133,23 @@ const Buy = styled.button`
     }
 `;
 
+const Details = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 15px;
+    grid-gap: 15px;
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+`;
+
+const Detail = styled(Row)`
+    font-weight: bold;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(25, 25, 25);
+    padding-bottom: 5px;
+`;
+
 const AccordionLabel = styled(Row)`
     justify-content: space-between;
     align-items: center;
@@ -137,10 +174,6 @@ const AccordionIcon = styled.svg`
     transition: all 0.15s linear;
     width: 1.5rem;
     height: 1.5rem;
-`;
-
-const SidebarAccordion = styled(Accordion)`
-    margin-top: 15px;
 `;
 
 function Accordion({ label = '', children, ...props }) {
@@ -183,21 +216,29 @@ export default function Car() {
     return (
         <Wrapper>
             <Container as={Col}>
-                <Row>
+                <Upper>
                     <Preview src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`} loading="lazy" />
                     <Sidebar>
                         <Header>{car.make} {car.model} {car.year}</Header>
-                            <Mileage>{Number(car.miles).toLocaleString()} miles</Mileage>
-                            <CityWrapper>
-                                <CityIcon as={Icon} path={mdiMapMarker} />
-                                <City>{car.city}</City>   
-                            </CityWrapper>
+                        <Mileage>{Number(car.miles).toLocaleString()} miles</Mileage>
+                        <CityWrapper>
+                            <CityIcon as={Icon} path={mdiMapMarker} />
+                            <City>{car.city}</City>   
+                        </CityWrapper>
+                        <Details>
+                            <Detail>Make <span /> {car.make}</Detail>
+                            <Detail>Model <span /> {car.model}</Detail>
+                            <Detail>Year <span /> {car.year}</Detail>
+                            <Detail>City <span /> {car.city}</Detail>
+                            <Detail>Miles <span /> {Number(car.miles).toLocaleString()}</Detail>
+                        </Details>
+                        <DescriptionMobile>{car.descLong}</DescriptionMobile>
                         <Price>
                             <span>Price:</span> <PriceNumber>${Number(car.price).toLocaleString()}</PriceNumber>
                         </Price>
                         <Buy>Add to cart</Buy>
                     </Sidebar>
-                </Row>
+                </Upper>
                 <Description>{car.descLong}</Description>
             </Container>
         </Wrapper>
