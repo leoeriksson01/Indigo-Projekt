@@ -101,7 +101,7 @@ button:hover {
 .product_list_container {
 }
 
-.image_wrapper {
+.img_wrapper {
 }
 
 .subheading {
@@ -110,7 +110,6 @@ button:hover {
   margin-bottom: 0.4rem;
 }
 
-/* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {
   .product_card_wrapper {
     display: grid;
@@ -121,25 +120,54 @@ button:hover {
   }
 
   .button_load {
-  background-color: #2e856e;
-  border-style: none;
-  border-radius: 25px;
-  color: white;
-  cursor: pointer;
-  margin: 2rem 0.6rem 1rem;
-  padding: 0.5rem;
-  text-transform: uppercase;
-  width: 100%;
-}
+    background-color: #2e856e;
+    border-style: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    margin: 2rem 0.6rem 1rem;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    width: 100%;
+  }
 }
 
-/* // Medium devices (tablets, 768px and up) */
 @media (min-width: 577px) and (max-width: 768px) {
+  img {
+    border-radius: 1%;
+    height: 300px;
+    max-width: 100%;
+  }
+
+  .button_wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .card_description_button_wrapper {
+    display: grid;
+    grid-auto-rows: minmax(auto, 100px);
+  }
+
+  .img_wrapper {
+    display: grid;
+    align-items: center;
+  }
+
   .product_card_wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 45%);
+    grid-template-columns: repeat(auto-fill, 95%);
     grid-template-rows: auto;
     grid-gap: 20px;
     justify-content: center;
+  }
+
+  .product_card {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(auto, 45%);
+    justify-content: space-around;
+    padding: 6px;
   }
 }

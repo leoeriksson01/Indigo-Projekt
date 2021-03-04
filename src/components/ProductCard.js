@@ -89,7 +89,7 @@ const ProductCard = () => {
                 Read more
               </button>
             </div>
-            {/* /.car_description_button_wrapper */}
+            {/* /.card_description_button_wrapper */}
           </div>
           {/* /.button_wrapper */}
         </div>
