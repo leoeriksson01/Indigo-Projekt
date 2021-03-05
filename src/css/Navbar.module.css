@@ -82,7 +82,7 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 80px;
 }
 
 .profileList {
@@ -216,17 +216,17 @@ a:hover {
 
   .cartList {
     width: 250px;
-    margin-right: 100px;
+    margin-right: 0px;
   }
 
   .cart_container {
-    right: 11vw;
+    right: 12vw;
   }
   .bilgagnat {
     display: none;
   }
   .profile_container {
     position: absolute;
-    right: 13vw;
+    right: 15vw;
   }
 }
