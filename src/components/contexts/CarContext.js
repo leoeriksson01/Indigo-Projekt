@@ -44,6 +44,7 @@ export default function CarContextProvider({ children }) {
   //--- FILTER ---
   const [products, setProducts] = useState(cars);
   const [make, setMake] = useState("all");
+  const [model, setModel] = useState("all");
   const [fromYear, setFromYear] = useState("");
   const [toYear, setToYear] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -54,6 +55,10 @@ export default function CarContextProvider({ children }) {
     switch (filterType) {
       case "make":
         setMake(e.target.value);
+        break;
+
+      case "model":
+        setModel(e.target.value);
         break;
 
       case "fromYear":
@@ -84,6 +89,10 @@ export default function CarContextProvider({ children }) {
       filteredProducts = filteredProducts.filter((car) => car.make === make);
     }
 
+    if (model !== "all") {
+      filteredProducts = filteredProducts.filter((car) => car.model === model);
+    }
+
     if (fromYear !== "") {
       filteredProducts = filteredProducts.filter((car) => car.year >= fromYear);
     }
@@ -106,7 +115,7 @@ export default function CarContextProvider({ children }) {
 
     //Fortsätt if med  filter typerna här
     setProducts(filteredProducts);
-  }, [make, fromYear, toYear, maxPrice, maxMiles]);
+  }, [make, model, fromYear, toYear, maxPrice, maxMiles]);
 
   return (
     <CarContext.Provider

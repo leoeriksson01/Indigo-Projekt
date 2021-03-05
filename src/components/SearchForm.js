@@ -33,8 +33,6 @@ const SearchForm = () => {
       <form className={`${activeClass}`}>
         <label htmlFor="make">Make</label>
         <select name="make" onChange={(e) => handleFilterChange(e, "make")}>
-          {" "}
-          {/*listens for when input field is changed*/}
           <option value="all">All</option>
           {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
             return (
@@ -46,7 +44,16 @@ const SearchForm = () => {
         </select>
 
         <label htmlFor="model">Model</label>
-        <input name="model" type="text" placeholder="Camry" />
+        <select name="model" onChange={(e) => handleFilterChange(e, "model")}>
+          <option value="all">All</option>
+          {Array.from(new Set(cars.map((obj) => obj.model))).map((model) => {
+            return (
+              <option key={model} value={model}>
+                {model}
+              </option>
+            );
+          })}
+        </select>
 
         <label htmlFor="year">Year</label>
         <div className={styles.year}>
