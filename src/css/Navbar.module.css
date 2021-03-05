@@ -216,12 +216,17 @@ a:hover {
 
   .cartList {
     width: 250px;
+    margin-right: 100px;
+  }
+
+  .cart_container {
+    right: 11vw;
   }
   .bilgagnat {
     display: none;
   }
   .profile_container {
     position: absolute;
-    right: 5vw;
+    right: 13vw;
   }
 }
