@@ -133,6 +133,9 @@ const Buy = styled.button`
     padding: 10px;
     font-size: 1.25rem;
     font-weight: bold;
+    &[disabled] {
+        opacity: 0.5;
+    }
     @media (max-width: 1200px) {
         font-size: 1.5rem;
     }
@@ -212,7 +215,7 @@ function Accordion({ label = '', children, ...props }) {
 
 export default function Car() {
     const { findOne } = useContext(CarContext);
-    const { itemExists } = useContext(ShopCartContext);
+    const { itemExists, addToCart } = useContext(ShopCartContext);
     const { vin } = useParams(); // The :vin query parameter from the route
     const car = findOne('vin', vin);
 
@@ -243,7 +246,9 @@ export default function Car() {
                         <Price>
                             <span>Price:</span> <PriceNumber>${Number(car.price).toLocaleString()}</PriceNumber>
                         </Price>
-                        <Buy disabled={itemExists(car)}>{itemExists(car) ? 'Already in cart' : 'Add to cart'}</Buy>
+                        <Buy onClick={() => addToCart(car)} disabled={itemExists(car)}>
+                            {itemExists(car) ? 'Already in cart' : 'Add to cart'}
+                        </Buy>
                     </Sidebar>
                 </Upper>
                 <Description>{car.descLong}</Description>
