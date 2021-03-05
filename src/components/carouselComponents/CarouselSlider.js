@@ -1,8 +1,9 @@
 import React from "react";
+import style from "../../css/Carousel.module.css"
 
 function CarouselSlider(props) {
     return (
-      <div>Test</div>
+      <div id={style.slider}>Test</div>
     )
   }
   export default CarouselSlider;
