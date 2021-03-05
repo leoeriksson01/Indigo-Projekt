@@ -6,3 +6,9 @@ function CarouselSlider(props) {
     )
   }
   export default CarouselSlider;
+
+
+
+
+
+  //GLÖM EJ ATT LÄGGA TILLBAKA HOME.js-COMPONENTERNA EFTER ATT HA KOMMENTERAT UT DEM
