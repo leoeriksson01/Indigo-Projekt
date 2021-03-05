@@ -24,6 +24,14 @@ const ProductCard = () => {
     setLoadProducts(loadProducts + 6);
   };
 
+  const loadButton = (
+    <div className={style.button_load_wrapper}>
+      <button className={style.button_load} onClick={() => handleButtonLoad()}>
+        Load more
+      </button>
+    </div>
+  );
+
   const product = cars.map((car, index) => {
     if (index === loadProducts) {
       return;
@@ -99,15 +107,7 @@ const ProductCard = () => {
   return (
     <div className={style.product_list_container}>
       <div className={style.product_card_wrapper}>{product}</div>
-      <div className={style.button_load_wrapper}>
-        <button
-          className={style.button_load}
-          onClick={() => handleButtonLoad()}
-        >
-          Load more
-        </button>
-      </div>
-      {/* /.button_load_wrapper */}
+      {loadProducts < cars.length ? loadButton : ""}
     </div>
   );
 };
