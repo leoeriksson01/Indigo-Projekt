@@ -126,7 +126,6 @@ export default function CarContextProvider({ children }) {
   return (
     <CarContext.Provider
       value={{
-        addToCart,
         cars,
         find,
         findOne,
