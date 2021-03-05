@@ -2,21 +2,15 @@ import style from "../css/ProductCard.module.css";
 import { useContext, useState } from "react";
 import { CarContext } from "../components/contexts/CarContext";
 import { ShopCartContext } from "../components/contexts/ShopCartContext";
-import { useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const ProductCard = () => {
-  const history = useHistory();
   const { cars } = useContext(CarContext);
   const { addToCart } = useContext(ShopCartContext);
   const [loadProducts, setLoadProducts] = useState(6);
 
   const handleButtonAdd = (car) => {
     addToCart(car);
-  };
-
-  const handleButtonRead = (car) => {
-    // redirects customer to "Detaljsidan"
-    history.push(`/car/${car.vin}`);
   };
 
   const handleButtonLoad = () => {
@@ -88,14 +82,9 @@ const ProductCard = () => {
               >
                 Add to cart
               </button>
-              <button
-                onClick={() => {
-                  handleButtonRead(car);
-                }}
-                className={style.button_read}
-              >
+              <NavLink exact to={`/car/${car.vin}`}>
                 Read more
-              </button>
+              </NavLink>
             </div>
             {/* /.card_description_button_wrapper */}
           </div>

@@ -1,3 +1,21 @@
+a {
+  background-color: #2e856e;
+  border-style: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: normal;
+  padding: 6px 12px;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #2e856edc;
+  border-color: #000;
+  text-decoration: none;
+}
+
 h2 {
   font-size: 1rem;
   font-weight: bold;
@@ -29,14 +47,15 @@ button:hover {
   padding: 6px 12px;
 }
 
-.button_read {
+/* no longer in use */
+/* .button_read {
   background-color: #2e856e;
   border-style: none;
   border-radius: 25px;
   color: white;
   cursor: pointer;
   padding: 6px 12px;
-}
+} */
 
 .button_load {
   background-color: #2e856e;
