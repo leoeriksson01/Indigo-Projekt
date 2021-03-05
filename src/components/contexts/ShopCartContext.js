@@ -20,7 +20,12 @@ export default function ShopCartContextProvider({ children }) {
   // Save information to local storage whenever updates are made to shopping cart
   useEffect(() => {
     localStorage.setItem("shoppingcart", JSON.stringify(shoppingCart));
+    setTotalPrice(shoppingCart.reduce((acc, value) => acc + value.price, 0));
   }, [shoppingCart]);
+
+  function itemExists(item) {
+    return Boolean(shoppingCart.find(car => car.vin === item.vin));
+  }
 
   // Adds product to shopping cart
   function addToCart(car) {
@@ -30,16 +35,12 @@ export default function ShopCartContextProvider({ children }) {
     } else {
       // if shoppingCart does not already contains car/product, new product/car will be pushed into the shoppingCart
       setShoppingCart((p) => [...p, car]);
-
-      // sets total price of shoppingCart
-      setTotalPrice(totalPrice + car.price);
     }
   }
+
   //Removes product from shoppingCart
   function removeProduct(car) {
-    const newList = shoppingCart.filter((product) => product.vin !== car.vin);
-    setShoppingCart(newList);
-    setTotalPrice(totalPrice - car.price);
+    setShoppingCart(shoppingCart.filter((product) => product.vin !== car.vin));
   }
 
   return (
@@ -50,6 +51,7 @@ export default function ShopCartContextProvider({ children }) {
         setShoppingCart,
         removeProduct,
         totalPrice,
+        itemExists,
       }}
     >
       {children}
