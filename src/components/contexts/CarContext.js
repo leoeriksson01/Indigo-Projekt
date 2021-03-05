@@ -31,14 +31,15 @@ export default function CarContextProvider({ children }) {
   const [model, setModel] = useState("all");
   const [fromYear, setFromYear] = useState("");
   const [toYear, setToYear] = useState("");
-  const [minPrice, setMinPrice] = useState("");
   const [minMiles, setMinMiles] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
   const [maxMiles, setMaxMiles] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   const handleFilterChange = (e, filterType) => {
     //Change state
     switch (filterType) {
+      
       case "make":
         setMake(e.target.value);
         break;

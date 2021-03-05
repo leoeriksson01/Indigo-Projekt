@@ -6,7 +6,7 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 const SearchForm = () => {
   //Car data
-  const { cars, maxPrice, maxMiles, handleFilterChange } = useContext(
+  const { cars, handleFilterChange } = useContext(
     CarContext
   );
 
