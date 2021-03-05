@@ -1,10 +1,14 @@
 import Sidebar from "../components/sidebar.js";
 import style from "../css/Home.module.css";
 import ProductListing from "../components/ProductListing";
+import Carousel from "../components/carouselComponents/CarouselSlider";
 
 const Home = () => {
   return (
     <div className={style.wrapper}>
+      <div id={style.carouselContainer}>
+        <Carousel/>
+      </div>
       <div id={style.search_field_container}>
         <Sidebar />
       </div>
