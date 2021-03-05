@@ -1,10 +1,22 @@
 /*Desktop View*/
-.a {
+a {
   text-decoration: none;
   color: white;
   font-size: 1.8em;
-  font-weight: 500;
-  text-transform: uppercase;
+}
+
+a:hover {
+  color: #fff;
+  background-color: #2e856edc;
+  border-color: #000;
+  text-decoration: none;
+}
+
+.bilgagnat {
+  font-size: 2.6em;
+  margin-left: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #e4c46a;
 }
 
 .header {
@@ -28,13 +40,13 @@
 
 .cart_container {
   position: absolute;
-  right: 10vw;
+  right: 4vw;
   top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 300px;
+  align-items: center;
 }
 
 .cartList {
@@ -45,6 +57,9 @@
   margin-top: 15px;
   max-height: 400px;
   margin-bottom: 40px;
+  border: 0px solid black;
+  margin-right: 200px;
+  border-radius: 3px;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -53,23 +68,52 @@
   display: none;
 }
 
-.logo {
-  width: 45px;
-  height: 45px;
-}
-
 .cart {
   width: 50px;
   height: 50px;
   color: white;
 }
 
+.profile_container {
+  position: absolute;
+  right: 3vw;
+  top: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+
+.profileList {
+  width: 100px;
+  background: #353336;
+  min-height: 100px;
+  margin-top: 20px;
+  max-height: 400px;
+  border: 0px solid black;
+  border-radius: 3px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+}
+
+.profile {
+  width: 35px;
+  height: 35px;
+  color: white;
+}
+
 .nav_options {
-  padding-left: 25px;
+  padding-left: 2vw;
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 50px;
   list-style-type: none;
+  margin-top: 20px;
 }
 .mobile-option {
   display: none;
@@ -105,7 +149,11 @@
   justify-content: center;
 }
 
-@media (max-width: 648px) {
+.mobile_menu {
+  display: block;
+}
+
+@media (max-width: 768px) {
   /*Mobile View */
   .header {
     padding: 0px 10px;
@@ -119,7 +167,7 @@
     width: 100%;
     height: 120px;
     position: absolute;
-    top: 80px;
+    top: 60px;
     left: -100%;
     opacity: 0;
     transition: all 0.5s ease;
@@ -146,7 +194,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 10vw;
+    height: 8vw;
     padding: 30px 0px;
   }
   .sign_up {
@@ -164,12 +212,16 @@
   }
   .cart_container {
     position: absolute;
-    right: 10vw;
   }
+
   .cartList {
     width: 250px;
   }
-}
-.mobile_menu {
-  display: block;
+  .bilgagnat {
+    display: none;
+  }
+  .profile_container {
+    position: absolute;
+    right: 5vw;
+  }
 }
