@@ -71,9 +71,17 @@ export default function CarContextProvider({ children }) {
         setToYear(e.target.value);
         break;
 
+      case "minPrice":
+        setMinPrice(e.target.value);
+        break;
+
       case "maxPrice":
         setMaxPrice(e.target.value);
         break;
+
+        case "minMiles":
+          setMinMiles(e.target.value);
+          break;
 
       case "maxMiles":
         setMaxMiles(e.target.value);
@@ -129,7 +137,7 @@ export default function CarContextProvider({ children }) {
 
     //Fortsätt if med  filter typerna här
     setProducts(filteredProducts);
-  }, [make, model, fromYear, toYear,minPrice, maxPrice, minMiles, maxMiles]);
+  }, [make, model, fromYear, toYear, minPrice, maxPrice, minMiles, maxMiles]);
 
   return (
     <CarContext.Provider
