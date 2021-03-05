@@ -6,6 +6,11 @@
 }
 .heading p {
   font-size: 1.4rem;
+  color: rgb(79, 79, 79); 
+}
+
+.filter_icon {
+ color: rgb(79, 79, 79); 
 }
 
 .filter {
@@ -21,11 +26,11 @@ form {
   display: flex;
   flex-direction: column;
   background: white;
+  color: rgb(79, 79, 79); 
 }
 
-input {
-  margin-bottom: 2rem;
-
+label{
+  font-weight: bold; 
 }
 
 .year{
@@ -34,13 +39,22 @@ input {
   align-items: center; 
 }
 
-.year p{
-  font-size: 0.8rem; 
-  margin-right: 2rem;
-}
-
 .year input{
   width: 80%;
+}
+
+.min_max_wrapper{
+  display: flex;
+  justify-content:space-between;
+}
+
+.min, .max{
+  border: 1px solid lightgrey;
+  width: 100%;
+  text-align: center;
+  margin: 2px;
+  color: grey; 
+  font-size: 0.9rem; 
 }
 
 @media (max-width: 576px) {

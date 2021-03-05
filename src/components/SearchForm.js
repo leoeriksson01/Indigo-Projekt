@@ -6,7 +6,9 @@ import { faFilter } from "@fortawesome/free-solid-svg-icons";
 
 const SearchForm = () => {
   //Car data
-  const { cars, maxPrice, maxMiles, handleFilterChange } = useContext(CarContext);
+  const { cars, maxPrice, maxMiles, handleFilterChange } = useContext(
+    CarContext
+  );
 
   // Set and setState being initialized
   const [show, setShow] = useState(false); // In order to show form on tablet and mobile
@@ -30,11 +32,7 @@ const SearchForm = () => {
 
       <form className={`${activeClass}`}>
         <label htmlFor="make">Make</label>
-        <select
-          name="make"
-          id="make"
-          onChange={(e) => handleFilterChange(e, "make")}
-        >
+        <select name="make" onChange={(e) => handleFilterChange(e, "make")}>
           {" "}
           {/*listens for when input field is changed*/}
           <option value="all">All</option>
@@ -48,34 +46,49 @@ const SearchForm = () => {
         </select>
 
         <label htmlFor="model">Model</label>
-        <input id="model" type="text" placeholder="Camry" />
+        <input name="model" type="text" placeholder="Camry" />
 
         <label htmlFor="year">Year</label>
         <div className={styles.year}>
           <input
+            name="year"
             type="number"
             onChange={(e) => handleFilterChange(e, "fromYear")}
             placeholder="From"
           />
           <input
+            name="year"
             type="number"
             onChange={(e) => handleFilterChange(e, "toYear")}
             placeholder="To"
           />
         </div>
 
-        <label htmlFor="make">Price</label>
+        <label htmlFor="price">Price</label>
         <input
+          name="price"
           type="range"
           min="1"
           max="800000"
           onChange={(e) => handleFilterChange(e, "maxPrice")}
         />
-        <div>{maxPrice}</div>
+
+        <div className={styles.min_max_wrapper}>
+          <div className={styles.min}>0</div>
+          <div className={styles.max}>{maxPrice}</div>
+        </div>
 
         <label htmlFor="make">Miles</label>
-        <input type="range" min="1" max="100000" onChange={(e) => handleFilterChange(e, "maxMiles")}  />
-        <div>{maxMiles}</div>
+        <input
+          type="range"
+          min="1"
+          max="100000"
+          onChange={(e) => handleFilterChange(e, "maxMiles")}
+        />
+        <div className={styles.min_max_wrapper}>
+          <div className={styles.min}>0</div>
+          <div className={styles.max}>{maxMiles}</div>
+        </div>
       </form>
     </div>
   );
