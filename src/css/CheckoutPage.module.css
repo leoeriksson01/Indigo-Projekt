@@ -1,0 +1,132 @@
+h2, h3 {
+  margin-bottom: 1em;
+}
+input {
+  margin-bottom: 3px;
+}
+
+legend {
+  border-bottom: 1px solid #e0d8d8;
+}
+
+select {
+  border: none;
+  box-shadow: 1px 2px 2px 1px #aaa9a988;
+}
+button {
+  border: none;
+  border-radius: 25px;
+  background: #2e856e;
+  color: white;
+  height: 3em;
+  font-weight: bold;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.checkoutPage {
+  background: #F8F8F8;
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5em;
+}
+
+.checkoutWrapper {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 2px 1px #aaa9a988;
+  padding: 1em;
+}
+.checkoutCon {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.checkoutForm {
+  padding: 1em 0;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+.inputContainer {
+  display: flex;
+  margin: 5px 0;
+}
+.smallInput input {
+  width: 125px;
+}
+.itemsCard {
+  width: 100%;
+  background: #d6d5d5;
+  float: right;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  border-radius: 10px;
+  -webkit-box-shadow:0px 2px 2px#aaa9a988;
+  -moz-box-shadow:0px 2px 2px #aaa9a988;
+  box-shadow:0px 2px 2px #8f8e8e88;
+}
+
+.selectedItems {
+  width: 100px;
+  height: 100px;
+  background: white;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 1em 0;
+  -webkit-box-shadow:0px 2px 2px#aaa9a988;
+  -moz-box-shadow:0px 2px 2px #aaa9a988;
+  box-shadow:0px 2px 2px #8f8e8e88;
+}
+
+
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
+
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .checkoutWrapper {
+  width: 90%;
+  height: 70%;
+  margin: 2em;
+  padding: 2em;
+}
+.smallInput {
+  display: flex;
+  flex-direction: column;
+}
+.leftInput {
+  margin-right: 2em;
+}
+.smallInput input {
+  width: 100%;
+}
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+legend {
+  width: 70%;
+}
+
+.checkoutCon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+  .checkoutWrapper {
+  width: 90%;
+  height: 70%;
+  margin: 2em;
+  padding: 2em;
+}
+.fieldset {
+  width: 70%;
+}
+}

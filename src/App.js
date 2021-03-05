@@ -1,4 +1,6 @@
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import CheckoutPage from './components/CheckoutPage';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import CarContextProvider from "./components/contexts/CarContext";
@@ -27,6 +29,7 @@ export default function App() {
             </Switch>
             {/* <Footer /> */}
           </Router>
+          <CheckoutPage />
         </div>
       </ShopCartContextProvider>
     </CarContextProvider>
