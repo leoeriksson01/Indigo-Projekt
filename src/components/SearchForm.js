@@ -32,7 +32,7 @@ const SearchForm = () => {
 
       <form className={`${activeClass}`}>
         <label htmlFor="make">Make</label>
-        <select name="make" onChange={(e) => handleFilterChange(e, "make")}>
+        <select className={styles.make} name="make" onChange={(e) => handleFilterChange(e, "make")}>
           <option value="all">All</option>
           {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
             return (
@@ -44,7 +44,7 @@ const SearchForm = () => {
         </select>
 
         <label htmlFor="model">Model</label>
-        <select name="model" onChange={(e) => handleFilterChange(e, "model")}>
+        <select className={styles.model} name="model" onChange={(e) => handleFilterChange(e, "model")}>
           <option value="all">All</option>
           {Array.from(new Set(cars.map((obj) => obj.model))).map((model) => {
             return (
@@ -56,45 +56,51 @@ const SearchForm = () => {
         </select>
 
         <label htmlFor="year">Year</label>
-        <div className={styles.year}>
+        <div className={styles.min_max_wrapper}>
           <input
             name="year"
             type="number"
             onChange={(e) => handleFilterChange(e, "fromYear")}
-            placeholder="From"
+            placeholder="1970"
           />
           <input
             name="year"
             type="number"
             onChange={(e) => handleFilterChange(e, "toYear")}
-            placeholder="To"
+            placeholder="2021"
           />
         </div>
 
         <label htmlFor="price">Price</label>
-        <input
-          name="price"
-          type="range"
-          min="1"
-          max="800000"
-          onChange={(e) => handleFilterChange(e, "maxPrice")}
-        />
-
         <div className={styles.min_max_wrapper}>
-          <div className={styles.min}>0</div>
-          <div className={styles.max}>{maxPrice}</div>
+          <input
+            name="price"
+            type="number"
+            onChange={(e) => handleFilterChange(e, "minPrice")}
+            placeholder="0"
+          />
+          <input
+            name="price"
+            type="number"
+            onChange={(e) => handleFilterChange(e, "maxPrice")}
+            placeholder="156 000"
+          />
         </div>
-
-        <label htmlFor="make">Miles</label>
-        <input
-          type="range"
-          min="1"
-          max="100000"
-          onChange={(e) => handleFilterChange(e, "maxMiles")}
-        />
+        
+        <label htmlFor="miles">Miles</label>
         <div className={styles.min_max_wrapper}>
-          <div className={styles.min}>0</div>
-          <div className={styles.max}>{maxMiles}</div>
+          <input
+            name="miles"
+            type="number"
+            onChange={(e) => handleFilterChange(e, "minMiles")}
+            placeholder="0"
+          />
+          <input
+            name="miles"
+            type="number"
+            onChange={(e) => handleFilterChange(e, "maxMiles")}
+            placeholder="10 000"
+          />
         </div>
       </form>
     </div>

@@ -33,28 +33,18 @@ label{
   font-weight: bold; 
 }
 
-.year{
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center; 
-}
-
-.year input{
-  width: 80%;
+.make, .model {
+  margin-bottom: 1rem; 
 }
 
 .min_max_wrapper{
   display: flex;
-  justify-content:space-between;
+  justify-content:center;
+  margin-bottom: 1rem; 
 }
 
-.min, .max{
-  border: 1px solid lightgrey;
-  width: 100%;
-  text-align: center;
-  margin: 2px;
-  color: grey; 
-  font-size: 0.9rem; 
+.min_max_wrapper input{
+ width: 80%;
 }
 
 @media (max-width: 576px) {

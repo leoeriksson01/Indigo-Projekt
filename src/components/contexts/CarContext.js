@@ -47,6 +47,8 @@ export default function CarContextProvider({ children }) {
   const [model, setModel] = useState("all");
   const [fromYear, setFromYear] = useState("");
   const [toYear, setToYear] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [minMiles, setMinMiles] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [maxMiles, setMaxMiles] = useState("");
 
@@ -101,9 +103,21 @@ export default function CarContextProvider({ children }) {
       filteredProducts = filteredProducts.filter((car) => car.year < toYear);
     }
 
+    if (minPrice !== "") {
+      filteredProducts = filteredProducts.filter(
+        (car) => car.price >= minPrice
+      );
+    }
+
     if (maxPrice !== "") {
       filteredProducts = filteredProducts.filter(
         (car) => car.price <= maxPrice
+      );
+    }
+
+    if (minMiles !== "") {
+      filteredProducts = filteredProducts.filter(
+        (car) => car.miles >= minMiles
       );
     }
 
@@ -115,7 +129,7 @@ export default function CarContextProvider({ children }) {
 
     //Fortsätt if med  filter typerna här
     setProducts(filteredProducts);
-  }, [make, model, fromYear, toYear, maxPrice, maxMiles]);
+  }, [make, model, fromYear, toYear,minPrice, maxPrice, minMiles, maxMiles]);
 
   return (
     <CarContext.Provider
@@ -127,8 +141,6 @@ export default function CarContextProvider({ children }) {
         remove,
         handleFilterChange,
         products,
-        maxPrice,
-        maxMiles,
       }}
     >
       {children}
