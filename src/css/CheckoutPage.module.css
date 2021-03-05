@@ -5,25 +5,24 @@ input {
   margin-bottom: 3px;
 }
 
-input[type="radio"] {
-    display:none;
-}
-input[type=radio] + label {
-    display:inline-block;
-    margin:-2px;
-    padding: 4px 12px;
-    background-color: #e7e7e7;
-    border-color: #ddd;
-    border-radius: 5px;
-}
-input[type=radio]:checked + label {
-    background-image: none;
-    background-color:#3a856e;
-    color: white;
-}
-
 legend {
   border-bottom: 1px solid #e0d8d8;
+}
+
+select {
+  border: none;
+  box-shadow: 1px 2px 2px 1px #aaa9a988;
+}
+button {
+  border: none;
+  border-radius: 25px;
+  background: #2e856e;
+  color: white;
+  height: 3em;
+  font-weight: bold;
+  padding: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .checkoutPage {
@@ -43,10 +42,7 @@ legend {
   display: flex;
   flex-direction: column-reverse;
 }
-.radio {
-  margin-bottom: 1em;
 
-}
 .checkoutForm {
   padding: 1em 0;
 }
@@ -56,7 +52,13 @@ legend {
   flex-direction: column;
   margin-bottom: 1em;
 }
-
+.inputContainer {
+  display: flex;
+  margin: 5px 0;
+}
+.smallInput input {
+  width: 125px;
+}
 .itemsCard {
   width: 100%;
   background: #d6d5d5;
@@ -96,13 +98,20 @@ legend {
   margin: 2em;
   padding: 2em;
 }
+.smallInput {
+  display: flex;
+  flex-direction: column;
+}
+.leftInput {
+  margin-right: 2em;
+}
+.smallInput input {
+  width: 100%;
+}
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  input {
-  width: 70%;
-}
 legend {
   width: 70%;
 }
@@ -116,5 +125,8 @@ legend {
   height: 70%;
   margin: 2em;
   padding: 2em;
+}
+.fieldset {
+  width: 70%;
 }
 }
