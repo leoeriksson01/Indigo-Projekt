@@ -1,4 +1,4 @@
-hr {
+.hr {
   background-color: white;
   display: flex;
   justify-content: center;
@@ -42,7 +42,7 @@ hr {
   grid: img_wrapper;
 }
 
-img {
+.img {
   padding: 5px;
 }
 
