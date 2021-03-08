@@ -5,6 +5,7 @@ import { ReactComponent as Facebook } from "../assets/facebook.svg";
 import { ReactComponent as Phone } from "../assets/phone.svg";
 import { ReactComponent as Mail } from "../assets/mail.svg";
 import style from "../css/Footer.module.css";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -13,32 +14,32 @@ const Footer = () => {
       <div className={style.contactContainer}>
         <div className={style.container}>
           <div className={style.logo_container}>
-            <a href="#">
+            <NavLink className={style.a} exact to="/">
               <Twitter className={style.logo} />
-            </a>
+            </NavLink>
           </div>
 
           <div className={style.logo_container}>
-            <a href="#">
+            <NavLink className={style.a} exact to="#">
               <Instagram className={style.logo} />
-            </a>
+            </NavLink>
           </div>
 
           <div className={style.logo_container}>
-            <a href="#">
+            <NavLink className={style.a} exact to="#">
               <Facebook className={style.logo} />
-            </a>
+            </NavLink>
           </div>
         </div>
         <div className={style.contact}>
-          <a href="#">
+          <NavLink className={style.a} exact to="#">
             <Phone className={style.contactLogo} />
             +070 531 20 90
-          </a>
-          <a href="#">
+          </NavLink>
+          <NavLink className={style.a} exact to="#">
             <Mail className={style.contactLogo} />
             Bilgagnat@contact.com
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>
