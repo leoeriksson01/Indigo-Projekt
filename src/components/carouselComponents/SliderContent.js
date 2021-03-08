@@ -1,8 +1,9 @@
 import React from "react";
+import style from "../../css/Carousel.module.css";
 
 const SliderContent = () => {
     return (
-        <div>hejhej</div>
+        <div id={style.SliderContentWrapper}>hejhej</div>
     )
 }
 
