@@ -28,7 +28,7 @@ export default function CarContextProvider({ children }) {
   //--- FILTER ---
   const [products, setProducts] = useState(cars);
   const [search, setSearch]= useState("");
-  const [make, setMake] = useState("");
+  const [make, setMake] = useState('all');
   const [model, setModel] = useState("all");
   const [fromYear, setFromYear] = useState("");
   const [toYear, setToYear] = useState("");
@@ -43,9 +43,11 @@ export default function CarContextProvider({ children }) {
       case "search":
         setSearch(e.target.value.trim());
         break;
+
       
       case "make":
         setMake(e.target.value);
+        console.log(e.target.value)
         break;
 
       case "model":
@@ -87,18 +89,20 @@ export default function CarContextProvider({ children }) {
 
     if (search !== "") {
       filteredProducts = filteredProducts.filter((car) => 
-        car.make.toLowerCase().includes(search.toLowerCase()
+        car.model.toLowerCase().includes(search.toLowerCase()
         ) || 
-        car.model.toLowerCase().includes(search.toLowerCase())
+        car.make.toLowerCase().includes(search.toLowerCase())
       )
     }
 
-    if (make !== "all") {
+    if (make === "all") {
+      filteredProducts = defaultCars;
+    } else{
       filteredProducts = filteredProducts.filter((car) => car.make === make);
     }
 
     if (model !== "all") {
-      filteredProducts = filteredProducts.filter((car) => car.model === model);
+      filteredProducts = filteredProducts.filter((car) => car.model === model && make);
     }
 
     if (fromYear !== "") {

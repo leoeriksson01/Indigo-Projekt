@@ -39,7 +39,7 @@ const SearchForm = () => {
 
         <label htmlFor="make">Make</label>
         <select className={styles.make} name="make" onChange={(e) => handleFilterChange(e, "make")}>
-          <option value={'all'}>All</option>
+          <option key={cars} value={'all'}>All</option>
           {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
             return (
               <option key={make} value={make}>
