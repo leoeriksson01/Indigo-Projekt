@@ -16,7 +16,6 @@ const Navbar = () => {
 
   const toggleShoppingCart = () => {
     setHoverShoppingCart(!hoverShoppingCart);
-    console.log(hoverShoppingCart);
   };
 
   return (
@@ -32,7 +31,6 @@ const Navbar = () => {
       {/* /.logo_company_title_wrapper */}
 
       <div className={style.nav_router_menu}>
-        {/* <ul className={click ? style.nav_router_ul_none : style.nav_router_ul}> */}
         <ul className={mobileMenu ? "" : style.nav_router_ul_none}>
           <li>
             <NavLink exact to="/">

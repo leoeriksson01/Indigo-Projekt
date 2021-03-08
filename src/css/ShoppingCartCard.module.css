@@ -47,6 +47,8 @@ img {
 }
 
 .remove_button {
+  color: #fff;
+  background-color: #2e856e;
   font-size: 0.7rem;
 }
 
