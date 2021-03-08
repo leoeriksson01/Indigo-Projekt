@@ -1,4 +1,4 @@
-a {
+.a {
   background-color: #2e856e;
   border-style: none;
   border-radius: 25px;
@@ -9,34 +9,30 @@ a {
   padding: 6px 12px;
 }
 
-a:hover {
+.a:hover {
   color: #fff;
   background-color: #2e856edc;
   border-color: #000;
   text-decoration: none;
 }
 
-h2 {
+.h2 {
   font-size: 1rem;
   font-weight: bold;
   margin: 0;
   padding-top: 0.5rem;
 }
 
-p {
-  color: #353336;
-}
-
-img {
+.img {
   border-radius: 1%;
   max-width: 100%;
 }
 
-button:hover {
+/* button:hover {
   color: #fff;
   background-color: #2e856edc;
   border-color: #000;
-}
+} */
 
 .button_add {
   background-color: #2e856e;
@@ -45,6 +41,12 @@ button:hover {
   color: white;
   cursor: pointer;
   padding: 6px 12px;
+}
+
+.button_add:hover {
+  color: #fff;
+  background-color: #2e856edc;
+  border-color: #000;
 }
 
 /* no longer in use */
@@ -84,6 +86,7 @@ button:hover {
 }
 
 .card_description {
+  color: #353336;
   font-size: 0.8rem;
 }
 
@@ -93,6 +96,7 @@ button:hover {
 }
 
 .card_information {
+  color: #353336;
   font-size: 0.8rem;
 }
 
@@ -124,6 +128,7 @@ button:hover {
 }
 
 .subheading {
+  color: #353336;
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 0.4rem;
@@ -152,7 +157,7 @@ button:hover {
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-  img {
+  .img {
     border-radius: 1%;
     height: 300px;
     max-width: 100%;

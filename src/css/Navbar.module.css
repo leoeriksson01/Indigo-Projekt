@@ -7,6 +7,10 @@
   text-transform: uppercase;
 }
 
+.img {
+  height: 40px;
+  width: 40px;
+}
 .header {
   display: flex;
   background: #2e856e;
