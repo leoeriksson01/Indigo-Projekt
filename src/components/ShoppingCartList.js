@@ -29,21 +29,4 @@ const ShoppingCartList = ({ hover }) => {
   );
 };
 
-{
-  /* <div
-  className={`${style.shopping_cart_content_wrapper} ${
-    hoverShoppingCart ? style.border_wrapper_style : ""
-  }`}
->
-  <ShoppingCartCard />
-  <hr />
-  <div className={style.shopping_cart_summary}>
-    <p>Total price: ${Number(totalPrice).toLocaleString()}</p>
-    <NavLink className={style.checkout_link} exact to="/checkout">
-      To checkout
-    </NavLink>
-  </div>
-</div>; */
-}
-
 export default ShoppingCartList;

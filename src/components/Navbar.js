@@ -1,13 +1,11 @@
 import React, { useState, useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
-import { ShopCartContext } from "./contexts/ShopCartContext";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 import { ReactComponent as CloseMenuIcon } from "../assets/x.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import { ReactComponent as Profile } from "../assets/profile.svg";
 import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
-import ShoppingCartCard from "./ShoppingCartCard";
 import ShoppingCartList from "./ShoppingCartList";
 
 const Navbar = () => {
@@ -33,11 +31,6 @@ const Navbar = () => {
       </div>
       {/* /.logo_company_title_wrapper */}
 
-      {/* <div
-        className={`${style.nav_router_menu} ${
-          click ? style.nav_router_menu_mobile_active : ""
-        }`}
-      > */}
       <div className={style.nav_router_menu}>
         {/* <ul className={click ? style.nav_router_ul_none : style.nav_router_ul}> */}
         <ul className={mobileMenu ? "" : style.nav_router_ul_none}>
