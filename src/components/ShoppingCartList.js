@@ -19,7 +19,7 @@ const ShoppingCartList = ({ hover }) => {
         </p>
         <div className={style.checkout_link_wrapper}>
           <NavLink className={style.checkout_link} exact to="/checkout">
-            To checkout
+            To Checkout
           </NavLink>
         </div>
         {/* /.checkout_link_wrapper */}

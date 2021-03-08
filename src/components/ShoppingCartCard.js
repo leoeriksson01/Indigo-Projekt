@@ -36,7 +36,7 @@ const ShoppingCartCard = () => {
           </button>
         </div>
         {/* /.remove_button_wrapper */}
-        <hr/>
+        <hr />
       </div>
       // /.product_card
     );
