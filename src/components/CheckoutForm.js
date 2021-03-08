@@ -1,23 +1,34 @@
-import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import style from '../css/CheckoutPage.module.css'
+import { CheckoutContext } from './contexts/CheckoutContext';
 
 const CheckoutForm = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
-  const [county, setCounty] = useState('');
-  const [zip, setZip] = useState('');
+  const { 
+    addCheckoutData 
+  } = useContext(CheckoutContext);
+
+  const [name, setName] = useState([]);
+  const [email, setEmail] = useState([]);
+  const [adress, setAdress] = useState([]);
+  const [county, setCounty] = useState([]);
+  const [zip, setZip] = useState([]);
   const [select, setSelect] = useState('');
 
-  const history = useHistory();
+  const submitValue = () => {
+    const formdets = {
+      'Name' : name,
+      'Email' : email, 
+      'County' : county,
+      'Zip' : zip,
+    }
+    addCheckoutData(formdets);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push({
-      pathname: '/confirmed',
-      state: { name, email, address, county, zip, select },
-    });
+  }
+  const handleSelect = (e) => {
+    setSelect(e.target.value);
   }
 
   return (
@@ -26,31 +37,31 @@ const CheckoutForm = () => {
       <form onSubmit={handleSubmit}>
         <fieldset className={style.fieldset}>
           <label htmlFor="name">First and last name</label>
-          <input value={name} type="text" id="name" onChange={e => setName(e.target.value)} />
+          <input type="text" name="name" id="name" onChange={e => setName(e.target.value)} />
 
-          <label htmlFor="email">Email address</label>
-          <input value={email} type="text" id="email" onChange={e => setEmail(e.target.value)} />
+          <label htmlFor="email">Email adress</label>
+          <input type="text" name="email" id="email" onChange={e => setEmail(e.target.value)} />
 
-          <label htmlFor="address">Adress</label>
-          <input value={address} type="text" id="address" onChange={e => setAddress(e.target.value)} />
+          <label htmlFor="adress">Adress</label>
+          <input type="text" name="adress" id="adress" onChange={e => setEmail(e.target.value)} />
 
           <div className={style.inputContainer}>
             <div className={`${style.smallInput} ${style.leftInput}`}>
               <label htmlFor="county">County</label>
-              <input value={county} type="text" id="county" onChange={e => setCounty(e.target.value)} />
+              <input type="text" name="county" id="county" onChange={e => setCounty(e.target.value)} />
             </div>
             
             <div className={style.smallInput}>
               <label htmlFor="zip">Zip Code</label>
-              <input value={zip} type="text" id="zip" maxLength="5" onChange={e => setZip(e.target.value)} />
+              <input type="text" name="zip" id="zip" maxLength="5" onChange={e => setZip(e.target.value)} />
             </div>
           </div>
         </fieldset>
 
         <fieldset className={style.fieldset}>
           <legend>Shipping</legend>
-          <select value={select} onChange={e => setSelect(e.target.value)} className={style.selectShip}>
-            <option>Select your option</option>
+          <select onChange={handleSelect} className={style.selectShip}>
+            <option value="" disabled selected>Select your option</option>
             <option value="Delivered to adress">Delivered to adress</option>
             <option value="Pick up at Auto Dealership">Pick up at Auto Dealership</option>
           </select>
@@ -77,7 +88,7 @@ const CheckoutForm = () => {
           </div>
         </fieldset>
         <fieldset>
-          <button type="submit">Proceed to Checkout</button>
+          <button type="submit" onClick={submitValue}>Proceed to Checkout</button>
         </fieldset>
       </form>
     </div>

@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import CarContextProvider from "./components/contexts/CarContext";
 import Home from "./pages/Home";
-import CheckoutConfirm from "./components/CheckoutConfirm";
 
 export default function App() {
   return (
@@ -15,13 +14,10 @@ export default function App() {
           <Navbar />
           {/* <Footer/> */}
           <Home />
-        <Route path="/checkout" exact>
-          <CheckoutPage />
-        </Route>
-        <Route path="/confirmed" exact>
-          <CheckoutConfirm />
-        </Route>
+          <Route exact path="/" />
+          <Route exact path="/About-us" />
         </Router>
+        <CheckoutPage />
       </div>
     </CarContextProvider>
   );
