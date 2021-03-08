@@ -1,15 +1,17 @@
-import React, {useState} from "react";
-import style from "../../css/Carousel.module.css"
-import SliderContent from "./SliderContent";
+import React, {useState} from 'react'
 
-function CarouselSlider(props) {
-    return (
-      <div id={style.slider}>
-        <SliderContent/>
-      </div>
-    )
-  }
-  export default CarouselSlider;
+const CarouselSlider = () => {
+const [current, setCurrent] = useState (0)
+
+  return (
+    <div>
+      Images 
+    </div>
+  )
+}
+
+export default CarouselSlider
+
 
 
 
