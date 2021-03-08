@@ -11,10 +11,6 @@ import ShoppingCartCard from "./ShoppingCartCard";
 import ShoppingCartList from "./ShoppingCartList";
 
 const Navbar = () => {
-  const cartList = useRef();
-  const profileList = useRef();
-
-  const { totalPrice } = useContext(ShopCartContext);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
 
@@ -24,18 +20,6 @@ const Navbar = () => {
     setHoverShoppingCart(!hoverShoppingCart);
     console.log(hoverShoppingCart);
   };
-
-  // const toggleCart = () => {
-  //   if (cartList.current) {
-  //     cartList.current.classList.toggle(style.hidden);
-  //   }
-  // };
-
-  // const toggleProfile = () => {
-  //   if (profileList.current) {
-  //     profileList.current.classList.toggle(style.hidden);
-  //   }
-  // };
 
   return (
     <div className={style.navbar_container}>
@@ -85,7 +69,11 @@ const Navbar = () => {
           <Cart className={style.cart_icon} />
           <div className={style.shopping_cart_wrapper}>
             <div className={style.shopping_cart_content}>
-              {hoverShoppingCart ? <ShoppingCartList /> : ""}
+              {hoverShoppingCart ? (
+                <ShoppingCartList hover={hoverShoppingCart} />
+              ) : (
+                ""
+              )}
             </div>
             {/* /.shopping_cart_content */}
           </div>

@@ -4,13 +4,19 @@ import { ShopCartContext } from "./contexts/ShopCartContext";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 
-const ShoppingCartList = () => {
+const ShoppingCartList = ({ hover }) => {
   const { totalPrice } = useContext(ShopCartContext);
   return (
-    <div className={style.shopping_cart_list_wrapper}>
+    <div
+      className={`${style.shopping_cart_list_wrapper} ${
+        hover ? style.border_style : ""
+      }`}
+    >
       <ShoppingCartCard />
       <div className={style.shopping_cart_summary}>
-        <p>Total price: ${Number(totalPrice).toLocaleString()}</p>
+        <p className={style.totalprice_text}>
+          Total price: ${Number(totalPrice).toLocaleString()}
+        </p>
         <div className={style.checkout_link_wrapper}>
           <NavLink className={style.checkout_link} exact to="/checkout">
             To checkout
@@ -18,6 +24,7 @@ const ShoppingCartList = () => {
         </div>
         {/* /.checkout_link_wrapper */}
       </div>
+      {/* /.shopping_cart_summary */}
     </div>
   );
 };

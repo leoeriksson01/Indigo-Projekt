@@ -1,5 +1,3 @@
-/*Desktop View*/
-
 .border_wrapper_style {
   border-radius: 1px;
   border: 4px solid black;
@@ -110,6 +108,7 @@ img {
 } */
 
 .shopping_cart_wrapper {
+  padding-top: 21px;
   background-color: #2e856e;
   position: absolute;
   right: 0;
@@ -117,6 +116,7 @@ img {
 }
 
 .shopping_cart_content {
+  background-color: #353336;
 }
 
 .shopping_cart_content_wrapper {

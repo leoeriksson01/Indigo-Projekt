@@ -22,17 +22,17 @@ const ShoppingCartCard = () => {
             <span>Year: {product.year}</span>
             <span>Price: ${Number(product.price).toLocaleString()}</span>
           </p>
-          <div className={style.remove_button_wrapper}>
-            <button
-              className={style.remove_button}
-              onClick={() => removeProduct(product)}
-            >
-              Remove Product
-            </button>
-          </div>
-          {/* /.remove_button_wrapper */}
         </div>
         {/* /.content */}
+        <div className={style.remove_button_wrapper}>
+          <button
+            className={style.remove_button}
+            onClick={() => removeProduct(product)}
+          >
+            Remove Product
+          </button>
+        </div>
+        {/* /.remove_button_wrapper */}
       </div>
       // /.product_card
     );
