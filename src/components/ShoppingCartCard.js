@@ -10,7 +10,8 @@ const ShoppingCartCard = () => {
       <div className={style.product_card} key={product.vin}>
         <div className={style.img_content_wrapper}>
           <div className={style.img_wrapper}>
-            <img className={style.img}
+            <img
+              className={style.img}
               src={`/assets/car-pictures/${product.make}-${product.model}-${product.year}.jpg`}
               alt="product"
             />
@@ -18,7 +19,7 @@ const ShoppingCartCard = () => {
           {/* /.img_wrapper */}
           <div className={style.content}>
             <p className={style.product_text}>
-              <span>{product.make}</span>
+              <span className={style.productHeader}>{product.make}</span>
               <span>Model: {product.model}</span>
               <span>Year: {product.year}</span>
               <span>Price: ${Number(product.price).toLocaleString()}</span>

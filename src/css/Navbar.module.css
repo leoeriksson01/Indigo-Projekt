@@ -1,13 +1,13 @@
 .a {
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 2.1rem;
   text-decoration: none;
 }
 
 .a:hover {
   background-color: #2e856edc;
   border-color: #000;
-  color: #fff;
+  color: #e4c46a;
   text-decoration: none;
 }
 
@@ -23,8 +23,10 @@
 }
 
 .h1 {
+  font-size: 2.6em;
+  margin-left: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: #e4c46a;
-  font-size: 2rem;
 }
 
 nav {

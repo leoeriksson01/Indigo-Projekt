@@ -15,6 +15,10 @@
   border-radius: 1%;
 }
 
+.productHeader {
+  font-size: 1rem;
+}
+
 .img_content_wrapper {
   display: grid;
   grid-template-areas: "img_wrapper product_text";
