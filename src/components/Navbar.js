@@ -1,86 +1,137 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { ShopCartContext } from "./contexts/ShopCartContext";
-import { ReactComponent as CloseMenu } from "../assets/x.svg";
-import { ReactComponent as Profile } from "../assets/profile.svg";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
+import { ReactComponent as CloseMenuIcon } from "../assets/x.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
-import { useContext, useRef } from "react";
-import logo from "../assets/elvs.png";
+import { ReactComponent as Profile } from "../assets/profile.svg";
+import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
-import ShoppingCart from "../components/ShoppingCart";
+import ShoppingCartCard from "../components/ShoppingCartCard";
 
-const Header = () => {
-  function toggleCart() {
-    if (cartList.current) {
-      cartList.current.classList.toggle(style.hidden);
-    }
-  }
-
-  function toggleProfile() {
-    if (profileList.current) {
-      profileList.current.classList.toggle(style.hidden);
-    }
-  }
-
+const Navbar = () => {
   const cartList = useRef();
   const profileList = useRef();
 
   const { totalPrice } = useContext(ShopCartContext);
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
-  return (
-    <div className={style.header}>
-      <div className={style.logo_nav}>
-        <div className={style.logo}>
-          <img src={logo} />
-        </div>
-        <div className={style.bilgagnat}>Bilgagnat</div>
+  const [mobileMenu, setMobileMenu] = useState(false);
+  const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
 
-        <ul className={`${style.nav_options} ${click ? style.active : ""}`}>
-          <li className={style.option} onClick={closeMobileMenu}>
+  const handleMobileMenu = () => setMobileMenu(!mobileMenu);
+
+  const toggleShoppingCart = () => {
+    setHoverShoppingCart(!hoverShoppingCart);
+    console.log(hoverShoppingCart);
+  };
+
+  // const toggleCart = () => {
+  //   if (cartList.current) {
+  //     cartList.current.classList.toggle(style.hidden);
+  //   }
+  // };
+
+  // const toggleProfile = () => {
+  //   if (profileList.current) {
+  //     profileList.current.classList.toggle(style.hidden);
+  //   }
+  // };
+
+  return (
+    <div className={style.navbar_container}>
+      <div className={style.logo_company_title_wrapper}>
+        <div className={style.logo_wrapper}>
+          <img className={style.logo_img} src={logo} alt="logo" />
+        </div>
+        <div className={style.company_title}>
+          <h1>Bilgagnat</h1>
+        </div>
+      </div>
+      {/* /.logo_company_title_wrapper */}
+
+      {/* <div
+        className={`${style.nav_router_menu} ${
+          click ? style.nav_router_menu_mobile_active : ""
+        }`}
+      > */}
+      <div className={style.nav_router_menu}>
+        {/* <ul className={click ? style.nav_router_ul_none : style.nav_router_ul}> */}
+        <ul className={mobileMenu ? "" : style.nav_router_ul_none}>
+          <li>
             <NavLink exact to="/">
               Home
             </NavLink>
           </li>
-          <li className={style.option} onClick={closeMobileMenu}>
+          <li>
             <NavLink exact to="/about">
               About
             </NavLink>
           </li>
         </ul>
       </div>
+      {/* ./nav_router_container */}
 
-      <div className={style.cart_container}>
-        <Cart className={style.cart} onClick={toggleCart} />
-        <div className={style.cartList} ref={cartList}>
-          <ShoppingCart />
-          <div className={style.totalprice}>
-            Total price: ${totalPrice}
-            <NavLink exact to="/checkout">
-              To Checkout
-            </NavLink>
+      <div className={style.icons_wrapper}>
+        <div className={style.profile_container}>
+          <Profile className={style.profile_icon} />
+        </div>
+
+        <div
+          className={style.cart_container}
+          // onClick={toggleShoppingCart}
+          onMouseEnter={toggleShoppingCart}
+          onMouseLeave={toggleShoppingCart}
+        >
+          <Cart className={style.cart_icon} />
+          <div className={style.shopping_cart_wrapper}>
+            <div className={style.shopping_cart_content}>
+              {hoverShoppingCart ? (
+                <div
+                  className={`${style.shopping_cart_content_wrapper} ${
+                    hoverShoppingCart ? style.border_wrapper_style : ""
+                  }`}
+                >
+                  <ShoppingCartCard />
+                  <hr />
+                  <div className={style.shopping_cart_summary}>
+                    <p>Total price: ${Number(totalPrice).toLocaleString()}</p>
+                    <NavLink
+                      className={style.checkout_link}
+                      exact
+                      to="/checkout"
+                    >
+                      To checkout
+                    </NavLink>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+            {/* /.shopping_cart_content */}
           </div>
+          {/* shopping_cart_wrapper */}
         </div>
-      </div>
+        {/* /.cart_container */}
 
-      <div className={style.profile_container}>
-        <Profile className={style.profile} onClick={toggleProfile} />
-        <div className={style.profileList} ref={profileList}>
-          {" "}
+        <div className={style.mobile_menu}>
+          {mobileMenu ? (
+            <CloseMenuIcon
+              className={style.mobile_menu_icon}
+              onClick={handleMobileMenu}
+            />
+          ) : (
+            <MenuIcon
+              className={style.mobile_menu_icon}
+              onClick={handleMobileMenu}
+            />
+          )}
         </div>
+        {/* /.mobile_menu */}
       </div>
-
-      <div className={style.mobile_menu} onClick={handleClick}>
-        {click ? (
-          <CloseMenu className={style.menu_icon} />
-        ) : (
-          <MenuIcon className={style.menu_icon} />
-        )}
-      </div>
+      {/* /.icons_wrapper */}
     </div>
+    // /.navbar_container
   );
 };
 
-export default Header;
+export default Navbar;
