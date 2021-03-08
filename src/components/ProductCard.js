@@ -34,13 +34,14 @@ const ProductCard = () => {
         <div className={style.product_card} key={car.vin}>
           <div className={style.img_wrapper}>
             <img
+              className={style.img}
               src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
               alt="product"
             />
           </div>
           {/* /.img_wrapper */}
           <div className={style.card_text_wrapper}>
-            <h2>
+            <h2 className={style.h2}>
               {car.make} {car.model} {car.year}
             </h2>
             <p className={style.subheading}>
@@ -82,7 +83,7 @@ const ProductCard = () => {
               >
                 Add to cart
               </button>
-              <NavLink exact to={`/car/${car.vin}`}>
+              <NavLink className={style.a} exact to={`/car/${car.vin}`}>
                 Read more
               </NavLink>
             </div>
