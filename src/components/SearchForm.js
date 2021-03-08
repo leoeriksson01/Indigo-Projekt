@@ -31,9 +31,15 @@ const SearchForm = () => {
       </div>
 
       <form className={`${activeClass}`}>
+      <input
+        type="text"
+        placeholder="Search Cars"
+        onChange={(e) => handleFilterChange(e, "search")}
+      />
+
         <label htmlFor="make">Make</label>
         <select className={styles.make} name="make" onChange={(e) => handleFilterChange(e, "make")}>
-          <option value="all">All</option>
+          <option value={'all'}>All</option>
           {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
             return (
               <option key={make} value={make}>
