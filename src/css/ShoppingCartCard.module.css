@@ -57,6 +57,12 @@
   font-size: 0.7rem;
 }
 
+.remove_button:hover {
+  color: #fff;
+  background-color: #2e856edc;
+  border-color: #000;
+}
+
 .remove_button_wrapper {
   display: flex;
   justify-content: center;

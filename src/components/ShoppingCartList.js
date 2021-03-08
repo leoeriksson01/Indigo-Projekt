@@ -7,11 +7,7 @@ import { useContext } from "react";
 const ShoppingCartList = ({ hover }) => {
   const { totalPrice } = useContext(ShopCartContext);
   return (
-    <div
-      className={`${style.shopping_cart_list_wrapper} ${
-        hover ? style.border_style : ""
-      }`}
-    >
+    <div className={style.shopping_cart_list_wrapper}>
       <ShoppingCartCard />
       <div className={style.shopping_cart_summary}>
         <p className={style.totalprice_text}>
