@@ -7,7 +7,8 @@ import { ReactComponent as Cart } from "../assets/cart.svg";
 import { ReactComponent as Profile } from "../assets/profile.svg";
 import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
-import ShoppingCartCard from "../components/ShoppingCartCard";
+import ShoppingCartCard from "./ShoppingCartCard";
+import ShoppingCartList from "./ShoppingCartList";
 
 const Navbar = () => {
   const cartList = useRef();
@@ -77,35 +78,14 @@ const Navbar = () => {
 
         <div
           className={style.cart_container}
-          // onClick={toggleShoppingCart}
-          onMouseEnter={toggleShoppingCart}
-          onMouseLeave={toggleShoppingCart}
+          onClick={toggleShoppingCart}
+          // onMouseEnter={toggleShoppingCart}
+          // onMouseLeave={toggleShoppingCart}
         >
           <Cart className={style.cart_icon} />
           <div className={style.shopping_cart_wrapper}>
             <div className={style.shopping_cart_content}>
-              {hoverShoppingCart ? (
-                <div
-                  className={`${style.shopping_cart_content_wrapper} ${
-                    hoverShoppingCart ? style.border_wrapper_style : ""
-                  }`}
-                >
-                  <ShoppingCartCard />
-                  <hr />
-                  <div className={style.shopping_cart_summary}>
-                    <p>Total price: ${Number(totalPrice).toLocaleString()}</p>
-                    <NavLink
-                      className={style.checkout_link}
-                      exact
-                      to="/checkout"
-                    >
-                      To checkout
-                    </NavLink>
-                  </div>
-                </div>
-              ) : (
-                ""
-              )}
+              {hoverShoppingCart ? <ShoppingCartList /> : ""}
             </div>
             {/* /.shopping_cart_content */}
           </div>
