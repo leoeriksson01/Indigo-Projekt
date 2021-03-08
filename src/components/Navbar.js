@@ -1,67 +1,44 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { ShopCartContext } from "./contexts/ShopCartContext";
+import React, { useState } from "react";
 import { ReactComponent as CloseMenu } from "../assets/x.svg";
 import { ReactComponent as MenuIcon } from "../assets/menu.svg";
+import { ReactComponent as Logo } from "../assets/logo.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
-import { useContext, useRef } from "react";
-import logo from "../assets/elvs.png";
-import style from "../css/Navbar.module.css";
-import ShoppingCart from "../components/ShoppingCart";
+import "./Navbar.css";
 
 const Header = () => {
-  function toggleCart() {
-    console.log(cartList.current);
-
-    if (cartList.current) {
-      cartList.current.classList.toggle(style.hidden);
-    }
-  }
-
-  const cartList = useRef();
-
-  const { totalPrice } = useContext(ShopCartContext);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
   return (
-    <div className={style.header}>
-      <div className={style.logo_nav}>
-        <div className={style.logo}>
-          <img src={logo} />
+    <div className="header">
+      <div className="logo-nav">
+        <div className="logo-container">
+          <a href="#">
+            <Logo className="logo" />
+          </a>
         </div>
-        <ul className={`${style.nav_options} ${click ? style.active : ""}`}>
-          <li className={style.option} onClick={closeMobileMenu}>
-            <NavLink className={style.a} exact to="/">
-              Home
-            </NavLink>
+        <ul className={click ? "nav-options active" : "nav-options"}>
+          <li className="option" onClick={closeMobileMenu}>
+            <a href="#">HOME</a>
           </li>
-          <li className={style.option} onClick={closeMobileMenu}>
-            <NavLink className={style.a} exact to="/about">
-              About
-            </NavLink>
+          <li className="option" onClick={closeMobileMenu}>
+            <a href="#">ABOUT US</a>
           </li>
         </ul>
+        
       </div>
 
-      <div className={style.cart_container}>
-        <Cart className={style.cart} onClick={toggleCart} />
-        <div className={style.cartList} ref={cartList}>
-          <ShoppingCart />
-          <div className={style.totalprice}>
-            Total price: ${totalPrice}
-            <NavLink className={style.a} exact to="/checkout">
-              To Checkout
-            </NavLink>
-          </div>
+      <div className="cart-container">
+          <a href="#">
+            <Cart className="cart" />
+          </a>
         </div>
-      </div>
-
-      <div className={style.mobile_menu} onClick={handleClick}>
+        
+      <div className="mobile-menu" onClick={handleClick}>
         {click ? (
-          <CloseMenu className={style.menu_icon} />
+          <CloseMenu className="menu-icon" />
         ) : (
-          <MenuIcon className={style.menu_icon} />
+          <MenuIcon className="menu-icon" />
         )}
       </div>
     </div>
