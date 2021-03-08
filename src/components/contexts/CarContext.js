@@ -41,7 +41,7 @@ export default function CarContextProvider({ children }) {
     //Change state
     switch (filterType) {
       case "search":
-        setSearch(e.target.value);
+        setSearch(e.target.value.trim());
         break;
       
       case "make":
