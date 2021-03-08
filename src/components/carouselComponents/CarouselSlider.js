@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import style from "../../css/Carousel.module.css"
 import SliderContent from "./SliderContent";
 
@@ -15,4 +15,4 @@ function CarouselSlider(props) {
 
 
 
-  //GLÖM EJ ATT LÄGGA TILLBAKA HOME.js-COMPONENTERNA EFTER ATT HA KOMMENTERAT UT DEM
+  
