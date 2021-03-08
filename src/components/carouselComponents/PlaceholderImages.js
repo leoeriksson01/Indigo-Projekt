@@ -9,3 +9,5 @@ export const SliderData = [
         image: 'https://stimg.cardekho.com/images/carexteriorimages/630x420/Mahindra/Thar/8076/1601635839903/front-left-side-47.jpg'
     }
 ]
+
+export default SliderData;
