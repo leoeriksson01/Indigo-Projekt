@@ -1,28 +1,28 @@
-a {
+.a {
   color: #fff;
   font-size: 1.5rem;
   text-decoration: none;
 }
 
-a:hover {
+.a:hover {
   background-color: #2e856edc;
   border-color: #000;
   color: #fff;
   text-decoration: none;
 }
 
-ul {
+.ul {
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
 }
 
-li {
+.li {
   list-style: none;
   text-decoration: none;
 }
 
-h1 {
+.h1 {
   color: #e4c46a;
   font-size: 2rem;
 }
@@ -140,16 +140,16 @@ img {
 
 /* Small devices */
 @media (max-width: 576px) {
-  li {
+  .li {
     display: grid;
     justify-content: center;
   }
 
-  li:hover {
+  .li:hover {
     background-color: #000;
   }
 
-  ul {
+  .ul {
     /* padding: 0;
     margin-bottom: 0; */
     background: #353336dc;

@@ -10,7 +10,7 @@ const ShoppingCartCard = () => {
       <div className={style.product_card} key={product.vin}>
         <div className={style.img_content_wrapper}>
           <div className={style.img_wrapper}>
-            <img
+            <img className={style.img}
               src={`/assets/car-pictures/${product.make}-${product.model}-${product.year}.jpg`}
               alt="product"
             />
@@ -36,7 +36,7 @@ const ShoppingCartCard = () => {
           </button>
         </div>
         {/* /.remove_button_wrapper */}
-        <hr />
+        <hr className={style.hr} />
       </div>
       // /.product_card
     );

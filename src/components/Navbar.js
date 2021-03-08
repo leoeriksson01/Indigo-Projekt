@@ -25,20 +25,24 @@ const Navbar = () => {
           <img className={style.logo_img} src={logo} alt="logo" />
         </div>
         <div className={style.company_title}>
-          <h1>Bilgagnat</h1>
+          <h1 className={style.h1}>Bilgagnat</h1>
         </div>
       </div>
       {/* /.logo_company_title_wrapper */}
 
       <div className={style.nav_router_menu}>
-        <ul className={mobileMenu ? "" : style.nav_router_ul_none}>
-          <li>
-            <NavLink exact to="/">
+        <ul
+          className={`${style.ul} ${
+            mobileMenu ? "" : style.nav_router_ul_none
+          }`}
+        >
+          <li className={style.li}>
+            <NavLink className={style.a} exact to="/">
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink exact to="/about">
+          <li className={style.li}>
+            <NavLink className={style.a} exact to="/about">
               About
             </NavLink>
           </li>
