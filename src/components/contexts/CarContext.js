@@ -43,7 +43,6 @@ export default function CarContextProvider({ children }) {
       case "search":
         setSearch(e.target.value.trim());
         break;
-
       
       case "make":
         setMake(e.target.value);
@@ -87,6 +86,12 @@ export default function CarContextProvider({ children }) {
   useEffect(() => {
     let filteredProducts = cars;
 
+    if (make === "all") {
+      filteredProducts = defaultCars;
+    } else{
+      filteredProducts = filteredProducts.filter((car) => car.make === make);
+    }
+
     if (search !== "") {
       filteredProducts = filteredProducts.filter((car) => 
         car.model.toLowerCase().includes(search.toLowerCase()
@@ -94,13 +99,7 @@ export default function CarContextProvider({ children }) {
         car.make.toLowerCase().includes(search.toLowerCase())
       )
     }
-
-    if (make === "all") {
-      filteredProducts = defaultCars;
-    } else{
-      filteredProducts = filteredProducts.filter((car) => car.make === make);
-    }
-
+    
     if (model !== "all") {
       filteredProducts = filteredProducts.filter((car) => car.model === model && make);
     }
