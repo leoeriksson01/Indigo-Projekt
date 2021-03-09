@@ -14,8 +14,22 @@ const Navbar = () => {
 
   const handleMobileMenu = () => setMobileMenu(!mobileMenu);
 
+  const toggleShoppingCartEnter = () => {
+    if (window.innerWidth > 577) {
+      setHoverShoppingCart(true);
+    }
+  };
+  const toggleShoppingCartLeave = () => {
+    if (window.innerWidth > 577) {
+      setHoverShoppingCart(false);
+    }
+  };
+
   const toggleShoppingCart = () => {
-    setHoverShoppingCart(!hoverShoppingCart);
+    if (window.innerWidth < 576) {
+      setHoverShoppingCart(!hoverShoppingCart);
+      console.log(hoverShoppingCart);
+    }
   };
 
   return (
@@ -58,11 +72,23 @@ const Navbar = () => {
         <div
           className={style.cart_container}
           onClick={toggleShoppingCart}
-          // onMouseEnter={toggleShoppingCart}
-          // onMouseLeave={toggleShoppingCart}
+          onMouseEnter={toggleShoppingCartEnter}
+          onMouseLeave={toggleShoppingCartLeave}
         >
-          <Cart className={style.cart_icon} />
-          <div className={style.shopping_cart_wrapper}>
+          <Cart
+            className={style.cart_icon}
+            style={{
+              backgroundColor: hoverShoppingCart && "#353336",
+              borderRadius: hoverShoppingCart && "5px 5px 0 0",
+            }}
+          />
+          <div
+            className={style.shopping_cart_wrapper}
+            style={{
+              backgroundColor: hoverShoppingCart && "#353336",
+              borderRadius: hoverShoppingCart && "5px 0 0 0",
+            }}
+          >
             <div className={style.shopping_cart_content}>
               {hoverShoppingCart ? (
                 <ShoppingCartList hover={hoverShoppingCart} />
