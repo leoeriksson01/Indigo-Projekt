@@ -142,6 +142,10 @@ img {
 
 /* Small devices */
 @media (max-width: 576px) {
+  .a:hover {
+    background-color: #343e3e;
+  }
+  
   .li {
     display: grid;
     justify-content: center;
