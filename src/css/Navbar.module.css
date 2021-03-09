@@ -11,6 +11,13 @@
   text-decoration: none;
 }
 
+.a_title {
+}
+
+.a_title:hover {
+  text-decoration: none;
+}
+
 .ul {
   display: grid;
   grid-auto-flow: column;

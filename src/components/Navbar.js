@@ -41,7 +41,7 @@ const Navbar = () => {
           </NavLink>
         </div>
         <div className={style.company_title}>
-          <NavLink exact to="/">
+          <NavLink className={style.a_title} exact to="/">
             <h1 className={style.h1}>Bilgagnat</h1>
           </NavLink>
         </div>
@@ -65,7 +65,6 @@ const Navbar = () => {
             </NavLink>
           </li>
         </ul>
-        
       </div>
       {/* ./nav_router_container */}
 
