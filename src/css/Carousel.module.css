@@ -19,12 +19,41 @@
     border-radius: 15px;
 }
 
+#imageContainer{
+    display: grid;
+}
+
 #sliderImage{
     object-fit: cover;
     width: 350px;
     height: 337px;
     border-radius: 15px 15px 0 0;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
+
+#campaignPercent{
+    background-color: red;
+    opacity: 0.85;
+    padding: 0.5rem;
+    width: 100%;
+    height: 15%;
+    margin-top: 2rem;
+    border-radius: 0 10px 10px 0;
+    grid-area: 1 / 1 / 4 / 2;
+}
+
+#campaignPercent p{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 0.15rem;
+}
+
+
 
 
 #sliderProductInfo{
@@ -54,23 +83,6 @@
 }
 
 #circleLeft{
-    /*position: absolute;
-    top: 50%;
-    left: 32px;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background: #2E856E;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    margin: 1.5rem;*/
     position: absolute;
     left: 60px;
     z-index: 10;
@@ -88,23 +100,6 @@
     border-radius: 50px;
 }
 #circleRight{
-    /*position: absolute;
-    top: 50%;
-    right: 32px;
-    z-index: 10;
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background: #2E856E;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    margin: 1.5rem;*/
     position: absolute;
     right: 60px;
     z-index: 10;
@@ -124,7 +119,29 @@
 
 
 @media (min-width: 768px){
-    #campaignHeader{
-        color: red;
+
+    #sliderImage{
+        width: 600px;
     }
+
+    #circleLeft{
+        top: 50%;
+    }
+    #circleRight{
+        top: 50%;
+    }
+    
+}
+
+@media (min-width: 992px) {
+    #sliderImage{
+        width: 800px;
+    }
+    #circleLeft{
+        left: 450px;
+    }
+    #circleRight{
+        right: 450px;
+    }
+
 }
