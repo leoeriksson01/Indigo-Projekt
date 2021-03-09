@@ -24,7 +24,7 @@ export default function ShopCartContextProvider({ children }) {
   }, [shoppingCart]);
 
   function itemExists(item) {
-    return Boolean(shoppingCart.find(car => car.vin === item.vin));
+    return Boolean(shoppingCart.find((car) => car.vin === item.vin));
   }
 
   // Adds product to shopping cart
