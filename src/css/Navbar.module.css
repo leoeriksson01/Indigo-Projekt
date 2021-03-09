@@ -34,12 +34,6 @@
   text-decoration: none;
 }
 
-nav {
-}
-
-img {
-}
-
 .navbar_container {
   background: #2e856e;
   display: grid;
@@ -54,9 +48,6 @@ img {
   display: flex;
   grid-area: logo_title;
   padding-left: 30px;
-}
-
-.logo_wrapper {
 }
 
 .logo_img {
@@ -78,11 +69,6 @@ img {
 }
 
 /* Refactored code to ---> ul */
-.nav_router_ul {
-  /* display: grid;
-  grid-auto-flow: column;
-  justify-content: space-between; */
-}
 
 /* Icons */
 .icons_wrapper {
@@ -105,11 +91,6 @@ img {
   width: 40px;
 }
 
-/* .cart_icon_active {
-  color: #2e856e;
-  background: #2e856e;
-} */
-
 .shopping_cart_wrapper {
   background-color: #2e856e;
   padding-top: 21px;
@@ -129,10 +110,6 @@ img {
 }
 
 /* Profile icon */
-
-.profile_container {
-}
-
 .profile_icon {
   cursor: pointer;
   height: 30px;
@@ -161,14 +138,16 @@ img {
   }
 
   .ul {
-    /* padding: 0;
-    margin-bottom: 0; */
     background: #353336dc;
     display: grid;
     grid-auto-flow: row;
     justify-content: center;
     padding: 0;
     margin-bottom: 0;
+  }
+
+  .h1 {
+    display: none;
   }
 
   .navbar_container {
@@ -181,29 +160,15 @@ img {
     padding-top: 10px;
   }
 
-  /*Logo & Company Title */
-
   .logo_company_title_wrapper {
     align-items: center;
     display: inline-flex;
     grid-area: logo_title;
   }
 
-  .logo_wrapper {
-  }
-
   .logo_img {
     height: 60px;
     width: 60px;
-  }
-
-  .company_title {
-  }
-
-  /* Nav Router Links + Mobile Menu  */
-
-  .mobile_menu {
-    /* display: grid; */
   }
 
   .mobile_menu_icon {
@@ -222,16 +187,6 @@ img {
     padding: 0;
   }
 
-  /* Refactored code to ---> ul */
-  .nav_router_ul {
-    /* background: #9c5a9cda;
-    display: grid;
-    grid-auto-flow: row;
-    justify-content: center;
-    padding: 0;
-    margin-bottom: 0; */
-  }
-
   .nav_router_ul_none {
     display: none;
   }
@@ -245,9 +200,6 @@ img {
     padding-bottom: 6px;
   }
 
-  .cart_container {
-  }
-
   .cart_icon {
     cursor: pointer;
     height: 40px;
@@ -255,14 +207,11 @@ img {
   }
 
   .shopping_cart_wrapper {
-    background-color: #2e856e;
+    background-color: transparent;
     padding-top: 10px;
     position: absolute;
     right: 0;
     width: 250px;
-  }
-
-  .profile_container {
   }
 
   .profile_icon {
