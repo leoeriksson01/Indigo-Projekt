@@ -5,14 +5,44 @@
     padding: 3rem;
 }
 
+#contactHeading{
+    color: #2E856E;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
 #formContainer p {
     color: red;
 }
 
 #contactForm{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    /*padding: 3rem;*/
+    background-color: #F8F8F8;
+    box-shadow: rgba(94, 52, 52, 0.24) 0px 3px 8px;
+    padding: 3rem;
+    border-radius: 17px;
+    width: 65%;
+}
 
+#formInputs{
+    text-align: center;
+}
+
+#formInput{
+    
+    border: 2px solid #2E856E;
+    border-radius: 5px;
+    padding: 6px;
+
+}
+
+#formInputBtn{
+    width: 40%;
+    padding: 5px;
+    border-radius: 25px;
+    background-color: #2E856E;
+    color: white;
+    text-align: center;
 }
 
 
