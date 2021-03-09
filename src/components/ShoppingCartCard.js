@@ -19,7 +19,7 @@ const ShoppingCartCard = () => {
           {/* /.img_wrapper */}
           <div className={style.content}>
             <p className={style.product_text}>
-              <span className={style.productHeader}>{product.make}</span>
+              <span className={style.product_make}>{product.make}</span>
               <span>Model: {product.model}</span>
               <span>Year: {product.year}</span>
               <span>Price: ${Number(product.price).toLocaleString()}</span>

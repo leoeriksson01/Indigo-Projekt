@@ -11,20 +11,20 @@
 .content {
 }
 
-.product_card {
-  border-radius: 1%;
-}
-
-.productHeader {
-  font-size: 1rem;
-}
-
 .img_content_wrapper {
   display: grid;
   grid-template-areas: "img_wrapper product_text";
   grid-template-columns: minmax(auto, 45%);
   grid-gap: 0px 0px;
   justify-content: space-between;
+}
+
+.product_card {
+  border-radius: 1%;
+}
+
+.product_make {
+  font-size: 1rem;
 }
 
 .product_text {
