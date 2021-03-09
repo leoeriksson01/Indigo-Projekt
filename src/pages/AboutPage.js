@@ -9,7 +9,7 @@ import Form from "../components/formComponents/Form.js"
 function AboutPage(props) {
   return (
     <div id={style.aboutContainer}>
-      <div>
+      <div id={style.heroContainer}>
         <img src={aboutImage} id={style.aboutImage} alt="Image of a car dealership."/>
         <h1 id={style.heroText}>ABOUT BILGAGNAT</h1>
       </div>

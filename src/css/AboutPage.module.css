@@ -1,17 +1,23 @@
 *{
     font-family: "Roboto";
+
 }
 
+#heroContainer{
+    position: relative;
+    text-align: center;
+}
 
-#aboutImage{
-    min-width: 100%;
+#aboutImage {
+    width: 100%;
+    filter: brightness(75%);
 }
 
 #heroText{
     color: white;
     text-shadow: 3px 3px #2E856E;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: 2rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,21 +30,22 @@
 
 #aboutHeading{
     text-align: center;
-    padding: 4rem;
-    font-size: 2.5rem;
+    padding-top: 1rem;
+    font-size: 1.6rem;
     color: #353336;
 }
 
 #aboutParagraph{
     color: #353336; 
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     margin-left: auto;
     margin-right: auto;
     width: 70%;
 }
 
 #staffImage{
-    margin: 4rem;
+    margin: 2rem;
+    border-radius: 10px;
     display: block;
     margin-left: auto;
     margin-right: auto;

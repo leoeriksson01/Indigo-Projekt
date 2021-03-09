@@ -12,7 +12,7 @@ function ContactForm ({submitForm}) {
 
     return (
         <div id={style.formContainer}>
-            <form id={style.form} onSubmit={handleSubmit}> 
+            <form id={style.contactForm} onSubmit={handleSubmit}> 
                 <h1>Get in touch! Send us a message below:</h1>
                 <div id={style.formInputs}>
                     <label htmlFor="username" 
