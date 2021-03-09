@@ -2,25 +2,41 @@
     position: relative;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin-bottom: 3rem;
+}
+
+#campaignHeader{
+    margin: 2rem;
+    color: #2E856E;
+    font-weight: bold;
 }
 
 #sliderContent{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 15px;
 }
 
-#image{
+#sliderImage{
     object-fit: cover;
-    width: 300px;
+    width: 350px;
     height: 337px;
-    border-radius: 10px;
+    border-radius: 15px 15px 0 0;
+}
 
+
+#sliderProductInfo{
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 0 0 15px 15px;
+    background-color: #2E856E;
+    color: white;
 }
 
 #arrowLeft{
-    border: solid rgb(51, 47, 47);
+    border: solid rgb(248, 248, 248);
     border-width: 0 6px 6px 0;
     display: inline-block;
     padding: 5px;
@@ -29,17 +45,16 @@
 }
 
 #arrowRight{
-    border: solid rgb(51, 47, 47);
+    border: solid rgb(248, 248, 248);
     border-width: 0 6px 6px 0;
     display: inline-block;
     padding: 5px;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
-
 }
 
 #circleLeft{
-    position: absolute;
+    /*position: absolute;
     top: 50%;
     left: 32px;
     z-index: 10;
@@ -50,15 +65,30 @@
     align-items: center;
     width: 50px;
     height: 50px;
-    background: #F8F8F8;
+    background: #2E856E;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
-    margin: 1.5rem;
+    margin: 1.5rem;*/
+    position: absolute;
+    left: 60px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin: 1rem;
+    background: #2E856E;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
 }
 #circleRight{
-    position: absolute;
+    /*position: absolute;
     top: 50%;
     right: 32px;
     z-index: 10;
@@ -69,10 +99,32 @@
     align-items: center;
     width: 50px;
     height: 50px;
-    background: #F8F8F8;
+    background: #2E856E;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
-    margin: 1.5rem;
+    margin: 1.5rem;*/
+    position: absolute;
+    right: 60px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    margin: 1rem;
+    background: #2E856E;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+
+@media (min-width: 768px){
+    #campaignHeader{
+        color: red;
+    }
 }

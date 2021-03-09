@@ -21,6 +21,36 @@ if (!Array.isArray(slides) || slides.length <= 0) {
 }
 
 
+return (
+  <div id={style.slider}>
+    <h1 id={style.campaignHeader}>Cars on sale!</h1>
+    {SliderData.map((slide, index) => {
+      return (
+        <div className={index === current ? 'slide active' : 'slide'} key={index}> 
+          {index === current && (
+            <div id={style.sliderContent}>
+              <img src={slide.image} alt="Placeholder car" id={style.sliderImage} />
+                <div id={style.sliderProductInfo}>
+                  Car model: {slide.name}
+                  <br></br>
+                  Special price: {slide.price} :-
+                </div>
+              <div id={style.circleLeft} onClick={prevSlide}>
+                <i id={style.arrowLeft}></i>
+              </div>
+              <div id={style.circleRight} onClick={nextSlide}>
+                <i id={style.arrowRight}></i>
+              </div>
+            </div>
+          )}
+        </div>
+      ) 
+    })}
+  </div>
+);
+
+
+//riktiga nedan
   return (
     <div id={style.slider}>
      

@@ -13,7 +13,17 @@ export const SliderData = [
         image: 'https://stimg.cardekho.com/images/carexteriorimages/630x420/Mahindra/Thar/8076/1601635839903/front-left-side-47.jpg',
         name: 'Cykel',
         price: 10
-    }
+    },
+    {
+        image: 'https://i.pinimg.com/originals/f7/97/42/f797426f043d2cd954891f7d17686887.jpg',
+        name: 'Båt',
+        price: 200
+    },
+    {
+        image: 'http://assets.volvocars.com/~/media/ccs/sustainability/moment2-updates-content/light-version-dsc09087_v5_hero.jpg',
+        name: 'Flygplan',
+        price: 400000
+    },
 ]
 
 export default SliderData;
