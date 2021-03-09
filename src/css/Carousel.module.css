@@ -53,15 +53,21 @@
     padding: 0.15rem;
 }
 
-
-
-
 #sliderProductInfo{
+    display: flex;
+    justify-content: space-between;
     padding: 1.5rem;
     font-size: 1.2rem;
     border-radius: 0 0 15px 15px;
     background-color: #2E856E;
     color: white;
+}
+
+#btnReadMore{
+    background-color: red;
+    color: white;
+    padding: 0.8rem;
+    border-radius: 10px;
 }
 
 #arrowLeft{
