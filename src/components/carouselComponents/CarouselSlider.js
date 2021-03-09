@@ -24,66 +24,38 @@ if (!Array.isArray(slides) || slides.length <= 0) {
 return (
   <div id={style.slider}>
     <h1 id={style.campaignHeader}>Cars on <span id={style.saleColor}>sale!</span></h1>
-    {SliderData.map((slide, index) => {
-      return (
-        <div className={index === current ? 'slide active' : 'slide'} key={index}> 
-          {index === current && (
-            <div id={style.sliderContent}>
-              <div id={style.imageContainer}>
-                <img src={slide.image} alt="Placeholder car" id={style.sliderImage} />
-                <div id={style.campaignPercent}>
-                  <p>10% sale!</p>
+      <div id={style.mainContainer}>  
+      <div id={style.circleLeft} onClick={prevSlide}>
+          <i id={style.arrowLeft}></i>
+        </div>  
+        {SliderData.map((slide, index) => {
+          return (
+            <div className={index === current ? 'slide active' : 'slide'} key={index}> 
+              {index === current && (
+                <div id={style.sliderContent}>
+                  <div id={style.imageContainer}>
+                    <img src={slide.image} alt="Placeholder car" id={style.sliderImage} />
+                    <div id={style.campaignPercent}>
+                      <p>10% sale!</p>
+                    </div>
+                  </div>
+                  <div id={style.sliderProductInfo}>
+                    Car model: {slide.name}
+                    <br></br>
+                    Special price: {slide.price} :-
+                    <button id={style.btnReadMore}>Read more &raquo;</button>
+                  </div>
                 </div>
-              </div>
-              <div id={style.sliderProductInfo}>
-                Car model: {slide.name}
-                <br></br>
-                Special price: {slide.price} :-
-                <button id={style.btnReadMore}>Read more &raquo;</button>
-              </div>
-              <div id={style.circleLeft} onClick={prevSlide}>
-                <i id={style.arrowLeft}></i>
-              </div>
-              <div id={style.circleRight} onClick={nextSlide}>
-                <i id={style.arrowRight}></i>
-              </div>
+              )}
             </div>
-          )}
+          ) 
+        })}
+        <div id={style.circleRight} onClick={nextSlide}>
+          <i id={style.arrowRight}></i>
         </div>
-      ) 
-    })}
+  </div>
   </div>
 );
-
-
-//riktiga nedan
-  return (
-    <div id={style.slider}>
-     
-      {SliderData.map((slide, index) => {
-        return (
-          <div className={index === current ? 'slide active' : 'slide'} key={index}> 
-            {index === current && (
-              <div id={style.sliderContent}>
-                <img src={slide.image} alt="Placeholder car" id={style.image} />
-                <div>
-                  {slide.name}
-                  <br></br>
-                  {slide.price}
-                </div>
-                <div id={style.circleLeft} onClick={prevSlide}>
-                  <i id={style.arrowLeft}></i>
-                </div>
-                <div id={style.circleRight} onClick={nextSlide}>
-                  <i id={style.arrowRight}></i>
-                </div>
-              </div>
-            )}
-          </div>
-        ) 
-      })}
-    </div>
-  );
 };
 
 export default CarouselSlider;
