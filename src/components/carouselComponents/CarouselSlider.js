@@ -23,7 +23,7 @@ if (!Array.isArray(slides) || slides.length <= 0) {
 
 return (
   <div id={style.slider}>
-    <h1 id={style.campaignHeader}>Cars on sale!</h1>
+    <h1 id={style.campaignHeader}>Cars on <span id={style.saleColor}>sale!</span></h1>
     {SliderData.map((slide, index) => {
       return (
         <div className={index === current ? 'slide active' : 'slide'} key={index}> 
