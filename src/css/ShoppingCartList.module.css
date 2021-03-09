@@ -24,6 +24,7 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
   max-height: 300px;
+  padding-top: 10px;
 }
 
 .shopping_cart_list_wrapper::-webkit-scrollbar {

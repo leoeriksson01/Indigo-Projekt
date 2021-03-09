@@ -27,6 +27,11 @@
   margin-left: 20px;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: #e4c46a;
+  margin-bottom: 6px;
+}
+
+.h1:hover {
+  text-decoration: none;
 }
 
 nav {
@@ -145,7 +150,7 @@ img {
   .a:hover {
     background-color: #343e3e;
   }
-  
+
   .li {
     display: grid;
     justify-content: center;

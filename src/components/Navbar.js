@@ -36,10 +36,14 @@ const Navbar = () => {
     <div className={style.navbar_container}>
       <div className={style.logo_company_title_wrapper}>
         <div className={style.logo_wrapper}>
-          <img className={style.logo_img} src={logo} alt="logo" />
+          <NavLink exact to="/">
+            <img className={style.logo_img} src={logo} alt="logo" />
+          </NavLink>
         </div>
         <div className={style.company_title}>
-          <h1 className={style.h1}>Bilgagnat</h1>
+          <NavLink exact to="/">
+            <h1 className={style.h1}>Bilgagnat</h1>
+          </NavLink>
         </div>
       </div>
       {/* /.logo_company_title_wrapper */}
