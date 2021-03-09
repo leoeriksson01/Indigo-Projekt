@@ -39,7 +39,7 @@ return (
                 Car model: {slide.name}
                 <br></br>
                 Special price: {slide.price} :-
-                <button id={style.btnReadMore}>Read more</button>
+                <button id={style.btnReadMore}>Read more &raquo;</button>
               </div>
               <div id={style.circleLeft} onClick={prevSlide}>
                 <i id={style.arrowLeft}></i>
