@@ -5,7 +5,7 @@ import { ShopCartContext } from "../components/contexts/ShopCartContext";
 import { NavLink } from "react-router-dom";
 
 const ProductCard = () => {
-  const { cars, products} = useContext(CarContext);
+  const { cars, products } = useContext(CarContext);
   const { addToCart } = useContext(ShopCartContext);
   const [loadProducts, setLoadProducts] = useState(6);
 
@@ -97,7 +97,7 @@ const ProductCard = () => {
   return (
     <div className={style.product_list_container}>
       <div className={style.product_card_wrapper}>{product}</div>
-      {loadProducts < cars.length ? loadButton : ""}
+      {loadProducts < products.length ? loadButton : ""}
     </div>
   );
 };
