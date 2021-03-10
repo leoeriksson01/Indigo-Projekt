@@ -30,7 +30,7 @@
 
 #aboutHeading{
     text-align: center;
-    padding-top: 1rem;
+    margin: 2rem;
     font-size: 1.6rem;
     color: #353336;
 }
@@ -40,7 +40,7 @@
     font-size: 0.8rem;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    max-width: 70%;
 }
 
 #staffImage{
@@ -48,7 +48,8 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 70%;
+    margin-top: 2rem;
+    max-width: 70%;
 }
 
 
@@ -76,21 +77,21 @@
 
 @media (min-width: 992px) {
     #heroText{
-        font-size: 5rem;
+        font-size: 3rem;
     }
 
     #aboutHeading{
         padding-top: 4rem;
-        font-size: 3.5rem;
+        font-size: 2.5rem;
     }
 
     #aboutParagraph{
-        font-size: 1.5rem;
-        width: 65%;
+        font-size: 1.2rem;
+        max-width: 55%;
         padding: 1rem;
     }
 
     #staffImage{
-        width: 65%;
+        max-width: 45%;
     }
 }
