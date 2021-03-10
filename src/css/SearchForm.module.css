@@ -1,0 +1,144 @@
+
+/* Filter heading*/ 
+.heading {
+  display: flex;
+  justify-content: flex-start; 
+  border-bottom: 0.5px solid #cecece;
+  margin-bottom: 2rem; 
+}
+
+.heading p{
+  font-size: 1.7rem;
+  margin-right: 13px; 
+}
+
+/* Filter Icon*/ 
+.heading img{
+margin-top: 6px;
+height: 30px;
+width: 20px; 
+}
+
+/* Form Styles */ 
+.form {
+  display: flex;
+  flex-direction: column;
+  background: #F7F7F7;
+}
+
+/* Label Styles */ 
+.form label{
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+/* Select Styles */ 
+.select_wrapper {
+  position: relative; 
+}
+
+.select_wrapper select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.select_wrapper select, .select_wrapper::after {
+  height: 40px;
+ 
+}
+
+.select_wrapper::after{
+  content: "\25bc";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 10px;
+  line-height: 40px; /* Vertical center text */
+  background: #d1d1cf;
+  color: #fff;
+  border-radius: 5px;  
+  
+}
+
+/* Input Styles */ 
+
+.form input[type=text],
+.form input[type=number],
+.form select {
+  background: white;
+  color: #767674;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  padding:10px;
+  border:0;
+  border-radius: 5px;  
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.12), 0
+}
+
+.form input[type=number]{
+  margin-right: 5px;
+}
+
+.form input[type=text]:focus, 
+.form input[type=number]:focus,
+.form select:focus{
+ border: none;
+ background: #ecebeb;
+}
+
+.form input[type=text]:hover, 
+.form input[type=number]:hover,
+.form select:focus{
+  background: #ecebeb;
+}
+
+/* Year, Price and Miles Styles */ 
+
+.min_max_wrapper{
+  display: flex;
+  justify-content:center;
+}
+
+.min_max_wrapper input{
+ width: 80%;
+}
+
+/* Media queries */ 
+
+@media (max-width: 576px) {
+  .active input {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    border-bottom: 0px;
+    margin-bottom: 1rem;
+    width: 80vw; 
+  }
+
+  .form {
+    display: none;
+  }
+
+  .active {
+    display: flex;
+    width: 80vw;
+    
+  }
+
+  .active input {
+    padding: 0.3rem;
+  }
+
+}
+
