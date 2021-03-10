@@ -12,13 +12,12 @@ function ContactForm ({submitForm}) {
 
     return (
         <div id={style.formContainer}>
-            <form id={style.form} onSubmit={handleSubmit}> 
-                <h1>Get in touch! Send us a message below:</h1>
+            <form id={style.contactForm} onSubmit={handleSubmit}> 
+                <h1 id={style.contactHeading}>Get in touch! Send us a message below:</h1>
                 <div id={style.formInputs}>
                     <label htmlFor="username" 
                     id={style.formLabel}>Name: 
                     </label>
-                    <br></br>
                     <input 
                         type="text" 
                         name="username" 
@@ -33,7 +32,6 @@ function ContactForm ({submitForm}) {
                     <label htmlFor="email" 
                     id={style.formLabel}>Email: 
                     </label>
-                    <br></br>
                     <input 
                         type="email" 
                         name="email" 
@@ -48,11 +46,10 @@ function ContactForm ({submitForm}) {
                     <label htmlFor="message" 
                     id={style.formLabel}>Message: 
                     </label>
-                    <br></br>
-                    <input 
+                    <textarea 
                         type="textarea" 
                         name="message" 
-                        id={style.formInput}
+                        id={style.formInputMessage}
                         placeholder="Enter your message"
                         value={values.message}
                         onChange={handleChange}
