@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Car from "./pages/Car";
 import ShopCartContextProvider from "./components/contexts/ShopCartContext";
 import CheckoutConfirmation from "./components/CheckoutConfirmation";
+import AboutPage from "./pages/AboutPage"
 export default function App() {
   return (
     <CarContextProvider>
@@ -18,6 +19,9 @@ export default function App() {
             <Switch>
               <Route exact path="/">
                 <Home />
+              </Route>
+              <Route exact path="/about">
+                <AboutPage />
               </Route>
               <Route exact path="/car/:vin">
                 <Car />
