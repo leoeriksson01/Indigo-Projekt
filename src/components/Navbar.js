@@ -4,6 +4,7 @@ import { ReactComponent as MenuIcon } from "../assets/menu.svg";
 import { ReactComponent as CloseMenuIcon } from "../assets/x.svg";
 import { ReactComponent as Cart } from "../assets/cart.svg";
 import { ReactComponent as Profile } from "../assets/profile.svg";
+import { ShopCartContext } from "./contexts/ShopCartContext";
 import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
@@ -11,6 +12,8 @@ import ShoppingCartList from "./ShoppingCartList";
 const Navbar = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
+
+  const { counter } = useContext(ShopCartContext);
 
   const handleMobileMenu = () => setMobileMenu(!mobileMenu);
 
@@ -79,13 +82,17 @@ const Navbar = () => {
           onMouseEnter={toggleShoppingCartEnter}
           onMouseLeave={toggleShoppingCartLeave}
         >
-          <Cart
-            className={style.cart_icon}
-            style={{
-              backgroundColor: hoverShoppingCart && "#353336",
-              borderRadius: hoverShoppingCart && "5px 5px 0 0",
-            }}
-          />
+          {" "}
+          <div className={style.cart_counter}>
+            <Cart
+              className={style.cart_icon}
+              style={{
+                backgroundColor: hoverShoppingCart && "#353336",
+                borderRadius: hoverShoppingCart && "5px 5px 0 0",
+              }}
+            />
+            <div className={style.counter}> {counter} </div>
+          </div>
           <div
             className={style.shopping_cart_wrapper}
             style={{
@@ -93,6 +100,7 @@ const Navbar = () => {
               borderRadius: hoverShoppingCart && "5px 0 0 0",
             }}
           >
+            {" "}
             <div className={style.shopping_cart_content}>
               {hoverShoppingCart ? (
                 <ShoppingCartList hover={hoverShoppingCart} />
