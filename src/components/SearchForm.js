@@ -9,8 +9,6 @@ const SearchForm = () => {
   //Car data
   const { cars, handleFilterChange } = useContext(CarContext);
 
-  console.log(cars);
-
   // Set and setState being initialized
   const [show, setShow] = useState(false); // In order to show form on tablet and mobile
 
