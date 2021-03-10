@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const ProductCard = () => {
   const { cars, products } = useContext(CarContext);
-  const { addToCart } = useContext(ShopCartContext);
+  const { addToCart, itemExists } = useContext(ShopCartContext);
   const [loadProducts, setLoadProducts] = useState(6);
 
   const handleButtonAdd = (car) => {
@@ -79,9 +79,11 @@ const ProductCard = () => {
             <div className={style.button_wrapper}>
               <button
                 onClick={() => handleButtonAdd(car)}
-                className={style.button_add}
+                className={`${style.button_add} ${
+                  itemExists(car) ? style.button_already_in_cart : ""
+                }`}
               >
-                Add to cart
+                {itemExists(car) ? "Already in cart" : "Add to cart"}
               </button>
               <NavLink className={style.a} exact to={`/car/${car.vin}`}>
                 Read more
