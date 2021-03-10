@@ -1,4 +1,4 @@
-a {
+.a {
   background-color: #2e856e;
   border-style: none;
   border-radius: 25px;
@@ -9,34 +9,30 @@ a {
   padding: 6px 12px;
 }
 
-a:hover {
+.a:hover {
   color: #fff;
   background-color: #2e856edc;
   border-color: #000;
   text-decoration: none;
 }
 
-h2 {
+.h2 {
   font-size: 1rem;
   font-weight: bold;
   margin: 0;
   padding-top: 0.5rem;
 }
 
-p {
-  color: #353336;
-}
-
-img {
+.img {
   border-radius: 1%;
   max-width: 100%;
 }
 
-button:hover {
+/* button:hover {
   color: #fff;
   background-color: #2e856edc;
   border-color: #000;
-}
+} */
 
 .button_add {
   background-color: #2e856e;
@@ -45,6 +41,12 @@ button:hover {
   color: white;
   cursor: pointer;
   padding: 6px 12px;
+}
+
+.button_add:hover {
+  color: #fff;
+  background-color: #2e856edc;
+  border-color: #000;
 }
 
 /* no longer in use */
@@ -63,7 +65,7 @@ button:hover {
   border-radius: 25px;
   color: white;
   cursor: pointer;
-  margin: 2rem 1.2rem 1rem;
+  margin: 0rem 1.2rem 1rem;
   padding: 0.5rem;
   text-transform: uppercase;
   width: 30%;
@@ -84,6 +86,7 @@ button:hover {
 }
 
 .card_description {
+  color: #353336;
   font-size: 0.8rem;
 }
 
@@ -93,10 +96,12 @@ button:hover {
 }
 
 .card_information {
+  color: #353336;
   font-size: 0.8rem;
 }
 
 .card_text_wrapper {
+  padding: 10px;
 }
 
 .information_category {
@@ -104,9 +109,8 @@ button:hover {
 }
 
 .product_card {
-  border: 1px solid black;
-  border-radius: 1%;
-  padding: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
+  background: white;
 }
 
 .product_card_wrapper {
@@ -115,6 +119,8 @@ button:hover {
   grid-template-rows: auto;
   grid-gap: 20px;
   justify-content: center;
+  margin-bottom: 2rem;
+  
 }
 
 .product_list_container {
@@ -124,6 +130,7 @@ button:hover {
 }
 
 .subheading {
+  color: #353336;
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 0.4rem;
@@ -136,6 +143,7 @@ button:hover {
     grid-template-rows: auto;
     grid-gap: 20px;
     justify-content: center;
+    margin-bottom: 2rem;
   }
 
   .button_load {
@@ -144,7 +152,7 @@ button:hover {
     border-radius: 25px;
     color: white;
     cursor: pointer;
-    margin: 2rem 0.6rem 1rem;
+    margin: 0rem 0.6rem 1rem;
     padding: 0.5rem;
     text-transform: uppercase;
     width: 100%;
@@ -152,7 +160,7 @@ button:hover {
 }
 
 @media (min-width: 577px) and (max-width: 768px) {
-  img {
+  .img {
     border-radius: 1%;
     height: 300px;
     max-width: 100%;
@@ -164,7 +172,7 @@ button:hover {
     border-radius: 25px;
     color: white;
     cursor: pointer;
-    margin: 2rem 0.6rem 1rem;
+    margin: 0rem 0.6rem 1rem;
     padding: 0.5rem;
     text-transform: uppercase;
     width: 40%;
@@ -192,6 +200,7 @@ button:hover {
     grid-template-rows: auto;
     grid-gap: 20px;
     justify-content: center;
+    margin-bottom: 2rem;
   }
 
   .product_card {

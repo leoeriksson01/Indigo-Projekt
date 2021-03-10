@@ -5,7 +5,7 @@ import { ShopCartContext } from "../components/contexts/ShopCartContext";
 import { NavLink } from "react-router-dom";
 
 const ProductCard = () => {
-  const { cars, products} = useContext(CarContext);
+  const { cars, products } = useContext(CarContext);
   const { addToCart } = useContext(ShopCartContext);
   const [loadProducts, setLoadProducts] = useState(6);
 
@@ -34,13 +34,14 @@ const ProductCard = () => {
         <div className={style.product_card} key={car.vin}>
           <div className={style.img_wrapper}>
             <img
+              className={style.img}
               src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
               alt="product"
             />
           </div>
           {/* /.img_wrapper */}
           <div className={style.card_text_wrapper}>
-            <h2>
+            <h2 className={style.h2}>
               {car.make} {car.model} {car.year}
             </h2>
             <p className={style.subheading}>
@@ -82,7 +83,7 @@ const ProductCard = () => {
               >
                 Add to cart
               </button>
-              <NavLink exact to={`/car/${car.vin}`}>
+              <NavLink className={style.a} exact to={`/car/${car.vin}`}>
                 Read more
               </NavLink>
             </div>
@@ -96,7 +97,7 @@ const ProductCard = () => {
   return (
     <div className={style.product_list_container}>
       <div className={style.product_card_wrapper}>{product}</div>
-      {loadProducts < cars.length ? loadButton : ""}
+      {loadProducts < products.length ? loadButton : ""}
     </div>
   );
 };
