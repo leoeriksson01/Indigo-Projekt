@@ -5,7 +5,7 @@ import { ShopCartContext } from "../components/contexts/ShopCartContext";
 import { NavLink } from "react-router-dom";
 
 const ProductCard = () => {
-  const { cars } = useContext(CarContext);
+  const { cars, products} = useContext(CarContext);
   const { addToCart } = useContext(ShopCartContext);
   const [loadProducts, setLoadProducts] = useState(6);
 
@@ -26,7 +26,7 @@ const ProductCard = () => {
     </div>
   );
 
-  const product = cars.map((car, index) => {
+  const product = products.map((car, index) => {
     if (index === loadProducts) {
       return;
     } else if (index < loadProducts) {

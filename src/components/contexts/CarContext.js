@@ -25,9 +25,138 @@ export default function CarContextProvider({ children }) {
         return cars.find(car => car[key] === value) ?? null;
     }
 
-    return (
-        <CarContext.Provider value={{ cars, find, findOne, remove }}>
-            {children}
-        </CarContext.Provider>
-    );
+  //--- FILTER ---
+  const [products, setProducts] = useState(cars);
+  const [search, setSearch]= useState("");
+  const [make, setMake] = useState('all');
+  
+  const [model, setModel] = useState("all");
+  const [fromYear, setFromYear] = useState("");
+  const [toYear, setToYear] = useState("");
+  const [minMiles, setMinMiles] = useState("");
+  const [maxMiles, setMaxMiles] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+
+  const handleFilterChange = (e, filterType) => {
+    //Change state
+    switch (filterType) {
+      case "search":
+        setSearch(e.target.value.trim());
+        break;
+      
+      case "make":
+        setMake(e.target.value);
+        console.log(e.target.value)
+        break;
+
+      case "model":
+        setModel(e.target.value);
+        break;
+
+      case "fromYear":
+        setFromYear(e.target.value);
+        break;
+
+      case "toYear":
+        setToYear(e.target.value);
+        break;
+
+      case "minPrice":
+        setMinPrice(e.target.value);
+        break;
+
+      case "maxPrice":
+        setMaxPrice(e.target.value);
+        break;
+
+        case "minMiles":
+          setMinMiles(e.target.value);
+          break;
+
+      case "maxMiles":
+        setMaxMiles(e.target.value);
+        break;
+
+      case "clear":
+          setProducts(cars);
+          break;
+
+      //Fortsätt med de andra filter typerna här
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    let filteredProducts = cars;
+
+    if (make === "all") {
+      filteredProducts = defaultCars;
+    } else{
+      filteredProducts = filteredProducts.filter((car) => car.make === make);
+    }
+
+    if (search !== "") {
+      filteredProducts = filteredProducts.filter((car) => 
+        car.model.toLowerCase().includes(search.toLowerCase()
+        ) || 
+        car.make.toLowerCase().includes(search.toLowerCase())
+      )
+    }
+    
+    if (model !== "all") {
+      filteredProducts = filteredProducts.filter((car) => car.model === model);
+    }
+
+    if (fromYear !== "") {
+      filteredProducts = filteredProducts.filter((car) => car.year >= fromYear);
+    }
+
+    if (toYear !== "") {
+      filteredProducts = filteredProducts.filter((car) => car.year < toYear);
+    }
+
+    if (minPrice !== "") {
+      filteredProducts = filteredProducts.filter(
+        (car) => car.price >= minPrice
+      );
+    }
+
+    if (maxPrice !== "") {
+      filteredProducts = filteredProducts.filter(
+        (car) => car.price <= maxPrice
+      );
+    }
+
+    if (minMiles !== "") {
+      filteredProducts = filteredProducts.filter(
+        (car) => car.miles >= minMiles
+      );
+    }
+
+    if (maxMiles !== "") {
+      filteredProducts = filteredProducts.filter(
+        (car) => car.miles <= maxMiles
+      );
+    }
+
+    //Fortsätt if med  filter typerna här
+    setProducts(filteredProducts);
+  }, [search, make, model, fromYear, toYear, minPrice, maxPrice, minMiles, maxMiles, cars]);
+
+  return (
+    <CarContext.Provider
+      value={{
+        cars,
+        find,
+        findOne,
+        remove,
+        handleFilterChange,
+        products,
+      }}
+    >
+      {children}
+    </CarContext.Provider>
+  );
 }
