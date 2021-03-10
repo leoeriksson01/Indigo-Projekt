@@ -102,6 +102,7 @@ const Description = styled.p`
 `;
 
 const DescriptionMobile = styled(Description)`
+    display: none;
     @media (max-width: 1200px) {
         display: block;
     }
