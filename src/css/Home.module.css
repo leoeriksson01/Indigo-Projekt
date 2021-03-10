@@ -12,12 +12,13 @@
 }
 
 #search_field_container {
+  background:#F7F7F7;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   width: 23%;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: 60vh;
+  height: 75vh;
   /*
   display: inline-block;
   width: 33%;

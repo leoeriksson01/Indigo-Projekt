@@ -29,6 +29,7 @@ export default function CarContextProvider({ children }) {
   const [products, setProducts] = useState(cars);
   const [search, setSearch]= useState("");
   const [make, setMake] = useState('all');
+  
   const [model, setModel] = useState("all");
   const [fromYear, setFromYear] = useState("");
   const [toYear, setToYear] = useState("");
@@ -77,6 +78,10 @@ export default function CarContextProvider({ children }) {
         setMaxMiles(e.target.value);
         break;
 
+      case "clear":
+          setProducts(cars);
+          break;
+
       //Fortsätt med de andra filter typerna här
       default:
         break;
@@ -101,7 +106,7 @@ export default function CarContextProvider({ children }) {
     }
     
     if (model !== "all") {
-      filteredProducts = filteredProducts.filter((car) => car.model === model && make);
+      filteredProducts = filteredProducts.filter((car) => car.model === model);
     }
 
     if (fromYear !== "") {

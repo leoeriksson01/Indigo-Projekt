@@ -2,13 +2,12 @@ import React, { useState, useContext, useEffect } from "react";
 import { CarContext } from "../components/contexts/CarContext";
 import styles from "../css/SearchForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import filterIcon from "../assets/filter.svg";
 
 const SearchForm = () => {
   //Car data
-  const { cars, handleFilterChange } = useContext(
-    CarContext
-  );
+  const { cars, handleFilterChange } = useContext(CarContext);
 
   // Set and setState being initialized
   const [show, setShow] = useState(false); // In order to show form on tablet and mobile
@@ -22,46 +21,59 @@ const SearchForm = () => {
   const activeClass = show ? styles.active : "";
 
   return (
-    <div>
+    <div className={styles.search_form_wrapper}>
       <div className={styles.heading} onClick={handleShow}>
-        <div className={styles.filter}>
+        <div>
           <p>Filter</p>
-          <FontAwesomeIcon className={styles.filter_icon} icon={faFilter} />
+        </div>
+        <div>
+          <img src={filterIcon} alt="filter" />
         </div>
       </div>
 
-      <form className={`${activeClass}`}>
-      <input
-        type="text"
-        placeholder="Search Cars"
-        onChange={(e) => handleFilterChange(e, "search")}
-      />
+      <form className={`${activeClass} ${styles.form}`}>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => handleFilterChange(e, "search")}
+        />
 
+        {/* Make */}
         <label htmlFor="make">Make</label>
-        <select className={styles.make} name="make" onChange={(e) => handleFilterChange(e, "make")}>
-          <option key={cars} value={'all'}>All</option>
-          {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
-            return (
-              <option key={make} value={make}>
-                {make}
-              </option>
-            );
-          })}
-        </select>
+        <div className={styles.select_wrapper}>
+          <select name="make" onChange={(e) => handleFilterChange(e, "make")}>
+            <option key={cars} value={"all"}>
+              All
+            </option>
+            {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
+              return (
+                <option key={make} value={make}>
+                  {make}
+                </option>
+              );
+            })}
+          </select>
+        </div>
 
+        {/* Model */}
         <label htmlFor="model">Model</label>
-        <select className={styles.model} name="model" onChange={(e) => handleFilterChange(e, "model")}>
-          <option value="all">All</option>
-          {Array.from(new Set(cars.map((obj) => obj.model))).map((model) => {
-            return (
-              <option key={model} value={model}>
-                {model}
-              </option>
-            );
-          })}
-        </select>
+        <div className={styles.select_wrapper}>
+          <select name="model" onChange={(e) => handleFilterChange(e, "model")}>
+            <option value="all">All</option>
+            {Array.from(new Set(cars.map((obj) => obj.model))).map((model) => {
+              return (
+                <option key={model} value={model}>
+                  {model}
+                </option>
+              );
+            })}
+          </select>
+        </div>
 
-        <label htmlFor="year">Year</label>
+        {/* Year */}
+        <label className={styles.form_label} htmlFor="year">
+          Year
+        </label>
         <div className={styles.min_max_wrapper}>
           <input
             name="year"
@@ -77,6 +89,7 @@ const SearchForm = () => {
           />
         </div>
 
+        {/* Price */}
         <label htmlFor="price">Price</label>
         <div className={styles.min_max_wrapper}>
           <input
@@ -93,7 +106,8 @@ const SearchForm = () => {
           />
         </div>
         
-        <label htmlFor="miles">Miles</label>
+        {/* Miles */}
+        <label htmlFor="Miles">Miles</label>
         <div className={styles.min_max_wrapper}>
           <input
             name="miles"
@@ -108,6 +122,7 @@ const SearchForm = () => {
             placeholder="10 000"
           />
         </div>
+        {/**/}
       </form>
     </div>
   );
