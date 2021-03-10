@@ -143,7 +143,7 @@ export default function CarContextProvider({ children }) {
 
     //Fortsätt if med  filter typerna här
     setProducts(filteredProducts);
-  }, [search, make, model, fromYear, toYear, minPrice, maxPrice, minMiles, maxMiles]);
+  }, [search, make, model, fromYear, toYear, minPrice, maxPrice, minMiles, maxMiles, cars]);
 
   return (
     <CarContext.Provider

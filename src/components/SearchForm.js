@@ -9,6 +9,8 @@ const SearchForm = () => {
   //Car data
   const { cars, handleFilterChange } = useContext(CarContext);
 
+  console.log(cars);
+
   // Set and setState being initialized
   const [show, setShow] = useState(false); // In order to show form on tablet and mobile
 
@@ -19,6 +21,10 @@ const SearchForm = () => {
 
   // Add class active in order to show form on toggle
   const activeClass = show ? styles.active : "";
+
+  function getAllCarOptions(property = 'make') {
+    return [...new Set(cars.map(car => car[property]))].sort();
+  }
 
   return (
     <div className={styles.search_form_wrapper}>
@@ -45,9 +51,9 @@ const SearchForm = () => {
             <option key={cars} value={"all"}>
               All
             </option>
-            {Array.from(new Set(cars.map((obj) => obj.make))).map((make) => {
+            {getAllCarOptions('make').map((make, i) => {
               return (
-                <option key={make} value={make}>
+                <option key={i} value={make}>
                   {make}
                 </option>
               );
@@ -60,9 +66,9 @@ const SearchForm = () => {
         <div className={styles.select_wrapper}>
           <select name="model" onChange={(e) => handleFilterChange(e, "model")}>
             <option value="all">All</option>
-            {Array.from(new Set(cars.map((obj) => obj.model))).map((model) => {
+            {getAllCarOptions('model').map((model, i) => {
               return (
-                <option key={model} value={model}>
+                <option key={i} value={model}>
                   {model}
                 </option>
               );
