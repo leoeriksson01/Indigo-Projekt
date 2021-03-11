@@ -12,14 +12,14 @@ const SearchForm = () => {
 
 	// Toggle true/false to be able to show form on tablet and mobile
 	const handleShow = () => {
-		setShow((show) => !show);
+		setShow(show => !show);
 	};
 
 	// Add class active in order to show form on toggle
 	const activeClass = show ? styles.active : "";
 
 	function getAllCarOptions(property = "make") {
-		return [...new Set(cars.map((car) => car[property]))].sort();
+		return [...new Set(cars.map(car => car[property]))].sort();
 	}
 
 	return (
@@ -33,17 +33,20 @@ const SearchForm = () => {
 				</div>
 			</div>
 
-			<form className={`${activeClass} ${styles.form}`}>
+			<form
+				onReset={e => handleFilterChange(e, "clear")}
+				className={`${activeClass} ${styles.form}`}
+			>
 				<input
 					type="text"
 					placeholder="Search..."
-					onChange={(e) => handleFilterChange(e, "search")}
+					onChange={e => handleFilterChange(e, "search")}
 				/>
 
 				{/* Make */}
 				<label htmlFor="make">Make</label>
 				<div className={styles.select_wrapper}>
-					<select onChange={(e) => handleFilterChange(e, "make")}>
+					<select onChange={e => handleFilterChange(e, "make")}>
 						<option value="all">All</option>
 						{getAllCarOptions("make").map((make, i) => (
 							<option key={i} value={make}>
@@ -56,7 +59,7 @@ const SearchForm = () => {
 				{/* Model */}
 				<label htmlFor="model">Model</label>
 				<div className={styles.select_wrapper}>
-					<select onChange={(e) => handleFilterChange(e, "model")}>
+					<select onChange={e => handleFilterChange(e, "model")}>
 						<option value="all">All</option>
 						{getAllCarOptions("model").map((model, i) => (
 							<option key={i} value={model}>
@@ -73,12 +76,12 @@ const SearchForm = () => {
 				<div className={styles.min_max_wrapper}>
 					<input
 						type="number"
-						onChange={(e) => handleFilterChange(e, "fromYear")}
+						onChange={e => handleFilterChange(e, "fromYear")}
 						placeholder="1970"
 					/>
 					<input
 						type="number"
-						onChange={(e) => handleFilterChange(e, "toYear")}
+						onChange={e => handleFilterChange(e, "toYear")}
 						placeholder="2021"
 					/>
 				</div>
@@ -88,12 +91,12 @@ const SearchForm = () => {
 				<div className={styles.min_max_wrapper}>
 					<input
 						type="number"
-						onChange={(e) => handleFilterChange(e, "minPrice")}
+						onChange={e => handleFilterChange(e, "minPrice")}
 						placeholder="0"
 					/>
 					<input
 						type="number"
-						onChange={(e) => handleFilterChange(e, "maxPrice")}
+						onChange={e => handleFilterChange(e, "maxPrice")}
 						placeholder="156 000"
 					/>
 				</div>
@@ -103,15 +106,18 @@ const SearchForm = () => {
 				<div className={styles.min_max_wrapper}>
 					<input
 						type="number"
-						onChange={(e) => handleFilterChange(e, "minMiles")}
+						onChange={e => handleFilterChange(e, "minMiles")}
 						placeholder="0"
 					/>
 					<input
 						type="number"
-						onChange={(e) => handleFilterChange(e, "maxMiles")}
+						onChange={e => handleFilterChange(e, "maxMiles")}
 						placeholder="10 000"
 					/>
 				</div>
+				<button type="reset" className={styles.clear_btn}>
+					Clear
+				</button>
 			</form>
 		</div>
 	);
