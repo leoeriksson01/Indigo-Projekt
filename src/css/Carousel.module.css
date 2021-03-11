@@ -33,7 +33,7 @@
 
 #sliderImage{
     object-fit: cover;
-    width: 250px;
+    width: 300px;
     height: 250px;
     border-radius: 15px 15px 0 0;
     grid-row-start: 1;
