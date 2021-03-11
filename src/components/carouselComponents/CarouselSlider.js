@@ -29,7 +29,7 @@ return (
   <div id={style.slider}>
     <h1 id={style.campaignHeader}>Cars on <span id={style.saleColor}>sale!</span></h1>
       <div id={style.mainContainer}>  
-      <div id={style.circleLeft} onClick={prevSlide}>
+        <div id={style.circleLeft} onClick={prevSlide}>
           <i id={style.arrowLeft}></i>
         </div>  
         {slides.map((slide, index) => {
@@ -44,7 +44,7 @@ return (
                       alt="product"
                     />
                     <div id={style.campaignPercent}>
-                      <p>10% sale!</p>
+                      <p>15% sale!</p>
                     </div>
                   </div>
                   <div id={style.sliderProductInfo}>
@@ -53,9 +53,9 @@ return (
                       <br></br>
                       <span id={style.boldText}>Special price: </span> {slide.price} :-
                     </div>
-                   {/* Tog bort knappen tills vidare
-                   
-                   <button id={style.btnReadMore}>Read more &raquo;</button>*/}
+                    <NavLink id={style.btnReadMore} exact to={`/car/${slide.vin}`}>
+                      Read more
+                    </NavLink>
                   </div>
                 </div>
               )}
