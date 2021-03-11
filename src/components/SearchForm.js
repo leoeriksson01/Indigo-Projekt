@@ -44,9 +44,7 @@ const SearchForm = () => {
 				<label htmlFor="make">Make</label>
 				<div className={styles.select_wrapper}>
 					<select onChange={(e) => handleFilterChange(e, "make")}>
-						<option key={cars} value="all">
-							All
-						</option>
+						<option value="all">All</option>
 						{getAllCarOptions("make").map((make, i) => {
 							return (
 								<option key={i} value={make}>
