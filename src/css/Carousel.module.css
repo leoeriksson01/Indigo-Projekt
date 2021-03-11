@@ -144,6 +144,12 @@
         max-height:450px;
     }
 
+    #sliderProductInfo{
+
+        max-width: none;
+
+    }
+
     #campaignPercent{
         height: 15%;
 
