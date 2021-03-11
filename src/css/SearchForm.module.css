@@ -5,7 +5,7 @@
 	display: flex;
 	justify-content: flex-start;
 	border-bottom: 0.5px solid #cecece;
-	margin-bottom: 2rem;
+	margin-bottom: 1rem;
 }
 
 .heading p {
@@ -30,7 +30,7 @@
 /* Label Styles */
 .form label {
 	font-size: 0.8rem;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 /* Select Styles */
@@ -38,8 +38,8 @@
 	position: relative;
 	background: white;
 	height: 40px;
-	margin-bottom: 0.3rem;
-	border-radius: 5px;
+	margin-bottom: 0.5rem;
+	border-radius: 15px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -67,7 +67,7 @@
 	background: #d1d1cf;
 	content: "";
 	pointer-events: none;
-	border-radius: 5px;
+	border-radius: 0px 15px 15px 0px;
 }
 
 .select_wrapper select {
@@ -93,15 +93,15 @@
 	background: white;
 	color: #767674;
 	width: 100%;
-	height: 45px;
-	margin-bottom: 0.3rem;
+	height: 40px;
+	margin-bottom: 0.5rem;
 	box-sizing: border-box;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	outline: none;
-	padding: 10px;
+	padding: 6px 12px;
 	border: 0;
-	border-radius: 5px;
+	border-radius: 15px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -131,6 +131,16 @@
 
 .min_max_wrapper input {
 	width: 80%;
+}
+
+.clear_btn{
+    background-color: #2e856e;
+    border-style: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-top: 0.5rem; 
 }
 
 /* Media queries */

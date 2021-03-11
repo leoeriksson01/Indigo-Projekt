@@ -79,7 +79,7 @@ export default function CarContextProvider({ children }) {
 				break;
 
 			case "clear":
-				setProducts(cars);
+				setProducts(cars)
 				break;
 
 			//Fortsätt med de andra filter typerna här

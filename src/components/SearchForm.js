@@ -112,6 +112,7 @@ const SearchForm = () => {
 						placeholder="10 000"
 					/>
 				</div>
+				<button onChange={(e) => handleFilterChange(e, "clear")} className={styles.clear_btn}>Clear</button>
 			</form>
 		</div>
 	);
