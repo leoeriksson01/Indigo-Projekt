@@ -43,11 +43,8 @@ const SearchForm = () => {
 				{/* Make */}
 				<label htmlFor="make">Make</label>
 				<div className={styles.select_wrapper}>
-					<select
-						name="make"
-						onChange={(e) => handleFilterChange(e, "make")}
-					>
-						<option key={cars} value={"all"}>
+					<select onChange={(e) => handleFilterChange(e, "make")}>
+						<option key={cars} value="all">
 							All
 						</option>
 						{getAllCarOptions("make").map((make, i) => {
@@ -63,10 +60,7 @@ const SearchForm = () => {
 				{/* Model */}
 				<label htmlFor="model">Model</label>
 				<div className={styles.select_wrapper}>
-					<select
-						name="model"
-						onChange={(e) => handleFilterChange(e, "model")}
-					>
+					<select onChange={(e) => handleFilterChange(e, "model")}>
 						<option value="all">All</option>
 						{getAllCarOptions("model").map((model, i) => {
 							return (
@@ -84,13 +78,11 @@ const SearchForm = () => {
 				</label>
 				<div className={styles.min_max_wrapper}>
 					<input
-						name="year"
 						type="number"
 						onChange={(e) => handleFilterChange(e, "fromYear")}
 						placeholder="1970"
 					/>
 					<input
-						name="year"
 						type="number"
 						onChange={(e) => handleFilterChange(e, "toYear")}
 						placeholder="2021"
@@ -101,13 +93,11 @@ const SearchForm = () => {
 				<label htmlFor="price">Price</label>
 				<div className={styles.min_max_wrapper}>
 					<input
-						name="price"
 						type="number"
 						onChange={(e) => handleFilterChange(e, "minPrice")}
 						placeholder="0"
 					/>
 					<input
-						name="price"
 						type="number"
 						onChange={(e) => handleFilterChange(e, "maxPrice")}
 						placeholder="156 000"
@@ -118,13 +108,11 @@ const SearchForm = () => {
 				<label htmlFor="Miles">Miles</label>
 				<div className={styles.min_max_wrapper}>
 					<input
-						name="miles"
 						type="number"
 						onChange={(e) => handleFilterChange(e, "minMiles")}
 						placeholder="0"
 					/>
 					<input
-						name="miles"
 						type="number"
 						onChange={(e) => handleFilterChange(e, "maxMiles")}
 						placeholder="10 000"
