@@ -1,5 +1,10 @@
 
+.search_form_wrapper{
+  height: 80vh;
+}
+
 /* Filter heading*/ 
+
 .heading {
   display: flex;
   justify-content: flex-start; 
@@ -24,6 +29,7 @@ width: 20px;
   display: flex;
   flex-direction: column;
   background: #F7F7F7;
+
 }
 
 /* Label Styles */ 
