@@ -2,14 +2,14 @@ import style from "../css/Home.module.css";
 import ProductListing from "../components/ProductListing";
 import Form from "../components/SearchForm";
 import Carousel from "../components/carouselComponents/CarouselSlider";
-import SliderData from "../components/carouselComponents/PlaceholderImages.js";
+import array from "../json/cars.json";
 
 const Home = () => {
   return (
     // <p>Home</p>
   <div>
     <div id={style.carouselContainer}>
-      <Carousel slides={SliderData} />
+        <Carousel cars={array} />
     </div>
     <div className={style.wrapper}>
       <div id={style.search_field_container}>
