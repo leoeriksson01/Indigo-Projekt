@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import style from "../../css/Carousel.module.css";
+import { NavLink } from "react-router-dom";
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
@@ -47,10 +48,14 @@ return (
                     </div>
                   </div>
                   <div id={style.sliderProductInfo}>
-                    Car model: {slide.make} {slide.model}
-                    <br></br>
-                    Special price: {slide.price} :-
-                    <button id={style.btnReadMore}>Read more &raquo;</button>
+                    <div>
+                      <span id={style.boldText}>Car model: </span>{slide.make} {slide.model}
+                      <br></br>
+                      <span id={style.boldText}>Special price: </span> {slide.price} :-
+                    </div>
+                   {/* Tog bort knappen tills vidare
+                   
+                   <button id={style.btnReadMore}>Read more &raquo;</button>*/}
                   </div>
                 </div>
               )}
