@@ -45,13 +45,11 @@ const SearchForm = () => {
 				<div className={styles.select_wrapper}>
 					<select onChange={(e) => handleFilterChange(e, "make")}>
 						<option value="all">All</option>
-						{getAllCarOptions("make").map((make, i) => {
-							return (
-								<option key={i} value={make}>
-									{make}
-								</option>
-							);
-						})}
+						{getAllCarOptions("make").map((make, i) => (
+							<option key={i} value={make}>
+								{make}
+							</option>
+						))}
 					</select>
 				</div>
 
@@ -60,13 +58,11 @@ const SearchForm = () => {
 				<div className={styles.select_wrapper}>
 					<select onChange={(e) => handleFilterChange(e, "model")}>
 						<option value="all">All</option>
-						{getAllCarOptions("model").map((model, i) => {
-							return (
-								<option key={i} value={model}>
-									{model}
-								</option>
-							);
-						})}
+						{getAllCarOptions("model").map((model, i) => (
+							<option key={i} value={model}>
+								{model}
+							</option>
+						))}
 					</select>
 				</div>
 
@@ -116,7 +112,6 @@ const SearchForm = () => {
 						placeholder="10 000"
 					/>
 				</div>
-				{/**/}
 			</form>
 		</div>
 	);
