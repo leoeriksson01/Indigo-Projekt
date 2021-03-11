@@ -26,6 +26,7 @@
 .img {
   border-radius: 1%;
   max-width: 100%;
+  width: 100%;
 }
 
 /* button:hover {
@@ -47,6 +48,12 @@
   color: #fff;
   background-color: #2e856edc;
   border-color: #000;
+}
+
+.button_already_in_cart {
+  color: #fff;
+  background-color: #2e856edc;
+  opacity: 0.7;
 }
 
 /* no longer in use */
@@ -120,7 +127,6 @@
   grid-gap: 20px;
   justify-content: center;
   margin-bottom: 2rem;
-  
 }
 
 .product_list_container {
