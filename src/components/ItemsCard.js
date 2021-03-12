@@ -8,8 +8,10 @@ const ItemsCard = () => {
   const { totalPrice } = useContext(ShopCartContext);
   return (
     <div>
-      <div className={style.itemsCard}>
+      <div className={style.cartSummary}>
         <h3>Cart Summary</h3>
+      </div>
+      <div className={style.itemsCard}>
         <SelectedItems />
       </div>
       <div className={style.totalPriceText}>
