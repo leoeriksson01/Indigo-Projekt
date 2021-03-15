@@ -1,179 +1,257 @@
-/*Desktop View*/
 .a {
-  text-decoration: none;
-  color: white;
-  font-size: 1.8em;
-  font-weight: 500;
-  text-transform: uppercase;
+	color: #fff;
+	font-size: 2.1rem;
+	text-decoration: none;
 }
 
-.img {
-  height: 40px;
-  width: 40px;
+.a:hover {
+	background-color: #2e856edc;
+	border-color: #000;
+	color: #e4c46a;
+	text-decoration: none;
 }
-.header {
-  display: flex;
-  background: #2e856e;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 40px;
-  height: 80px;
+
+.a_title {
 }
-.logo_nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+
+.a_title:hover {
+	text-decoration: none;
 }
-.logo_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+.ul {
+	display: grid;
+	grid-auto-flow: column;
+	justify-content: space-between;
 }
+
+.li {
+	list-style: none;
+	text-decoration: none;
+}
+
+.h1 {
+	font-size: 2.6em;
+	margin-left: 20px;
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	color: #e4c46a;
+	margin-bottom: 6px;
+}
+
+.h1:hover {
+	text-decoration: none;
+}
+
+.navbar_container {
+	background: #2e856e;
+	display: grid;
+	grid-template-areas: "logo_title nav_router . . . . . . . icons_wrapper";
+	height: 80px;
+}
+
+/*Logo & Company Title */
+
+.logo_company_title_wrapper {
+	align-items: center;
+	display: flex;
+	grid-area: logo_title;
+	padding-left: 30px;
+}
+
+.logo_img {
+	height: 60px;
+	width: 60px;
+}
+
+.company_title {
+	padding-left: 6px;
+}
+
+/* Nav Router Links */
+
+.nav_router_menu {
+	align-items: center;
+	display: grid;
+	grid-area: nav_router;
+	padding-top: 10px;
+}
+
+.cart_counter {
+	display: flex;
+}
+.counter {
+	position: relative;
+	bottom: 3px;
+	right: 20px;
+	color: white;
+	border-radius: 20px;
+	font-weight: bolder;
+	font-size: 1.1rem;
+	height: 20px;
+	width: 25px;
+	background: #e4c46a;
+	text-align: center;
+}
+
+/* Refactored code to ---> ul */
+
+/* Icons */
+.icons_wrapper {
+	align-items: center;
+	display: flex;
+	grid-area: icons_wrapper;
+	justify-content: space-around;
+	padding-bottom: 6px;
+}
+
+/* Mobile menu */
+.mobile_menu {
+	display: none;
+}
+
+/* Shopping Cart */
 
 .cart_container {
-  position: absolute;
-  right: 10vw;
-  top: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
+	position: relative;
 }
 
-.cartList {
-  width: 300px;
-  overflow-y: scroll;
-  background: #353336;
-  min-height: 70px;
-  margin-top: 15px;
-  max-height: 400px;
-  margin-bottom: 40px;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+.cart_icon {
+	cursor: pointer;
+	height: 40px;
+	width: 40px;
 }
 
-.cartList::-webkit-scrollbar {
-  display: none;
+.shopping_cart_wrapper {
+	background-color: #2e856e;
+	padding-top: 21px;
+	position: absolute;
+	right: 0;
+	z-index: 1;
+	width: 250px;
 }
 
-.logo {
-  width: 45px;
-  height: 45px;
+.shopping_cart_content {
+	background-color: #353336;
 }
 
-.cart {
-  width: 50px;
-  height: 50px;
-  color: white;
+.shopping_cart_content_wrapper {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
 
-.nav_options {
-  padding-left: 25px;
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-gap: 50px;
-  list-style-type: none;
-}
-.mobile-option {
-  display: none;
+/* Profile icon */
+.profile_icon {
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
 }
 
-.option :hover {
-  color: white;
-}
+/* End of Icons_wrapper */
 
-.mobile-menu {
-  display: none;
-}
-.hidden {
-  display: none;
-}
+/**
+ * Media queries
+ */
 
-.cartList a {
-  background: #2e856e;
-  width: 100%;
-  text-align: center;
-  font-size: 1em;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-  padding: 10px;
-}
-.totalprice {
-  text-align: center;
-  color: white;
-  align-items: center;
-  justify-content: center;
-}
+/* Small devices */
+@media (max-width: 576px) {
+	.a:hover {
+		background-color: #343e3e;
+	}
 
-@media (max-width: 648px) {
-  /*Mobile View */
-  .header {
-    padding: 0px 10px;
-  }
-  .logo {
-    width: 45px;
-    height: 45px;
-  }
-  .nav_options {
-    display: flex;
-    width: 100%;
-    height: 120px;
-    position: absolute;
-    top: 80px;
-    left: -100%;
-    opacity: 0;
-    transition: all 0.5s ease;
-    flex-direction: column;
-    list-style-type: none;
-    grid-gap: 0px;
-  }
-  .nav_options.active {
-    background: #9899d1;
-    left: 0;
-    opacity: 1;
-    transition: all 0.5s ease;
-    z-index: 1;
-    align-content: center;
-    padding-left: 0px;
-  }
+	.li {
+		display: grid;
+		justify-content: center;
+	}
 
-  .menu_icon {
-    width: 45px;
-    height: 45px;
-    padding-left: 5px;
-  }
-  .option {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vw;
-    padding: 30px 0px;
-  }
-  .sign_up {
-    background: rgb(222, 9, 241);
-    border-radius: 3px;
-    color: white;
-    padding: 20px 0px;
-    width: 80%;
-    align-self: center;
-    border-radius: 3px;
-  }
+	.li:hover {
+		background-color: #000;
+	}
 
-  .signin_up {
-    display: none;
-  }
-  .cart_container {
-    position: absolute;
-    right: 10vw;
-  }
-  .cartList {
-    width: 250px;
-  }
-}
-.mobile_menu {
-  display: block;
+	.ul {
+		background: #353336dc;
+		display: grid;
+		grid-auto-flow: row;
+		justify-content: center;
+		padding: 0;
+		margin-bottom: 0;
+	}
+
+	.h1 {
+		display: none;
+	}
+
+	.navbar_container {
+		background: #2e856e;
+		display: grid;
+		grid-template-areas:
+			"logo_title icons_wrapper"
+			"nav_router nav_router";
+		height: auto;
+		padding-top: 10px;
+	}
+
+	.logo_company_title_wrapper {
+		align-items: center;
+		display: inline-flex;
+		grid-area: logo_title;
+	}
+
+	.logo_img {
+		height: 60px;
+		width: 60px;
+	}
+
+	.mobile_menu {
+		display: grid;
+	}
+
+	.mobile_menu_icon {
+		cursor: pointer;
+		color: white;
+		height: 32px;
+		width: 32px;
+	}
+
+	.nav_router_menu_mobile_active {
+		background: #9c5a9cda;
+	}
+
+	.nav_router_menu {
+		display: grid;
+		grid-area: nav_router;
+		padding: 0;
+	}
+
+	.nav_router_ul_none {
+		display: none;
+	}
+
+	/* Icons */
+	.icons_wrapper {
+		align-items: center;
+		display: flex;
+		grid-area: icons_wrapper;
+		justify-content: space-around;
+		padding-bottom: 6px;
+	}
+
+	.cart_icon {
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+	}
+
+	.shopping_cart_wrapper {
+		background-color: transparent;
+		padding-top: 10px;
+		position: absolute;
+		right: 0;
+		width: 250px;
+	}
+
+	.profile_icon {
+		cursor: pointer;
+		height: 30px;
+		width: 30px;
+	}
 }
