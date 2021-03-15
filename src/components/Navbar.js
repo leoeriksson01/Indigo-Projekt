@@ -143,7 +143,7 @@ const Navbar = () => {
 						}`}
 						style={{
 							backgroundColor: hoverShoppingCart && "#353336",
-							borderRadius: hoverShoppingCart && "5px 0 0 0",
+							borderRadius: hoverShoppingCart && "5px 5px 0 0",
 						}}
 					>
 						<div className={style.shopping_cart_content}>
