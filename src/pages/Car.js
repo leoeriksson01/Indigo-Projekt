@@ -128,7 +128,6 @@ const Buy = styled.button`
 		opacity: 0.5;
 	}
 	@media (max-width: 1200px) {
-		padding: 15px;
 		font-size: 1.5rem;
 	}
 `;
