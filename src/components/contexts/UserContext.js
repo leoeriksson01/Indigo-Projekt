@@ -1,8 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 
-export const ShopCartContext = createContext();
+export const UserContext = createContext();
 
-export default function ShopCartContextProvider({ children }) {
+export default function UserContextProvider({ children }) {
 	const [user, setUser] = useState();
 
 	useEffect(() => {
@@ -18,8 +18,8 @@ export default function ShopCartContextProvider({ children }) {
 	}
 
 	return (
-		<ShopCartContext.Provider value={{ isLoggedIn, user, setUser }}>
+		<UserContext.Provider value={{ isLoggedIn, user, setUser }}>
 			{children}
-		</ShopCartContext.Provider>
+		</UserContext.Provider>
 	);
 }
