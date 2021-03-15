@@ -36,8 +36,3 @@ const SelectedItems = () => {
 }
 
 export default SelectedItems;
-
-// Loopa ut en bil för varje div. 
-// lägg till ta bort logiken här. 
-// map på hela selecteditems som i ShoppingCartCard.js
-// importera shoppingCart och removeProduct  från context. 
