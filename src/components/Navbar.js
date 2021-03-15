@@ -73,8 +73,11 @@ const Navbar = () => {
 
 			<div className={style.icons_wrapper}>
 				<div className={style.profile_container}>
-					<img src={Profile} alt="profile" className={style.profile_icon} />
+					<div className={style.profile_menu}>
+						<img src={Profile} alt="profile" className={style.profile_icon} />
+					</div>
 				</div>
+				{/* /.profile_container */}
 
 				<div
 					className={style.cart_container}
