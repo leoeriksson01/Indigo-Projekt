@@ -151,6 +151,11 @@
 }
 
 .profile_icon_wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
 }
 
 .profile_container {
