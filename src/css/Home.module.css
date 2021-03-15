@@ -10,8 +10,8 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: 70vh;
-  padding: 40px 30px;
+  height: 90vh;
+  padding: 30px 20px 0px 20px;
   width: 23%;
   margin-bottom: 100px; 
 }
