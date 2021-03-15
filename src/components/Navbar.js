@@ -11,6 +11,8 @@ import ShoppingCartList from "./ShoppingCartList";
 import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
+	const [profileMenu, setProfileMenu] = useState(false);
+
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
 
@@ -34,6 +36,10 @@ const Navbar = () => {
 			setHoverShoppingCart(!hoverShoppingCart);
 			console.log(hoverShoppingCart);
 		}
+	};
+
+	const toggleProfileMenu = () => {
+		setProfileMenu(!profileMenu);
 	};
 
 	return (
@@ -73,14 +79,14 @@ const Navbar = () => {
 			{/* ./nav_router_container */}
 
 			<div className={style.icons_wrapper}>
-				<div className={style.profile_container}>
+				<div className={style.profile_container} onClick={toggleProfileMenu}>
 					<div className={style.profile_icon_wrapper}>
 						<img src={Profile} alt="profile" className={style.profile_icon} />
 					</div>
 					{/* /.profile_icon_wrapper */}
 
 					<div className={style.profile_menu_wrapper}>
-						<ProfileMenu />
+						{profileMenu ? <ProfileMenu /> : ""}
 					</div>
 					{/* /.profile_menu_wrapper */}
 				</div>
