@@ -8,6 +8,7 @@ import { ShopCartContext } from "./contexts/ShopCartContext";
 import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
+import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
 	const [mobileMenu, setMobileMenu] = useState(false);
@@ -73,9 +74,15 @@ const Navbar = () => {
 
 			<div className={style.icons_wrapper}>
 				<div className={style.profile_container}>
-					<div className={style.profile_menu}>
+					<div className={style.profile_icon_wrapper}>
 						<img src={Profile} alt="profile" className={style.profile_icon} />
 					</div>
+					{/* /.profile_icon_wrapper */}
+
+					<div className={style.profile_menu_wrapper}>
+						<ProfileMenu />
+					</div>
+					{/* /.profile_menu_wrapper */}
 				</div>
 				{/* /.profile_container */}
 
