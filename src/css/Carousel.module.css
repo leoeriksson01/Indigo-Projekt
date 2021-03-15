@@ -1,0 +1,220 @@
+#slider{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#campaignHeader{
+    margin: 1rem;
+    color: #2E856E;
+    font-weight: bold;
+    font-size: 1.7rem;
+}
+
+#saleColor{
+    color: red;
+}
+
+#mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 97%;
+ 
+}
+
+#sliderContent{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 15px;
+    background-color: white;
+    width: 230px;
+    height: 250px;
+    overflow: hidden;
+}
+
+
+#imageContainer{
+    display: grid;
+}
+
+#sliderImage{
+    object-fit: cover;
+    width:100%;
+    max-height: 153px;
+    border-radius: 15px 15px 0 0;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+#campaignPercent{
+    background-color: red;
+    opacity: 0.87;
+    padding: 0.5rem;
+    width: 90px;
+    height: 45px;
+    margin-top: 1.4rem;
+    border-radius: 0 10px 10px 0;
+    grid-area: 1 / 1 / 4 / 2;
+}
+
+#campaignPercent p{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0.15rem;
+}
+
+#sliderProductInfo{
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    font-size: 0.65rem;
+    border-radius: 0 0 15px 15px;
+    color: #353336;
+}
+
+
+#boldText{
+    font-weight: bold;
+}
+
+
+#btnReadMore{
+    font-size: 0.8rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 75px;
+    height: 30px;
+    padding: 6px;
+    margin-top: 0.5rem;
+    border-radius: 25px;
+    background-color: #2e856e;
+    border-style: none;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#btnReadMore:hover {
+    color: #fff;
+    background-color: #2e856edc;
+    border-color: #000;
+    text-decoration: none;
+  }
+
+
+#arrowLeft{
+    border: solid rgba(53, 51, 54, 1);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+#arrowRight{
+    border: solid rgba(53, 51, 54, 1);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+
+#circleLeft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 0.7rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    background: white;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+#circleRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 0.7rem;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+
+@media (min-width: 768px){
+
+    #sliderContent{
+        width: 400px;
+        height: 350px;
+    }
+
+    #sliderImage{
+        max-height: 250px;
+    }
+   
+
+    #sliderProductInfo{
+        flex-direction: row;
+        max-width: none;
+        justify-content: space-between;
+        margin: 15px 20px 0px 20px;
+        font-size: 0.75rem;
+    }
+
+    #btnReadMore{
+        margin: 0;
+        height: 50px;
+        width: 100px;
+    }
+
+    #readMore{
+        font-size: 1rem;
+    }
+
+    #campaignPercent{
+        height: 45px;
+    }
+
+    #arrowLeft{
+        border-width: 0 5px 5px 0;
+        padding: 5px;
+    }
+    
+    #arrowRight{
+        border-width: 0 5px 5px 0;
+        padding: 5px;
+    }
+    #circleLeft{
+        width: 50px;
+        height: 50px;
+        margin: 1.2rem;
+    }
+    #circleRight{
+        width: 50px;
+        height: 50px;
+        margin: 1.2rem;
+    }
+    
+}
+
+@media (min-width: 992px) {
+
+}

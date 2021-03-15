@@ -15,7 +15,7 @@ const CheckoutForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push({
-      pathname: '/confirmed',
+      pathname: '/confirmation',
       state: { name, email, address, county, zip, select },
     });
   }
@@ -23,7 +23,7 @@ const CheckoutForm = () => {
   return (
     <div className={style.checkoutForm}>
       <h3>Billing and Shipping Details</h3>
-      <form onSubmit={handleSubmit}>
+      <form className={style.formEl} onSubmit={handleSubmit}>
         <fieldset className={style.fieldset}>
           <label htmlFor="name">First and last name</label>
           <input value={name} type="text" id="name" onChange={e => setName(e.target.value)} />
@@ -77,7 +77,7 @@ const CheckoutForm = () => {
           </div>
         </fieldset>
         <fieldset>
-          <button type="submit">Proceed to Checkout</button>
+          <button className={style.checkoutButton} type="submit">Proceed to Checkout</button>
         </fieldset>
       </form>
     </div>
