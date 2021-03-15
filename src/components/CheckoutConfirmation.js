@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-import style from '../css/CheckoutConfirmation.module.css';
+import style from '../css/Confirmation.module.css';
 
 export default function CheckoutConfirmation() {
     // Don't forget to use cart context in here
@@ -10,7 +10,6 @@ export default function CheckoutConfirmation() {
                 <div className={style.carData}>
                     
                 </div>
-
                 <div className={style.buyerSellerContainer}>
                     <div className={style.buyerSellerWrapper}>
                         <div className={style.buyer}>

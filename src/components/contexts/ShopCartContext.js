@@ -24,7 +24,7 @@ export default function ShopCartContextProvider({ children }) {
   }, [shoppingCart]);
 
   function itemExists(item) {
-    return Boolean(shoppingCart.find(car => car.vin === item.vin));
+    return Boolean(shoppingCart.find((car) => car.vin === item.vin));
   }
 
   // Adds product to shopping cart
@@ -43,6 +43,8 @@ export default function ShopCartContextProvider({ children }) {
     setShoppingCart(shoppingCart.filter((product) => product.vin !== car.vin));
   }
 
+  const counter = shoppingCart.length;
+
   return (
     <ShopCartContext.Provider
       value={{
@@ -52,6 +54,7 @@ export default function ShopCartContextProvider({ children }) {
         removeProduct,
         totalPrice,
         itemExists,
+        counter,
       }}
     >
       {children}
