@@ -2,7 +2,13 @@ import { useContext, useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { CarContext } from "../components/contexts/CarContext";
-import { mdiMapMarker, mdiChevronDown } from "@mdi/js";
+import {
+	mdiMapMarker,
+	mdiChevronDown,
+	mdiCar,
+	mdiCalendarBlank,
+	mdiGauge,
+} from "@mdi/js";
 import Icon from "@mdi/react";
 import { ShopCartContext } from "../components/contexts/ShopCartContext";
 
@@ -28,7 +34,7 @@ const Container = styled.article`
 	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 	margin: auto;
 	padding: 25px;
-	border-radius: 5px;
+	border-radius: 3px;
 	color: rgb(50, 50, 50);
 	@media (max-width: 1600px) {
 		max-width: 1000px;
@@ -36,23 +42,24 @@ const Container = styled.article`
 	@media (max-width: 992px) {
 		flex-direction: column;
 		max-width: unset;
-	}
-	@media (max-width: 992px) {
-		flex-direction: column;
-		max-width: calc(100vw - 50px);
+		padding: 15px;
 	}
 `;
 
-const Preview = styled.img`
-	object-fit: cover;
-	height: auto;
+const PreviewContainer = styled.div`
 	width: 60%;
 	@media (max-width: 1200px) {
 		width: 100%;
 	}
 `;
 
-const Upper = styled(Row)`
+const Preview = styled.img`
+	object-fit: cover;
+	height: auto;
+	width: 100%;
+`;
+
+const Main = styled(Row)`
 	@media (max-width: 1200px) {
 		flex-direction: column;
 	}
@@ -62,49 +69,30 @@ const Sidebar = styled(Col)`
 	overflow-y: auto;
 	overflow-x: hidden;
 	margin-left: 25px;
+	width: 40%;
 	flex-grow: 1;
 	@media (max-width: 1200px) {
+		width: 100%;
 		margin: 0;
 		margin-top: 15px;
 	}
 `;
 
+const Head = styled.div``;
+
 const Header = styled.h2`
 	font-weight: bold;
 	color: rgb(25, 25, 25);
-`;
-
-const Mileage = styled.h5`
-	margin: 0;
-`;
-
-const CityIcon = styled.svg`
-	width: 1.25rem;
-	height: 1.25rem;
-`;
-
-const CityWrapper = styled(Row)`
-	align-items: center;
-	margin-top: 5px;
-`;
-
-const City = styled.h5`
-	margin: 0 0 0 2px;
+	border-bottom: 1px solid rgb(225, 225, 225);
+	padding-bottom: 10px;
+	margin-bottom: 15px;
 `;
 
 const Description = styled.p`
 	margin: 0;
-	margin-top: 15px;
 	color: black;
 	@media (max-width: 1200px) {
 		display: none;
-	}
-`;
-
-const DescriptionMobile = styled(Description)`
-	display: none;
-	@media (max-width: 1200px) {
-		display: block;
 	}
 `;
 
@@ -112,6 +100,9 @@ const Price = styled.h4`
 	font-weight: bold;
 	color: rgb(25, 25, 25);
 	margin-top: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid rgb(225, 225, 225);
 	@media (max-width: 1200px) {
 		font-size: 1rem;
 		display: flex;
@@ -133,33 +124,55 @@ const Buy = styled.button`
 	border-radius: 25px;
 	padding: 10px;
 	font-size: 1.25rem;
-	font-weight: bold;
 	&[disabled] {
 		opacity: 0.5;
 	}
 	@media (max-width: 1200px) {
+		padding: 15px;
 		font-size: 1.5rem;
 	}
 `;
 
 const Details = styled.div`
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(5, 1fr);
 	margin-top: 15px;
 	grid-gap: 15px;
-	@media (max-width: 1200px) {
-		grid-template-columns: repeat(5, 1fr);
-	}
 	@media (max-width: 768px) {
 		grid-template-columns: repeat(1, 1fr);
 	}
 `;
 
-const Detail = styled(Row)`
+const Detail = styled(Col)`
 	font-weight: bold;
 	justify-content: space-between;
-	border-bottom: 2px solid rgb(25, 25, 25);
-	padding-bottom: 5px;
+	border: 2px solid rgb(225, 225, 225);
+	padding: 15px;
+	height: 125px;
+	justify-content: center;
+	align-items: center;
+`;
+
+const DetailMeta = styled(Col)`
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
+`;
+
+const DetailHeader = styled.h5`
+	font-size: 1.25rem;
+`;
+
+const DetailIcon = styled(Icon)`
+	width: 1.5rem;
+	height: 1.5rem;
+	margin-bottom: 2px;
+`;
+
+const DetailText = styled.p`
+	font-size: 1rem;
+	font-weight: normal;
+	margin: 0;
 `;
 
 const AccordionLabel = styled(Row)`
@@ -227,48 +240,66 @@ export default function Car() {
 	return (
 		<Wrapper>
 			<Container as={Col}>
-				<Upper>
-					<Preview
-						src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
-						loading="lazy"
-					/>
+				<Head>
+					<Header>
+						{car.make} {car.model} {car.year}
+					</Header>
+				</Head>
+				<Main>
+					<PreviewContainer>
+						<Preview
+							src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
+							loading="lazy"
+						/>
+					</PreviewContainer>
 					<Sidebar>
-						<Header>
-							{car.make} {car.model} {car.year}
-						</Header>
-						<Mileage>{Number(car.miles).toLocaleString()} miles</Mileage>
-						<CityWrapper>
-							<CityIcon as={Icon} path={mdiMapMarker} />
-							<City>{car.city}</City>
-						</CityWrapper>
-						<Details>
-							<Detail>
-								Make <span /> {car.make}
-							</Detail>
-							<Detail>
-								Model <span /> {car.model}
-							</Detail>
-							<Detail>
-								Year <span /> {car.year}
-							</Detail>
-							<Detail>
-								City <span /> {car.city}
-							</Detail>
-							<Detail>
-								Miles <span /> {Number(car.miles).toLocaleString()}
-							</Detail>
-						</Details>
-						<DescriptionMobile>{car.descLong}</DescriptionMobile>
+						<Description>{car.descLong}</Description>
 						<Price>
-							<span>Price:</span>{" "}
+							<span>Price: </span>
 							<PriceNumber>${Number(car.price).toLocaleString()}</PriceNumber>
 						</Price>
 						<Buy onClick={() => addToCart(car)} disabled={itemExists(car)}>
 							{itemExists(car) ? "Already in cart" : "Add to cart"}
 						</Buy>
 					</Sidebar>
-				</Upper>
-				<Description>{car.descLong}</Description>
+				</Main>
+				<Details>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiCar} />
+							<DetailHeader>Make</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.make}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiCar} />
+							<DetailHeader>Model</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.model}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiCalendarBlank} />
+							<DetailHeader>Year</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.year}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiGauge} />
+							<DetailHeader>Mileage</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.miles}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiMapMarker} />
+							<DetailHeader>City</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.city}</DetailText>
+					</Detail>
+				</Details>
 			</Container>
 		</Wrapper>
 	);
