@@ -151,6 +151,7 @@ const Detail = styled(Col)`
 	height: 125px;
 	justify-content: center;
 	align-items: center;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const DetailMeta = styled(Col)`
