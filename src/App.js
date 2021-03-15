@@ -10,7 +10,6 @@ import ShopCartContextProvider from "./components/contexts/ShopCartContext";
 import CheckoutConfirmation from "./components/CheckoutConfirmation";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./components/http/NotFound";
-import Unauthorized from "./components/http/Unauthorized";
 export default function App() {
 	return (
 		<CarContextProvider>
@@ -35,7 +34,7 @@ export default function App() {
 								<CheckoutConfirmation />
 							</Route>
 							<Route>
-								<Unauthorized />
+								<NotFound />
 							</Route>
 						</Switch>
 						<Footer />
