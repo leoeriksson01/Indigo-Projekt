@@ -1,5 +1,14 @@
-.profile_menu {
+.profile_menu_wrapper {
 	background-color: #353336;
+	border-radius: 1%;
 	color: white;
-	height: 200px;
+	min-height: 200px;
+	padding-top: 10px;
+	position: absolute;
+	right: -80px;
+	width: 200px;
+	z-index: 1;
+}
+
+.profile_menu_content {
 }

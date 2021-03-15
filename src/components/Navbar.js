@@ -34,7 +34,18 @@ const Navbar = () => {
 	const toggleShoppingCart = () => {
 		if (window.innerWidth < 576) {
 			setHoverShoppingCart(!hoverShoppingCart);
-			console.log(hoverShoppingCart);
+		}
+	};
+
+	const toggleProfileMenuEnter = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(true);
+		}
+	};
+
+	const toggleProfileMenuLeave = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(false);
 		}
 	};
 
@@ -79,13 +90,28 @@ const Navbar = () => {
 			{/* ./nav_router_container */}
 
 			<div className={style.icons_wrapper}>
-				<div className={style.profile_container} onClick={toggleProfileMenu}>
-					<div className={style.profile_icon_wrapper}>
+				<div
+					className={style.profile_container}
+					onClick={toggleProfileMenu}
+					// onMouseEnter={toggleProfileMenuEnter}
+					// onMouseLeave={toggleProfileMenuLeave}
+				>
+					<div
+						className={style.profile_icon_wrapper}
+						style={{
+							backgroundColor: profileMenu && "#353336",
+							borderRadius: profileMenu && "5px 5px 0 0",
+						}}
+					>
 						<img src={Profile} alt="profile" className={style.profile_icon} />
 					</div>
 					{/* /.profile_icon_wrapper */}
 
-					<div className={style.profile_menu_wrapper}>
+					<div
+						className={`${style.profile_menu_container} ${
+							profileMenu ? style.profile_menu_container_index : ""
+						}`}
+					>
 						{profileMenu ? <ProfileMenu /> : ""}
 					</div>
 					{/* /.profile_menu_wrapper */}
@@ -95,11 +121,12 @@ const Navbar = () => {
 				<div
 					className={style.cart_container}
 					onClick={toggleShoppingCart}
-					onMouseEnter={toggleShoppingCartEnter}
+					// onMouseEnter={toggleShoppingCartEnter}
 					onMouseLeave={toggleShoppingCartLeave}
 				>
 					<div className={style.cart_counter}>
 						<img
+							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"
 							className={style.cart_icon}
@@ -111,7 +138,9 @@ const Navbar = () => {
 						<div className={style.counter}> {counter} </div>
 					</div>
 					<div
-						className={style.shopping_cart_wrapper}
+						className={`${style.shopping_cart_wrapper} ${
+							hoverShoppingCart ? style.shopping_cart_wrapper_index : ""
+						}`}
 						style={{
 							backgroundColor: hoverShoppingCart && "#353336",
 							borderRadius: hoverShoppingCart && "5px 0 0 0",
