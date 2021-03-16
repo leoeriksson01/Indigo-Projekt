@@ -6,7 +6,7 @@ import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
 const Login = () => {
-	const { toggleModal, showModal, setShowModal } = useContext(UserContext);
+	const { toggleModal, showModal, setShowModal, loginHandler } = useContext(UserContext);
 
 	const container = useOnclickOutside(() => {
 		setShowModal(false);
@@ -40,7 +40,8 @@ const Login = () => {
 								name="password"
 								placeholder="Enter your password"
 							/>
-							<button type="submit">Login</button>
+							
+							<button onClick={loginHandler} type="submit">Login</button>
 						</form>
 						<div className={style.register}>
 							<h2>
