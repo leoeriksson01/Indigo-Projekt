@@ -31,10 +31,7 @@ const Wrapper = styled(Row)`
 
 const Container = styled.article`
 	max-width: 1400px;
-	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 	margin: auto;
-	padding: 25px;
-	border-radius: 3px;
 	color: rgb(50, 50, 50);
 	@media (max-width: 1600px) {
 		max-width: 1000px;
