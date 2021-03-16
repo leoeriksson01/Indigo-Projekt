@@ -5,7 +5,7 @@ import CloseMenuIcon from "../assets/menuclose.png";
 import Cart from "../assets/cart.png";
 import Profile from "../assets/profile.png";
 import { ShopCartContext } from "./contexts/ShopCartContext";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpg";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
 import ProfileMenu from "./ProfileMenu";
@@ -59,11 +59,6 @@ const Navbar = () => {
 				<div className={style.logo_wrapper}>
 					<NavLink exact to="/">
 						<img className={style.logo_img} src={logo} alt="logo" />
-					</NavLink>
-				</div>
-				<div className={style.company_title}>
-					<NavLink className={style.a_title} exact to="/">
-						<h1 className={style.h1}>Bilgagnat</h1>
 					</NavLink>
 				</div>
 			</div>
