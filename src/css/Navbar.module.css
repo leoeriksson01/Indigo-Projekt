@@ -59,16 +59,17 @@
 
 /* The shopping cart animation */
 @keyframes grow {
-  from {
-    transform: scale(1.1);
-  }
-  to {
-    transform: scale(1);
-  }
+	from {
+		transform: scale(1.1);
+	}
+	to {
+		transform: scale(1);
+	}
 }
 /* Animates shopping cart when an item is added */
 .animate {
-  animation: grow 0.75s linear 1;
+	animation: grow 0.75s linear 1;
+}
 .logo_img {
 	height: 60px;
 	width: 60px;
