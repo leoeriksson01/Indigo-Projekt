@@ -48,7 +48,8 @@ const Navbar = () => {
 		}
 	};
 
-	const toggleProfileMenu = () => {
+	const toggleProfileMenu = (e) => {
+    e.preventDefault();
 		setProfileMenu(!profileMenu);
 	};
 
@@ -90,7 +91,7 @@ const Navbar = () => {
 			<div className={style.icons_wrapper}>
 				<div
 					className={style.profile_container}
-					onClick={toggleProfileMenu}
+					onClick={(e) => toggleProfileMenu(e)}
 					// onMouseEnter={toggleProfileMenuEnter}
 					// onMouseLeave={toggleProfileMenuLeave}
 				>

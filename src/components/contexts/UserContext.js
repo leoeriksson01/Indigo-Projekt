@@ -17,8 +17,15 @@ export default function UserContextProvider({ children }) {
 		return Boolean(user);
 	}
 
+	// Login Modal
+
+	const [showModal, setShowModal] = useState(false); 
+	const toggleModal = () => {
+		setShowModal(!showModal);
+	};
+
 	return (
-		<UserContext.Provider value={{ isLoggedIn, user, setUser}}>
+		<UserContext.Provider value={{ isLoggedIn, user, setUser, toggleModal, showModal }}>
 			{children}
 		</UserContext.Provider>
 	);

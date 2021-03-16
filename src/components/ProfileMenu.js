@@ -1,7 +1,12 @@
 import style from "../css/ProfileMenu.module.css";
 import { NavLink } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { CarContext } from "../components/contexts/CarContext";
+import LoginModal from "../components/Login";
 
 const ProfileMenu = () => {
+	const { toggleModal } = useContext(CarContext);
+
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};
@@ -28,7 +33,9 @@ const ProfileMenu = () => {
 			</div>
 			<hr className={style.hr} />
 			<div className={style.button_logout_wrapper}>
-				<button className={style.button_logout}>Log out</button>
+				<button onClick={toggleModal} className={style.button_logout}>
+					Log out
+				</button>
 			</div>
 		</div>
 	);
@@ -57,6 +64,7 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
+			<LoginModal />
 			<div className={style.profile_menu_content}>{loggedInMenu}</div>
 		</div>
 	);
