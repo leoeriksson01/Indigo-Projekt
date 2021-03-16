@@ -3,11 +3,13 @@ import ProductListing from "../components/ProductListing";
 import Form from "../components/SearchForm";
 import Carousel from "../components/carouselComponents/CarouselSlider";
 import array from "../json/cars.json";
+import Hero from "../components/HeroSection";
 
 const Home = () => {
   return (
     // <p>Home</p>
   <div>
+    <Hero/>
     <div id={style.carouselContainer}>
         <Carousel cars={array} />
     </div>
