@@ -22,19 +22,37 @@ const Header = () => {
       profileList.current.classList.toggle(style.hidden);
     }
   }
-
+  
+  const { totalPrice, shoppingCart } = useContext(ShopCartContext);
+  const [click, setClick] = useState(false);
+  const [animateCart, setAnimateCart] = useState(false);
+  
   const cartList = useRef();
   const profileList = useRef();
 
-  const { totalPrice } = useContext(ShopCartContext);
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
+  // Memorize what the previous shopping cart size was
+  const cartItemsLength = useRef(shoppingCart.length);
+  
+  const handleClick = () => setClick(click => !click);
   const closeMobileMenu = () => setClick(false);
+
+  useEffect(() => {
+    if (shoppingCart.length > cartItemsLength.current) {
+      setAnimateCart(true);
+      setTimeout(() => {
+        setAnimateCart(false);
+      }, 750); // Match this with the .animate duration amount
+    }
+
+    // Save current shopping cart length to compare with the next time the cart update
+    cartItemsLength.current = shoppingCart.length;
+  }, [shoppingCart]);
+
   return (
     <div className={style.header}>
       <div className={style.logo_nav}>
         <div className={style.logo}>
-          <img src={logo} />
+          <img src={logo} alt="" />
         </div>
         <div className={style.bilgagnat}>Bilgagnat</div>
 
@@ -53,7 +71,7 @@ const Header = () => {
       </div>
 
       <div className={style.cart_container}>
-        <Cart className={style.cart} onClick={toggleCart} />
+        <Cart className={`${style.cart} ${animateCart ? style.animate : ''}`} onClick={toggleCart} />
         <div className={style.cartList} ref={cartList}>
           <ShoppingCart />
           <div className={style.totalprice}>

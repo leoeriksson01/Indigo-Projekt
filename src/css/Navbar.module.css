@@ -74,6 +74,20 @@ a:hover {
   color: white;
 }
 
+/* The shopping cart animation */
+@keyframes grow {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+/* Animates shopping cart when an item is added */
+.animate {
+  animation: grow 0.75s linear 1;
+}
+
 .profile_container {
   position: absolute;
   right: 3vw;
