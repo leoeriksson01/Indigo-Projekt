@@ -6,6 +6,8 @@ function HeroSection(props) {
     return (
       <div id={style.heroContainer}>
           {<img src={heroImage} id={style.heroImage} alt="Image of a landscape and road."/>}
+          <div id={style.bannerOverlay}></div>
+          <div id={style.carouselArea}>Placeholder</div>
       </div>
     )
   }
