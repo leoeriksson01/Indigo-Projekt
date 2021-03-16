@@ -21,11 +21,11 @@ export default function UserContextProvider({ children }) {
 
 	const [showModal, setShowModal] = useState(false); 
 	const toggleModal = () => {
-		setShowModal(!showModal);
+		setShowModal(show => !show);
 	};
 
 	return (
-		<UserContext.Provider value={{ isLoggedIn, user, setUser, toggleModal, showModal }}>
+		<UserContext.Provider value={{ isLoggedIn, user, setUser, toggleModal, showModal, setShowModal }}>
 			{children}
 		</UserContext.Provider>
 	);

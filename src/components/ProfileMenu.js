@@ -1,11 +1,11 @@
 import style from "../css/ProfileMenu.module.css";
 import { NavLink } from "react-router-dom";
 import React, { useState, useContext } from "react";
-import { CarContext } from "../components/contexts/CarContext";
+import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
 
 const ProfileMenu = () => {
-	const { toggleModal } = useContext(CarContext);
+	const { toggleModal } = useContext(UserContext);
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
