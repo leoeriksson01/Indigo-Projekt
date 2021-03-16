@@ -12,7 +12,6 @@ import ShoppingCartList from "./ShoppingCartList";
 const Navbar = () => {
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
-
 	const { counter } = useContext(ShopCartContext);
 
 	const handleMobileMenu = () => setMobileMenu(!mobileMenu);
@@ -50,7 +49,6 @@ const Navbar = () => {
 				</div>
 			</div>
 			{/* /.logo_company_title_wrapper */}
-
 			<div className={style.nav_router_menu}>
 				<ul
 					className={`${style.ul} ${

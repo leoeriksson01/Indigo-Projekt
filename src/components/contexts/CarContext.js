@@ -40,7 +40,7 @@ export default function CarContextProvider({ children }) {
 
 	const handleFilterChange = (e, filterType) => {
 		e.preventDefault();
-	
+
 		//Change state
 		switch (filterType) {
 			case "search":
@@ -86,11 +86,10 @@ export default function CarContextProvider({ children }) {
 				);
 
 				Array.from(document.querySelectorAll("select")).forEach(
-					select => (select.value = 'all')
+					select => (select.value = "all")
 				);
 				setProducts(cars);
-			
-				
+
 				break;
 
 			//Fortsätt med de andra filter typerna här
