@@ -1,6 +1,6 @@
 .a {
 	color: #fff;
-	font-size: 2.1rem;
+	font-size: 1.5rem;
 	text-decoration: none;
 }
 
@@ -21,7 +21,7 @@
 .ul {
 	display: grid;
 	grid-auto-flow: column;
-	justify-content: space-between;
+	justify-content: space-around;
 }
 
 .li {
@@ -44,7 +44,7 @@
 .navbar_container {
 	background: #2e856e;
 	display: grid;
-	grid-template-areas: "logo_title nav_router . . . . . . . icons_wrapper";
+	grid-template-areas: "logo_title . . . . . . nav_router . icons_wrapper";
 	height: 80px;
 }
 
