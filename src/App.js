@@ -7,6 +7,7 @@ import CarContextProvider from "./components/contexts/CarContext";
 import Home from "./pages/Home";
 import Car from "./pages/Car";
 import ShopCartContextProvider from "./components/contexts/ShopCartContext";
+import UserContextProvider from "./components/contexts/UserContext";
 import CheckoutConfirmation from "./components/CheckoutConfirmation";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./components/http/NotFound";
