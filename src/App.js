@@ -10,36 +10,38 @@ import ShopCartContextProvider from "./components/contexts/ShopCartContext";
 import UserContextProvider from "./components/contexts/UserContext";
 import CheckoutConfirmation from "./components/CheckoutConfirmation";
 import AboutPage from "./pages/AboutPage";
+import NotFound from "./components/http/NotFound";
 export default function App() {
 	return (
-		<UserContextProvider>
-			<CarContextProvider>
-				<ShopCartContextProvider>
-					<div className="App">
-						<Router>
-							<Navbar />
-							<Switch>
-								<Route exact path="/">
-									<Home />
-								</Route>
-								<Route exact path="/about">
-									<AboutPage />
-								</Route>
-								<Route exact path="/car/:vin">
-									<Car />
-								</Route>
-								<Route exact path="/checkout">
-									<CheckoutPage />
-								</Route>
-								<Route exact path="/confirmation">
-									<CheckoutConfirmation />
-								</Route>
-							</Switch>
-							<Footer />
-						</Router>
-					</div>
-				</ShopCartContextProvider>
-			</CarContextProvider>
-		</UserContextProvider>
+		<CarContextProvider>
+			<ShopCartContextProvider>
+				<div className="App">
+					<Router>
+						<Navbar />
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route exact path="/about">
+								<AboutPage />
+							</Route>
+							<Route exact path="/car/:vin">
+								<Car />
+							</Route>
+							<Route exact path="/checkout">
+								<CheckoutPage />
+							</Route>
+							<Route exact path="/confirmation">
+								<CheckoutConfirmation />
+							</Route>
+							<Route>
+								<NotFound />
+							</Route>
+						</Switch>
+						<Footer />
+					</Router>
+				</div>
+			</ShopCartContextProvider>
+		</CarContextProvider>
 	);
 }
