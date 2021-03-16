@@ -3,15 +3,20 @@ import style from "../css/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { CarContext } from "../components/contexts/CarContext";
+import useOnclickOutside from "react-cool-onclickoutside";
 
 const Login = () => {
-	const { toggleModal, showModal } = useContext(CarContext);
+	const { toggleModal, showModal, setShowModal } = useContext(CarContext);
+
+	const container = useOnclickOutside(() => {
+		setShowModal(false);
+	});
 
 	return (
 		<div>
 			{showModal && (
 				<div className={style.modal}>
-					<div className={style.modal_content}>
+					<div className={style.modal_content} ref={container}>
 						<div onClick={toggleModal} className={style.close}>
 							<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 						</div>

@@ -171,7 +171,6 @@ export default function CarContextProvider({ children }) {
 		console.log(showModal);
 	};
 
-
 	return (
 		<CarContext.Provider
 			value={{
@@ -181,8 +180,9 @@ export default function CarContextProvider({ children }) {
 				remove,
 				handleFilterChange,
 				products,
-				toggleModal, 
+				toggleModal,
 				showModal,
+				setShowModal,
 			}}
 		>
 			{children}
