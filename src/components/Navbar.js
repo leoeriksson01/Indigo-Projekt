@@ -115,12 +115,13 @@ const Navbar = () => {
 
 				<div
 					className={style.cart_container}
-					onClick={toggleShoppingCart}
+					// onClick={toggleShoppingCart}
 					// onMouseEnter={toggleShoppingCartEnter}
 					onMouseLeave={toggleShoppingCartLeave}
 				>
 					<div className={style.cart_counter}>
 						<img
+							onClick={toggleShoppingCart}
 							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"
