@@ -1,6 +1,9 @@
+import React from "react";
+import style from "../css/Hero.module.css";
+
 function HeroSection(props) {
     return (
-      <div>
+      <div id={style.heroContainer}>
           Test
       </div>
     )
