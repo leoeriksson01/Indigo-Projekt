@@ -6,6 +6,7 @@
     grid-row-gap: 0px;
     align-content: center;
     justify-content: center;
+
 }
 
 #heroImage{
@@ -26,6 +27,7 @@
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    overflow: hidden;
 }
 
 #carouselArea{
