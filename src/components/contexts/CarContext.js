@@ -40,7 +40,7 @@ export default function CarContextProvider({ children }) {
 
 	const handleFilterChange = (e, filterType) => {
 		e.preventDefault();
-	
+
 		//Change state
 		switch (filterType) {
 			case "search":
@@ -86,11 +86,10 @@ export default function CarContextProvider({ children }) {
 				);
 
 				Array.from(document.querySelectorAll("select")).forEach(
-					select => (select.value = 'all')
+					select => (select.value = "all")
 				);
 				setProducts(cars);
-			
-				
+
 				break;
 
 			//Fortsätt med de andra filter typerna här
@@ -166,6 +165,12 @@ export default function CarContextProvider({ children }) {
 		cars,
 	]);
 
+	const [showModal, setShowModal] = useState(false); // Login Modal*
+	const toggleModal = () => {
+		setShowModal(!showModal);
+		console.log(showModal);
+	};
+
 	return (
 		<CarContext.Provider
 			value={{
@@ -175,6 +180,9 @@ export default function CarContextProvider({ children }) {
 				remove,
 				handleFilterChange,
 				products,
+				toggleModal,
+				showModal,
+				setShowModal,
 			}}
 		>
 			{children}

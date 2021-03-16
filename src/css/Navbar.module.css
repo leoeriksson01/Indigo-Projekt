@@ -125,8 +125,12 @@
 	padding-top: 21px;
 	position: absolute;
 	right: 0;
-	z-index: 1;
+	/* z-index: 1; */
 	width: 250px;
+}
+
+.shopping_cart_wrapper_index {
+	z-index: 1;
 }
 
 .shopping_cart_content {
@@ -144,6 +148,26 @@
 	cursor: pointer;
 	height: 30px;
 	width: 30px;
+}
+
+.profile_icon_wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+}
+
+.profile_container {
+}
+
+.profile_menu_container {
+	background-color: #353336;
+	position: relative;
+}
+
+.profile_menu_container_index {
+	z-index: 1;
 }
 
 /* End of Icons_wrapper */

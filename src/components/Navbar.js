@@ -8,11 +8,13 @@ import { ShopCartContext } from "./contexts/ShopCartContext";
 import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
+import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
+	const [profileMenu, setProfileMenu] = useState(false);
+
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
-
 	const { counter } = useContext(ShopCartContext);
 
 	const handleMobileMenu = () => setMobileMenu(!mobileMenu);
@@ -31,8 +33,23 @@ const Navbar = () => {
 	const toggleShoppingCart = () => {
 		if (window.innerWidth < 576) {
 			setHoverShoppingCart(!hoverShoppingCart);
-			console.log(hoverShoppingCart);
 		}
+	};
+
+	const toggleProfileMenuEnter = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(true);
+		}
+	};
+
+	const toggleProfileMenuLeave = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(false);
+		}
+	};
+
+	const toggleProfileMenu = () => {
+		setProfileMenu(!profileMenu);
 	};
 
 	return (
@@ -50,7 +67,6 @@ const Navbar = () => {
 				</div>
 			</div>
 			{/* /.logo_company_title_wrapper */}
-
 			<div className={style.nav_router_menu}>
 				<ul
 					className={`${style.ul} ${
@@ -72,18 +88,47 @@ const Navbar = () => {
 			{/* ./nav_router_container */}
 
 			<div className={style.icons_wrapper}>
-				<div className={style.profile_container}>
-					<img src={Profile} alt="profile" className={style.profile_icon} />
+				<div
+					className={style.profile_container}
+					// onMouseEnter={toggleProfileMenuEnter}
+					// onMouseLeave={toggleProfileMenuLeave}
+				>
+					<div
+						className={style.profile_icon_wrapper}
+						style={{
+							backgroundColor: profileMenu && "#353336",
+							borderRadius: profileMenu && "5px 5px 0 0",
+						}}
+					>
+						<img
+							onClick={toggleProfileMenu}
+							src={Profile}
+							alt="profile"
+							className={style.profile_icon}
+						/>
+					</div>
+					{/* /.profile_icon_wrapper */}
+
+					<div
+						className={`${style.profile_menu_container} ${
+							profileMenu ? style.profile_menu_container_index : ""
+						}`}
+					>
+						{profileMenu ? <ProfileMenu /> : ""}
+					</div>
+					{/* /.profile_menu_wrapper */}
 				</div>
+				{/* /.profile_container */}
 
 				<div
 					className={style.cart_container}
 					onClick={toggleShoppingCart}
-					onMouseEnter={toggleShoppingCartEnter}
+					// onMouseEnter={toggleShoppingCartEnter}
 					onMouseLeave={toggleShoppingCartLeave}
 				>
 					<div className={style.cart_counter}>
 						<img
+							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"
 							className={style.cart_icon}
@@ -95,10 +140,12 @@ const Navbar = () => {
 						<div className={style.counter}> {counter} </div>
 					</div>
 					<div
-						className={style.shopping_cart_wrapper}
+						className={`${style.shopping_cart_wrapper} ${
+							hoverShoppingCart ? style.shopping_cart_wrapper_index : ""
+						}`}
 						style={{
 							backgroundColor: hoverShoppingCart && "#353336",
-							borderRadius: hoverShoppingCart && "5px 0 0 0",
+							borderRadius: hoverShoppingCart && "5px 5px 0 0",
 						}}
 					>
 						<div className={style.shopping_cart_content}>
