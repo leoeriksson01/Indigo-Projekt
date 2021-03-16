@@ -57,7 +57,7 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<div className={style.profile_menu_content}>{loggedInMenu}</div>
+			<div className={style.profile_menu_content}>{loggedOutMenu}</div>
 		</div>
 	);
 };
