@@ -1,35 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import MenuIcon from "../assets/menu.png";
+import CloseMenuIcon from "../assets/menuclose.png";
+import Cart from "../assets/cart.png";
+import Profile from "../assets/profile.png";
 import { ShopCartContext } from "./contexts/ShopCartContext";
-import { ReactComponent as CloseMenu } from "../assets/x.svg";
-import { ReactComponent as Profile } from "../assets/profile.svg";
-import { ReactComponent as MenuIcon } from "../assets/menu.svg";
-import { ReactComponent as Cart } from "../assets/cart.svg";
-import { useContext, useRef } from "react";
-import logo from "../assets/elvs.png";
+import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
-import ShoppingCart from "../components/ShoppingCart";
+import ShoppingCartList from "./ShoppingCartList";
+import ProfileMenu from "./ProfileMenu";
 
-const Header = () => {
-  function toggleCart() {
-    if (cartList.current) {
-      cartList.current.classList.toggle(style.hidden);
-    }
-  }
+const Navbar = () => {
+	const [profileMenu, setProfileMenu] = useState(false);
 
-  function toggleProfile() {
-    if (profileList.current) {
-      profileList.current.classList.toggle(style.hidden);
-    }
-  }
-  
-  const { totalPrice, shoppingCart } = useContext(ShopCartContext);
-  const [click, setClick] = useState(false);
-  const [animateCart, setAnimateCart] = useState(false);
-  
-  const cartList = useRef();
-  const profileList = useRef();
+	const [mobileMenu, setMobileMenu] = useState(false);
+	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
+	const { counter } = useContext(ShopCartContext);
 
+	const handleMobileMenu = () => setMobileMenu(!mobileMenu);
+
+	const toggleShoppingCartEnter = () => {
+		if (window.innerWidth > 577) {
+			setHoverShoppingCart(true);
+		}
+	};
+	const toggleShoppingCartLeave = () => {
+		if (window.innerWidth > 577) {
+			setHoverShoppingCart(false);
+		}
+	};
   // Memorize what the previous shopping cart size was
   const cartItemsLength = useRef(shoppingCart.length);
   
@@ -48,57 +47,160 @@ const Header = () => {
     cartItemsLength.current = shoppingCart.length;
   }, [shoppingCart]);
 
-  return (
-    <div className={style.header}>
-      <div className={style.logo_nav}>
-        <div className={style.logo}>
-          <img src={logo} alt="" />
-        </div>
-        <div className={style.bilgagnat}>Bilgagnat</div>
+	const toggleShoppingCart = () => {
+		if (window.innerWidth < 576) {
+			setHoverShoppingCart(!hoverShoppingCart);
+		}
+	};
 
-        <ul className={`${style.nav_options} ${click ? style.active : ""}`}>
-          <li className={style.option} onClick={closeMobileMenu}>
-            <NavLink exact to="/">
-              Home
-            </NavLink>
-          </li>
-          <li className={style.option} onClick={closeMobileMenu}>
-            <NavLink exact to="/about">
-              About
-            </NavLink>
-          </li>
-        </ul>
-      </div>
+	const toggleProfileMenuEnter = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(true);
+		}
+	};
 
-      <div className={style.cart_container}>
-        <Cart className={`${style.cart} ${animateCart ? style.animate : ''}`} onClick={toggleCart} />
-        <div className={style.cartList} ref={cartList}>
-          <ShoppingCart />
-          <div className={style.totalprice}>
-            Total price: ${totalPrice}
-            <NavLink exact to="/checkout">
-              To Checkout
-            </NavLink>
-          </div>
-        </div>
-      </div>
+	const toggleProfileMenuLeave = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(false);
+		}
+	};
 
-      <div className={style.profile_container}>
-        <Profile className={style.profile} onClick={toggleProfile} />
-        <div className={style.profileList} ref={profileList}>
-          {" "}
-        </div>
-      </div>
+	const toggleProfileMenu = () => {
+		setProfileMenu(!profileMenu);
+	};
 
-      <div className={style.mobile_menu} onClick={handleClick}>
-        {click ? (
-          <CloseMenu className={style.menu_icon} />
-        ) : (
-          <MenuIcon className={style.menu_icon} />
-        )}
-      </div>
-    </div>
-  );
+	return (
+		<div className={style.navbar_container}>
+			<div className={style.logo_company_title_wrapper}>
+				<div className={style.logo_wrapper}>
+					<NavLink exact to="/">
+						<img className={style.logo_img} src={logo} alt="logo" />
+					</NavLink>
+				</div>
+				<div className={style.company_title}>
+					<NavLink className={style.a_title} exact to="/">
+						<h1 className={style.h1}>Bilgagnat</h1>
+					</NavLink>
+				</div>
+			</div>
+			{/* /.logo_company_title_wrapper */}
+			<div className={style.nav_router_menu}>
+				<ul
+					className={`${style.ul} ${
+						mobileMenu ? "" : style.nav_router_ul_none
+					}`}
+				>
+					<li className={style.li}>
+						<NavLink className={style.a} exact to="/">
+							Home
+						</NavLink>
+					</li>
+					<li className={style.li}>
+						<NavLink className={style.a} exact to="/about">
+							About
+						</NavLink>
+					</li>
+				</ul>
+			</div>
+			{/* ./nav_router_container */}
+
+			<div className={style.icons_wrapper}>
+				<div
+					className={style.profile_container}
+					// onMouseEnter={toggleProfileMenuEnter}
+					// onMouseLeave={toggleProfileMenuLeave}
+				>
+					<div
+						className={style.profile_icon_wrapper}
+						style={{
+							backgroundColor: profileMenu && "#353336",
+							borderRadius: profileMenu && "5px 5px 0 0",
+						}}
+					>
+						<img
+							onClick={toggleProfileMenu}
+							src={Profile}
+							alt="profile"
+							className={style.profile_icon}
+						/>
+					</div>
+					{/* /.profile_icon_wrapper */}
+
+					<div
+						className={`${style.profile_menu_container} ${
+							profileMenu ? style.profile_menu_container_index : ""
+						}`}
+					>
+						{profileMenu ? <ProfileMenu /> : ""}
+					</div>
+					{/* /.profile_menu_wrapper */}
+				</div>
+				{/* /.profile_container */}
+
+				<div
+					className={style.cart_container}
+					onClick={toggleShoppingCart}
+					// onMouseEnter={toggleShoppingCartEnter}
+					onMouseLeave={toggleShoppingCartLeave}
+				>
+					<div className={style.cart_counter}>
+						<img
+							onMouseEnter={toggleShoppingCartEnter}
+							src={Cart}
+							alt="cart"
+							className={style.cart_icon}
+							style={{
+								backgroundColor: hoverShoppingCart && "#353336",
+								borderRadius: hoverShoppingCart && "5px 5px 0 0",
+							}}
+						/>
+						<div className={style.counter}> {counter} </div>
+					</div>
+					<div
+						className={`${style.shopping_cart_wrapper} ${
+							hoverShoppingCart ? style.shopping_cart_wrapper_index : ""
+						}`}
+						style={{
+							backgroundColor: hoverShoppingCart && "#353336",
+							borderRadius: hoverShoppingCart && "5px 5px 0 0",
+						}}
+					>
+						<div className={style.shopping_cart_content}>
+							{hoverShoppingCart ? (
+								<ShoppingCartList hover={hoverShoppingCart} />
+							) : (
+								""
+							)}
+						</div>
+						{/* /.shopping_cart_content */}
+					</div>
+					{/* shopping_cart_wrapper */}
+				</div>
+				{/* /.cart_container */}
+
+				<div className={style.mobile_menu}>
+					{mobileMenu ? (
+						<img
+							src={CloseMenuIcon}
+							alt="close menu"
+							className={style.mobile_menu_icon}
+							onClick={handleMobileMenu}
+						/>
+					) : (
+						<img
+							src={MenuIcon}
+							alt="mobile menu"
+							className={style.mobile_menu_icon}
+							onClick={handleMobileMenu}
+						/>
+					)}
+				</div>
+				{/* /.mobile_menu */}
+			</div>
+			{/* /.icons_wrapper */}
+		</div>
+		// /.navbar_container
+	);
 };
 
-export default Header;
+export default Navbar;
