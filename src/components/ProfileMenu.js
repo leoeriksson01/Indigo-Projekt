@@ -38,8 +38,8 @@ const ProfileMenu = () => {
 					</button>
 				</div>
 			</div>
-		</div>
 	);
+
 
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
