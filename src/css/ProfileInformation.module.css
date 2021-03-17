@@ -1,4 +1,21 @@
+.billing_information {
+	width: 47%;
+}
+
+.hr {
+    height: ;
+    color: yellow;
+	background: yellow;
+}
+
+.h2 {}
+
+.personal_information {
+	width: 47%;
+}
+
 .profile_information_content {
+	display: flex;
 	background: white;
 	padding: 1em;
 	margin-top: 1em;

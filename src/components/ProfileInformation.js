@@ -7,7 +7,7 @@ const ProfileInformation = () => {
 				<h2>Personal information</h2>
 			</div>
 
-			<div>
+			<div className={style.billing_information}>
 				<h2>Billing information</h2>
 			</div>
 		</div>
