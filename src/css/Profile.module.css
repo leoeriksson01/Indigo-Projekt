@@ -48,7 +48,14 @@
     border: 1px solid black;
     margin: auto;
     height: 330px;
+    overflow-y: scroll;
+    max-height: 330px;
     margin-top: 100px;
+}
+
+.messageList {
+    display: flex;
+    justify-content: center;
 }
 
 .messagesHeader {

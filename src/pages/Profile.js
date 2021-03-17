@@ -1,4 +1,5 @@
 import style from "../css/Profile.module.css";
+import Message from "../components/Messages";
 
 const Profile = () => {
 	return (
@@ -11,7 +12,9 @@ const Profile = () => {
 				</div>
 				<div className={style.messages}>
 					<h3 className={style.messagesHeader}> Messages </h3>
-					<div className={style.messageList}></div>
+					<div className={style.messageList}>
+						<Message />
+					</div>
 				</div>
 			</div>
 			<div className={style.profileSidebar}>
