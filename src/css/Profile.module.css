@@ -1,7 +1,6 @@
 .profileContainer {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
 }
 
 .greetingText {
@@ -9,20 +8,55 @@
 }
 
 .profileSidebar {
-    background: #f7f7f7;
-    box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
     width: 15vw;
-    height: 500px;
-    margin-left: 2rem;
-    margin-top: 3rem;
+    height: 40vh;
+    margin-top: 2rem;
+    font-weight:bolder;
+    min-width: 135px;
+}
 
+.headerText {
+    width: 100%;
+    font-size: 1.3rem;
+    color: orange;
+    padding: 0.313rem 17px;
+}
+
+
+.profileSidebar li {
+    padding: .9375em 1.25em .9375em;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .profileContent {
-    flex: 1 0 auto;
-    border: 1px solid black;
-    height: 500px;
+    flex: 1 1 auto;
+    height: 700px;
     margin-top: 3rem;
     margin-right: 0.5rem;
     margin-left: 1rem;
 }
+
+.messages {
+    width: 95%;
+    border: 1px solid black;
+    margin: auto;
+    height: 330px;
+    margin-top: 100px;
+}
+
+.messagesHeader {
+    text-align: center;
+}
+
+@media (max-width: 704px) {
+
+   
+}
+
