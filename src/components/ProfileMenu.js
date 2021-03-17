@@ -12,12 +12,11 @@ const ProfileMenu = () => {
 	};
 
 	const loggedInMenu = (
-		<div>
-			<div className={style.logged_in_menu}>
-				<div className={style.order_link_wrapper}>
-					<NavLink exact to="#" className={style.a}>
-						My Profile
-					</NavLink>
+		<div className={style.logged_in_menu}>
+			<div className={style.order_link_wrapper}>
+				<NavLink exact to="profile" className={style.a}>
+					My Profile
+				</NavLink>
 
 					<NavLink exact to="#" className={style.a}>
 						My Orders

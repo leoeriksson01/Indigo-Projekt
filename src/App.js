@@ -11,6 +11,7 @@ import UserContextProvider from "./components/contexts/UserContext";
 import CheckoutConfirmation from "./components/CheckoutConfirmation";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./components/http/NotFound";
+import Profile from "./pages/Profile";
 export default function App() {
 	return (
 		<UserContextProvider>
