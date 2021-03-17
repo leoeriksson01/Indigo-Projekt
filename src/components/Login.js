@@ -6,7 +6,7 @@ import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
 const Login = () => {
-	const { toggleModal, showModal, setShowModal, loginHandler } = useContext(UserContext);
+	const { toggleModal, showModal, setShowModal,isLoggedIn} = useContext(UserContext);
 
 	const container = useOnclickOutside(() => {
 		setShowModal(false);
@@ -20,7 +20,7 @@ const Login = () => {
 						<div onClick={toggleModal} className={style.close}>
 							<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 						</div>
-						<form className={style.login_form}>
+						<form onSubmit={isLoggedIn} className={style.login_form}>
 							<h1>Login</h1>
 
 							<label htmlFor="email">Email</label>
@@ -41,7 +41,7 @@ const Login = () => {
 								placeholder="Enter your password"
 							/>
 							
-							<button onClick={loginHandler} type="submit">Login</button>
+							<button type="submit">Login</button>
 						</form>
 						<div className={style.register}>
 							<h2>

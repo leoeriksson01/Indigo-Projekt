@@ -5,7 +5,7 @@ import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
 
 const ProfileMenu = () => {
-	const { toggleModal, isLoggedIn, logOutHandler } = useContext(UserContext);
+	const { toggleModal, isLoggedIn, handleLogout, user} = useContext(UserContext);
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
@@ -34,7 +34,7 @@ const ProfileMenu = () => {
 				</div>
 				<hr className={style.hr} />
 				<div className={style.button_logout_wrapper}>
-					<button onClick={logOutHandler} className={style.button_logout}>
+					<button onClick={handleLogout} className={style.button_logout}>
 						Log out
 					</button>
 				</div>
@@ -70,7 +70,7 @@ const ProfileMenu = () => {
 		<div className={style.profile_menu_wrapper}>
 			<LoginModal />
 			<div className={style.profile_menu_content}>
-				{isLoggedIn ? (
+				{user ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>
 				) : (
 					<div className={style.profile_menu_content}>{loggedOutMenu}</div>
