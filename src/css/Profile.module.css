@@ -1,80 +1,74 @@
-.profileContainer {
-    display: flex;
-    flex-direction: row;
+.profile_container {
+	display: flex;
+	flex-direction: row;
 }
 
-.greetingText {
-
-    margin: auto;
-    width: 60%;
-
+.greeting_text {
+	margin: auto;
+	width: 60%;
 }
 
-.profileSidebar {
-    width: 15vw;
-    height: 40vh;
-    margin-top: 2rem;
-    font-weight:bolder;
-    min-width: 135px;
+.profile_sidebar {
+	width: 15vw;
+	height: 40vh;
+	margin-top: 2rem;
+	font-weight: bolder;
+	min-width: 135px;
 }
 
-.headerText {
-    width: 100%;
-    font-size: 1.3rem;
-    color: orange;
-    padding: 0.313rem 17px;
+.header_text {
+	width: 100%;
+	font-size: 1.3rem;
+	color: orange;
+	padding: 0.313rem 17px;
 }
 
-
-.profileSidebar li {
-    padding: .9375em 1.25em .9375em;
-    margin: 0;
-    font-size: 1rem;
+.profile_sidebar li {
+	padding: 0.9375em 1.25em 0.9375em;
+	margin: 0;
+	font-size: 1rem;
 }
 
 .links {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
-.profileContent {
-    flex: 1 1 auto;
-    height: 700px;
-    margin-top: 3rem;
-    margin-right: 0.5rem;
-    margin-left: 1rem;
+.profile_content {
+	flex: 1 1 auto;
+	height: 700px;
+	margin-top: 3rem;
+	margin-right: 0.5rem;
+	margin-left: 1rem;
 }
 
 .messages {
-    width: 100%;
-    max-width: 800px;
-    box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
-    padding: 2rem;
-    margin: auto;
-    min-height: 400px;
-    overflow-y: scroll;
-      -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-    max-height: 500px;
-    margin-top: 100px;
+	width: 100%;
+	max-width: 800px;
+	box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
+	padding: 2rem;
+	margin: auto;
+	/* min-height: 400px; */
+	overflow-y: scroll;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	max-height: 500px;
+	margin-top: 100px;
 }
 
 .messages::-webkit-scrollbar {
-  display: none;
+	display: none;
 }
 
-.messageList {
-    display: flex;
-    justify-content: start;
+.message_list {
+	display: flex;
+	justify-content: start;
 }
 
-.messagesHeader {
-    text-align: center;
+.messages_header {
+	text-align: center;
 }
 
 @media (max-width: 704px) {
-
-   
 }
-

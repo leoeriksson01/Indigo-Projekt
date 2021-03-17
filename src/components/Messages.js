@@ -12,7 +12,6 @@ const Messages = () => {
 
 			<div className={style.email}> Email: Tyrannen07@gmail.com </div>
 			<div className={style.message}>
-				{" "}
 				Message: Jeg er morderen Johannes og jeg er årsagen til Stockholms
 				massakre
 			</div>

@@ -1,35 +1,35 @@
 .pending {
-    background-color: orange;
-    padding: 3px;
-    border-radius: 5px;
-    color: white;
+	background-color: orange;
+	padding: 3px;
+	border-radius: 5px;
+	color: white;
 }
 
-.messageContainer {
-    background: #f7f7f7;
-    box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
-    padding: 10px;
-    width: 100%;
-    max-width: 500px;
-    margin: 2rem;
+.message_container {
+	background: #f7f7f7;
+	box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
+	padding: 10px;
+	width: 100%;
+	max-width: 500px;
+	margin: 2rem;
 }
 
-.nameStatus {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.name_status {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .name {
-    font-size: 1.4rem;
-    margin-bottom: 0.2rem;
+	font-size: 1.4rem;
+	margin-bottom: 0.2rem;
 }
 
 @media (max-width: 704px) {
-.name {
-    font-size:1rem;
-}
-   .nameStatus {
-       flex-direction: column;
-   }
+	.name {
+		font-size: 1rem;
+	}
+	.name_status {
+		flex-direction: column;
+	}
 }
