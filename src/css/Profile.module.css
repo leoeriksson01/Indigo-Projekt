@@ -1,46 +1,11 @@
-.profile_container {
-	display: flex;
-	flex-direction: row;
+.hr {
+	margin: auto;
+	width: 75%;
 }
 
 .greeting_text {
 	margin: auto;
 	width: 60%;
-}
-
-.profile_sidebar {
-	width: 15vw;
-	height: 40vh;
-	margin-top: 2rem;
-	font-weight: bolder;
-	min-width: 135px;
-}
-
-.header_text {
-	width: 100%;
-	font-size: 1.3rem;
-	color: orange;
-	padding: 0.313rem 17px;
-}
-
-.profile_sidebar li {
-	padding: 0.9375em 1.25em 0.9375em;
-	margin: 0;
-	font-size: 1rem;
-}
-
-.links {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-
-.profile_content {
-	flex: 1 1 auto;
-	height: 700px;
-	margin-top: 3rem;
-	margin-right: 0.5rem;
-	margin-left: 1rem;
 }
 
 .messages {
@@ -68,6 +33,30 @@
 
 .messages_header {
 	text-align: center;
+}
+
+.profile_container {
+	display: flex;
+	flex-direction: row;
+}
+
+.profile_content {
+	flex: 1 1 auto;
+	/* height: 700px; */
+	margin-top: 3rem;
+	margin-right: 0.5rem;
+	margin-left: 1rem;
+	width: 70%;
+}
+
+.profile_information_wrapper {
+	margin-top: 2rem;
+}
+
+.profile_sidebar_wrapper {
+	display: flex;
+	justify-content: flex-end;
+	width: 20%;
 }
 
 @media (max-width: 704px) {

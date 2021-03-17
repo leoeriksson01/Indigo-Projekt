@@ -1,0 +1,29 @@
+.header_text {
+	width: 100%;
+	font-size: 1.3rem;
+	color: orange;
+	padding: 0.313rem 17px;
+}
+
+.header_text_wrapper {
+}
+
+.links {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.profile_sidebar {
+	width: 15vw;
+	height: 40vh;
+	margin-top: 2rem;
+	font-weight: bolder;
+	min-width: 135px;
+}
+
+.profile_sidebar li {
+	padding: 0.9375em 1.25em 0.9375em;
+	margin: 0;
+	font-size: 1rem;
+}

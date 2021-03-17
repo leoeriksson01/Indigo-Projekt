@@ -1,5 +1,7 @@
 import style from "../css/Profile.module.css";
 import Message from "../components/Messages";
+import ProfileSidebar from "../components/ProfileSidebar";
+import ProfileInformation from "../components/ProfileInformation";
 
 const Profile = () => {
 	return (
@@ -9,19 +11,22 @@ const Profile = () => {
 					<h2>Hello Name</h2>
 					<p>On "My Profile" you can view your Order History and Messages</p>
 				</div>
+				{/* /.greeting_text */}
+				<hr className={style.hr} />
+				<div className={style.profile_information_wrapper}>
+					<ProfileInformation />
+				</div>
+
 				<div className={style.messages}>
-					<h3 className={style.messages_header}> Messages </h3>
+					<h3 className={style.messages_header}>Messages</h3>
 					<div className={style.message_list}>
 						<Message />
 					</div>
+					{/* ./messages */}
 				</div>
 			</div>
-			<div className={style.profile_sidebar}>
-				<div className={style.header_text}>My Profile</div>
-				<ul className={style.links}>
-					<li>My Orders</li>
-					<li>Help & Contact</li>
-				</ul>
+			<div className={style.profile_sidebar_wrapper}>
+				<ProfileSidebar />
 			</div>
 		</div>
 	);
