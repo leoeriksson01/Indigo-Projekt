@@ -92,6 +92,9 @@
 	display: flex;
 }
 .counter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: relative;
 	bottom: 3px;
 	right: 20px;
