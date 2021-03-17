@@ -165,12 +165,6 @@ export default function CarContextProvider({ children }) {
 		cars,
 	]);
 
-	const [showModal, setShowModal] = useState(false); // Login Modal*
-	const toggleModal = () => {
-		setShowModal(!showModal);
-		console.log(showModal);
-	};
-
 	return (
 		<CarContext.Provider
 			value={{
@@ -180,9 +174,7 @@ export default function CarContextProvider({ children }) {
 				remove,
 				handleFilterChange,
 				products,
-				toggleModal,
-				showModal,
-				setShowModal,
+
 			}}
 		>
 			{children}

@@ -1,41 +1,43 @@
 import style from "../css/ProfileMenu.module.css";
 import { NavLink } from "react-router-dom";
 import React, { useState, useContext } from "react";
-import { CarContext } from "../components/contexts/CarContext";
+import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
 
 const ProfileMenu = () => {
-	const { toggleModal } = useContext(CarContext);
+	const { toggleModal, isLoggedIn, handleLogout, user} = useContext(UserContext);
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const loggedInMenu = (
-		<div className={style.logged_in_menu}>
-			<div className={style.order_link_wrapper}>
-				<NavLink exact to="#" className={style.a}>
-					My Profile
-				</NavLink>
+		<div>
+			<div className={style.logged_in_menu}>
+				<div className={style.order_link_wrapper}>
+					<NavLink exact to="#" className={style.a}>
+						My Profile
+					</NavLink>
 
-				<NavLink exact to="#" className={style.a}>
-					My Orders
-				</NavLink>
+					<NavLink exact to="#" className={style.a}>
+						My Orders
+					</NavLink>
 
-				<NavLink
-					exact
-					to="/about"
-					onClick={handleContactLink}
-					className={style.a}
-				>
-					Help & Contact
-				</NavLink>
-			</div>
-			<hr className={style.hr} />
-			<div className={style.button_logout_wrapper}>
-				<button onClick={toggleModal} className={style.button_logout}>
-					Log out
-				</button>
+					<NavLink
+						exact
+						to="/about"
+						onClick={handleContactLink}
+						className={style.a}
+					>
+						Help & Contact
+					</NavLink>
+				</div>
+				<hr className={style.hr} />
+				<div className={style.button_logout_wrapper}>
+					<button onClick={handleLogout} className={style.button_logout}>
+						Log out
+					</button>
+				</div>
 			</div>
 		</div>
 	);
@@ -43,7 +45,9 @@ const ProfileMenu = () => {
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
 			<div className={style.button_login_wrapper}>
-				<button className={style.button_login}>Log in</button>
+				<button onClick={toggleModal} className={style.button_login}>
+					Log in
+				</button>
 			</div>
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
@@ -65,7 +69,13 @@ const ProfileMenu = () => {
 	return (
 		<div className={style.profile_menu_wrapper}>
 			<LoginModal />
-			<div className={style.profile_menu_content}>{loggedInMenu}</div>
+			<div className={style.profile_menu_content}>
+				{user ? (
+					<div className={style.profile_menu_content}>{loggedInMenu}</div>
+				) : (
+					<div className={style.profile_menu_content}>{loggedOutMenu}</div>
+				)}
+			</div>
 		</div>
 	);
 };
