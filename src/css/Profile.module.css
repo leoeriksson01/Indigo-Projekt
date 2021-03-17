@@ -5,6 +5,9 @@
 
 .greetingText {
 
+    margin: auto;
+    width: 60%;
+
 }
 
 .profileSidebar {
@@ -44,18 +47,26 @@
 }
 
 .messages {
-    width: 95%;
-    border: 1px solid black;
+    width: 100%;
+    max-width: 800px;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
+    padding: 2rem;
     margin: auto;
-    height: 330px;
+    min-height: 400px;
     overflow-y: scroll;
-    max-height: 330px;
+      -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+    max-height: 500px;
     margin-top: 100px;
+}
+
+.messages::-webkit-scrollbar {
+  display: none;
 }
 
 .messageList {
     display: flex;
-    justify-content: center;
+    justify-content: start;
 }
 
 .messagesHeader {
