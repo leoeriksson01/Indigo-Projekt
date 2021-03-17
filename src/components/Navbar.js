@@ -41,6 +41,10 @@ const Navbar = () => {
 			}, 750); // Match this with the .animate duration amount
 		}
 
+		if (shoppingCart.length <= 0) {
+			setHoverShoppingCart(false);
+		}
+
 		// Save current shopping cart length to compare with the next time the cart update
 		cartItemsLength.current = shoppingCart.length;
 	}, [shoppingCart]);
