@@ -10,6 +10,7 @@ import ShopCartContextProvider from "./components/contexts/ShopCartContext";
 import CheckoutConfirmation from "./components/CheckoutConfirmation";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./components/http/NotFound";
+import Profile from "./pages/Profile";
 export default function App() {
 	return (
 		<CarContextProvider>
@@ -32,6 +33,9 @@ export default function App() {
 							</Route>
 							<Route exact path="/confirmation">
 								<CheckoutConfirmation />
+							</Route>
+							<Route exact path="/profile">
+								<Profile />
 							</Route>
 							<Route>
 								<NotFound />

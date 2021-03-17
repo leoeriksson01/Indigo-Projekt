@@ -9,7 +9,7 @@ const ProfileMenu = () => {
 	const loggedInMenu = (
 		<div className={style.logged_in_menu}>
 			<div className={style.order_link_wrapper}>
-				<NavLink exact to="#" className={style.a}>
+				<NavLink exact to="profile" className={style.a}>
 					My Profile
 				</NavLink>
 
@@ -57,7 +57,7 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<div className={style.profile_menu_content}>{loggedOutMenu}</div>
+			<div className={style.profile_menu_content}>{loggedInMenu}</div>
 		</div>
 	);
 };
