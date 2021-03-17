@@ -1,6 +1,8 @@
 .h2 {
 	font-size: 1.75rem;
-	text-align: center;
+}
+.hr {
+	width: 75%;
 }
 
 .p {
@@ -11,23 +13,25 @@
 	font-weight: normal;
 }
 
-.billing_information {
-	width: 47%;
+.login_information {
 }
 
-.text_information {
+.payment_method {
 }
 
 .personal_information {
-	width: 47%;
+}
+
+.personal_information_header {
 }
 
 .profile_information_content {
-	display: flex;
-	/* background: white;
+	background: white;
 	padding: 1rem;
-	margin-top: 1rem;
-	border-radius: 10px;
-	box-shadow: 1px 2px 2px 1px #aaa9a988; */
+	/* margin-top: 1rem; */
+	margin: auto;
+	width: 70%;
+	/* border-radius: 10px; */
+	/* box-shadow: 1px 2px 2px 1px #aaa9a988; */
 	box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
 }
