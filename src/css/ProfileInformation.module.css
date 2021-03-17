@@ -16,8 +16,41 @@
 .login_information {
 }
 
-.payment_method {
+/* Payment method */
+
+.button_payment {
+	background-color: #2e856e;
+	border-style: none;
+	border-radius: 25px;
+	color: white;
+	cursor: pointer;
+	font-size: 1rem;
+	padding: 0.4rem;
+	text-transform: uppercase;
 }
+
+.button_payment_wrapper {
+	display: flex;
+	justify-content: flex-end;
+	width: 50%;
+}
+
+.payment_text {
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+.payment_text_wrapper {
+	align-items: center;
+	display: flex;
+	width: 50%;
+}
+
+.payment_content {
+	display: flex;
+}
+
+/* Personal Information */
 
 .personal_information {
 }
@@ -29,9 +62,9 @@
 	background: white;
 	padding: 1rem;
 	/* margin-top: 1rem; */
-	margin: auto;
-	width: 70%;
 	/* border-radius: 10px; */
 	/* box-shadow: 1px 2px 2px 1px #aaa9a988; */
+	margin: auto;
+	width: 70%;
 	box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
 }

@@ -9,7 +9,7 @@ const Profile = () => {
 			<div className={style.profile_content}>
 				<div className={style.greeting_text}>
 					<h2>Hello Name</h2>
-					<p>On "My Profile" you can view your Order History and Messages</p>
+					<p>On "My Profile" you can edit Profile and view your Order History and Messages</p>
 				</div>
 				{/* /.greeting_text */}
 				<hr className={style.hr} />
