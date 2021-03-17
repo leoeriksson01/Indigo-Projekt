@@ -24,9 +24,10 @@
 
 .profile_information_content {
 	display: flex;
-	background: white;
+	/* background: white;
 	padding: 1rem;
 	margin-top: 1rem;
 	border-radius: 10px;
-	box-shadow: 1px 2px 2px 1px #aaa9a988;
+	box-shadow: 1px 2px 2px 1px #aaa9a988; */
+	box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
 }
