@@ -5,19 +5,21 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-const Login = () => {
-	const { toggleModal, showModal, setShowModal,isLoggedIn} = useContext(UserContext);
+const Login = ({ modalOpen, setModalOpen }) => {
+	const { showModal, isLoggedIn } = useContext(UserContext);
 
-	const container = useOnclickOutside(() => {
-		setShowModal(false);
-	});
+	function close() {
+		setModalOpen(false);
+	}
+
+	const container = useOnclickOutside(close);
 
 	return (
 		<div>
-			{showModal && (
+			{modalOpen && (
 				<div className={style.modal}>
 					<div className={style.modal_content} ref={container}>
-						<div onClick={toggleModal} className={style.close}>
+						<div onClick={close} className={style.close}>
 							<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 						</div>
 						<form onSubmit={isLoggedIn} className={style.login_form}>
@@ -40,7 +42,7 @@ const Login = () => {
 								name="password"
 								placeholder="Enter your password"
 							/>
-							
+
 							<button type="submit">Login</button>
 						</form>
 						<div className={style.register}>
