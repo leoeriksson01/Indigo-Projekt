@@ -6,10 +6,17 @@ import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
 const Login = ({ open, setOpen }) => {
-	const { isLoggedIn } = useContext(UserContext);
+	const { isLoggedIn, setUser } = useContext(UserContext);
 
 	function close() {
 		setOpen(false);
+	}
+
+	function login(e) {
+		e.preventDefault();
+		setUser({ name: "User", email: "test@test.com", password: "123" });
+		setOpen(false);
+		// login logic here
 	}
 
 	const container = useOnclickOutside(close);
@@ -22,7 +29,7 @@ const Login = ({ open, setOpen }) => {
 						<div onClick={close} className={style.close}>
 							<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 						</div>
-						<form onSubmit={isLoggedIn} className={style.login_form}>
+						<form onSubmit={login} className={style.login_form}>
 							<h1>Login</h1>
 
 							<label htmlFor="email">Email</label>
