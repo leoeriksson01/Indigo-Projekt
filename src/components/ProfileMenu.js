@@ -5,13 +5,9 @@ import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
 
 const ProfileMenu = () => {
-	const { isLoggedIn, handleLogout, user } = useContext(UserContext);
+	const { isLoggedIn, handleLogout } = useContext(UserContext);
 
-	const [modalOpen, setModalOpen] = useState(false);
-
-	function toggleModal() {
-		setModalOpen(modalOpen => !modalOpen);
-	}
+	const [loginModalOpen, setLoginModalOpen] = useState(false);
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
@@ -49,7 +45,10 @@ const ProfileMenu = () => {
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
 			<div className={style.button_login_wrapper}>
-				<button onClick={toggleModal} className={style.button_login}>
+				<button
+					onClick={() => setLoginModalOpen(true)}
+					className={style.button_login}
+				>
 					Log in
 				</button>
 			</div>
@@ -72,9 +71,9 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<LoginModal modalOpen={modalOpen} setModalOpen={setModalOpen} />
+			<LoginModal open={loginModalOpen} setOpen={setLoginModalOpen} />
 			<div className={style.profile_menu_content}>
-				{user ? (
+				{isLoggedIn ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>
 				) : (
 					<div className={style.profile_menu_content}>{loggedOutMenu}</div>
