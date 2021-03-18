@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import style from "../css/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +6,7 @@ import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
 const Login = ({ modalOpen, setModalOpen }) => {
-	const { showModal, isLoggedIn } = useContext(UserContext);
+	const { isLoggedIn } = useContext(UserContext);
 
 	function close() {
 		setModalOpen(false);
