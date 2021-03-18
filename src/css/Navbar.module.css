@@ -57,6 +57,19 @@
 	padding-left: 30px;
 }
 
+/* The shopping cart animation */
+@keyframes grow {
+	from {
+		transform: scale(1.1);
+	}
+	to {
+		transform: scale(1);
+	}
+}
+/* Animates shopping cart when an item is added */
+.animate {
+	animation: grow 0.75s linear 1;
+}
 .logo_img {
 	height: 60px;
 	width: 60px;
@@ -79,6 +92,9 @@
 	display: flex;
 }
 .counter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: relative;
 	bottom: 3px;
 	right: 20px;
@@ -125,8 +141,12 @@
 	padding-top: 21px;
 	position: absolute;
 	right: 0;
-	z-index: 1;
+	/* z-index: 1; */
 	width: 250px;
+}
+
+.shopping_cart_wrapper_index {
+	z-index: 1;
 }
 
 .shopping_cart_content {
@@ -144,6 +164,26 @@
 	cursor: pointer;
 	height: 30px;
 	width: 30px;
+}
+
+.profile_icon_wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 40px;
+	width: 40px;
+}
+
+.profile_container {
+}
+
+.profile_menu_container {
+	background-color: #353336;
+	position: relative;
+}
+
+.profile_menu_container_index {
+	z-index: 1;
 }
 
 /* End of Icons_wrapper */

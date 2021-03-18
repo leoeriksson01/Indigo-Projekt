@@ -41,20 +41,27 @@ const Button = styled(NavLink).attrs({ to: "/" })`
 	}
 `;
 
+const Text = styled.h4`
+	margin-bottom: 50px;
+	@media (max-width: 768px) {
+		font-size: 1.25rem;
+	}
+`;
+
 const Image = styled.img.attrs({
 	loading: "lazy",
-	src: "/assets/willsmithmeme.png",
+	src: "/assets/meninblackmeme.jpg",
 })`
-	width: 300px;
 	max-width: 100%;
-	margin: 50px auto 50px 0;
+	margin: 35px 0;
 `;
 
 export default function Component() {
 	return (
 		<Container>
-			<Status>404 Not Found</Status>
+			<Status>401 Unauthorized</Status>
 			<Image />
+			<Text>I'm gonna pretend you didn't see that</Text>
 			<Button>Take me home</Button>
 		</Container>
 	);

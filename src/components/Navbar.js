@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import MenuIcon from "../assets/menu.png";
 import CloseMenuIcon from "../assets/menuclose.png";
@@ -8,14 +8,16 @@ import { ShopCartContext } from "./contexts/ShopCartContext";
 import logo from "../assets/logo.png";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
+import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
+	const [profileMenu, setProfileMenu] = useState(false);
+	const [animateCart, setAnimateCart] = useState(false);
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
+	const { counter, shoppingCart } = useContext(ShopCartContext);
 
-	const { counter } = useContext(ShopCartContext);
-
-	const handleMobileMenu = () => setMobileMenu(!mobileMenu);
+	const handleMobileMenu = () => setMobileMenu(mobileMenu => !mobileMenu);
 
 	const toggleShoppingCartEnter = () => {
 		if (window.innerWidth > 577) {
@@ -28,11 +30,45 @@ const Navbar = () => {
 		}
 	};
 
+	// Memorize what the previous shopping cart size was
+	const cartItemsLength = useRef(shoppingCart.length);
+
+	useEffect(() => {
+		if (shoppingCart.length > cartItemsLength.current) {
+			setAnimateCart(true);
+			setTimeout(() => {
+				setAnimateCart(false);
+			}, 750); // Match this with the .animate duration amount
+		}
+
+		if (shoppingCart.length <= 0) {
+			setHoverShoppingCart(false);
+		}
+
+		// Save current shopping cart length to compare with the next time the cart update
+		cartItemsLength.current = shoppingCart.length;
+	}, [shoppingCart]);
+
 	const toggleShoppingCart = () => {
 		if (window.innerWidth < 576) {
-			setHoverShoppingCart(!hoverShoppingCart);
-			console.log(hoverShoppingCart);
+			setHoverShoppingCart(hoverShoppingCart => !hoverShoppingCart);
 		}
+	};
+
+	const toggleProfileMenuEnter = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(true);
+		}
+	};
+
+	const toggleProfileMenuLeave = () => {
+		if (window.innerWidth > 577) {
+			setProfileMenu(false);
+		}
+	};
+
+	const toggleProfileMenu = () => {
+		setProfileMenu(profileMenu => !profileMenu);
 	};
 
 	return (
@@ -50,7 +86,6 @@ const Navbar = () => {
 				</div>
 			</div>
 			{/* /.logo_company_title_wrapper */}
-
 			<div className={style.nav_router_menu}>
 				<ul
 					className={`${style.ul} ${
@@ -72,21 +107,52 @@ const Navbar = () => {
 			{/* ./nav_router_container */}
 
 			<div className={style.icons_wrapper}>
-				<div className={style.profile_container}>
-					<img src={Profile} alt="profile" className={style.profile_icon} />
+				<div
+					className={style.profile_container}
+					// onMouseEnter={toggleProfileMenuEnter}
+					// onMouseLeave={toggleProfileMenuLeave}
+				>
+					<div
+						className={style.profile_icon_wrapper}
+						style={{
+							backgroundColor: profileMenu && "#353336",
+							borderRadius: profileMenu && "5px 5px 0 0",
+						}}
+					>
+						<img
+							onClick={toggleProfileMenu}
+							src={Profile}
+							alt="profile"
+							className={style.profile_icon}
+						/>
+					</div>
+					{/* /.profile_icon_wrapper */}
+
+					<div
+						className={`${style.profile_menu_container} ${
+							profileMenu ? style.profile_menu_container_index : ""
+						}`}
+					>
+						{profileMenu ? <ProfileMenu /> : ""}
+					</div>
+					{/* /.profile_menu_wrapper */}
 				</div>
+				{/* /.profile_container */}
 
 				<div
 					className={style.cart_container}
 					onClick={toggleShoppingCart}
-					onMouseEnter={toggleShoppingCartEnter}
+					// onMouseEnter={toggleShoppingCartEnter}
 					onMouseLeave={toggleShoppingCartLeave}
 				>
 					<div className={style.cart_counter}>
 						<img
+							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"
-							className={style.cart_icon}
+							className={`${style.cart_icon} ${
+								animateCart ? style.animate : ""
+							}`}
 							style={{
 								backgroundColor: hoverShoppingCart && "#353336",
 								borderRadius: hoverShoppingCart && "5px 5px 0 0",
@@ -95,10 +161,12 @@ const Navbar = () => {
 						<div className={style.counter}> {counter} </div>
 					</div>
 					<div
-						className={style.shopping_cart_wrapper}
+						className={`${style.shopping_cart_wrapper} ${
+							hoverShoppingCart ? style.shopping_cart_wrapper_index : ""
+						}`}
 						style={{
 							backgroundColor: hoverShoppingCart && "#353336",
-							borderRadius: hoverShoppingCart && "5px 0 0 0",
+							borderRadius: hoverShoppingCart && "5px 5px 0 0",
 						}}
 					>
 						<div className={style.shopping_cart_content}>
