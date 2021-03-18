@@ -1,0 +1,28 @@
+.profileContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.greetingText {
+
+}
+
+.profileSidebar {
+    background: #f7f7f7;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
+    width: 15vw;
+    height: 500px;
+    margin-left: 2rem;
+    margin-top: 3rem;
+
+}
+
+.profileContent {
+    flex: 1 0 auto;
+    border: 1px solid black;
+    height: 500px;
+    margin-top: 3rem;
+    margin-right: 0.5rem;
+    margin-left: 1rem;
+}
