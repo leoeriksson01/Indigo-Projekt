@@ -13,21 +13,13 @@ export default function UserContextProvider({ children }) {
 		localStorage.setItem("user", JSON.stringify(user));
 	}, [user]);
 
-{	/*function isLoggedIn() {
+	function isLoggedIn() {
 		return Boolean(user);
 	}
+
+	function handleLogout() {
+		setUser(false);
 	}
-*/}
-
-function isLoggedIn(){
-	 setUser(true);
-
-}
-
-function handleLogout(){
-	setUser(false);
-}
-	
 
 	// Login Modal
 	const [showModal, setShowModal] = useState(false);
