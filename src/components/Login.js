@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
-
+ 
 const Login = () => {
 	const { toggleModal, showModal, setShowModal,isLoggedIn} = useContext(UserContext);
 
