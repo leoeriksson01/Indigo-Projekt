@@ -73,7 +73,7 @@ const ProfileMenu = () => {
 		<div className={style.profile_menu_wrapper}>
 			<LoginModal open={loginModalOpen} setOpen={setLoginModalOpen} />
 			<div className={style.profile_menu_content}>
-				{isLoggedIn ? (
+				{isLoggedIn() ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>
 				) : (
 					<div className={style.profile_menu_content}>{loggedOutMenu}</div>
