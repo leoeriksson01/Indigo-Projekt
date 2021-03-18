@@ -61,13 +61,8 @@ const ProfileMenu = () => {
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
 					<span className={style.registration_text}>Not a member?</span>
-					<NavLink className={style.a} exact to="#">
-						Register now
-
-
-						<button onClick={openSignUp}>Sign up test!</button>
-
-
+					<NavLink className={style.a} exact to="#" onClick={openSignUp} >
+						Sign up
 					</NavLink>
 				</p>
 			</div>
