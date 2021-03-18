@@ -5,18 +5,18 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-const Login = ({ modalOpen, setModalOpen }) => {
+const Login = ({ open, setOpen }) => {
 	const { isLoggedIn } = useContext(UserContext);
 
 	function close() {
-		setModalOpen(false);
+		setOpen(false);
 	}
 
 	const container = useOnclickOutside(close);
 
 	return (
 		<div>
-			{modalOpen && (
+			{open && (
 				<div className={style.modal}>
 					<div className={style.modal_content} ref={container}>
 						<div onClick={close} className={style.close}>
