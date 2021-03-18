@@ -24,23 +24,27 @@ const ProfileInformation = () => {
 				</div>
 				<div className={style.personal_information_content}>
 					<div className={style.personal_information_text}>
-						<p className={style.p}>
-							Name: <br />
-							<span className={style.span}>Admin</span>
-						</p>
-						<p className={style.p}>
-							Address: <br />
-							<span className={style.span}>Drottningsgatan 184</span>
-						</p>
-						<p className={style.p}>
-							County: <br />
-							<span className={style.span}>Skåne</span>
-						</p>
-						<p className={style.p}>
-							Zip Code: <br />
-							<span className={style.span}>200 00</span>
-						</p>
-					</div>
+							<div className={style.text_wrapper}>
+								<p className={style.p}>
+									Name: <br />
+									<span className={style.span}>Admin</span>
+								</p>
+								<p className={style.p}>
+									Address: <br />
+									<span className={style.span}>Drottningsgatan 184</span>
+								</p>
+							</div>
+							<div className={style.text_wrapper}>
+								<p className={style.p}>
+									County: <br />
+									<span className={style.span}>Skåne</span>
+								</p>
+								<p className={style.p}>
+									Zip Code: <br />
+									<span className={style.span}>200 00</span>
+								</p>
+							</div>
+						</div>
 					{/* ./personal_information_text */}
 					<div className={style.information_edit_button_wrapper}>
 						<button type="button" className={style.information_edit_button}>

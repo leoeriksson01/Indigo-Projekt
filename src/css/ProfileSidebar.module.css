@@ -24,6 +24,9 @@
 }
 
 .profile_sidebar {
+	position: sticky;
+	top: 10px;
+	right: 0;
 	width: 15vw;
 	height: 40vh;
 	margin-top: 2rem;

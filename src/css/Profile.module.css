@@ -10,7 +10,8 @@
 
 .messages {
 	width: 100%;
-	max-width: 800px;
+	max-width: 70%;
+	/* max-width: 800px; */
 	box-shadow: 0 1px 5px rgb(0 0 0 / 30%), 0 1px 2px rgb(0 0 0 / 30%);
 	padding: 2rem;
 	margin: auto;
@@ -28,7 +29,7 @@
 
 .message_list {
 	display: flex;
-	justify-content: start;
+	justify-content: center;
 }
 
 .messages_header {
