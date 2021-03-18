@@ -14,7 +14,24 @@
 	font-weight: normal;
 }
 
+/* Icons */
+
+.icon_user_wrapper {
+	width: 50%;
+}
+
+.icon_login_wrapper {
+	width: 50%;
+}
+
+.icon_edit_wrapper {
+	display: flex;
+	justify-content: flex-end;
+	width: 50%;
+}
+
 .icon_wrapper {
+	display: flex;
 	margin-bottom: 0.2rem;
 }
 
@@ -41,31 +58,7 @@
 	padding: 0.5rem 1rem 0.25rem 1rem;
 }
 
-.login_content {
-	display: flex;
-}
-
 .login_text {
-	width: 50%;
-}
-
-.login_edit {
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	width: 50%;
-}
-
-.login_edit_button {
-	background-color: #2e856e;
-	border-style: none;
-	/* border-radius: 25px; */
-	border-radius: 0.25rem;
-	color: white;
-	cursor: pointer;
-	font-size: 1rem;
-	padding: 0.4rem;
-	text-transform: uppercase;
 }
 
 /* Payment method */
@@ -117,31 +110,25 @@
 	padding: 1rem;
 }
 
-.personal_information_content {
-	display: flex;
-}
-
 .personal_information_text {
 	display: flex;
 	margin-top: 0.3rem;
-	width: 50%;
 }
 
-.information_edit_button {
-	background-color: #2e856e;
-	border-style: none;
-	/* border-radius: 25px; */
-	border-radius: 0.25rem;
-	color: white;
-	cursor: pointer;
-	font-size: 1rem;
-	padding: 0.4rem;
-	text-transform: uppercase;
-}
+@media (max-width: 576px) {
+	/* Personal Information */
 
-.information_edit_button_wrapper {
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	width: 50%;
+	.text_wrapper {
+		width: 100%;
+	}
+
+	.personal_information {
+		padding: 1rem;
+	}
+
+	.personal_information_text {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0.3rem;
+	}
 }

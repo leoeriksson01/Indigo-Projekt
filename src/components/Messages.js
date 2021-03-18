@@ -22,18 +22,7 @@ const Messages = () => {
 				</span>
 			</p>
 
-			{/* <span className={style.name_status}>
-				<div className={style.name}>Kristian Tyrann</div>
-				<div className={style.status}>
-					Status: <span className={style.pending}> Pending </span>
-				</div>
-			</span>
-
-			<div className={style.email}> Email: Tyrannen07@gmail.com </div>
-			<div className={style.message}>
-				Message: Jeg er morderen Johannes og jeg er årsagen til Stockholms
-				massakre
-			</div> */}
+			
 		</div>
 	);
 };
