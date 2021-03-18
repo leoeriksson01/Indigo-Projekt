@@ -3,9 +3,18 @@ import { NavLink } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
+import SignUpModal from "../components/SignUp";
 
 const ProfileMenu = () => {
 	const { toggleModal, isLoggedIn, handleLogout, user} = useContext(UserContext);
+
+	//show/hide sign up modal
+
+	const [showSignUp, setShowSignUp] = useState(false)
+	const openSignUp = () => {
+		setShowSignUp(prev => !prev)
+	}
+
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
@@ -54,6 +63,11 @@ const ProfileMenu = () => {
 					<span className={style.registration_text}>Not a member?</span>
 					<NavLink className={style.a} exact to="#">
 						Register now
+
+
+						<button onClick={openSignUp}>Sign up test!</button>
+
+
 					</NavLink>
 				</p>
 			</div>
@@ -69,6 +83,7 @@ const ProfileMenu = () => {
 	return (
 		<div className={style.profile_menu_wrapper}>
 			<LoginModal />
+			<SignUpModal showSignUp={showSignUp} setShowSignUp={setShowSignUp}/>
 			<div className={style.profile_menu_content}>
 				{user ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>

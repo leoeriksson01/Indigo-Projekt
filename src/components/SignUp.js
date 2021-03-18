@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import style from '../css/SignUp.module.css'
 
-const SignUp = () => {
-    const [SignUpOpen, SignUpClosed] = useState(false);
+const SignUp = ({showSignUp, setShowSignUp}) => {
+
   return (
     <div id={style.SignUpWrapper}>
-        <button>Click me</button>
+     {showSignUp ? <div>Modal</div> : null}
     </div>
   );
 }
