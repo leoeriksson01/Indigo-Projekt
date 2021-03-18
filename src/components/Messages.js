@@ -5,24 +5,20 @@ const Messages = () => {
 		<div className={style.message_container}>
 			<div className={style.name_status_wrapper}>
 				<div className={style.name_wrapper}>
-					<h3 className={style.name}>Kristian Tyrann</h3>
+					<h3 className={style.name}>Bilgagnat</h3>
 				</div>
-				<div className={style.status}>
-					<p>
-						Status <span className={style.pending}>Pending</span>
-					</p>
-				</div>
+				<div className={style.status}></div>
 			</div>
 			{/* /.name_status_wrapper */}
 
 			<p className={style.email}>
-				Email: <span>Tyrannen07@gmail.com</span>
+				Email: <span>Bilgagnat@contact.com</span>
 			</p>
 			<p className={style.message}>
-				Message:
+				Message:{" "}
 				<span>
-					{" "}
-					Jeg er morderen Johannes og jeg er årsagen til Stockholms massakre
+					Welcome to Bilgagnat! Feel free to message us if you have any
+					questions or concerns!
 				</span>
 			</p>
 
