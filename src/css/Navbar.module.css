@@ -295,3 +295,9 @@
 		width: 30px;
 	}
 }
+
+@media print {
+	.navbar_container {
+		display: none;
+	}
+}

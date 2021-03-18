@@ -5,9 +5,9 @@ import style from '../css/CheckoutPage.module.css';
 const SelectedItems = () => {
   const { shoppingCart, removeProduct } = useContext(ShopCartContext);
     
-  const cartProduct = shoppingCart.map((cartProduct) => {
+  const cartProduct = shoppingCart.map((cartProduct, i) => {
     return (
-      <div className={style.selectedItem}>
+      <div className={style.selectedItem} key={i}>
         <div className={style.cartImg}>
           <img
             src={`/assets/car-pictures/${cartProduct.make}-${cartProduct.model}-${cartProduct.year}.jpg`}

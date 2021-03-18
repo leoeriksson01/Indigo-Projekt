@@ -73,16 +73,6 @@
   margin-top: 1em;
 }
 
-#order {
-  display: none;
-}
-@media print {
-  #order {
-    display: block;
-  }
-}
-
-
 @media (min-width: 768px) {
   .confirmationContainer {
     width: 70%;
@@ -132,5 +122,17 @@
   .buyerSellerContainer {
     padding: 3em;
     font-size: 1.2rem;
+  }
+}
+
+@media print {
+  .buttonContainer {
+    display: none;
+  }
+  .confirmationPage {
+    margin-top: 5em;
+  }
+  .buyerSellerContainer {
+    margin-top: 20em;
   }
 }
