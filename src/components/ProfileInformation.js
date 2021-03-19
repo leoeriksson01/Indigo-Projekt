@@ -84,20 +84,18 @@ const ProfileInformation = () => {
 			<hr />
 			<div className={style.payment_method}>
 				<div className={style.icon_wrapper}>
-					<FontAwesomeIcon icon={faCreditCard} size="2x" />
-				</div>
-				<div className={style.payment_content}>
-					<div className={style.payment_text_wrapper}>
-						<p className={style.payment_text}>No payment method saved</p>
+					<div className={style.icon_payment_wrapper}>
+						<FontAwesomeIcon icon={faCreditCard} size="2x" />
 					</div>
-					<div className={style.button_payment_wrapper}>
-						<button type="button" className={style.button_payment}>
-							Add payment method
-						</button>
+					<div className={style.icon_edit_wrapper}>
+						<FontAwesomeIcon icon={faEdit} size="2x" />
 					</div>
-					{/* /.button_payment_wrapper */}
 				</div>
-				{/* /.payment_content */}
+
+				<div className={style.payment_text_wrapper}>
+					<p className={style.payment_text}>No payment method saved</p>
+				</div>
+				{/* /.payment_text_wrapper */}
 			</div>
 			{/* /.payment_method */}
 		</div>

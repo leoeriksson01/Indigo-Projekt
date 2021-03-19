@@ -24,6 +24,10 @@
 	width: 50%;
 }
 
+.icon_payment_wrapper {
+	width: 50%;
+}
+
 .icon_edit_wrapper {
 	display: flex;
 	justify-content: flex-end;
@@ -31,6 +35,7 @@
 }
 
 .icon_wrapper {
+	cursor: pointer;
 	display: flex;
 	margin-bottom: 0.2rem;
 }
@@ -54,6 +59,7 @@
 }
 
 /* Login information */
+
 .login_information {
 	padding: 0.5rem 1rem 0.25rem 1rem;
 }
@@ -62,24 +68,6 @@
 }
 
 /* Payment method */
-
-.button_payment {
-	background-color: #2e856e;
-	border-style: none;
-	/* border-radius: 25px; */
-	border-radius: 0.25rem;
-	color: white;
-	cursor: pointer;
-	font-size: 1rem;
-	padding: 0.4rem;
-	text-transform: uppercase;
-}
-
-.button_payment_wrapper {
-	display: flex;
-	justify-content: flex-end;
-	width: 50%;
-}
 
 .payment_method {
 	padding: 1rem;
@@ -92,11 +80,6 @@
 
 .payment_text_wrapper {
 	align-items: center;
-	display: flex;
-	width: 50%;
-}
-
-.payment_content {
 	display: flex;
 }
 
