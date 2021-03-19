@@ -27,7 +27,11 @@ function isLoggedIn(){
 function handleLogout(){
 	setUser(false);
 }
-	
+	//show/hide sign up modal
+	const [showSignUp, setShowSignUp] = useState(false)
+	const openSignUp = () => {
+		setShowSignUp(prev => !prev)
+	}
 
 	// Login Modal
 	const [showModal, setShowModal] = useState(false);
@@ -45,6 +49,9 @@ function handleLogout(){
 				toggleModal,
 				showModal,
 				setShowModal,
+				openSignUp,
+				setShowSignUp,
+				showSignUp
 			}}
 		>
 			{children}

@@ -1,15 +1,26 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import style from '../css/SignUp.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { UserContext } from "../components/contexts/UserContext";
+import useOnclickOutside from "react-cool-onclickoutside";
 
 
-const SignUp = ({showSignUp, setShowSignUp}) => {
+const SignUp = () => {
+  const { openSignUp, setShowSignUp, showSignUp} = useContext(UserContext);
+
+	const container = useOnclickOutside(() => {
+		setShowSignUp(false);
+	});
 
   return (
     <>
      {showSignUp ? (
       <div id={style.signUpBackground}>
-        <div id={style.SignUpContainer}>
+        <div id={style.SignUpContainer} ref={container}>
+          <div onClick={SignUp} className={style.close}>
+						<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
+					</div>
           <form id={style.signUpForm}>
               <h1>Sign up</h1>
 
@@ -35,9 +46,6 @@ const SignUp = ({showSignUp, setShowSignUp}) => {
         </div>
       </div>
      ) : null}
-     
-     
-
     </>
   );
 }

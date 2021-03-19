@@ -22,4 +22,39 @@
 
 #signUpForm{
     color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.close {
+    height: 30px;
+    width: 100%; 
+  }
+  .close_icon{
+    float:right; 
+      font-size: 20px;
+      color: black; 
+  }
+  
+  .close:hover,
+  .close:focus {
+      color: grey;
+      text-decoration: none;
+      cursor: pointer;
+  }
+
+
+@media (min-width: 768px) {
+    #SignUpContainer{
+        margin: 15% auto;
+        width: 55%; 
+        height: 60%;
+    }
+}
+
+
+@media (min-width: 992px) {
+    #SignUpContainer{
+        max-width: 45%; 
+    }
 }
