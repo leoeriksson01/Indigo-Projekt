@@ -23,7 +23,13 @@ const SignUp = () => {
 					</div>
           <form id={style.signUpForm}>
               <h1>Sign up</h1>
-
+              <label htmlFor="name">First and last name</label>
+              <input
+                required
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+              />
               <label htmlFor="email">Email</label>
               <input
                 required
@@ -31,7 +37,6 @@ const SignUp = () => {
                 name="email"
                 placeholder="Enter your email"
               />
-
               <label htmlFor="password" className={style.formLabel}>
                 Password
               </label>
@@ -41,6 +46,44 @@ const SignUp = () => {
                 name="password"
                 placeholder="Enter your password"
               />
+              <label htmlFor="password" className={style.formLabel}>
+                Confirm password
+              </label>
+              <input
+                required
+                type="password"
+                name="password"
+                placeholder="Confirm your password"
+              />
+              <label htmlFor="name">Address</label>
+              <input
+                required
+                type="text"
+                name="address"
+                placeholder="Enter your address"
+              />
+              <div id={style.countyZip}>
+                <div id={style.smallColumn}>
+                  <label htmlFor="county">County</label>
+                  <input
+                    required
+                    type="text"
+                    name="county"
+                    placeholder="Enter county"
+                    id={style.formInput}
+                  />
+                </div>
+                <div id={style.smallColumn}>
+                  <label htmlFor="zip">Zip Code</label>
+                  <input
+                    required
+                    type="number"
+                    name="zip"
+                    placeholder="Enter zip"
+                    id={style.formInput}
+                  />
+                </div>
+              </div>
 							<button type="submit">Sign up</button>
 						</form>
         </div>

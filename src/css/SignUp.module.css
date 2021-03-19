@@ -26,6 +26,20 @@
     flex-direction: column;
 }
 
+#countyZip{
+    display: flex;
+    margin: 0.5rem 0rem;
+}
+
+#smallColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+#formInput{
+    width: 60%;
+}
+
 .close {
     height: 30px;
     width: 100%; 
@@ -46,9 +60,9 @@
 
 @media (min-width: 768px) {
     #SignUpContainer{
-        margin: 15% auto;
+        margin: 6% auto;
         width: 55%; 
-        height: 60%;
+        height: 80%;
     }
 }
 
