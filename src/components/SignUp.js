@@ -5,12 +5,14 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 import validate from "../components/SignUpValidation";
+import useSignUpForm from "../components/UseSignUpForm"
 
 
 const SignUp = () => {
   const { openSignUp, setShowSignUp, showSignUp} = useContext(UserContext);
-  const {values, errors} = validate
-
+  const {values, errors, handleChange, handleSubmit} = useSignUpForm(
+    validate
+    );
 
 
 	const container = useOnclickOutside(() => {
@@ -37,10 +39,11 @@ const SignUp = () => {
               <label htmlFor="email">Email</label>
               <input
                 required
-                type="email"
+                type="text"
                 name="email"
                 value={values.email}
                 placeholder="Enter your email"
+                onChange={handleChange}
               />
               {errors.email && <p>{errors.email}</p>}
               <label htmlFor="password" className={style.formLabel}>
