@@ -1,5 +1,5 @@
 import style from "../css/Profile.module.css";
-import Message from "../components/Messages";
+import MessageList from "../components/MessageList";
 import ProfileSidebar from "../components/ProfileSidebar";
 import ProfileInformation from "../components/ProfileInformation";
 
@@ -9,7 +9,10 @@ const Profile = () => {
 			<div className={style.profile_content}>
 				<div className={style.greeting_text}>
 					<h2>Hello Name</h2>
-					<p>On "My Profile" you can edit Profile and view your Order History and Messages</p>
+					<p>
+						On "My Profile" you can edit Profile and view your Order History and
+						Messages
+					</p>
 				</div>
 				{/* /.greeting_text */}
 				<hr className={style.hr} />
@@ -20,7 +23,7 @@ const Profile = () => {
 				<div className={style.messages}>
 					<h3 className={style.messages_header}>Messages</h3>
 					<div className={style.message_list}>
-						<Message />
+						<MessageList />
 					</div>
 					{/* ./messages */}
 				</div>

@@ -1,27 +1,28 @@
-import style from "../css/Messages.module.css"
+import style from "../css/WelcomeMessage.module.css";
 
-const Messages = () => {
+const WelcomeMessage = () => {
 	return (
 		<div className={style.message_container}>
 			<div className={style.name_status_wrapper}>
 				<div className={style.name_wrapper}>
-					<h3 className={style.name}>User</h3>
+					<h3 className={style.name}>Bilgagnat</h3>
 				</div>
 				<div className={style.status}></div>
 			</div>
 			{/* /.name_status_wrapper */}
 
 			<p className={style.email}>
-				Email: <span>user@contact.com</span>
+				Email: <span>Bilgagnat@contact.com</span>
 			</p>
 			<p className={style.message}>
 				Message:{" "}
 				<span>
-					This is my message!
+					Welcome to Bilgagnat! Feel free to message us if you have any
+					questions or concerns!
 				</span>
 			</p>
 		</div>
 	);
 };
 
-export default Messages;
+export default WelcomeMessage;
