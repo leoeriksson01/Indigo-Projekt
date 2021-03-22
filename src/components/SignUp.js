@@ -54,6 +54,8 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
+                value={values.password}
+                onChange={handleChange}
               />
               <label htmlFor="password" className={style.formLabel}>
                 Confirm password 
@@ -63,6 +65,8 @@ const SignUp = () => {
                 type="password"
                 name="password"
                 placeholder="Confirm your password"
+                value={values.password2}
+                onChange={handleChange}
               />
               <label htmlFor="name">Address</label>
               <input
