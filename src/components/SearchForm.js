@@ -77,7 +77,7 @@ const SearchForm = () => {
 					<input
 						type="number"
 						onChange={e => handleFilterChange(e, "fromYear")}
-						placeholder="1970"
+						placeholder="1960"
 					/>
 					<input
 						type="number"
@@ -97,7 +97,7 @@ const SearchForm = () => {
 					<input
 						type="number"
 						onChange={e => handleFilterChange(e, "maxPrice")}
-						placeholder="156 000"
+						placeholder="737 527"
 					/>
 				</div>
 
@@ -112,7 +112,7 @@ const SearchForm = () => {
 					<input
 						type="number"
 						onChange={e => handleFilterChange(e, "maxMiles")}
-						placeholder="10 000"
+						placeholder="67 034"
 					/>
 				</div>
 				<button type="reset" className={styles.clear_btn}>
