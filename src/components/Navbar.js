@@ -1,5 +1,5 @@
-import React, { useState, useContext, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import MenuIcon from "../assets/menu.png";
 import CloseMenuIcon from "../assets/menuclose.png";
 import Cart from "../assets/cart.png";
@@ -12,13 +12,14 @@ import ProfileMenu from "./ProfileMenu";
 
 const Navbar = () => {
 	const [profileMenu, setProfileMenu] = useState(false);
-
+	const [animateCart, setAnimateCart] = useState(false);
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
+	const { counter, shoppingCart } = useContext(ShopCartContext);
 
-	const { counter } = useContext(ShopCartContext);
+	const location = useLocation();
 
-	const handleMobileMenu = () => setMobileMenu(!mobileMenu);
+	const handleMobileMenu = () => setMobileMenu(mobileMenu => !mobileMenu);
 
 	const toggleShoppingCartEnter = () => {
 		if (window.innerWidth > 577) {
@@ -31,9 +32,28 @@ const Navbar = () => {
 		}
 	};
 
+	// Memorize what the previous shopping cart size was
+	const cartItemsLength = useRef(shoppingCart.length);
+
+	useEffect(() => {
+		if (shoppingCart.length > cartItemsLength.current) {
+			setAnimateCart(true);
+			setTimeout(() => {
+				setAnimateCart(false);
+			}, 750); // Match this with the .animate duration amount
+		}
+
+		if (shoppingCart.length <= 0) {
+			setHoverShoppingCart(false);
+		}
+
+		// Save current shopping cart length to compare with the next time the cart update
+		cartItemsLength.current = shoppingCart.length;
+	}, [shoppingCart]);
+
 	const toggleShoppingCart = () => {
 		if (window.innerWidth < 576) {
-			setHoverShoppingCart(!hoverShoppingCart);
+			setHoverShoppingCart(hoverShoppingCart => !hoverShoppingCart);
 		}
 	};
 
@@ -50,7 +70,7 @@ const Navbar = () => {
 	};
 
 	const toggleProfileMenu = () => {
-		setProfileMenu(!profileMenu);
+		setProfileMenu(profileMenu => !profileMenu);
 	};
 
 	return (
@@ -63,7 +83,6 @@ const Navbar = () => {
 				</div>
 			</div>
 			{/* /.logo_company_title_wrapper */}
-
 			<div className={style.nav_router_menu}>
 				<ul
 					className={`${style.ul} ${
@@ -99,7 +118,7 @@ const Navbar = () => {
 					>
 						<img
 							onClick={toggleProfileMenu}
-								src={Profile}
+							src={Profile}
 							alt="profile"
 							className={style.profile_icon}
 						/>
@@ -111,7 +130,7 @@ const Navbar = () => {
 							profileMenu ? style.profile_menu_container_index : ""
 						}`}
 					>
-						{profileMenu ? <ProfileMenu /> : ""}
+						{profileMenu ? <ProfileMenu location={location} /> : ""}
 					</div>
 					{/* /.profile_menu_wrapper */}
 				</div>
@@ -129,7 +148,9 @@ const Navbar = () => {
 							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"
-							className={style.cart_icon}
+							className={`${style.cart_icon} ${
+								animateCart ? style.animate : ""
+							}`}
 							style={{
 								backgroundColor: hoverShoppingCart && "#353336",
 								borderRadius: hoverShoppingCart && "5px 5px 0 0",

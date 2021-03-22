@@ -14,11 +14,22 @@ export default function UserContextProvider({ children }) {
 	}, [user]);
 
 	function isLoggedIn() {
-		return Boolean(user);
+		return user == null ? user : Boolean(user);
+	}
+
+	function handleLogout() {
+		setUser(false);
 	}
 
 	return (
-		<UserContext.Provider value={{ isLoggedIn, user, setUser }}>
+		<UserContext.Provider
+			value={{
+				isLoggedIn,
+				handleLogout,
+				user,
+				setUser,
+			}}
+		>
 			{children}
 		</UserContext.Provider>
 	);

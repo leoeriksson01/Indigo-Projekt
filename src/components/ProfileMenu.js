@@ -1,7 +1,15 @@
 import style from "../css/ProfileMenu.module.css";
 import { NavLink } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../components/contexts/UserContext";
+import LoginModal from "../components/Login";
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ location }) => {
+	const { isLoggedIn, handleLogout } = useContext(UserContext);
+	const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+	const url = location.state?.url ?? location.pathname;
+
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};
@@ -28,7 +36,9 @@ const ProfileMenu = () => {
 			</div>
 			<hr className={style.hr} />
 			<div className={style.button_logout_wrapper}>
-				<button className={style.button_logout}>Log out</button>
+				<button onClick={handleLogout} className={style.button_logout}>
+					Log out
+				</button>
 			</div>
 		</div>
 	);
@@ -36,7 +46,12 @@ const ProfileMenu = () => {
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
 			<div className={style.button_login_wrapper}>
-				<button className={style.button_login}>Log in</button>
+				<button
+					onClick={() => setLoginModalOpen(true)}
+					className={style.button_login}
+				>
+					Log in
+				</button>
 			</div>
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
@@ -56,7 +71,14 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<div className={style.profile_menu_content}>{loggedOutMenu}</div>
+			<LoginModal url={url} open={loginModalOpen} setOpen={setLoginModalOpen} />
+			<div className={style.profile_menu_content}>
+				{isLoggedIn() ? (
+					<div className={style.profile_menu_content}>{loggedInMenu}</div>
+				) : (
+					<div className={style.profile_menu_content}>{loggedOutMenu}</div>
+				)}
+			</div>
 		</div>
 	);
 };
