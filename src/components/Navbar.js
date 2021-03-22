@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import MenuIcon from "../assets/menu.png";
 import CloseMenuIcon from "../assets/menuclose.png";
 import Cart from "../assets/cart.png";
@@ -16,6 +16,8 @@ const Navbar = () => {
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
 	const { counter, shoppingCart } = useContext(ShopCartContext);
+
+	const location = useLocation();
 
 	const handleMobileMenu = () => setMobileMenu(mobileMenu => !mobileMenu);
 
@@ -128,7 +130,7 @@ const Navbar = () => {
 							profileMenu ? style.profile_menu_container_index : ""
 						}`}
 					>
-						{profileMenu ? <ProfileMenu /> : ""}
+						{profileMenu ? <ProfileMenu location={location} /> : ""}
 					</div>
 					{/* /.profile_menu_wrapper */}
 				</div>
