@@ -16,8 +16,8 @@ import Profile from "./pages/Profile";
 import MyOrders from './components/MyOrders';
 export default function App() {
 	return (
-		<UsersContextProvider>
-			<UserContextProvider>
+		<UserContextProvider>
+			<UsersContextProvider>
 				<CarContextProvider>
 					<ShopCartContextProvider>
 						<div className="App">
@@ -51,7 +51,7 @@ export default function App() {
 						</div>
 					</ShopCartContextProvider>
 				</CarContextProvider>
-			</UserContextProvider>
-		</UsersContextProvider>
+			</UsersContextProvider>
+		</UserContextProvider>
 	);
 }
