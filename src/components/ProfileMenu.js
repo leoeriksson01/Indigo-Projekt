@@ -20,7 +20,7 @@ const ProfileMenu = () => {
 					My Profile
 				</NavLink>
 
-				<NavLink exact to="#" className={style.a}>
+				<NavLink exact to="/myorders" className={style.a}>
 					My Orders
 				</NavLink>
 

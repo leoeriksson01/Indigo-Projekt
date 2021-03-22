@@ -7,9 +7,9 @@ export default function CheckoutConfirmation() {
     const { shoppingCart, totalPrice } = useContext(ShopCartContext);
     const { state } = useLocation();
 
-    const confirmationCars = shoppingCart.map((confirmationCars) => {
+    const confirmationCars = shoppingCart.map((confirmationCars, i) => {
         return (
-            <div className={style.boughtItem}>
+            <div className={style.boughtItem} key={i}>
                 <div className={style.confirmImg}>
                     <img
                         src={`/assets/car-pictures/${confirmationCars.make}-${confirmationCars.model}-${confirmationCars.year}.jpg`}

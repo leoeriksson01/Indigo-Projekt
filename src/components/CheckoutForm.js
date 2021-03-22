@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ShopCartContext } from './contexts/ShopCartContext';
 import style from '../css/CheckoutPage.module.css'
 
 const CheckoutForm = () => {
+  const { shoppingCart } = useContext(ShopCartContext);
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [address, setAddress] = useState('');
@@ -14,6 +17,11 @@ const CheckoutForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    var currentOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    console.log(currentOrders);
+    currentOrders.push(JSON.stringify(shoppingCart));
+    localStorage.setItem("orders", currentOrders);
+    localStorage.removeItem("shoppingcart");
     history.push({
       pathname: '/confirmation',
       state: { name, email, address, county, zip, select },
