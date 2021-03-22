@@ -26,6 +26,9 @@
     flex-direction: column;
 }
 
+#signUpForm p {
+    color: red;
+}
 
 
 #countyZip{
