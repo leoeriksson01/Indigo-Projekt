@@ -14,7 +14,11 @@ const Login = ({ open, setOpen }) => {
 
 	function login(e) {
 		e.preventDefault();
-		setUser({ name: "User", email: "test@test.com", password: "123" });
+		setUser({
+			name: "User",
+			email: Math.ceil(Math.random() * 100), // temp
+			password: "123",
+		});
 		setOpen(false);
 		// login logic here
 	}
