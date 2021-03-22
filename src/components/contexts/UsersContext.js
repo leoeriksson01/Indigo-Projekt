@@ -1,9 +1,11 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export const UsersContext = createContext();
 
 export default function UsersContextProvider({ children }) {
 	const [users, setUsers] = useState([]);
+	const { user } = useContext(UserContext);
 
 	useEffect(() => {
 		setUsers(JSON.parse(localStorage.getItem("users")) ?? []);
@@ -17,8 +19,27 @@ export default function UsersContextProvider({ children }) {
 		return users.find(user => user[property] === value);
 	}
 
+	useEffect(() => {
+		if (user) {
+			const existingUser = findUser("email", user?.email);
+			if (existingUser) {
+				updateUser(existingUser);
+			} else {
+				createUser(user);
+			}
+		}
+	}, [user]);
+
+	function updateUser(user = {}) {
+		setUsers(users =>
+			users.map(element =>
+				element.email === user.email ? { ...element, ...user } : element
+			)
+		);
+	}
+
 	function createUser(user = {}) {
-		if (findUser("email", user.email) || findUser("name", user.name)) {
+		if (findUser("email", user.email)) {
 			return;
 		}
 		setUsers(users => [...users, user]);
@@ -36,6 +57,7 @@ export default function UsersContextProvider({ children }) {
 				findUser,
 				createUser,
 				deleteUser,
+				updateUser,
 			}}
 		>
 			{children}
