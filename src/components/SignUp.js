@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
-import validate from "../components/SignUpValidation";
+import validate from "../components/formComponents/validateForm";
 import useForm from "../components/formComponents/useForm"
 
   function SignUp ({submitForm}) {
