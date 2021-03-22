@@ -26,7 +26,7 @@ import useForm from "../components/formComponents/useForm"
      {showSignUp ? (
       <div id={style.signUpBackground}>
         <div id={style.SignUpContainer} ref={container}>
-          <div onClick={SignUp} className={style.close}>
+          <div onClick={openSignUp} className={style.close}>
 						<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 					</div>
           <form id={style.signUpForm} onSubmit={handleSubmit}>
