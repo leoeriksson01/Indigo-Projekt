@@ -5,14 +5,16 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 import validate from "../components/SignUpValidation";
-import useSignUpForm from "../components/UseSignUpForm"
+import useForm from "../components/formComponents/useForm"
 
+  function SignUp ({submitForm}) {
+    const {handleChange, values, handleSubmit, errors} = useForm(
+        submitForm,
+        validate
+        );
 
-const SignUp = () => {
-  const { openSignUp, setShowSignUp, showSignUp} = useContext(UserContext);
-  const {values, errors, handleChange, handleSubmit} = useSignUpForm(
-    validate
-    );
+    const { openSignUp, setShowSignUp, showSignUp} = useContext(UserContext);
+  
 
 
 	const container = useOnclickOutside(() => {
@@ -27,7 +29,7 @@ const SignUp = () => {
           <div onClick={SignUp} className={style.close}>
 						<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 					</div>
-          <form id={style.signUpForm}>
+          <form id={style.signUpForm} onSubmit={handleSubmit}>
               <h1>Sign up</h1>
               <label htmlFor="name">First and last name</label>
               <input
@@ -57,17 +59,19 @@ const SignUp = () => {
                 value={values.password}
                 onChange={handleChange}
               />
+              {errors.password && <p>{errors.password}</p>}              
               <label htmlFor="password" className={style.formLabel}>
                 Confirm password 
               </label>
               <input
                 required
                 type="password"
-                name="password"
+                name="password2"
                 placeholder="Confirm your password"
                 value={values.password2}
                 onChange={handleChange}
               />
+              {errors.password2 && <p>{errors.password2}</p>}              
               <label htmlFor="name">Address</label>
               <input
                 required
