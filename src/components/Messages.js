@@ -1,4 +1,4 @@
-import style from "../css/Messages.module.css"
+import style from "../css/Messages.module.css";
 
 const Messages = () => {
 	return (
@@ -7,7 +7,9 @@ const Messages = () => {
 				<div className={style.name_wrapper}>
 					<h3 className={style.name}>User</h3>
 				</div>
-				<div className={style.status}></div>
+				<div className={style.status}>
+					<p className={style.pending}>Pending</p>
+				</div>
 			</div>
 			{/* /.name_status_wrapper */}
 
@@ -15,10 +17,7 @@ const Messages = () => {
 				Email: <span>user@contact.com</span>
 			</p>
 			<p className={style.message}>
-				Message:{" "}
-				<span>
-					This is my message!
-				</span>
+				Message: <span>This is my message!</span>
 			</p>
 		</div>
 	);
