@@ -40,9 +40,8 @@ const ProfileMenu = () => {
 			</div>
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
-					<span className={style.registration_text}>Not a member?</span>
 					<NavLink className={style.a} exact to="#">
-						Register now
+						<span className={style.register}>Not a member?</span> Register now
 					</NavLink>
 				</p>
 			</div>
@@ -57,7 +56,7 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<div className={style.profile_menu_content}>{loggedInMenu}</div>
+			<div className={style.profile_menu_content}>{loggedOutMenu}</div>
 		</div>
 	);
 };
