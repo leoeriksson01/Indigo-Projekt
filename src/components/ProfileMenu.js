@@ -4,10 +4,11 @@ import React, { useState, useContext } from "react";
 import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
 
-const ProfileMenu = () => {
+const ProfileMenu = ({ location }) => {
 	const { isLoggedIn, handleLogout } = useContext(UserContext);
-
 	const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+	const url = location.state?.url ?? location.pathname;
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
@@ -71,7 +72,7 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<LoginModal open={loginModalOpen} setOpen={setLoginModalOpen} />
+			<LoginModal url={url} open={loginModalOpen} setOpen={setLoginModalOpen} />
 			<div className={style.profile_menu_content}>
 				{isLoggedIn() ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>
