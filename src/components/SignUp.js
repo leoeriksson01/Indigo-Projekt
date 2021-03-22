@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
+import SignUpValidation from "../components/SignUpValidation";
 
 
 const SignUp = () => {
@@ -47,7 +48,7 @@ const SignUp = () => {
                 placeholder="Enter your password"
               />
               <label htmlFor="password" className={style.formLabel}>
-                Confirm password
+                Confirm password 
               </label>
               <input
                 required
