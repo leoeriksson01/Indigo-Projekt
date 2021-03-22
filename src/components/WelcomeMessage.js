@@ -12,11 +12,11 @@ const WelcomeMessage = () => {
 			{/* /.name_status_wrapper */}
 
 			<p className={style.email}>
-				Email: <span>Bilgagnat@contact.com</span>
+				Email: <span className={style.span}>Bilgagnat@contact.com</span>
 			</p>
 			<p className={style.message}>
 				Message:{" "}
-				<span>
+				<span className={style.span}>
 					Welcome to Bilgagnat! Feel free to message us if you have any
 					questions or concerns!
 				</span>

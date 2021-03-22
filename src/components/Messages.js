@@ -14,10 +14,10 @@ const Messages = () => {
 			{/* /.name_status_wrapper */}
 
 			<p className={style.email}>
-				Email: <span>user@contact.com</span>
+				Email: <span className={style.span}>user@contact.com</span>
 			</p>
 			<p className={style.message}>
-				Message: <span>This is my message!</span>
+				Message: <span className={style.span}>This is my message!</span>
 			</p>
 		</div>
 	);

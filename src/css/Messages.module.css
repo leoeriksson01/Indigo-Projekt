@@ -1,4 +1,5 @@
 .message {
+	font-weight: 500;
 	margin-bottom: 0;
 }
 
@@ -12,6 +13,7 @@
 }
 
 .email {
+	font-weight: 500;
 	margin-bottom: 0;
 }
 
@@ -42,11 +44,16 @@
 	width: 45%;
 }
 
+.span {
+	font-weight: normal;
+}
+
 .pending {
 	background-color: orange;
 	padding: 3px;
 	border-radius: 5px;
 	color: white;
+	margin-bottom: 0;
 }
 
 @media (max-width: 704px) {
