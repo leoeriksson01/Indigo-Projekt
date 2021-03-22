@@ -5,6 +5,7 @@ const MyOrders = () => {
 
   return (
     <div className={style.myOrders}>
+      <h2>MY ORDERS</h2>
       <div className={style.orderContainer}>
         <Order />
       </div>
