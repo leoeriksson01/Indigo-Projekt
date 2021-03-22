@@ -4,9 +4,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
+import { useHistory } from "react-router-dom";
 
-const Login = ({ open, setOpen }) => {
+const Login = ({ url, open, setOpen }) => {
 	const { isLoggedIn, setUser } = useContext(UserContext);
+	const container = useOnclickOutside(close);
+	const history = useHistory();
+
+	if (isLoggedIn()) {
+		return null;
+	}
 
 	function close() {
 		setOpen(false);
@@ -14,16 +21,18 @@ const Login = ({ open, setOpen }) => {
 
 	function login(e) {
 		e.preventDefault();
+		// login logic here like validation
 		setUser({
 			name: "User",
 			email: Math.ceil(Math.random() * 100), // temp
 			password: "123",
 		});
-		setOpen(false);
-		// login logic here
+		close();
+		if (url) {
+			// User is always redirected to where they were
+			history.push(url);
+		}
 	}
-
-	const container = useOnclickOutside(close);
 
 	return (
 		<div>
