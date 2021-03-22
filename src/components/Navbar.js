@@ -99,7 +99,7 @@ const Navbar = () => {
 					>
 						<img
 							onClick={toggleProfileMenu}
-							src={Profile}
+								src={Profile}
 							alt="profile"
 							className={style.profile_icon}
 						/>
