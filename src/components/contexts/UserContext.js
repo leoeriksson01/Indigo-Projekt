@@ -21,12 +21,6 @@ export default function UserContextProvider({ children }) {
 		setUser(false);
 	}
 
-	// Login Modal
-	const [showModal, setShowModal] = useState(false);
-	const toggleModal = () => {
-		setShowModal(show => !show);
-	};
-
 	return (
 		<UserContext.Provider
 			value={{
@@ -34,9 +28,6 @@ export default function UserContextProvider({ children }) {
 				handleLogout,
 				user,
 				setUser,
-				toggleModal,
-				showModal,
-				setShowModal,
 			}}
 		>
 			{children}

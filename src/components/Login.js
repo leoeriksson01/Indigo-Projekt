@@ -1,26 +1,35 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import style from "../css/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 
-const Login = () => {
-	const { toggleModal, showModal, setShowModal,isLoggedIn} = useContext(UserContext);
+const Login = ({ open, setOpen }) => {
+	const { isLoggedIn, setUser } = useContext(UserContext);
 
-	const container = useOnclickOutside(() => {
-		setShowModal(false);
-	});
+	function close() {
+		setOpen(false);
+	}
+
+	function login(e) {
+		e.preventDefault();
+		setUser({ name: "User", email: "test@test.com", password: "123" });
+		setOpen(false);
+		// login logic here
+	}
+
+	const container = useOnclickOutside(close);
 
 	return (
 		<div>
-			{showModal && (
+			{open && (
 				<div className={style.modal}>
 					<div className={style.modal_content} ref={container}>
-						<div onClick={toggleModal} className={style.close}>
+						<div onClick={close} className={style.close}>
 							<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 						</div>
-						<form onSubmit={isLoggedIn} className={style.login_form}>
+						<form onSubmit={login} className={style.login_form}>
 							<h1>Login</h1>
 
 							<label htmlFor="email">Email</label>
@@ -40,7 +49,7 @@ const Login = () => {
 								name="password"
 								placeholder="Enter your password"
 							/>
-							
+
 							<button type="submit">Login</button>
 						</form>
 						<div className={style.register}>
