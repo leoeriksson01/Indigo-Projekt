@@ -87,7 +87,6 @@ const Navbar = () => {
 			<div className={style.icons_wrapper}>
 				<div
 					className={style.profile_container}
-					onClick={toggleProfileMenu}
 					// onMouseEnter={toggleProfileMenuEnter}
 					// onMouseLeave={toggleProfileMenuLeave}
 				>
@@ -98,7 +97,12 @@ const Navbar = () => {
 							borderRadius: profileMenu && "5px 5px 0 0",
 						}}
 					>
-						<img src={Profile} alt="profile" className={style.profile_icon} />
+						<img
+							onClick={toggleProfileMenu}
+							src={Profile}
+							alt="profile"
+							className={style.profile_icon}
+						/>
 					</div>
 					{/* /.profile_icon_wrapper */}
 
