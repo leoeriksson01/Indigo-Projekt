@@ -6,7 +6,7 @@ export const UsersContext = createContext();
 export default function UsersContextProvider({ children }) {
 	const [users, setUsers] = useState([]);
 	const { user } = useContext(UserContext);
-
+ 
 	useEffect(() => {
 		setUsers(JSON.parse(localStorage.getItem("users")) ?? []);
 	}, []);

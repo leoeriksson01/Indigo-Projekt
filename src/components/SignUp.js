@@ -7,26 +7,23 @@ import useOnclickOutside from "react-cool-onclickoutside";
 import validate from "../components/formComponents/validateForm";
 import useForm from "../components/formComponents/useForm"
 
-  function SignUp ({submitForm}) {
-    const {handleChange, values, handleSubmit, errors} = useForm(
-        submitForm,
-        validate
-        );
+function SignUp ({submitForm, open, setOpen }) {
+  const {handleChange, values, handleSubmit, errors} = useForm(
+      submitForm,
+      validate
+      );
+  const container = useOnclickOutside(close);
 
-    const { openSignUp, setShowSignUp, showSignUp} = useContext(UserContext);
-  
-
-
-	const container = useOnclickOutside(() => {
-		setShowSignUp(false);
-	});
+  function close() {
+		setOpen(false);
+	}
 
   return (
     <>
-     {showSignUp ? (
+     {open && (
       <div id={style.signUpBackground}>
         <div id={style.SignUpContainer} ref={container}>
-          <div onClick={openSignUp} className={style.close}>
+          <div onClick={close} className={style.close}>
 						<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 					</div>
           <form id={style.signUpForm} onSubmit={handleSubmit}>
@@ -105,7 +102,7 @@ import useForm from "../components/formComponents/useForm"
 						</form>
         </div>
       </div>
-     ) : null}
+     )}
     </>
   );
 }

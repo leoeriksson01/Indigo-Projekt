@@ -8,6 +8,7 @@ import SignUpModal from "../components/SignUp";
 const ProfileMenu = ({ location }) => {
 	const { isLoggedIn, handleLogout } = useContext(UserContext);
 	const [loginModalOpen, setLoginModalOpen] = useState(false);
+	const [signupModalOpen, setSignupModalOpen] = useState(false);
 
 	const url = location.state?.url ?? location.pathname;
 
@@ -57,8 +58,8 @@ const ProfileMenu = ({ location }) => {
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
 					<span className={style.registration_text}>Not a member?</span>
-					<NavLink className={style.a} exact to="#" onClick={openSignUp} >
-						Sign up
+					<NavLink className={style.a} exact to="#" onClick={() => setSignupModalOpen(true)} >
+						Sign up	
 					</NavLink>
 				</p>
 			</div>
@@ -74,6 +75,7 @@ const ProfileMenu = ({ location }) => {
 	return (
 		<div className={style.profile_menu_wrapper}>
 			<LoginModal url={url} open={loginModalOpen} setOpen={setLoginModalOpen} />
+			<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
 			<div className={style.profile_menu_content}>
 				{isLoggedIn() ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>
