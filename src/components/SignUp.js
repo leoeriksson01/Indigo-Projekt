@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import useOnclickOutside from "react-cool-onclickoutside";
-import SignUpValidation from "../components/SignUpValidation";
+import validate from "../components/SignUpValidation";
 
 
 const SignUp = () => {
   const { openSignUp, setShowSignUp, showSignUp} = useContext(UserContext);
+  const {values, errors} = validate
+
+
 
 	const container = useOnclickOutside(() => {
 		setShowSignUp(false);
@@ -36,8 +39,10 @@ const SignUp = () => {
                 required
                 type="email"
                 name="email"
+                value={values.email}
                 placeholder="Enter your email"
               />
+              {errors.email && <p>{errors.email}</p>}
               <label htmlFor="password" className={style.formLabel}>
                 Password
               </label>
