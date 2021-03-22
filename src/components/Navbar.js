@@ -1,11 +1,11 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import MenuIcon from "../assets/menu.png";
 import CloseMenuIcon from "../assets/menuclose.png";
 import Cart from "../assets/cart.png";
 import Profile from "../assets/profile.png";
 import { ShopCartContext } from "./contexts/ShopCartContext";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.jpg";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
 import ProfileMenu from "./ProfileMenu";
@@ -16,6 +16,8 @@ const Navbar = () => {
 	const [mobileMenu, setMobileMenu] = useState(false);
 	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
 	const { counter, shoppingCart } = useContext(ShopCartContext);
+
+	const location = useLocation();
 
 	const handleMobileMenu = () => setMobileMenu(mobileMenu => !mobileMenu);
 
@@ -79,11 +81,6 @@ const Navbar = () => {
 						<img className={style.logo_img} src={logo} alt="logo" />
 					</NavLink>
 				</div>
-				<div className={style.company_title}>
-					<NavLink className={style.a_title} exact to="/">
-						<h1 className={style.h1}>Bilgagnat</h1>
-					</NavLink>
-				</div>
 			</div>
 			{/* /.logo_company_title_wrapper */}
 			<div className={style.nav_router_menu}>
@@ -133,7 +130,7 @@ const Navbar = () => {
 							profileMenu ? style.profile_menu_container_index : ""
 						}`}
 					>
-						{profileMenu ? <ProfileMenu /> : ""}
+						{profileMenu ? <ProfileMenu location={location} /> : ""}
 					</div>
 					{/* /.profile_menu_wrapper */}
 				</div>
@@ -141,12 +138,13 @@ const Navbar = () => {
 
 				<div
 					className={style.cart_container}
-					onClick={toggleShoppingCart}
+					// onClick={toggleShoppingCart}
 					// onMouseEnter={toggleShoppingCartEnter}
 					onMouseLeave={toggleShoppingCartLeave}
 				>
 					<div className={style.cart_counter}>
 						<img
+							onClick={toggleShoppingCart}
 							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"

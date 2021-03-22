@@ -4,8 +4,7 @@
 .heading {
 	display: flex;
 	justify-content: flex-start;
-	border-bottom: 0.5px solid #cecece;
-	margin-bottom: 1rem;
+	margin: 0 auto; 
 }
 
 .heading p {
@@ -25,12 +24,13 @@
 	display: flex;
 	flex-direction: column;
 	background: #f7f7f7;
+	margin: 0 auto; 
 }
 
 /* Label Styles */
 .form label {
 	font-size: 0.8rem;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 
 /* Select Styles */
@@ -38,8 +38,8 @@
 	position: relative;
 	background: white;
 	height: 40px;
-	margin-bottom: 0.5rem;
-	border-radius: 15px;
+	margin-bottom: 0.7rem;
+	border-radius: 5px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -67,7 +67,7 @@
 	background: #d1d1cf;
 	content: "";
 	pointer-events: none;
-	border-radius: 0px 15px 15px 0px;
+	border-radius: 0px 5px 5px 0px;
 }
 
 .select_wrapper select {
@@ -94,14 +94,14 @@
 	color: #767674;
 	width: 100%;
 	height: 40px;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.7rem;
 	box-sizing: border-box;
 	-webkit-transition: 0.5s;
 	transition: 0.5s;
 	outline: none;
 	padding: 6px 12px;
 	border: 0;
-	border-radius: 15px;
+	border-radius: 5px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -136,26 +136,25 @@
 .clear_btn{
     background-color: #2e856e;
     border-style: none;
-    border-radius: 25px;
+    border-radius: 5px;
     color: white;
     cursor: pointer;
     padding: 6px 12px;
-    margin-top: 0.5rem; 
+		margin-top: 0.5rem; 
 }
 
 /* Media queries */
 
 @media (max-width: 576px) {
 	.active input {
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.7rem;
 	}
 }
 
 @media (max-width: 768px) {
 	.heading {
-		border-bottom: 0px;
-		margin-bottom: 1rem;
-		width: 80vw;
+		margin-bottom: 0.5rem;
+		width: 90vw;
 	}
 
 	.form {
@@ -164,7 +163,7 @@
 
 	.active {
 		display: flex;
-		width: 80vw;
+		width: 90vw;
 	}
 
 	.active input {

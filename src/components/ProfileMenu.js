@@ -5,40 +5,41 @@ import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
 import SignUpModal from "../components/SignUp";
 
-const ProfileMenu = () => {
-	const { toggleModal, openSignUp, isLoggedIn, handleLogout, user} = useContext(UserContext);
+const ProfileMenu = ({ location }) => {
+	const { isLoggedIn, handleLogout } = useContext(UserContext);
+	const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+	const url = location.state?.url ?? location.pathname;
 
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};
 
 	const loggedInMenu = (
-		<div>
-			<div className={style.logged_in_menu}>
-				<div className={style.order_link_wrapper}>
-					<NavLink exact to="#" className={style.a}>
-						My Profile
-					</NavLink>
+		<div className={style.logged_in_menu}>
+			<div className={style.order_link_wrapper}>
+				<NavLink exact to="profile" className={style.a}>
+					My Profile
+				</NavLink>
 
-					<NavLink exact to="#" className={style.a}>
-						My Orders
-					</NavLink>
+				<NavLink exact to="#" className={style.a}>
+					My Orders
+				</NavLink>
 
-					<NavLink
-						exact
-						to="/about"
-						onClick={handleContactLink}
-						className={style.a}
-					>
-						Help & Contact
-					</NavLink>
-				</div>
-				<hr className={style.hr} />
-				<div className={style.button_logout_wrapper}>
-					<button onClick={handleLogout} className={style.button_logout}>
-						Log out
-					</button>
-				</div>
+				<NavLink
+					exact
+					to="/about"
+					onClick={handleContactLink}
+					className={style.a}
+				>
+					Help & Contact
+				</NavLink>
+			</div>
+			<hr className={style.hr} />
+			<div className={style.button_logout_wrapper}>
+				<button onClick={handleLogout} className={style.button_logout}>
+					Log out
+				</button>
 			</div>
 		</div>
 	);
@@ -46,7 +47,10 @@ const ProfileMenu = () => {
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
 			<div className={style.button_login_wrapper}>
-				<button onClick={toggleModal} className={style.button_login}>
+				<button
+					onClick={() => setLoginModalOpen(true)}
+					className={style.button_login}
+				>
 					Log in
 				</button>
 			</div>
@@ -69,10 +73,9 @@ const ProfileMenu = () => {
 
 	return (
 		<div className={style.profile_menu_wrapper}>
-			<LoginModal />
-			<SignUpModal/>
+			<LoginModal url={url} open={loginModalOpen} setOpen={setLoginModalOpen} />
 			<div className={style.profile_menu_content}>
-				{user ? (
+				{isLoggedIn() ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>
 				) : (
 					<div className={style.profile_menu_content}>{loggedOutMenu}</div>

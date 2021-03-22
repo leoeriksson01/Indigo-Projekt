@@ -13,31 +13,13 @@ export default function UserContextProvider({ children }) {
 		localStorage.setItem("user", JSON.stringify(user));
 	}, [user]);
 
-{	/*function isLoggedIn() {
-		return Boolean(user);
-	}
-	}
-*/}
-
-function isLoggedIn(){
-	 setUser(true);
-
-}
-
-function handleLogout(){
-	setUser(false);
-}
-	//show/hide sign up modal
-	const [showSignUp, setShowSignUp] = useState(false)
-	const openSignUp = () => {
-		setShowSignUp(prev => !prev)
+	function isLoggedIn() {
+		return user == null ? user : Boolean(user);
 	}
 
-	// Login Modal
-	const [showModal, setShowModal] = useState(false);
-	const toggleModal = () => {
-		setShowModal(show => !show);
-	};
+	function handleLogout() {
+		setUser(false);
+	}
 
 	return (
 		<UserContext.Provider
@@ -46,12 +28,6 @@ function handleLogout(){
 				handleLogout,
 				user,
 				setUser,
-				toggleModal,
-				showModal,
-				setShowModal,
-				openSignUp,
-				setShowSignUp,
-				showSignUp
 			}}
 		>
 			{children}
