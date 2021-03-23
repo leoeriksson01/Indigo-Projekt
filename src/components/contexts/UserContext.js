@@ -31,11 +31,14 @@ export default function UserContextProvider({ children }) {
 		return false;
 	}
 
-	function getMessages() {
+	function getMessages(userArg) {
 		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
-		return messages.filter(
-			message => "email" in message && message.email === user?.email
-		);
+		return messages.filter(message => {
+			if (userArg) {
+				return "email" in message && message.email === userArg?.email;
+			}
+			return "email" in message && message.email === user?.email;
+		});
 	}
 
 	function handleLogout() {
