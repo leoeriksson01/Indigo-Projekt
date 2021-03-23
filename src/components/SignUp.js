@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UsersContext } from "../components/contexts/UsersContext";
 import useOnclickOutside from "react-cool-onclickoutside";
-import validate from "../components/formComponents/validateForm";
-import useForm from "../components/formComponents/useForm";
 import { UserContext } from "./contexts/UserContext";
 
 function SignUp({ open, setOpen }) {
