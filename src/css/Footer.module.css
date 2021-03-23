@@ -1,34 +1,41 @@
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   background-color: #2e856e;
   color: white;
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 2rem;
+  justify-content: center;
+  padding: 2rem 0rem; 
 }
 
 
-.logo {
+.social {
   height: 40px;
   width: 40px;
-  margin-right: 10px;
+  margin-right: 15px;
+
 }
 
+.social {
+color: white;
+}
+
+/*
 .a {
   color: white;
 }
+
 
 .contact {
   display: flex;
   flex-direction: column;
 }
+*/
 
 @media (max-width: 576px) {
+
+  /*
   footer {
     flex-direction: column;
   }
@@ -36,10 +43,11 @@ footer {
   .contact{
     margin-bottom:1rem;
   }
+  */
 }
 
 @media print {
-  .footer {
+  footer {
     display: none;
   }
 }
