@@ -18,10 +18,8 @@ const CheckoutForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     var currentOrders = JSON.parse(localStorage.getItem("orders")) || [];
-    console.log(currentOrders);
     currentOrders.push(JSON.stringify(shoppingCart));
     localStorage.setItem("orders", currentOrders);
-    localStorage.removeItem("shoppingcart");
     history.push({
       pathname: '/confirmation',
       state: { name, email, address, county, zip, select },

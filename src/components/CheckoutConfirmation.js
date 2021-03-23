@@ -4,10 +4,12 @@ import { ShopCartContext } from './contexts/ShopCartContext';
 import style from '../css/Confirmation.module.css';
 
 export default function CheckoutConfirmation() {
-    const { shoppingCart, totalPrice } = useContext(ShopCartContext);
+    var shopCart = JSON.parse(localStorage.getItem("shoppingcart"));
+    const { totalPrice } = useContext(ShopCartContext);
+
     const { state } = useLocation();
 
-    const confirmationCars = shoppingCart.map((confirmationCars, i) => {
+    const confirmationCars = shopCart.map((confirmationCars, i) => {
         return (
             <div className={style.boughtItem} key={i}>
                 <div className={style.confirmImg}>
