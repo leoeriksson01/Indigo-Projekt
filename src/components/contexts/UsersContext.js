@@ -21,9 +21,8 @@ export default function UsersContextProvider({ children }) {
 
 	useEffect(() => {
 		if (user) {
-			const existingUser = findUser("email", user?.email);
-			if (existingUser) {
-				updateUser(existingUser);
+			if (findUser("email", user?.email)) {
+				updateUser(user);
 			} else {
 				createUser(user);
 			}
