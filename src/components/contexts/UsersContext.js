@@ -6,7 +6,7 @@ export const UsersContext = createContext();
 export default function UsersContextProvider({ children }) {
 	const [users, setUsers] = useState([]);
 	const { user } = useContext(UserContext);
- 
+
 	useEffect(() => {
 		setUsers(JSON.parse(localStorage.getItem("users")) ?? []);
 	}, []);
@@ -39,9 +39,10 @@ export default function UsersContextProvider({ children }) {
 
 	function createUser(user = {}) {
 		if (findUser("email", user.email)) {
-			return;
+			return false;
 		}
 		setUsers(users => [...users, user]);
+		return true;
 	}
 
 	function deleteUser(property = "email", value = "") {

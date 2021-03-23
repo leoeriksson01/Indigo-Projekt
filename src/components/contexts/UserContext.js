@@ -18,17 +18,7 @@ export default function UserContextProvider({ children }) {
 	}
 
 	function login(user = {}) {
-		const users = JSON.parse(localStorage.getItem("users"));
-		for (let i = 0; i < users.length; i++) {
-			if (
-				users[i].email === user.email &&
-				users[i].password === user.password
-			) {
-				setUser(user);
-				break;
-			}
-		}
-		return false;
+		setUser(user);
 	}
 
 	function getMessages(userArg) {
