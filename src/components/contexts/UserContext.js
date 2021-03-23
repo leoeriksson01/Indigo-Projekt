@@ -31,6 +31,13 @@ export default function UserContextProvider({ children }) {
 		return false;
 	}
 
+	function getMessages() {
+		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
+		return messages.filter(
+			message => "email" in message && message.email === user?.email
+		);
+	}
+
 	function handleLogout() {
 		setUser(null);
 	}
@@ -43,6 +50,7 @@ export default function UserContextProvider({ children }) {
 				user,
 				setUser,
 				login,
+				getMessages,
 			}}
 		>
 			{children}
