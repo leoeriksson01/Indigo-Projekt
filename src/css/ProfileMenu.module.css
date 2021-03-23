@@ -41,27 +41,28 @@
 .logged_out_menu {
 }
 
-.order_link_wrapper {
+/* .order_link_wrapper {
 	display: flex;
 	flex-direction: column;
-}
+} */
 
 .register {
 	color: orange;
 }
 
-.registration_text {
-	color: orange;
-}
+/* .registration_text {
+} */
 
 .registration_text:hover {
 	text-decoration: none;
 }
 
 .registration_text {
-	font-size: 0.8rem;
+	color: orange;
 	display: flex;
+	font-size: 0.75rem;
 	justify-content: space-around;
+	margin-bottom: 0;
 }
 .registration_wrapper {
 	margin-top: 8px;
@@ -76,7 +77,6 @@
 	border-radius: 5px;
 	color: white;
 	/* min-height: 200px; */
-	padding-top: 10px;
 	position: absolute;
 	right: -80px;
 	width: 200px;

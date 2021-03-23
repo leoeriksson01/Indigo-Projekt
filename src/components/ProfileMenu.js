@@ -53,18 +53,13 @@ const ProfileMenu = ({ location }) => {
 					Log in
 				</button>
 			</div>
+			<hr className={style.hr} />
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
 					<NavLink className={style.a} exact to="#">
 						<span className={style.register}>Not a member?</span> Register now
 					</NavLink>
 				</p>
-			</div>
-			<hr className={style.hr} />
-			<div className={style.order_link_wrapper}>
-				<NavLink exact to="#" className={style.a}>
-					My orders
-				</NavLink>
 			</div>
 		</div>
 	);

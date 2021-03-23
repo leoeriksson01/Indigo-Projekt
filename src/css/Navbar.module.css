@@ -217,6 +217,23 @@
 		display: none;
 	}
 
+	.cart_counter {
+		display: flex;
+		position: relative;
+	}
+	.counter {
+		position: absolute;
+		left: 18px;
+		color: white;
+		border-radius: 20px;
+		font-weight: bolder;
+		font-size: 0.7rem;
+		height: 14px;
+		width: 14px;
+		background: orange;
+		text-align: center;
+	}
+
 	.navbar_container {
 		background: #2e856e;
 		display: grid;
@@ -235,7 +252,7 @@
 
 	.logo_img {
 		height: 60px;
-		width: 200px;
+		width: 160px;
 	}
 
 	.mobile_menu {
@@ -245,8 +262,10 @@
 	.mobile_menu_icon {
 		cursor: pointer;
 		color: white;
-		height: 32px;
-		width: 32px;
+		height: 22px;
+		width: 22px;
+		/* height: 32px;
+		width: 32px; */
 	}
 
 	.nav_router_menu_mobile_active {
@@ -274,8 +293,10 @@
 
 	.cart_icon {
 		cursor: pointer;
-		height: 40px;
-		width: 40px;
+		height: 32px;
+		width: 32px;
+		/* height: 40px;
+		width: 40px; */
 	}
 
 	.shopping_cart_wrapper {
@@ -288,8 +309,10 @@
 
 	.profile_icon {
 		cursor: pointer;
-		height: 30px;
-		width: 30px;
+		height: 22px;
+		width: 22px;
+		/* height: 30px;
+		width: 30px; */
 	}
 }
 
