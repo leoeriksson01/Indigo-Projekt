@@ -26,6 +26,7 @@
 
 .button_login {
 	background-color: #2e856e;
+	border: none;
 	color: white;
 	display: block;
 	width: 100%;
