@@ -1,9 +1,7 @@
 import style from '../css/MyOrders.module.css';
 
-const Order = () => {
-  const orders = JSON.parse(localStorage.getItem("orders"));
-
-  const oneOrder = orders.map((oneOrder, i) => {
+const Order = (props) => {
+  const oneOrder = props.order.map((oneOrder, i) => {
     return (
       <div className={style.oneOrderContainer} key={i}>
           <img 

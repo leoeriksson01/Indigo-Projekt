@@ -4,7 +4,6 @@
   justify-content: center;
   margin-top: 2.5em;
 }
-
 .checkoutWrapper {
   background: white;
   box-shadow: 1px 2px 2px 1px #aaa9a988;
@@ -14,7 +13,6 @@
   display: flex;
   flex-direction: column-reverse;
 }
-
 .checkoutForm {
   padding: 1em 0;
 }
@@ -24,7 +22,6 @@
 .formEl input {
   margin-bottom: 3px;
 }
-
 .fieldset {
   display: flex;
   flex-direction: column;
@@ -42,12 +39,15 @@
   margin: 5px 0;
 }
 .smallInput input {
-  width: 125px;
+  width: 7.82em;
+}
+.dateContainer {
+  width: 50%;
 }
 .cartSummary {
   position: absolute;
   background: #d6d5d5;
-  width: 18em;
+  width: 21.4em;
   height: 3.8rem;
   padding: 1em;
 }
@@ -58,7 +58,7 @@
   margin: 2em 0 1.5em 0;
   box-shadow:0px 2px 2px #8f8e8e88;
   overflow-y: scroll;
-  max-height: 425px;
+  max-height: 26.56em;
 }
 .itemsCard::-webkit-scrollbar {
   display: none;
@@ -95,7 +95,9 @@
 }
 .totalPriceText {
   font-size: 1.5rem;
-  text-align: center;
+  margin-bottom: 1em;
+  color: #2e856e;
+  text-decoration: underline #e4e4e4;
 }
 .checkoutButton {
   border: none;
@@ -113,14 +115,6 @@
   margin-top: 2em;
 }
 
-
-
-/* // Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {
-
-}
-
-/* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .checkoutWrapper {
     width: 90%;
@@ -137,6 +131,11 @@
   }
   .smallInput input {
     width: 100%;
+  }
+  .dateContainer {
+    display: flex;
+    flex-direction: column;
+    width: 28%;
   }
   .itemsCard {
     max-height: 350px;
@@ -162,7 +161,6 @@
   }
 }
 
-/* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   
   .checkoutCon {
@@ -177,6 +175,9 @@
   }
   .fieldset {
     width: 70%;
+  }
+  .dateContainer {
+    width: 40.8%;
   }
   .itemsCard {
     max-height: 600px;

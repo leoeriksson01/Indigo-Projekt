@@ -1,33 +1,28 @@
 import { useLocation } from 'react-router-dom';
-import { useContext } from 'react';
-import { ShopCartContext } from './contexts/ShopCartContext';
 import style from '../css/Confirmation.module.css';
 
 export default function CheckoutConfirmation() {
-    var shopCart = JSON.parse(localStorage.getItem("shoppingcart"));
-    const { totalPrice } = useContext(ShopCartContext);
-
     const { state } = useLocation();
 
-    const confirmationCars = shopCart.map((confirmationCars, i) => {
+    const confirmCars = state.shoppingCart.map((confirmCars, i) => {
         return (
             <div className={style.boughtItem} key={i}>
                 <div className={style.confirmImg}>
                     <img
-                        src={`/assets/car-pictures/${confirmationCars.make}-${confirmationCars.model}-${confirmationCars.year}.jpg`}
+                        src={`/assets/car-pictures/${confirmCars.make}-${confirmCars.model}-${confirmCars.year}.jpg`}
                         alt="product"
                     />
                 </div>
                 <div className={style.carInfoText}>
                     <div className={style.carInfoTextWrapper}>
                         <div className={style.pElOneTwo}>
-                            <p><strong>{confirmationCars.make}</strong></p>
-                            <p> {confirmationCars.model}</p>
-                            <p> {confirmationCars.year}</p>
+                            <p><strong>{confirmCars.make}</strong></p>
+                            <p> {confirmCars.model}</p>
+                            <p> {confirmCars.year}</p>
                         </div>
-                        <p>{confirmationCars.descShort}</p>
+                        <p>{confirmCars.descShort}</p>
                         <div className={style.carPrice}>
-                            <p><strong>Price:</strong> ${Number(confirmationCars.price).toLocaleString()}</p>
+                            <p><strong>Price:</strong> ${Number(confirmCars.price).toLocaleString()}</p>
                         </div>
                     </div>
             </div>
@@ -43,7 +38,7 @@ export default function CheckoutConfirmation() {
             </div>
             <div className={style.confirmationContainer}>
                 <div className={style.carData}>
-                    {confirmationCars}
+                    {confirmCars}
                 </div>
                 <div className={style.buyerSellerContainer}>
                     <div className={style.buyerSellerWrapper}>
@@ -62,8 +57,11 @@ export default function CheckoutConfirmation() {
                             <p><strong>Adress:</strong> Something somewhere</p>
                         </div>
                     </div>
+                    <div className={style.dateContainer}>
+                        <p>Date of Order: {state.date}</p>
+                    </div>
                     <div className={style.totalPriceText}>
-                        <p><strong>Total Price:</strong> ${totalPrice}</p>
+                        <p><strong>Total Price:</strong> ${state.totalPrice}</p>
                     </div>
                 </div>
                 <div className={style.buttonContainer}>
