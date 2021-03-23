@@ -294,3 +294,12 @@
 		justify-content: space-around;
 	}
 }
+
+/**
+*** Large screen
+**/
+@media (min-width: 769px) and (max-width: 1200px) {
+	.card_text_heading {
+		height: 100px;
+	}
+}
