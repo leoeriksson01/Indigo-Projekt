@@ -43,6 +43,8 @@ export default function ShopCartContextProvider({ children }) {
     setShoppingCart(shoppingCart.filter((product) => product.vin !== car.vin));
   }
 
+  const counter = shoppingCart.length;
+
   return (
     <ShopCartContext.Provider
       value={{
@@ -52,6 +54,7 @@ export default function ShopCartContextProvider({ children }) {
         removeProduct,
         totalPrice,
         itemExists,
+        counter,
       }}
     >
       {children}

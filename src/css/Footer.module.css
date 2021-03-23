@@ -37,3 +37,9 @@ footer {
     margin-bottom:1rem;
   }
 }
+
+@media print {
+  .footer {
+    display: none;
+  }
+}

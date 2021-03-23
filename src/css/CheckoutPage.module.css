@@ -1,30 +1,3 @@
-h2, h3 {
-  margin-bottom: 1em;
-}
-input {
-  margin-bottom: 3px;
-}
-
-legend {
-  border-bottom: 1px solid #e0d8d8;
-}
-
-select {
-  border: none;
-  box-shadow: 1px 2px 2px 1px #aaa9a988;
-}
-button {
-  border: none;
-  border-radius: 25px;
-  background: #2e856e;
-  color: white;
-  height: 3em;
-  font-weight: bold;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-}
-
 .checkoutPage {
   background: #F8F8F8;
   display: flex;
@@ -46,11 +19,24 @@ button {
 .checkoutForm {
   padding: 1em 0;
 }
+.checkoutForm h3 {
+  margin-bottom: 1em;
+}
+.formEl input {
+  margin-bottom: 3px;
+}
 
 .fieldset {
   display: flex;
   flex-direction: column;
   margin-bottom: 1em;
+}
+.fieldset legend {
+  border-bottom: 1px solid #e0d8d8;
+}
+.fieldset select {
+  border: none;
+  box-shadow: 1px 2px 2px 1px #aaa9a988;
 }
 .inputContainer {
   display: flex;
@@ -59,28 +45,76 @@ button {
 .smallInput input {
   width: 125px;
 }
+.cartSummary {
+  position: absolute;
+  background: #d6d5d5;
+  width: 18em;
+  height: 3.8rem;
+  padding: 1em;
+  border-radius: 10px;
+}
 .itemsCard {
   width: 100%;
   background: #d6d5d5;
   float: right;
-  padding: 1em;
-  margin-bottom: 1.5em;
+  margin: 2em 0 1.5em 0;
   border-radius: 10px;
-  -webkit-box-shadow:0px 2px 2px#aaa9a988;
-  -moz-box-shadow:0px 2px 2px #aaa9a988;
   box-shadow:0px 2px 2px #8f8e8e88;
+  overflow-y: scroll;
+  max-height: 425px;
 }
-
-.selectedItems {
-  width: 100px;
-  height: 100px;
+.itemsCard::-webkit-scrollbar {
+  display: none;
+}
+.selectedItem {
   background: white;
   border-radius: 10px;
-  padding: 1em;
+  padding: 1em 1em 0 1em;
   margin: 1em 0;
-  -webkit-box-shadow:0px 2px 2px#aaa9a988;
-  -moz-box-shadow:0px 2px 2px #aaa9a988;
   box-shadow:0px 2px 2px #8f8e8e88;
+}
+.selectedItem img {
+  width: 90%;
+}
+.cartImg {
+  display: flex;
+  justify-content: center;
+}
+.cartProductText {
+  padding: 10px;
+}
+.cartProductText p, .totalPriceText p {
+  margin-bottom: 0.5em;
+}
+.removeCartProduct {
+  border: none;
+  border-radius: 25px;
+  background: #2e856e;
+  color: white;
+  padding: 7px;
+  width: 100%;
+}
+.removeCartProduct:hover {
+  background: #236b58;
+}
+.totalPriceText {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.checkoutButton {
+  border: none;
+  border-radius: 25px;
+  background: #2e856e;
+  color: white;
+  height: 3em;
+  font-weight: bold;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+}
+.selectedItems {
+  padding: 1em;
+  margin-top: 2em;
 }
 
 
@@ -93,40 +127,74 @@ button {
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .checkoutWrapper {
-  width: 90%;
-  height: 70%;
-  margin: 2em;
-  padding: 2em;
-}
-.smallInput {
-  display: flex;
-  flex-direction: column;
-}
-.leftInput {
-  margin-right: 2em;
-}
-.smallInput input {
-  width: 100%;
-}
+    width: 90%;
+    height: 70%;
+    margin: 2em;
+    padding: 2em;
+  }
+  .smallInput {
+    display: flex;
+    flex-direction: column;
+  }
+  .leftInput {
+    margin-right: 2em;
+  }
+  .smallInput input {
+    width: 100%;
+  }
+  .itemsCard {
+    max-height: 350px;
+  }
+  .selectedItem {
+    display: flex;
+    padding: 1em;
+  }
+  .selectedItem img {
+    width: 100%;
+  }
+  .cartImg {
+    justify-content: left;
+    width: 50%;
+  }
+  .cartProductText {
+    width: 17em;
+  }
+  .cartSummary {
+    width: 39.25em;
+    height: 3.8rem;
+    padding: 1em;
+  }
 }
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-legend {
-  width: 70%;
-}
-
-.checkoutCon {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-  .checkoutWrapper {
-  width: 90%;
-  height: 70%;
-  margin: 2em;
-  padding: 2em;
-}
-.fieldset {
-  width: 70%;
-}
+  
+  .checkoutCon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+    .checkoutWrapper {
+    width: 90%;
+    height: 70%;
+    margin: 2em;
+    padding: 2em;
+  }
+  .fieldset {
+    width: 70%;
+  }
+  .itemsCard {
+    max-height: 600px;
+    margin-top: 1em;
+  }
+  .cartProductText {
+    width: 15em;
+  }
+  .cartSummary {
+    width: 34em;
+    height: 3.5rem;
+    padding: 1em;
+  }
+  .selectedItems {
+    margin-top: 1.5em;
+  }
 }
