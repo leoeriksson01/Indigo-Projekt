@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./ContactForm.module.css";
-import useForm from "./useForm";
-import validate from "./validateForm";
 
-function ContactForm({ submitForm }) {
-	const { handleChange, values, handleSubmit, errors } = useForm(
-		submitForm,
-		validate
-	);
+function ContactForm({ submit }) {
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [message, setMessage] = useState("");
+
+	function handleSubmit(e) {
+		e.preventDefault();
+		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
+		messages.push({ name, email, message });
+		localStorage.setItem("messages", JSON.stringify(messages));
+		submit();
+	}
 
 	return (
 		<div id={style.formContainer}>
@@ -21,13 +26,11 @@ function ContactForm({ submitForm }) {
 					</label>
 					<input
 						type="text"
-						name="username"
 						id={style.formInput}
 						placeholder="Enter your name"
-						value={values.username}
-						onChange={handleChange}
+						value={name}
+						onChange={e => setName(e.target.value)}
 					/>
-					{errors.username && <p>{errors.username}</p>}
 				</div>
 				<div id={style.formInputs}>
 					<label htmlFor="email" id={style.formLabel}>
@@ -35,13 +38,11 @@ function ContactForm({ submitForm }) {
 					</label>
 					<input
 						type="email"
-						name="email"
 						id={style.formInput}
 						placeholder="Enter your email"
-						value={values.email}
-						onChange={handleChange}
+						value={email}
+						onChange={e => setEmail(e.target.value)}
 					/>
-					{errors.email && <p>{errors.email}</p>}
 				</div>
 				<div id={style.formInputs}>
 					<label htmlFor="message" id={style.formLabel}>
@@ -52,10 +53,9 @@ function ContactForm({ submitForm }) {
 						name="message"
 						id={style.formInputMessage}
 						placeholder="Enter your message"
-						value={values.message}
-						onChange={handleChange}
+						value={message}
+						onChange={e => setMessage(e.target.value)}
 					/>
-					{errors.message && <p>{errors.message}</p>}
 				</div>
 				<br></br>
 				<button id={style.formInputBtn} type="submit">
