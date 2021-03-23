@@ -16,6 +16,7 @@
 	color: white;
 	display: block;
 	width: 100%;
+	border: none;
 }
 
 .button_logout_wrapper {
