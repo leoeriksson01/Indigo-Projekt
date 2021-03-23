@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import style from "../css/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -7,9 +7,12 @@ import useOnclickOutside from "react-cool-onclickoutside";
 import { useHistory } from "react-router-dom";
 
 const Login = ({ url, open, setOpen }) => {
-	const { isLoggedIn, setUser } = useContext(UserContext);
+	const { isLoggedIn, login } = useContext(UserContext);
 	const container = useOnclickOutside(close);
 	const history = useHistory();
+
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 
 	if (isLoggedIn()) {
 		return null;
@@ -19,15 +22,10 @@ const Login = ({ url, open, setOpen }) => {
 		setOpen(false);
 	}
 
-	function login(e) {
+	function handleLogin(e) {
 		e.preventDefault();
-		// login logic here like validation
-		setUser({
-			name: "User",
-			email: Math.ceil(Math.random() * 100), // temp
-			password: "123",
-		});
-		close();
+		const success = login({ email, password });
+		if (success) close();
 		if (url) {
 			// User is always redirected to where they were
 			history.push(url);
@@ -42,15 +40,16 @@ const Login = ({ url, open, setOpen }) => {
 						<div onClick={close} className={style.close}>
 							<FontAwesomeIcon className={style.close_icon} icon={faTimes} />
 						</div>
-						<form onSubmit={login} className={style.login_form}>
+						<form onSubmit={handleLogin} className={style.login_form}>
 							<h1>Login</h1>
 
 							<label htmlFor="email">Email</label>
 							<input
 								required
 								type="email"
-								name="email"
 								placeholder="Enter your email"
+								value={email}
+								onChange={e => setEmail(e.target.value)}
 							/>
 
 							<label htmlFor="password" className={style.formLabel}>
@@ -59,8 +58,9 @@ const Login = ({ url, open, setOpen }) => {
 							<input
 								required
 								type="password"
-								name="password"
 								placeholder="Enter your password"
+								value={password}
+								onChange={e => setPassword(e.target.value)}
 							/>
 
 							<button type="submit">Login</button>

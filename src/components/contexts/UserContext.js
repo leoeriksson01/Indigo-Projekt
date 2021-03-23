@@ -17,8 +17,32 @@ export default function UserContextProvider({ children }) {
 		return user == null ? user : Boolean(user);
 	}
 
+	function login(user = {}) {
+		const users = JSON.parse(localStorage.getItem("users"));
+		for (let i = 0; i < users.length; i++) {
+			if (
+				users[i].email === user.email &&
+				users[i].password === user.password
+			) {
+				setUser(user);
+				break;
+			}
+		}
+		return false;
+	}
+
+	function getMessages(userArg) {
+		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
+		return messages.filter(message => {
+			if (userArg) {
+				return "email" in message && message.email === userArg?.email;
+			}
+			return "email" in message && message.email === user?.email;
+		});
+	}
+
 	function handleLogout() {
-		setUser(false);
+		setUser(null);
 	}
 
 	return (
@@ -28,6 +52,8 @@ export default function UserContextProvider({ children }) {
 				handleLogout,
 				user,
 				setUser,
+				login,
+				getMessages,
 			}}
 		>
 			{children}
