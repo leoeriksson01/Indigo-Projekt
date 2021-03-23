@@ -21,10 +21,13 @@ const ProfileMenu = ({ location }) => {
 					My Profile
 				</NavLink>
 
+				<br />
+
 				<NavLink exact to="#" className={style.a}>
 					My Orders
 				</NavLink>
 
+				<br />
 				<NavLink
 					exact
 					to="/about"
