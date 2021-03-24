@@ -27,7 +27,7 @@ const prevSlide = () => {
 
 return (
   <div id={style.slider}>
-    <h1 id={style.campaignHeader}>Cars on <span id={style.saleColor}>sale!</span></h1>
+    {/*<h1 id={style.campaignHeader}>Cars on <span id={style.saleColor}>sale!</span></h1>*/}
       <div id={style.mainContainer}>  
         <div id={style.circleLeft} onClick={prevSlide}>
           <i id={style.arrowLeft}></i>
