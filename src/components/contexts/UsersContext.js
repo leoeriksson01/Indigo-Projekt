@@ -39,9 +39,10 @@ export default function UsersContextProvider({ children }) {
 
 	function createUser(user = {}) {
 		if (findUser("email", user.email)) {
-			return;
+			return false;
 		}
 		setUsers(users => [...users, user]);
+		return true;
 	}
 
 	function deleteUser(property = "email", value = "") {
