@@ -15,8 +15,8 @@ import NotFound from "./components/http/NotFound";
 import Profile from "./pages/Profile";
 export default function App() {
 	return (
-		<UsersContextProvider>
-			<UserContextProvider>
+		<UserContextProvider>
+			<UsersContextProvider>
 				<CarContextProvider>
 					<ShopCartContextProvider>
 						<div className="App">
@@ -47,7 +47,7 @@ export default function App() {
 						</div>
 					</ShopCartContextProvider>
 				</CarContextProvider>
-			</UserContextProvider>
-		</UsersContextProvider>
+			</UsersContextProvider>
+		</UserContextProvider>
 	);
 }

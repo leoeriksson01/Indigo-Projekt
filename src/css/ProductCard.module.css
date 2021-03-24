@@ -1,49 +1,20 @@
-.a {
-	background-color: #2e856e;
-	border-style: none;
-	border-radius: 25px;
-	color: white;
-	cursor: pointer;
-	font-size: 1rem;
-	font-weight: normal;
-	padding: 6px 12px;
-}
-
-.a:hover {
-	color: #fff;
-	background-color: #2e856edc;
-	border-color: #000;
-	text-decoration: none;
-}
-
-.h2 {
-	font-size: 1rem;
-	font-weight: bold;
-	margin: 0;
-	padding-top: 0.5rem;
-}
-
 .img {
 	border-radius: 1%;
 	max-width: 100%;
 	width: 100%;
 }
 
-/* button:hover {
-  color: #fff;
-  background-color: #2e856edc;
-  border-color: #000;
-} */
-
 /* Buttons */
 
 .button_add {
 	background-color: #2e856e;
-	border-style: none;
-	border-radius: 25px;
 	color: white;
+	border-style: none;
+	border-radius: 5px;
 	cursor: pointer;
 	padding: 6px 12px;
+	font-size: 0.9rem;
+	width: 100%;
 }
 
 .button_add:hover {
@@ -57,16 +28,6 @@
 	background-color: #2e856edc;
 	opacity: 0.7;
 }
-
-/* no longer in use */
-/* .button_read {
-  background-color: #2e856e;
-  border-style: none;
-  border-radius: 25px;
-  color: white;
-  cursor: pointer;
-  padding: 6px 12px;
-} */
 
 .bottom_buttons_wrapper {
 	display: grid;
@@ -115,71 +76,83 @@
 	grid-area: button_load;
 }
 
-.button_wrapper {
-	display: flex;
-	justify-content: space-between;
-}
-
 /* Products */
 
-.car_description_title {
-	font-weight: 600;
-}
-
-.card_description {
-	color: #353336;
+.badge {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	text-transform: uppercase;
 	font-size: 0.8rem;
+	font-weight: 500;
+	background: #353336ac;
+	color: #fff;
+	padding: 5px 10px;
 }
-
+/*
 .card_description_button_wrapper {
 	display: grid;
 	grid-auto-rows: minmax(auto, 100px);
-}
-
-.card_information {
-	color: #353336;
-	font-size: 0.8rem;
-}
+}*/
 
 .card_text_wrapper {
-	padding: 10px;
+	padding: 20px;
 }
 
-.information_category {
-	font-weight: bold;
+.card_text_city {
+	font-size: 0.8rem;
+	padding: 0px;
+	margin: 0px;
+	color: grey;
 }
 
-.product_card {
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.3);
-	background: white;
+.card_text_heading {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 1rem;
+	font-weight: 500;
+}
+
+.card_text_heading p {
+	font-size: 1rem;
+}
+
+.card_text_price {
+	text-align: center;
+	font-weight: lighter;
 }
 
 .product_card_wrapper {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 30%);
 	grid-template-rows: auto;
-	grid-gap: 20px;
+	grid-gap: 25px;
 	justify-content: center;
 	margin-bottom: 2rem;
 }
 
-.product_list_container {
+.product_card {
+	background: white;
+	position: relative;
+	box-shadow: 0;
+	transform: scale(0.99);
+	transition: box-shadow 0.5s, transform 0.5s;
 }
 
-.img_wrapper {
-}
-
-.subheading {
+.product_card a {
+	text-decoration: none;
 	color: #353336;
-	font-weight: 500;
-	margin-top: 0;
-	margin-bottom: 0.4rem;
+}
+
+.product_card:hover {
+	transform: scale(1);
+	box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 576px) {
 	.product_card_wrapper {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, 95%);
+		grid-template-columns: repeat(auto-fill, 100%);
 		grid-template-rows: auto;
 		grid-gap: 20px;
 		justify-content: center;
@@ -235,8 +208,7 @@
 
 @media (min-width: 577px) and (max-width: 768px) {
 	.img {
-		border-radius: 1%;
-		height: 300px;
+		height: 200px;
 		max-width: 100%;
 	}
 
@@ -297,6 +269,10 @@
 		grid-auto-rows: minmax(auto, 100px);
 	}
 
+	.card_text_city {
+		padding-top: 1.5rem;
+	}
+
 	.img_wrapper {
 		display: grid;
 		align-items: center;
@@ -304,7 +280,7 @@
 
 	.product_card_wrapper {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, 95%);
+		grid-template-columns: repeat(auto-fill, 100%);
 		grid-template-rows: auto;
 		grid-gap: 20px;
 		justify-content: center;
@@ -314,8 +290,16 @@
 	.product_card {
 		display: grid;
 		grid-auto-flow: column;
-		grid-auto-columns: minmax(auto, 45%);
+		grid-auto-columns: minmax(auto, 70%);
 		justify-content: space-around;
-		padding: 6px;
+	}
+}
+
+/**
+*** Large screen
+**/
+@media (min-width: 769px) and (max-width: 1200px) {
+	.card_text_heading {
+		height: 100px;
 	}
 }
