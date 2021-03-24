@@ -166,7 +166,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-    .checkoutWrapper {
+  .checkoutWrapper {
     width: 90%;
     height: 70%;
     margin: 2em;
@@ -179,7 +179,7 @@
     width: 40.8%;
   }
   .itemsCard {
-    min-height: 42em;
+    max-height: 42em;
     margin-top: 1em;
   }
   .cartProductText {
