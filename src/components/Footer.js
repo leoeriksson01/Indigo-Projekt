@@ -32,6 +32,7 @@ const Footer = () => {
           <Facebook className={style.social} />
         </NavLink>
       </div>
+      <p>Copyright © 2021 Bilgagnat </p>
     </footer>
   );
 };
