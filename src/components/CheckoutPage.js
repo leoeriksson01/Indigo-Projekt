@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import style from "../css/CheckoutPage.module.css";
-import CheckoutContainer from "./CheckoutContainer";
 import { UserContext } from "./contexts/UserContext";
+import CheckoutContainer from "./CheckoutContainer";
 import Unauthorized from "./http/Unauthorized";
+import style from "../css/CheckoutPage.module.css";
 
 const CheckoutPage = () => {
 	const { isLoggedIn } = useContext(UserContext);

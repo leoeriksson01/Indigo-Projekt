@@ -24,8 +24,9 @@ const Login = ({ url, open, setOpen }) => {
 
 	function handleLogin(e) {
 		e.preventDefault();
-		const success = login({ email, password });
-		if (success) close();
+		// Login validation here
+		login({ email, password });
+		close();
 		if (url) {
 			// User is always redirected to where they were
 			history.push(url);

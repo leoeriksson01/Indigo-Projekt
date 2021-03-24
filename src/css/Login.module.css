@@ -18,7 +18,7 @@
 	position: relative;
 	background-color: #fefefe;
 	margin: 15% auto; /* 15% from the top and centered */
-	padding: 50px 50px 50px 50px;
+	padding: 50px;
 	width: 35%;
 	z-index: 3;
 	display: flex;
@@ -26,20 +26,15 @@
 }
 
 /* CLOSE ICON */
-.close {
-	height: 30px;
-	margin-left: auto;
-	display: flex;
-}
 .close_icon {
 	float: right;
 	font-size: 20px;
-	color: black;
+	color:#353336;
 }
 
-.close:hover,
-.close:focus {
-	color: grey;
+.close_icon:hover,
+.close_icon:focus {
+	color: #35333691;;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -47,7 +42,7 @@
 /* Form */
 .login_form h1 {
 	font-size: 1.8rem;
-	color: black;
+	color: #353336;
 }
 
 .login_form {
@@ -55,34 +50,30 @@
 	flex-direction: column;
 }
 
-.login_form input,
-.login_form h1 {
-	margin-bottom: 1.5rem;
-}
-
-.login_form label {
+.login_form input {
+	border: 0.5px solid #95918e;
+	border-radius: 3px;
+	padding: 0.5rem 0.5rem;
+	margin: 0px;
+	color: #353336;
 	font-size: 0.8rem;
 }
 
-.login_form input {
-	border: 0.5px solid grey;
-	border-radius: 3px;
-	padding: 1rem 0.5rem;
-}
-
 .register {
-	border-top: 0.5px solid grey;
+	border-top: 0.5px solid #d1d1cf;
 	margin-top: 2rem;
-	color: black;
+	color: #353336;
 }
 
 .login_form button {
-	width: 100%;
-	padding: 0.8rem;
-	border: none;
-	color: white;
 	background-color: #2e856e;
-	text-align: center;
+	border-style: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	padding: 6px 12px;
+	margin-top: 2rem; 
+	margin-bottom: 0.7rem; 
 }
 
 /* Register section */
@@ -96,6 +87,10 @@
 
 .register h2 {
 	font-size: 1rem;
+}
+
+.register a {
+	color: orange;
 }
 
 /* Media queries */
