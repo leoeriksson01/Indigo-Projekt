@@ -58,7 +58,7 @@
   margin: 2em 0 1.5em 0;
   box-shadow:0px 2px 2px #8f8e8e88;
   overflow-y: scroll;
-  max-height: 26.56em;
+  max-height: 34em;
 }
 .itemsCard::-webkit-scrollbar {
   display: none;
@@ -83,11 +83,12 @@
   margin-bottom: 0.5em;
 }
 .removeCartProduct {
-  border: none;
-  border-radius: 10px;
   background: #2e856e;
+  border: none;
+  border-radius: 5px;
   color: white;
-  padding: 7px;
+  padding: 6px 12px;
+  cursor: pointer;
   width: 100%;
 }
 .removeCartProduct:hover {
@@ -100,15 +101,12 @@
   text-decoration: underline #e4e4e4;
 }
 .checkoutButton {
-  border: none;
-  border-radius: 10px;
   background: #2e856e;
+  border: none;
+  border-radius: 5px;
   color: white;
-  height: 3em;
-  font-weight: bold;
-  padding: 15px;
-  display: flex;
-  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
 }
 .selectedItems {
   padding: 1em;
@@ -138,10 +136,11 @@
     width: 28%;
   }
   .itemsCard {
-    max-height: 350px;
+    max-height: 24em;
   }
   .selectedItem {
     display: flex;
+    justify-content: space-between;
     padding: 1em;
   }
   .selectedItem img {
@@ -153,6 +152,7 @@
   }
   .cartProductText {
     width: 17em;
+    padding-bottom: 0;
   }
   .cartSummary {
     width: 39.25em;
@@ -162,7 +162,6 @@
 }
 
 @media (min-width: 992px) {
-  
   .checkoutCon {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -180,7 +179,7 @@
     width: 40.8%;
   }
   .itemsCard {
-    max-height: 600px;
+    min-height: 42em;
     margin-top: 1em;
   }
   .cartProductText {

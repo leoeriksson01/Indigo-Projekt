@@ -16,13 +16,18 @@ const CheckoutForm = () => {
 
   const history = useHistory();
 
+  const toTop = () => {
+      window.scrollTo(0, 0);
+    }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     var currentOrders = JSON.parse(localStorage.getItem("orders")) || [];
     currentOrders.push(shoppingCart);
     localStorage.setItem("orders", JSON.stringify(currentOrders));
     emptyCart();
-
+    toTop();
+    
     history.push({
       pathname: '/confirmation',
       state: { name, email, address, county, zip, select, date, shoppingCart, totalPrice },

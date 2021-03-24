@@ -34,7 +34,7 @@ export default function CheckoutConfirmation() {
         <div className={style.confirmationPage} id="order">
             <div className={style.confirmText}>
                 <h2>THANK YOU</h2>
-                <h3>YOUR ORDER IS NOW PLACED</h3>
+                <h3>Your order is now placed</h3>
             </div>
             <div className={style.confirmationContainer}>
                 <div className={style.carData}>
