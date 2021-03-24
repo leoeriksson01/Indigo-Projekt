@@ -143,6 +143,7 @@ const Detail = styled(Col)`
 	font-weight: bold;
 	justify-content: space-between;
 	border: 2px solid rgb(225, 225, 225);
+	background-color: white;
 	padding: 15px;
 	height: 125px;
 	justify-content: center;
