@@ -3,10 +3,12 @@ import { NavLink } from "react-router-dom";
 import React, { useState, useContext } from "react";
 import { UserContext } from "../components/contexts/UserContext";
 import LoginModal from "../components/Login";
+import SignUpModal from "../components/SignUp";
 
 const ProfileMenu = ({ location }) => {
 	const { isLoggedIn, handleLogout } = useContext(UserContext);
 	const [loginModalOpen, setLoginModalOpen] = useState(false);
+	const [signupModalOpen, setSignupModalOpen] = useState(false);
 
 	const url = location.state?.url ?? location.pathname;
 
@@ -70,6 +72,7 @@ const ProfileMenu = ({ location }) => {
 	return (
 		<div className={style.profile_menu_wrapper}>
 			<LoginModal url={url} open={loginModalOpen} setOpen={setLoginModalOpen} />
+			<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
 			<div className={style.profile_menu_content}>
 				{isLoggedIn() ? (
 					<div className={style.profile_menu_content}>{loggedInMenu}</div>

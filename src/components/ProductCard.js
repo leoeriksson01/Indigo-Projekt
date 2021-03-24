@@ -5,6 +5,8 @@ import { ShopCartContext } from "../components/contexts/ShopCartContext";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = () => {
 	const { products } = useContext(CarContext);
@@ -51,75 +53,59 @@ const ProductCard = () => {
 		} else if (index < loadProducts) {
 			return (
 				<div className={style.product_card} key={car.vin}>
-					<div className={style.img_wrapper}>
-						<img
-							className={style.img}
-							src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
-							alt="product"
-						/>
-					</div>
-					{/* /.img_wrapper */}
+					<NavLink exact to={`/car/${car.vin}`}>
+						<div className={style.badge}>
+							{Number(car.miles).toLocaleString()} miles
+						</div>
+
+						{/* /.img */}
+						<div className={style.img_wrapper}>
+							<img
+								className={style.img}
+								src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
+								alt="product"
+							/>
+						</div>
+					</NavLink>
+
+					{/* Card Text */}
 					<div className={style.card_text_wrapper}>
-						<h2 className={style.h2}>
-							{car.make} {car.model} {car.year}
-						</h2>
-						<p className={style.subheading}>
-							<span>{Number(car.miles).toLocaleString()} miles</span>
-						</p>
-						<p className={style.card_information}>
-							<span className={style.information_category}>Make: </span>
-							{car.make} <br />
-							<span className={style.information_category}>Model:</span>
-							{car.model}
-							<br />
-							<span className={style.information_category}>Year: </span>
-							{car.year}
-							<br />
-							<span className={style.information_category}>City: </span>
-							{car.city}
-							<br />
-							<span className={style.information_category}>Price: </span>
-							<span>${Number(car.price).toLocaleString()}</span>
-							<br />
-						</p>
+						<NavLink exact to={`/car/${car.vin}`}>
+							<div className={style.card_text_city}>
+								<p>
+									<FontAwesomeIcon icon={faMapMarkerAlt} /> {car.city}
+								</p>
+							</div>
 
-						<div className={style.card_description_button_wrapper}>
-							<p className={style.card_description}>
-								<span className={style.car_description_title}>
-									Car description:
-								</span>
-								<br />
-								<span>{car.descShort}</span>
-								<br />
-							</p>
-						</div>
-						{/* /.card_text_wrapper */}
+							<div className={style.card_text_heading}>
+								<p>
+									{car.make} {car.model} {car.year}
+								</p>
+								<p className={style.card_text_price}>
+									${Number(car.price).toLocaleString()}
+								</p>
+							</div>
+						</NavLink>
 
-						<div className={style.button_wrapper}>
-							<button
-								disabled={itemExists(car)}
-								onClick={() => handleButtonAdd(car)}
-								className={`${style.button_add} ${
-									itemExists(car) ? style.button_already_in_cart : ""
-								}`}
-							>
-								{itemExists(car) ? "Already in cart" : "Add to cart"}
-							</button>
-							<NavLink className={style.a} exact to={`/car/${car.vin}`}>
-								Read more
-							</NavLink>
-						</div>
-						{/* /.card_description_button_wrapper */}
+						{/* Button */}
+						<button
+							disabled={itemExists(car)}
+							onClick={() => handleButtonAdd(car)}
+							className={`${style.button_add} ${
+								itemExists(car) ? style.button_already_in_cart : ""
+							}`}
+						>
+							{itemExists(car) ? "Already in cart" : "Add to cart"}
+						</button>
 					</div>
-					{/* /.button_wrapper */}
 				</div>
 			);
 		}
 	});
+
 	return (
 		<div className={style.product_list_container}>
 			<div className={style.product_card_wrapper}>{product}</div>
-
 			<div className={style.bottom_buttons_wrapper}>
 				{loadProducts < products.length ? loadButton : ""}
 				{backTopButton}
