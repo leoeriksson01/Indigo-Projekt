@@ -115,14 +115,28 @@ const PriceNumber = styled.span`
 `;
 
 const Buy = styled.button`
-	background-color: rgb(46, 133, 110);
-	border: 0;
+	background-color: #2e856e;
+	border-style: none;
+	border-radius: 5px;
 	color: white;
-	border-radius: 25px;
-	padding: 10px;
-	font-size: 1.25rem;
+	cursor: pointer;
+	padding: 6px 12px;
+	margin-top: 0.5rem; 
+	margin-bottom: 1.9rem; 
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	&[disabled] {
 		opacity: 0.5;
+	}
+	@media (min-width: 768px) {
+		width: 55%;
+		margin: 0 auto;
+		margin-bottom: 1.5rem; 
+	}
+	@media (min-width: 1200px) {
+		width: 100%;
 	}
 	@media (max-width: 1200px) {
 		font-size: 1.5rem;
