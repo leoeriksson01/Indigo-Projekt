@@ -9,7 +9,7 @@ import { useHistory, NavLink } from "react-router-dom";
 import SignUpModal from "../components/SignUp";
 
 const Login = ({ url, open, setOpen }) => {
-	const { isLoggedIn, login } = useContext(UserContext);
+	const { isLoggedIn, login, setUser } = useContext(UserContext);
 	const [signupModalOpen, setSignupModalOpen] = useState(false);
 	const { users } = useContext(UsersContext);
 	const container = useOnclickOutside(close);
@@ -34,8 +34,13 @@ const Login = ({ url, open, setOpen }) => {
 			user => email === user.email && password === user.password
 		);
 
+		const getUser = users.find(user => {
+			return user.email === email; 
+		})
+
 		if (validation) {
-			login();
+			setUser(getUser);
+			{/*login(validation)*/}
 			close();
 		} else {
 			setErrorMsg("Wrong email or password. Try again!");
