@@ -59,8 +59,14 @@ const ProfileMenu = ({ location }) => {
 			<hr className={style.hr} />
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
-					<NavLink className={style.a} exact to="#">
-						<span className={style.register}>Not a member?</span> Register now
+					<span className={style.register}>Not a member?</span>
+					<NavLink
+						className={style.a}
+						exact
+						to="#"
+						onClick={() => setSignupModalOpen(true)}
+					>
+						Register now
 					</NavLink>
 				</p>
 			</div>
