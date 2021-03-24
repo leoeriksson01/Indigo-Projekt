@@ -42,6 +42,9 @@ export default function App() {
 									<Route exact path="/myorders">
 										<MyOrders />
 									</Route>
+									<Route exact path="/profile">
+										<Profile/>
+									</Route>
 									<Route>
 										<NotFound />
 									</Route>
