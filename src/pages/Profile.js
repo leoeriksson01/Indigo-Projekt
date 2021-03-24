@@ -2,13 +2,17 @@ import style from "../css/Profile.module.css";
 import MessageList from "../components/MessageList";
 import ProfileSidebar from "../components/ProfileSidebar";
 import ProfileInformation from "../components/ProfileInformation";
+import { useContext } from "react";
+import { UserContext } from "../components/contexts/UserContext";
 
 const Profile = () => {
+	const { user } = useContext(UserContext);
+
 	return (
 		<div className={style.profile_container}>
 			<div className={style.profile_content}>
 				<div className={style.greeting_text}>
-					<h2>Hello Name</h2>
+					<h2>Hello {user?.name}</h2>
 					<p>
 						On "My Profile" you can edit Profile and view your Order History and
 						Messages

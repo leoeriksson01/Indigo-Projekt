@@ -70,7 +70,9 @@ const Navbar = () => {
 	};
 
 	const toggleProfileMenu = () => {
-		setProfileMenu(profileMenu => !profileMenu);
+		if (window.innerWidth < 576) {
+			setProfileMenu(profileMenu => !profileMenu);
+		}
 	};
 
 	return (
@@ -106,8 +108,7 @@ const Navbar = () => {
 			<div className={style.icons_wrapper}>
 				<div
 					className={style.profile_container}
-					// onMouseEnter={toggleProfileMenuEnter}
-					// onMouseLeave={toggleProfileMenuLeave}
+					onMouseLeave={toggleProfileMenuLeave}
 				>
 					<div
 						className={style.profile_icon_wrapper}
@@ -118,6 +119,7 @@ const Navbar = () => {
 					>
 						<img
 							onClick={toggleProfileMenu}
+							onMouseEnter={toggleProfileMenuEnter}
 							src={Profile}
 							alt="profile"
 							className={style.profile_icon}

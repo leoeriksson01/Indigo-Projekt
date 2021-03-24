@@ -7,8 +7,25 @@ import {
 	faPen,
 	faEdit,
 } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { UserContext } from "../components/contexts/UserContext";
+import NotFound from "./http/NotFound";
 
 const ProfileInformation = () => {
+	const { user } = useContext(UserContext);
+	const togglePassword = e => {
+		const type = e.target.getAttribute("type");
+		e.target.setAttribute("type", type === "password" ? "text" : "password");
+	};
+
+	if (!user) {
+		return null;
+	}
+
+	if (!user && user !== undefined) {
+		return <NotFound />;
+	}
+
 	return (
 		<div className={style.profile_information_content}>
 			<div className={style.profile_information_header}>
@@ -33,22 +50,22 @@ const ProfileInformation = () => {
 						<div className={style.text_wrapper}>
 							<p className={style.p}>
 								Name: <br />
-								<span className={style.span}>Admin</span>
+								<span className={style.span}>{user.name}</span>
 							</p>
 							<p className={style.p}>
 								Address: <br />
-								<span className={style.span}>Drottningsgatan 184</span>
+								<span className={style.span}>{user.address}</span>
 							</p>
 						</div>
 
 						<div className={style.text_wrapper}>
 							<p className={style.p}>
 								County: <br />
-								<span className={style.span}>Skåne</span>
+								<span className={style.span}>{user.county}</span>
 							</p>
 							<p className={style.p}>
 								Zip Code: <br />
-								<span className={style.span}>200 00</span>
+								<span className={style.span}>{user.zip}</span>
 							</p>
 						</div>
 					</div>
@@ -71,11 +88,17 @@ const ProfileInformation = () => {
 				<div className={style.login_text}>
 					<p className={style.p}>
 						Email: <br />
-						<span className={style.span}>admin@bilgagnat.com</span>
+						<span className={style.span}>{user.email}</span>
 					</p>
 					<p className={style.p}>
 						Password: <br />
-						<span className={style.span}>**********</span>
+						<input
+							className={style.password_input}
+							type="password"
+							onClick={togglePassword}
+							value={user.password}
+							readOnly
+						/>
 					</p>
 				</div>
 				{/* /.login_text */}
