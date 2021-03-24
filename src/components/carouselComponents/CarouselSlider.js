@@ -27,7 +27,6 @@ const prevSlide = () => {
 
 return (
   <div id={style.slider}>
-    {/*<h1 id={style.campaignHeader}>Cars on <span id={style.saleColor}>sale!</span></h1>*/}
       <div id={style.mainContainer}>  
         <div id={style.circleLeft} onClick={prevSlide}>
           <i id={style.arrowLeft}></i>
@@ -54,7 +53,7 @@ return (
                       <span id={style.boldText}>Special price: </span> {slide.price} :-
                     </div>
                     <NavLink id={style.btnReadMore} exact to={`/car/${slide.vin}`}>
-                      Read more
+                      <span>Read more</span>
                     </NavLink>
                   </div>
                 </div>
