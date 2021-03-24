@@ -1,0 +1,70 @@
+.myOrders {
+  margin: 0 auto;
+  padding: 1em;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.myOrders h2 {
+  text-align: center;
+}
+.orderContainer {
+  background: white;
+  box-shadow:0px 2px 2px #8f8e8e88;
+  text-align: center;
+  padding: 2em;
+  margin-bottom: 1em;
+}
+.oneOrderContainer {
+  border-bottom: 2px solid #e0d8d8;
+  margin-bottom: 1.5em;
+}
+.orderImg {
+  display: inline-block;
+  width: 100%;
+}
+.orderText {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  .myOrders {
+    display: inline-block;
+  }
+  .orderContainer {
+    text-align: left;
+  }
+  .oneOrderContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+  }
+  .orderImg {
+    width: 30%;
+  }
+  .orderText {
+    font-size: 1rem;
+  }
+  .orderText p {
+    margin-right: 0.5em;
+    border-right: 1px solid #e0d8d8;
+    padding: 0.5em;
+  }
+}
+
+@media (min-width: 992px) {
+  .myOrders {
+    width: 80%;
+    display: flex;
+  }
+  .orderContainer {
+    padding: 3em;
+  }
+  .orderImg {
+    width: 20%;
+  }
+}
