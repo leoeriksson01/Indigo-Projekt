@@ -14,7 +14,7 @@ const ProfileSidebar = () => {
 			</div>
 			<ul className={style.links}>
 				<li>
-					<NavLink className={style.a} exact to="/about">
+					<NavLink className={style.a} exact to="/myorders">
 						My Orders
 					</NavLink>
 				</li>
