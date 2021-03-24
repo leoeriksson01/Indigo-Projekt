@@ -38,6 +38,9 @@ export default function App() {
 									<Route exact path="/confirmation">
 										<CheckoutConfirmation />
 									</Route>
+									<Route exact path="/profile">
+										<Profile/>
+									</Route>
 									<Route>
 										<NotFound />
 									</Route>
