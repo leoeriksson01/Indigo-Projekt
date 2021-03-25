@@ -21,6 +21,7 @@ export default function UserContextProvider({ children }) {
 		setUser(user);
 	}
 
+	// Get messages from logged in user, or user of argument
 	function getMessages(userArg) {
 		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
 		return messages.filter(message => {
@@ -31,6 +32,7 @@ export default function UserContextProvider({ children }) {
 		});
 	}
 
+	// Get orders from logged in user, or user of argument
 	function getOrders(userArg) {
 		const orders = JSON.parse(localStorage.getItem("orders")) ?? [];
 		return orders.filter(order => {
