@@ -2,6 +2,8 @@ import style from "../css/ProfileSidebar.module.css";
 import { NavLink } from "react-router-dom";
 
 const ProfileSidebar = () => {
+
+	// If user clicks on NavLink: "Help & Contact" user is redirected to Contact From on "About Us" page
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};

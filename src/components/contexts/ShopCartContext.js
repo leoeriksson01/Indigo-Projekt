@@ -18,6 +18,7 @@ export default function ShopCartContextProvider({ children }) {
 	}, []);
 
 	// Save information to local storage whenever updates are made to shopping cart
+	// And also set the total price by combining all the cars' prices
 	useEffect(() => {
 		localStorage.setItem("shoppingcart", JSON.stringify(shoppingCart));
 		setTotalPrice(shoppingCart.reduce((acc, value) => acc + value.price, 0));

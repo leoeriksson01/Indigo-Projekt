@@ -5,11 +5,11 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
 import { UsersContext } from "../components/contexts/UsersContext";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { useHistory, NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SignUpModal from "../components/SignUp";
 
 const Login = ({ url, open, setOpen }) => {
-	const { isLoggedIn, login, setUser } = useContext(UserContext);
+	const { isLoggedIn, login } = useContext(UserContext);
 	const [signupModalOpen, setSignupModalOpen] = useState(false);
 	const { users } = useContext(UsersContext);
 	const container = useOnclickOutside(close);
@@ -17,7 +17,6 @@ const Login = ({ url, open, setOpen }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [errorMsg, setErrorMsg] = useState("");
-
 
 	if (isLoggedIn()) {
 		return null;
@@ -30,17 +29,18 @@ const Login = ({ url, open, setOpen }) => {
 	function handleLogin(e) {
 		e.preventDefault();
 
+		//Checks if user input (email and password) is valid/registrered 
+
 		const validation = users.find(
 			user => email === user.email && password === user.password
 		);
 
 		const getUser = users.find(user => {
-			return user.email === email; 
-		})
+			return user.email === email;
+		});
 
 		if (validation) {
-			setUser(getUser);
-			{/*login(validation)*/}
+			login(getUser);
 			close();
 		} else {
 			setErrorMsg("Wrong email or password. Try again!");
@@ -54,7 +54,6 @@ const Login = ({ url, open, setOpen }) => {
 
 	return (
 		<div>
-		
 			{open && (
 				<div className={style.modal}>
 					<div className={style.modal_content} ref={container}>
@@ -87,22 +86,18 @@ const Login = ({ url, open, setOpen }) => {
 							<button type="submit">Login</button>
 						</form>
 						<div className={style.register}>
-							<h2>
-								Not a member?
-								<NavLink
-									className={style.a}
-									exact
-									to="#"
-									onClick={() => setSignupModalOpen(true)}
-								>
-									Register now
-								</NavLink>
-							</h2>
+							<h2>Not a member?</h2>
+							<button
+								className={style.a}
+								onClick={() => setSignupModalOpen(true)}
+							>
+								Register now
+							</button>
 						</div>
 					</div>
 				</div>
 			)}
-				<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
+			<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
 		</div>
 	);
 };

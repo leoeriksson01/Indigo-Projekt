@@ -4,7 +4,8 @@ import style from '../css/CheckoutPage.module.css';
 
 const SelectedItems = () => {
   const { shoppingCart, removeProduct } = useContext(ShopCartContext);
-    
+  
+  // maps through the cars in shoppingCart then renders each one out
   const cartProduct = shoppingCart.map((cartProduct, i) => {
     return (
       <div className={style.selectedItem} key={i}>

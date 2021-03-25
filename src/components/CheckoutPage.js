@@ -5,6 +5,7 @@ import Unauthorized from "./http/Unauthorized";
 import style from "../css/CheckoutPage.module.css";
 
 const CheckoutPage = () => {
+	// using isLoggedIn to return component if user is not logged in
 	const { isLoggedIn } = useContext(UserContext);
 
 	if (isLoggedIn() == null) {
@@ -15,6 +16,7 @@ const CheckoutPage = () => {
 		return <Unauthorized />;
 	}
 
+	// return boilerplate and component
 	return (
 		<div className={style.checkoutPage}>
 			<div className={style.checkoutWrapper}>

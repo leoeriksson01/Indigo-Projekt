@@ -2,8 +2,10 @@ import { useLocation } from 'react-router-dom';
 import style from '../css/Confirmation.module.css';
 
 export default function CheckoutConfirmation() {
+    // fetches the values in state from history.push in CheckoutForm.js
     const { state } = useLocation();
 
+    // maps through each car in shoppingCart that was fetched from state
     const confirmCars = state.shoppingCart.map((confirmCars, i) => {
         return (
             <div className={style.boughtItem} key={i}>

@@ -3,6 +3,7 @@ import style from '../css/CheckoutPage.module.css'
 
 const ItemsCard = () => {
 
+  // returns boilerplate and component
   return (
     <div>
       <div className={style.itemsCard}>
