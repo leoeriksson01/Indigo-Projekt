@@ -8,10 +8,12 @@ import Unauthorized from "./http/Unauthorized";
 const MyOrders = () => {
 	const { getOrders, isLoggedIn } = useContext(UserContext);
 
+	// if user is not logged in, returns component
 	if (isLoggedIn() === false) {
 		return <Unauthorized />;
 	}
 
+	// maps through each order that is linked with user and sends props of order to Order.js
 	return (
 		<div className={style.myOrdersContainer}>
 			<div className={style.ordersContent}>

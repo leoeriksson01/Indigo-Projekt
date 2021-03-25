@@ -1,5 +1,6 @@
 import style from '../css/MyOrders.module.css';
 
+// fetches props from MyOrders.js and maps through each car to then render them out
 const Order = (props) => {
   const oneOrder = props.order.map((oneOrder, i) => {
     return (

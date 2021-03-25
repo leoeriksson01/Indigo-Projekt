@@ -8,6 +8,7 @@ const CheckoutForm = () => {
 	const { shoppingCart, emptyCart, totalPrice } = useContext(ShopCartContext);
 	const { user } = useContext(UserContext);
 
+	// useState for all the userinputs 
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [address, setAddress] = useState("");
@@ -18,18 +19,23 @@ const CheckoutForm = () => {
 
 	const history = useHistory();
 
+	// scroll to top because CheckoutConfirmation scrolls to bottom for some reason
 	const toTop = () => {
 		window.scrollTo(0, 0);
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
+		// get orders from localStorage if there are none, then initialize an empty array
 		const orders = JSON.parse(localStorage.getItem("orders")) ?? [];
+		// create an order linked to the user that is logged in and to the cars in the shoppingcart
 		const order = { email: user?.email, items: shoppingCart };
+		// updates orders value to include the current order
 		localStorage.setItem("orders", JSON.stringify([...orders, order]));
 		emptyCart();
 		toTop();
 
+		// redirects user and pushes the states to CheckoutConfirmation.js
 		history.push({
 			pathname: "/confirmation",
 			state: {
