@@ -302,7 +302,7 @@
 	.card_text_heading {
 		height: 120px;	
 		flex-direction: column;
-		justify-content: flex-start;
+		justify-content: space-between;
 	}
 
 	.card_text_price{
