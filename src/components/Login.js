@@ -18,7 +18,6 @@ const Login = ({ url, open, setOpen }) => {
 	const [password, setPassword] = useState("");
 	const [errorMsg, setErrorMsg] = useState("");
 
-
 	if (isLoggedIn()) {
 		return null;
 	}
@@ -35,12 +34,14 @@ const Login = ({ url, open, setOpen }) => {
 		);
 
 		const getUser = users.find(user => {
-			return user.email === email; 
-		})
+			return user.email === email;
+		});
 
 		if (validation) {
 			setUser(getUser);
-			{/*login(validation)*/}
+			{
+				/*login(validation)*/
+			}
 			close();
 		} else {
 			setErrorMsg("Wrong email or password. Try again!");
@@ -54,7 +55,6 @@ const Login = ({ url, open, setOpen }) => {
 
 	return (
 		<div>
-		
 			{open && (
 				<div className={style.modal}>
 					<div className={style.modal_content} ref={container}>
@@ -87,22 +87,15 @@ const Login = ({ url, open, setOpen }) => {
 							<button type="submit">Login</button>
 						</form>
 						<div className={style.register}>
-							<h2>
-								Not a member?
-								<NavLink
-									className={style.a}
-									exact
-									to="#"
-									onClick={() => setSignupModalOpen(true)}
-								>
-									Register now
-								</NavLink>
-							</h2>
+							<h2 >Not a member?</h2>
+							<button className={style.a} onClick={() => setSignupModalOpen(true)}>
+								Register now
+							</button>
 						</div>
 					</div>
 				</div>
 			)}
-				<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
+			<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
 		</div>
 	);
 };
