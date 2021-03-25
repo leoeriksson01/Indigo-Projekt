@@ -45,6 +45,21 @@
     width: 60%;
 }
 
+#signUpBtn{
+    background-color: #2e856e;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-top: 0.5rem; 
+	margin-bottom: 1.9rem; 
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .close {
     height: 30px;
     width: 100%; 
