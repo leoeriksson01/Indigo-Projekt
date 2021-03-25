@@ -16,7 +16,7 @@ export default function UsersContextProvider({ children }) {
 	}, [users]);
 
 	function findUser(property = "email", value = "") {
-		return users.find(user => user[property] === value);
+		return users.find(user => user[property] === value) ?? null;
 	}
 
 	useEffect(() => {

@@ -10,7 +10,6 @@ export default function CarContextProvider({ children }) {
 		setCars(defaultCars);
 	}, []);
 
-	// Remove car whose vin property matches the one being sent in
 	function remove(carToRemove = {}) {
 		setCars(p => p.filter(car => car.vin !== carToRemove.vin));
 	}
@@ -20,13 +19,14 @@ export default function CarContextProvider({ children }) {
 		return cars.filter(car => car[key] === value);
 	}
 
-	// Return single car object on match, null if empty
+	// Return single
 	function findOne(key = "vin", value = "") {
 		return cars.find(car => car[key] === value) ?? null;
 	}
 
 	//--- FILTER ---
- // Initializes state for each filter type 
+
+	// Initializes state for each filter type
 	const [products, setProducts] = useState(cars);
 	const [search, setSearch] = useState("");
 	const [make, setMake] = useState("all");
@@ -100,11 +100,10 @@ export default function CarContextProvider({ children }) {
 		}
 	};
 
-
 	// Here, the actual filtering takes place -->  if statement for each filter type.
 
 	useEffect(() => {
-		let filteredProducts = cars; 
+		let filteredProducts = cars;
 
 		if (make === "all") {
 			filteredProducts = defaultCars;
