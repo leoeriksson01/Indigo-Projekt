@@ -31,6 +31,16 @@ export default function UserContextProvider({ children }) {
 		});
 	}
 
+	function getOrders(userArg) {
+		const orders = JSON.parse(localStorage.getItem("orders")) ?? [];
+		return orders.filter(order => {
+			if (userArg) {
+				return "email" in order && order.email === userArg?.email;
+			}
+			return "email" in order && order.email === user?.email;
+		});
+	}
+
 	function handleLogout() {
 		setUser(null);
 	}
@@ -44,6 +54,7 @@ export default function UserContextProvider({ children }) {
 				setUser,
 				login,
 				getMessages,
+				getOrders,
 			}}
 		>
 			{children}
