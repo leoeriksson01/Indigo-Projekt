@@ -5,14 +5,17 @@ export const UserContext = createContext();
 export default function UserContextProvider({ children }) {
 	const [user, setUser] = useState();
 
+	// Parse users from localStorage on mount
 	useEffect(() => {
 		setUser(JSON.parse(localStorage.getItem("user")) ?? null);
 	}, []);
 
+	//  Every time user update, save it in localStorage
 	useEffect(() => {
 		localStorage.setItem("user", JSON.stringify(user));
 	}, [user]);
 
+	// If user object exists, user is logged in
 	function isLoggedIn() {
 		return Boolean(user);
 	}
@@ -43,6 +46,7 @@ export default function UserContextProvider({ children }) {
 		});
 	}
 
+	// Logout
 	function handleLogout() {
 		setUser(null);
 	}
