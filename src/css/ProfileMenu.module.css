@@ -17,6 +17,7 @@
 	color: white;
 	display: block;
 	width: 100%;
+	border: none;
 }
 
 .button_logout_wrapper {
@@ -26,6 +27,7 @@
 
 .button_login {
 	background-color: #2e856e;
+	border: none;
 	color: white;
 	display: block;
 	width: 100%;
@@ -42,23 +44,28 @@
 .logged_out_menu {
 }
 
-.order_link_wrapper {
+/* .order_link_wrapper {
 	display: flex;
-    flex-direction: column;
-}
+	flex-direction: column;
+} */
 
-.registration_text {
+.register {
 	color: orange;
 }
+
+/* .registration_text {
+} */
 
 .registration_text:hover {
 	text-decoration: none;
 }
 
 .registration_text {
-	font-size: 0.8rem;
+	color: orange;
 	display: flex;
+	font-size: 0.75rem;
 	justify-content: space-around;
+	margin-bottom: 0;
 }
 .registration_wrapper {
 	margin-top: 8px;
@@ -73,7 +80,6 @@
 	border-radius: 5px;
 	color: white;
 	/* min-height: 200px; */
-	padding-top: 10px;
 	position: absolute;
 	right: -80px;
 	width: 200px;

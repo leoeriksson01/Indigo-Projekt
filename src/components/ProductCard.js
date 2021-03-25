@@ -6,7 +6,6 @@ import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const ProductCard = () => {
 	const { products } = useContext(CarContext);
@@ -14,6 +13,7 @@ const ProductCard = () => {
 	const [loadProducts, setLoadProducts] = useState(6);
 
 	const handleButtonAdd = car => {
+		// adds product to shopping cart
 		addToCart(car);
 	};
 
@@ -31,6 +31,7 @@ const ProductCard = () => {
 		});
 	};
 
+	// Load button
 	const loadButton = (
 		<div className={style.button_load_wrapper}>
 			<button className={style.button_load} onClick={() => handleButtonLoad()}>
@@ -39,6 +40,7 @@ const ProductCard = () => {
 		</div>
 	);
 
+	// Back to top button
 	const backTopButton = (
 		<div className={style.button_back_top_wrapper}>
 			<button onClick={handleButtonTop} className={style.button_back_top}>
@@ -47,6 +49,7 @@ const ProductCard = () => {
 		</div>
 	);
 
+	// Maps out cars/products
 	const product = products.map((car, index) => {
 		if (index === loadProducts) {
 			return null;

@@ -49,16 +49,19 @@
 }
 
 #formInputBtn{
-    width: 10rem;
-    display:inline-block;
-    padding: 0.8rem;
-    border: none;
-    border-radius:25px;
+    background-color: #2e856e;
     box-shadow: #5e34343d 0px 3px 8px;
-    color:white;
-    background-color:#2E856E;
-    margin: 0 auto;
-    text-align: center;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    padding: 6px 12px;
+    margin-top: 0.5rem; 
+	margin-bottom: 1.9rem; 
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #successContainer{
@@ -102,6 +105,10 @@
     
     #formImage{
         max-width: 30%;
+    }
+
+    #formInputBtn{
+        font-size: 1.2rem;
     }
 }
 
