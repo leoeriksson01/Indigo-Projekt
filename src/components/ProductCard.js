@@ -58,7 +58,7 @@ const ProductCard = () => {
 				<div className={style.product_card} key={car.vin}>
 					<NavLink exact to={`/car/${car.vin}`}>
 						<div className={style.badge}>
-							{Number(car.miles).toLocaleString()} miles
+							{Number(car.miles ?? 0).toLocaleString()} miles
 						</div>
 
 						{/* /.img */}
@@ -103,6 +103,8 @@ const ProductCard = () => {
 					</div>
 				</div>
 			);
+		} else {
+			return null;
 		}
 	});
 
