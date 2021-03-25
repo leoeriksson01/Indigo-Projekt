@@ -82,7 +82,7 @@
     #SignUpContainer{
         margin: 6% auto;
         width: 55%; 
-        height: 90%;
+        height: 60%;
     }
 }
 
@@ -90,5 +90,6 @@
 @media (min-width: 992px) {
     #SignUpContainer{
         max-width: 45%; 
+        height: 75%;
     }
 }
