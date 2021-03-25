@@ -3,9 +3,14 @@ import style from "../css/MyOrders.module.css";
 import ProfileSidebar from "../components/ProfileSidebar";
 import { useContext } from "react";
 import { UserContext } from "./contexts/UserContext";
+import Unauthorized from "./http/Unauthorized";
 
 const MyOrders = () => {
-	const { getOrders } = useContext(UserContext);
+	const { getOrders, isLoggedIn } = useContext(UserContext);
+
+	if (isLoggedIn() === false) {
+		return <Unauthorized />;
+	}
 
 	return (
 		<div className={style.myOrdersContainer}>
