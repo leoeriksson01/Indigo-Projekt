@@ -29,6 +29,8 @@ const Login = ({ url, open, setOpen }) => {
 	function handleLogin(e) {
 		e.preventDefault();
 
+		//Checks if user input (email and password) is valid/registrered 
+
 		const validation = users.find(
 			user => email === user.email && password === user.password
 		);
