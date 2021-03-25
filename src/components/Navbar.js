@@ -9,28 +9,23 @@ import logo from "../assets/logo.jpg";
 import style from "../css/Navbar.module.css";
 import ShoppingCartList from "./ShoppingCartList";
 import ProfileMenu from "./ProfileMenu";
+import useOnclickOutside from "react-cool-onclickoutside";
 
 const Navbar = () => {
 	const [profileMenu, setProfileMenu] = useState(false);
 	const [animateCart, setAnimateCart] = useState(false);
 	const [mobileMenu, setMobileMenu] = useState(false);
-	const [hoverShoppingCart, setHoverShoppingCart] = useState(false);
+	const [shoppingCartOpen, setShoppingCartOpen] = useState(false);
 	const { counter, shoppingCart } = useContext(ShopCartContext);
+
+	const profile_menu_close = useOnclickOutside(() => setProfileMenu(false));
+	const shoppingcart_menu_close = useOnclickOutside(() =>
+		setShoppingCartOpen(false)
+	);
 
 	const location = useLocation();
 
 	const handleMobileMenu = () => setMobileMenu(mobileMenu => !mobileMenu);
-
-	const toggleShoppingCartEnter = () => {
-		if (window.innerWidth > 577) {
-			setHoverShoppingCart(true);
-		}
-	};
-	const toggleShoppingCartLeave = () => {
-		if (window.innerWidth > 577) {
-			setHoverShoppingCart(false);
-		}
-	};
 
 	// Memorize what the previous shopping cart size was
 	const cartItemsLength = useRef(shoppingCart.length);
@@ -44,7 +39,7 @@ const Navbar = () => {
 		}
 
 		if (shoppingCart.length <= 0) {
-			setHoverShoppingCart(false);
+			setShoppingCartOpen(false);
 		}
 
 		// Save current shopping cart length to compare with the next time the cart update
@@ -52,27 +47,12 @@ const Navbar = () => {
 	}, [shoppingCart]);
 
 	const toggleShoppingCart = () => {
-		if (window.innerWidth < 576) {
-			setHoverShoppingCart(hoverShoppingCart => !hoverShoppingCart);
-		}
+		setShoppingCartOpen(shoppingCartOpen => !shoppingCartOpen);
 	};
 
-	const toggleProfileMenuEnter = () => {
-		if (window.innerWidth > 577) {
-			setProfileMenu(true);
-		}
-	};
-
-	const toggleProfileMenuLeave = () => {
-		if (window.innerWidth > 577) {
-			setProfileMenu(false);
-		}
-	};
-
-	const toggleProfileMenu = () => {
-		if (window.innerWidth < 576) {
-			setProfileMenu(profileMenu => !profileMenu);
-		}
+	const toggleProfileMenu = e => {
+		console.log(e);
+		setProfileMenu(profileMenu => !profileMenu);
 	};
 
 	return (
@@ -108,7 +88,7 @@ const Navbar = () => {
 			<div className={style.icons_wrapper}>
 				<div
 					className={style.profile_container}
-					onMouseLeave={toggleProfileMenuLeave}
+					// onMouseLeave={toggleProfileMenuLeave}
 				>
 					<div
 						className={style.profile_icon_wrapper}
@@ -119,10 +99,11 @@ const Navbar = () => {
 					>
 						<img
 							onClick={toggleProfileMenu}
-							onMouseEnter={toggleProfileMenuEnter}
+							// onMouseEnter={toggleProfileMenuEnter}
 							src={Profile}
 							alt="profile"
 							className={style.profile_icon}
+							ref={profile_menu_close}
 						/>
 					</div>
 					{/* /.profile_icon_wrapper */}
@@ -138,43 +119,33 @@ const Navbar = () => {
 				</div>
 				{/* /.profile_container */}
 
-				<div
-					className={style.cart_container}
-					// onClick={toggleShoppingCart}
-					// onMouseEnter={toggleShoppingCartEnter}
-					onMouseLeave={toggleShoppingCartLeave}
-				>
+				<div className={style.cart_container} ref={shoppingcart_menu_close}>
 					<div className={style.cart_counter}>
 						<img
 							onClick={toggleShoppingCart}
-							onMouseEnter={toggleShoppingCartEnter}
 							src={Cart}
 							alt="cart"
 							className={`${style.cart_icon} ${
 								animateCart ? style.animate : ""
 							}`}
 							style={{
-								backgroundColor: hoverShoppingCart && "#353336",
-								borderRadius: hoverShoppingCart && "5px 5px 0 0",
+								backgroundColor: shoppingCartOpen && "#353336",
+								borderRadius: shoppingCartOpen && "5px 5px 0 0",
 							}}
 						/>
 						<div className={style.counter}> {counter} </div>
 					</div>
 					<div
 						className={`${style.shopping_cart_wrapper} ${
-							hoverShoppingCart ? style.shopping_cart_wrapper_index : ""
+							shoppingCartOpen ? style.shopping_cart_wrapper_index : ""
 						}`}
 						style={{
-							backgroundColor: hoverShoppingCart && "#353336",
-							borderRadius: hoverShoppingCart && "5px 5px 0 0",
+							backgroundColor: shoppingCartOpen && "#353336",
+							borderRadius: shoppingCartOpen && "5px 5px 0 0",
 						}}
 					>
 						<div className={style.shopping_cart_content}>
-							{hoverShoppingCart ? (
-								<ShoppingCartList hover={hoverShoppingCart} />
-							) : (
-								""
-							)}
+							{shoppingCartOpen ? <ShoppingCartList /> : ""}
 						</div>
 						{/* /.shopping_cart_content */}
 					</div>
