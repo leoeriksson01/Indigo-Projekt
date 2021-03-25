@@ -4,7 +4,6 @@ import {
 	faUser,
 	faEnvelope,
 	faCreditCard,
-	faPen,
 	faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
@@ -16,7 +15,6 @@ const ProfileInformation = () => {
 
 	// Toggles show/hide password when clicked.
 	const togglePassword = e => {
-	
 		const type = e.target.getAttribute("type");
 		e.target.setAttribute("type", type === "password" ? "text" : "password");
 	};

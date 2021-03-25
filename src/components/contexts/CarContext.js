@@ -38,7 +38,7 @@ export default function CarContextProvider({ children }) {
 	const [minPrice, setMinPrice] = useState("");
 	const [maxPrice, setMaxPrice] = useState("");
 
-	// Function that changes state to user input. 
+	// Function that changes state to user input.
 	// This function is implemented as onChange on each input / select in searchForm.js (two-way data binding to the input field)
 
 	const handleFilterChange = (e, filterType) => {
@@ -167,7 +167,7 @@ export default function CarContextProvider({ children }) {
 		minMiles,
 		maxMiles,
 		cars,
-	]  ); 
+	]);
 
 	return (
 		<CarContext.Provider

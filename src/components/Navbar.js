@@ -97,7 +97,6 @@ const Navbar = () => {
 					>
 						<img
 							onClick={toggleProfileMenu}
-							// onMouseEnter={toggleProfileMenuEnter}
 							src={Profile}
 							alt="profile"
 							className={style.profile_icon}
