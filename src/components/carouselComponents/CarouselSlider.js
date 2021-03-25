@@ -50,7 +50,7 @@ return (
                     <div>
                       <span id={style.boldText}>Car model: </span>{slide.make} {slide.model}
                       <br></br>
-                      <span id={style.boldText}>Special price: </span> {slide.price} :-
+                      <span id={style.boldText}>Special price: </span> ${Number(slide.price).toLocaleString()}
                     </div>
                     <NavLink id={style.btnReadMore} exact to={`/car/${slide.vin}`}>
                       <span>Read more</span>

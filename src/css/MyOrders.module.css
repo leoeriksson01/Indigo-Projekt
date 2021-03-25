@@ -1,20 +1,35 @@
-.myOrders {
-  margin: 0 auto;
-  padding: 1em;
-  background: #f8f8f8;
+.myOrdersContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  background: #f8f8f8;
 }
-.myOrders h2 {
-  text-align: center;
+.ordersContent {
+  flex: 1 1 auto;
+  margin: 3em 0.5em 0 1em;
+  width: 80%;
+}
+.orderGreetingText {
+  margin: auto;
+  width: 60%;
+}
+.orderHr {
+  margin: auto;
+  width: 75%;
+}
+.orderInfoWrap {
+  margin-top: 2em;
 }
 .orderContainer {
+  display: flex;
+  justify-content: center;
+}
+.orderWrapper {
   background: white;
   box-shadow:0px 2px 2px #8f8e8e88;
   text-align: center;
-  padding: 2em;
+  padding: 1em;
   margin-bottom: 1em;
+  width: 70%;
 }
 .oneOrderContainer {
   border-bottom: 2px solid #e0d8d8;
@@ -25,17 +40,23 @@
   width: 100%;
 }
 .orderText {
-  display: flex;
-  justify-content: space-between;
   font-size: 0.8rem;
+}
+.orderSidebar {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media (min-width: 768px) {
-  .myOrders {
-    display: inline-block;
+  .orderGreetingText {
+    width: 100%;
   }
-  .orderContainer {
-    text-align: left;
+  .orderHr {
+    width: 100%;
+  }
+  .orderWrapper {
+    width: 100%;
   }
   .oneOrderContainer {
     display: flex;
@@ -47,6 +68,8 @@
     width: 30%;
   }
   .orderText {
+    display: flex;
+    justify-content: space-between;
     font-size: 1rem;
   }
   .orderText p {
@@ -54,15 +77,18 @@
     border-right: 1px solid #e0d8d8;
     padding: 0.5em;
   }
+  
 }
 
 @media (min-width: 992px) {
-  .myOrders {
-    width: 80%;
-    display: flex;
+  .orderGreetingText {
+    width: 60%;
   }
-  .orderContainer {
-    padding: 3em;
+  .orderHr {
+    width: 75%;
+  }
+  .orderWrapper {
+    width: 70%;
   }
   .orderImg {
     width: 20%;

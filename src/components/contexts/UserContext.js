@@ -14,13 +14,14 @@ export default function UserContextProvider({ children }) {
 	}, [user]);
 
 	function isLoggedIn() {
-		return user == null ? user : Boolean(user);
+		return Boolean(user);
 	}
 
-	function login(user = {}) {
+	function login(user = null) {
 		setUser(user);
 	}
 
+	// Get messages from logged in user, or user of argument
 	function getMessages(userArg) {
 		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
 		return messages.filter(message => {
@@ -28,6 +29,17 @@ export default function UserContextProvider({ children }) {
 				return "email" in message && message.email === userArg?.email;
 			}
 			return "email" in message && message.email === user?.email;
+		});
+	}
+
+	// Get orders from logged in user, or user of argument
+	function getOrders(userArg) {
+		const orders = JSON.parse(localStorage.getItem("orders")) ?? [];
+		return orders.filter(order => {
+			if (userArg) {
+				return "email" in order && order.email === userArg?.email;
+			}
+			return "email" in order && order.email === user?.email;
 		});
 	}
 
@@ -44,6 +56,7 @@ export default function UserContextProvider({ children }) {
 				setUser,
 				login,
 				getMessages,
+				getOrders,
 			}}
 		>
 			{children}

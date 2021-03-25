@@ -4,9 +4,14 @@ import ProfileSidebar from "../components/ProfileSidebar";
 import ProfileInformation from "../components/ProfileInformation";
 import { useContext } from "react";
 import { UserContext } from "../components/contexts/UserContext";
+import Unauthorized from "../components/http/Unauthorized";
 
 const Profile = () => {
-	const { user } = useContext(UserContext);
+	const { user, isLoggedIn } = useContext(UserContext);
+
+	if (isLoggedIn() === false) {
+		return <Unauthorized />;
+	}
 
 	return (
 		<div className={style.profile_container}>
