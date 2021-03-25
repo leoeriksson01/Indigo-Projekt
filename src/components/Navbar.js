@@ -51,7 +51,6 @@ const Navbar = () => {
 	};
 
 	const toggleProfileMenu = e => {
-		console.log(e);
 		setProfileMenu(profileMenu => !profileMenu);
 	};
 
@@ -86,10 +85,7 @@ const Navbar = () => {
 			{/* ./nav_router_container */}
 
 			<div className={style.icons_wrapper}>
-				<div
-					className={style.profile_container}
-					// onMouseLeave={toggleProfileMenuLeave}
-				>
+				<div className={style.profile_container} ref={profile_menu_close}>
 					<div
 						className={style.profile_icon_wrapper}
 						style={{
@@ -103,7 +99,6 @@ const Navbar = () => {
 							src={Profile}
 							alt="profile"
 							className={style.profile_icon}
-							ref={profile_menu_close}
 						/>
 					</div>
 					{/* /.profile_icon_wrapper */}
