@@ -14,10 +14,9 @@ export default function UserContextProvider({ children }) {
 	}, [user]);
 
 	function isLoggedIn() {
-		return user == null ? user : Boolean(user);
+		return Boolean(user);
 	}
 
-	
 	function login(user = {}) {
 		setUser(user);
 	}
