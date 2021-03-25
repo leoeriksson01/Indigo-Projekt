@@ -49,7 +49,6 @@ export default function CarContextProvider({ children }) {
 
 			case "make":
 				setMake(e.target.value);
-				console.log(e.target.value);
 				break;
 
 			case "model":
@@ -174,7 +173,6 @@ export default function CarContextProvider({ children }) {
 				remove,
 				handleFilterChange,
 				products,
-
 			}}
 		>
 			{children}

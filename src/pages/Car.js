@@ -12,6 +12,84 @@ import {
 import Icon from "@mdi/react";
 import { ShopCartContext } from "../components/contexts/ShopCartContext";
 
+export default function Car() {
+	const { findOne } = useContext(CarContext);
+	const { itemExists, addToCart } = useContext(ShopCartContext);
+	const { vin } = useParams(); // The :vin query parameter from the route
+	const car = findOne("vin", vin);
+
+	if (!car) {
+		return null;
+	}
+
+	return (
+		<Wrapper>
+			<Container as={Col}>
+				<Head>
+					<Header>
+						{car.make} {car.model} {car.year}
+					</Header>
+				</Head>
+				<Main>
+					<PreviewContainer>
+						<Preview
+							src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
+							loading="lazy"
+						/>
+					</PreviewContainer>
+					<Sidebar>
+						<Description>{car.descLong}</Description>
+						<Price>
+							<span>Price: </span>
+							<PriceNumber>${Number(car.price).toLocaleString()}</PriceNumber>
+						</Price>
+						<Buy onClick={() => addToCart(car)} disabled={itemExists(car)}>
+							{itemExists(car) ? "Already in cart" : "Add to cart"}
+						</Buy>
+					</Sidebar>
+				</Main>
+				<Details>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiCar} />
+							<DetailHeader>Make</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.make}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiCar} />
+							<DetailHeader>Model</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.model}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiCalendarBlank} />
+							<DetailHeader>Year</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.year}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiGauge} />
+							<DetailHeader>Mileage</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.miles}</DetailText>
+					</Detail>
+					<Detail>
+						<DetailMeta>
+							<DetailIcon path={mdiMapMarker} />
+							<DetailHeader>City</DetailHeader>
+						</DetailMeta>
+						<DetailText>{car.city}</DetailText>
+					</Detail>
+				</Details>
+			</Container>
+		</Wrapper>
+	);
+}
+
 const Row = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -88,9 +166,6 @@ const Header = styled.h2`
 const Description = styled.p`
 	margin: 0;
 	color: black;
-	@media (max-width: 1200px) {
-		display: none;
-	}
 `;
 
 const Price = styled.h4`
@@ -115,14 +190,28 @@ const PriceNumber = styled.span`
 `;
 
 const Buy = styled.button`
-	background-color: rgb(46, 133, 110);
-	border: 0;
+	background-color: #2e856e;
+	border-style: none;
+	border-radius: 5px;
 	color: white;
-	border-radius: 25px;
-	padding: 10px;
-	font-size: 1.25rem;
+	cursor: pointer;
+	padding: 6px 12px;
+	margin-top: 0.5rem;
+	margin-bottom: 1.9rem;
+	font-size: 0.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	&[disabled] {
 		opacity: 0.5;
+	}
+	@media (min-width: 768px) {
+		width: 55%;
+		margin: 0 auto;
+		margin-bottom: 1.5rem;
+	}
+	@media (min-width: 1200px) {
+		width: 100%;
 	}
 	@media (max-width: 1200px) {
 		font-size: 1.5rem;
@@ -143,6 +232,7 @@ const Detail = styled(Col)`
 	font-weight: bold;
 	justify-content: space-between;
 	border: 2px solid rgb(225, 225, 225);
+	background-color: white;
 	padding: 15px;
 	height: 125px;
 	justify-content: center;
@@ -221,83 +311,5 @@ function Accordion({ label = "", children, ...props }) {
 				<AccordionContent ref={list}>{children}</AccordionContent>
 			</AccordionContentWrapper>
 		</Col>
-	);
-}
-
-export default function Car() {
-	const { findOne } = useContext(CarContext);
-	const { itemExists, addToCart } = useContext(ShopCartContext);
-	const { vin } = useParams(); // The :vin query parameter from the route
-	const car = findOne("vin", vin);
-
-	if (!car) {
-		return null;
-	}
-
-	return (
-		<Wrapper>
-			<Container as={Col}>
-				<Head>
-					<Header>
-						{car.make} {car.model} {car.year}
-					</Header>
-				</Head>
-				<Main>
-					<PreviewContainer>
-						<Preview
-							src={`/assets/car-pictures/${car.make}-${car.model}-${car.year}.jpg`}
-							loading="lazy"
-						/>
-					</PreviewContainer>
-					<Sidebar>
-						<Description>{car.descLong}</Description>
-						<Price>
-							<span>Price: </span>
-							<PriceNumber>${Number(car.price).toLocaleString()}</PriceNumber>
-						</Price>
-						<Buy onClick={() => addToCart(car)} disabled={itemExists(car)}>
-							{itemExists(car) ? "Already in cart" : "Add to cart"}
-						</Buy>
-					</Sidebar>
-				</Main>
-				<Details>
-					<Detail>
-						<DetailMeta>
-							<DetailIcon path={mdiCar} />
-							<DetailHeader>Make</DetailHeader>
-						</DetailMeta>
-						<DetailText>{car.make}</DetailText>
-					</Detail>
-					<Detail>
-						<DetailMeta>
-							<DetailIcon path={mdiCar} />
-							<DetailHeader>Model</DetailHeader>
-						</DetailMeta>
-						<DetailText>{car.model}</DetailText>
-					</Detail>
-					<Detail>
-						<DetailMeta>
-							<DetailIcon path={mdiCalendarBlank} />
-							<DetailHeader>Year</DetailHeader>
-						</DetailMeta>
-						<DetailText>{car.year}</DetailText>
-					</Detail>
-					<Detail>
-						<DetailMeta>
-							<DetailIcon path={mdiGauge} />
-							<DetailHeader>Mileage</DetailHeader>
-						</DetailMeta>
-						<DetailText>{car.miles}</DetailText>
-					</Detail>
-					<Detail>
-						<DetailMeta>
-							<DetailIcon path={mdiMapMarker} />
-							<DetailHeader>City</DetailHeader>
-						</DetailMeta>
-						<DetailText>{car.city}</DetailText>
-					</Detail>
-				</Details>
-			</Container>
-		</Wrapper>
 	);
 }
