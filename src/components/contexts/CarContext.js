@@ -26,6 +26,9 @@ export default function CarContextProvider({ children }) {
 	}
 
 	//--- FILTER ---
+
+
+ // Initializes state for each filter type 
 	const [products, setProducts] = useState(cars);
 	const [search, setSearch] = useState("");
 	const [make, setMake] = useState("all");
@@ -37,6 +40,9 @@ export default function CarContextProvider({ children }) {
 	const [maxMiles, setMaxMiles] = useState("");
 	const [minPrice, setMinPrice] = useState("");
 	const [maxPrice, setMaxPrice] = useState("");
+
+	// Function that changes state to user input. 
+	// This function is implemented as onChange on each input / select in the search form (two-way data binding to the input field)
 
 	const handleFilterChange = (e, filterType) => {
 		e.preventDefault();
@@ -97,8 +103,11 @@ export default function CarContextProvider({ children }) {
 		}
 	};
 
+
+	// Here, the actual filtering takes place -->  if statement for each filter type.
+
 	useEffect(() => {
-		let filteredProducts = cars;
+		let filteredProducts = cars; 
 
 		if (make === "all") {
 			filteredProducts = defaultCars;
@@ -150,7 +159,7 @@ export default function CarContextProvider({ children }) {
 		}
 
 		//Fortsätt if med  filter typerna här
-		setProducts(filteredProducts);
+		setProducts(filteredProducts); // Product state is what we use in productCard.js to map out all cars
 	}, [
 		search,
 		make,
@@ -162,7 +171,7 @@ export default function CarContextProvider({ children }) {
 		minMiles,
 		maxMiles,
 		cars,
-	]);
+	]  ); // Array Dependencies to control when 
 
 	return (
 		<CarContext.Provider
