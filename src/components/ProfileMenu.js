@@ -12,10 +12,12 @@ const ProfileMenu = ({ location }) => {
 
 	const url = location.state?.url ?? location.pathname;
 
+	// If user is not logged in, redirects to Unauthorized page.
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};
 
+	// Logged in menu
 	const loggedInMenu = (
 		<div className={style.logged_in_menu}>
 			<div className={style.order_link_wrapper}>
@@ -48,6 +50,7 @@ const ProfileMenu = ({ location }) => {
 		</div>
 	);
 
+	// Logged out menu
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
 			<div className={style.button_login_wrapper}>

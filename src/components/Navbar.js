@@ -46,10 +46,12 @@ const Navbar = () => {
 		cartItemsLength.current = shoppingCart.length;
 	}, [shoppingCart]);
 
+	// Toggles shopping cart
 	const toggleShoppingCart = () => {
 		setShoppingCartOpen(shoppingCartOpen => !shoppingCartOpen);
 	};
 
+	// Toggle Profile Menu icon
 	const toggleProfileMenu = e => {
 		setProfileMenu(profileMenu => !profileMenu);
 	};
