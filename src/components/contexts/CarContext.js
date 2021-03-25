@@ -26,13 +26,10 @@ export default function CarContextProvider({ children }) {
 	}
 
 	//--- FILTER ---
-
-
  // Initializes state for each filter type 
 	const [products, setProducts] = useState(cars);
 	const [search, setSearch] = useState("");
 	const [make, setMake] = useState("all");
-
 	const [model, setModel] = useState("all");
 	const [fromYear, setFromYear] = useState("");
 	const [toYear, setToYear] = useState("");
@@ -42,7 +39,7 @@ export default function CarContextProvider({ children }) {
 	const [maxPrice, setMaxPrice] = useState("");
 
 	// Function that changes state to user input. 
-	// This function is implemented as onChange on each input / select in the search form (two-way data binding to the input field)
+	// This function is implemented as onChange on each input / select in searchForm.js (two-way data binding to the input field)
 
 	const handleFilterChange = (e, filterType) => {
 		e.preventDefault();
@@ -171,7 +168,7 @@ export default function CarContextProvider({ children }) {
 		minMiles,
 		maxMiles,
 		cars,
-	]  ); // Array Dependencies to control when 
+	]  ); 
 
 	return (
 		<CarContext.Provider
