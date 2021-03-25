@@ -3,16 +3,21 @@ import style from "../css/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
+import { UsersContext } from "../components/contexts/UsersContext";
 import useOnclickOutside from "react-cool-onclickoutside";
-import { useHistory } from "react-router-dom";
+import { useHistory, NavLink } from "react-router-dom";
+import SignUpModal from "../components/SignUp";
 
 const Login = ({ url, open, setOpen }) => {
-	const { isLoggedIn, login } = useContext(UserContext);
+	const { isLoggedIn, login, setUser } = useContext(UserContext);
+	const [signupModalOpen, setSignupModalOpen] = useState(false);
+	const { users } = useContext(UsersContext);
 	const container = useOnclickOutside(close);
 	const history = useHistory();
-
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [errorMsg, setErrorMsg] = useState("");
+
 
 	if (isLoggedIn()) {
 		return null;
@@ -24,9 +29,23 @@ const Login = ({ url, open, setOpen }) => {
 
 	function handleLogin(e) {
 		e.preventDefault();
-		// Login validation here
-		login({ email, password });
-		close();
+
+		const validation = users.find(
+			user => email === user.email && password === user.password
+		);
+
+		const getUser = users.find(user => {
+			return user.email === email; 
+		})
+
+		if (validation) {
+			setUser(getUser);
+			{/*login(validation)*/}
+			close();
+		} else {
+			setErrorMsg("Wrong email or password. Try again!");
+		}
+
 		if (url) {
 			// User is always redirected to where they were
 			history.push(url);
@@ -35,6 +54,7 @@ const Login = ({ url, open, setOpen }) => {
 
 	return (
 		<div>
+		
 			{open && (
 				<div className={style.modal}>
 					<div className={style.modal_content} ref={container}>
@@ -43,7 +63,7 @@ const Login = ({ url, open, setOpen }) => {
 						</div>
 						<form onSubmit={handleLogin} className={style.login_form}>
 							<h1>Login</h1>
-
+							<p className={style.errorMsg}>{errorMsg}</p>
 							<label htmlFor="email">Email</label>
 							<input
 								required
@@ -68,12 +88,21 @@ const Login = ({ url, open, setOpen }) => {
 						</form>
 						<div className={style.register}>
 							<h2>
-								Not a member? <a href="">Sign Up</a>
+								Not a member?
+								<NavLink
+									className={style.a}
+									exact
+									to="#"
+									onClick={() => setSignupModalOpen(true)}
+								>
+									Register now
+								</NavLink>
 							</h2>
 						</div>
 					</div>
 				</div>
 			)}
+				<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
 		</div>
 	);
 };
