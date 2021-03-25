@@ -10,7 +10,6 @@ export default function CarContextProvider({ children }) {
 		setCars(defaultCars);
 	}, []);
 
-	// Remove car whose vin property matches the one being sent in
 	function remove(carToRemove = {}) {
 		setCars(p => p.filter(car => car.vin !== carToRemove.vin));
 	}
@@ -20,19 +19,17 @@ export default function CarContextProvider({ children }) {
 		return cars.filter(car => car[key] === value);
 	}
 
-	// Return single car object on match, null if empty
+	// Return single
 	function findOne(key = "vin", value = "") {
 		return cars.find(car => car[key] === value) ?? null;
 	}
 
 	//--- FILTER ---
 
-
- // Initializes state for each filter type 
+	// Initializes state for each filter type
 	const [products, setProducts] = useState(cars);
 	const [search, setSearch] = useState("");
 	const [make, setMake] = useState("all");
-
 	const [model, setModel] = useState("all");
 	const [fromYear, setFromYear] = useState("");
 	const [toYear, setToYear] = useState("");
@@ -41,8 +38,8 @@ export default function CarContextProvider({ children }) {
 	const [minPrice, setMinPrice] = useState("");
 	const [maxPrice, setMaxPrice] = useState("");
 
-	// Function that changes state to user input. 
-	// This function is implemented as onChange on each input / select in the search form (two-way data binding to the input field)
+	// Function that changes state to user input.
+	// This function is implemented as onChange on each input / select in searchForm.js (two-way data binding to the input field)
 
 	const handleFilterChange = (e, filterType) => {
 		e.preventDefault();
@@ -103,11 +100,10 @@ export default function CarContextProvider({ children }) {
 		}
 	};
 
-
 	// Here, the actual filtering takes place -->  if statement for each filter type.
 
 	useEffect(() => {
-		let filteredProducts = cars; 
+		let filteredProducts = cars;
 
 		if (make === "all") {
 			filteredProducts = defaultCars;
@@ -171,7 +167,7 @@ export default function CarContextProvider({ children }) {
 		minMiles,
 		maxMiles,
 		cars,
-	]  ); // Array Dependencies to control when 
+	]);
 
 	return (
 		<CarContext.Provider

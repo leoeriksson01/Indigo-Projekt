@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { UserContext } from "./contexts/UserContext";
 import { ShopCartContext } from "./contexts/ShopCartContext";
 import style from "../css/CheckoutPage.module.css";
-import { UserContext } from "./contexts/UserContext";
 
 const CheckoutForm = () => {
 	const { shoppingCart, emptyCart, totalPrice } = useContext(ShopCartContext);

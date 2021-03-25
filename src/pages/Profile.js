@@ -9,6 +9,7 @@ import Unauthorized from "../components/http/Unauthorized";
 const Profile = () => {
 	const { user, isLoggedIn } = useContext(UserContext);
 
+	// If user is not logged in, redirects to Unauthorized page.
 	if (isLoggedIn() === false) {
 		return <Unauthorized />;
 	}

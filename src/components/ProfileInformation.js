@@ -4,7 +4,6 @@ import {
 	faUser,
 	faEnvelope,
 	faCreditCard,
-	faPen,
 	faEdit,
 } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
@@ -13,15 +12,19 @@ import NotFound from "./http/NotFound";
 
 const ProfileInformation = () => {
 	const { user } = useContext(UserContext);
+
+	// Toggles show/hide password when clicked.
 	const togglePassword = e => {
 		const type = e.target.getAttribute("type");
 		e.target.setAttribute("type", type === "password" ? "text" : "password");
 	};
 
+	// If "user" variable is not stored in local storage, returns null
 	if (!user) {
 		return null;
 	}
 
+	// if "user" variable is not stored in local storage, and error msg shows: user = undefined ---> Redirects to NotFound page
 	if (!user && user !== undefined) {
 		return <NotFound />;
 	}
