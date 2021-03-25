@@ -114,7 +114,7 @@ function SignUp({ open, setOpen }) {
 									/>
 								</div>
 							</div>
-							<button type="submit">Sign up</button>
+							<button type="submit" id={style.signUpBtn}>Sign up</button>
 						</form>
 					</div>
 				</div>

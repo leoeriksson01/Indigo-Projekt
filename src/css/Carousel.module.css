@@ -117,6 +117,12 @@
     -webkit-transform: rotate(135deg);
 }
 
+#arrowLeft:hover{
+    border: solid rgb(46, 133, 110);
+    border-width: 0 4px 4px 0;
+    transition: 0.25s;
+}
+
 
 #arrowRight{
     cursor: pointer;
@@ -128,6 +134,14 @@
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
+
+#arrowRight:hover{
+    border: solid rgb(46, 133, 110);
+    border-width: 0 4px 4px 0;
+    transition: 0.25s;
+}
+
+
 
 @media (min-width: 768px){
 

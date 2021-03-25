@@ -1,3 +1,13 @@
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 15vh;
+}
+
 footer {
   width: 100%;
   background-color: #2e856e;
@@ -8,9 +18,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   
-
 }
-
 
 .social {
   height: 40px;
@@ -55,3 +63,23 @@ color: white;
     display: none;
   }
 }
+
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 15vh;
+  width: 100%;
+  background: #2e856e;
+}
+
+
+
+@media print {
+  .footer {
+    display: none;
+  }
+}
+
