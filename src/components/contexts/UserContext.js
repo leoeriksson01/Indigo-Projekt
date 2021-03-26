@@ -24,26 +24,24 @@ export default function UserContextProvider({ children }) {
 		setUser(user);
 	}
 
+	// Get localStorage key that belongs to logged in user, or provided user
+	function getForeignTable(key = "", userArg = null) {
+		const data = JSON.parse(localStorage.getItem(key)) ?? [];
+		return data.filter(
+			item =>
+				"email" in item &&
+				item.email === (userArg ? userArg?.email : user?.email)
+		);
+	}
+
 	// Get messages from logged in user, or user of argument
 	function getMessages(userArg) {
-		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
-		return messages.filter(message => {
-			if (userArg) {
-				return "email" in message && message.email === userArg?.email;
-			}
-			return "email" in message && message.email === user?.email;
-		});
+		return getForeignTable("messages", userArg);
 	}
 
 	// Get orders from logged in user, or user of argument
 	function getOrders(userArg) {
-		const orders = JSON.parse(localStorage.getItem("orders")) ?? [];
-		return orders.filter(order => {
-			if (userArg) {
-				return "email" in order && order.email === userArg?.email;
-			}
-			return "email" in order && order.email === user?.email;
-		});
+		return getForeignTable("orders", userArg);
 	}
 
 	// Logout
