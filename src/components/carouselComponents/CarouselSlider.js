@@ -2,9 +2,16 @@ import React, {useState} from 'react';
 import style from "../../css/Carousel.module.css";
 import { NavLink } from "react-router-dom";
 
+
+//gets array (cars.json) from HeroSection
+//sorts it and randomizes
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
+
+//makes copy and shuffles
+//picks out 5 cars that will be displayed in carousel
+//which becomes slides
 const CarouselContainer = ( {cars} ) => {
   let copy = [...cars]
   shuffle(copy)
@@ -12,11 +19,14 @@ const CarouselContainer = ( {cars} ) => {
   return <CarouselSlider slides={slides}/>
 }; 
 
+//defines length as slides.length
 const CarouselSlider = ( {slides} ) => {
 const [current, setCurrent] = useState (0)
 const length = slides.length
 
 
+//if current is equal value as length -1, +1
+//otherwise go to index 0 
 const nextSlide = () => {
   setCurrent(current === length - 1 ? 0 : current + 1);
 };
