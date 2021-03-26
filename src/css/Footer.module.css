@@ -1,5 +1,4 @@
 html {
-	position: relative;
 	min-height: 100vh;
 }
 
@@ -26,48 +25,13 @@ footer {
 	color: white;
 }
 
-/*
-.a {
-  color: white;
-}
-
-
-.contact {
-  display: flex;
-  flex-direction: column;
-}
-*/
 
 @media (max-width: 576px) {
-	/*
-  footer {
-    flex-direction: column;
-  }
 
-  .contact{
-    margin-bottom:1rem;
-  }
-  */
 }
 
 @media print {
 	footer {
-		display: none;
-	}
-}
-
-footer {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	overflow: hidden;
-	height: 15vh;
-	width: 100%;
-	background: #2e856e;
-}
-
-@media print {
-	.footer {
 		display: none;
 	}
 }
