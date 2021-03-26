@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import style from "./ContactForm.module.css";
 
+
+//useStates for every input field, used with onChange event handler in form
 function ContactForm({ submit }) {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [message, setMessage] = useState("");
 
+
+//handleSubmit function, used with onSubmit. Saves name, email, message to localStorage
+//To be used on Profile Page
 	function handleSubmit(e) {
 		e.preventDefault();
 		const messages = JSON.parse(localStorage.getItem("messages")) ?? [];
