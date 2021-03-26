@@ -1,6 +1,8 @@
 import React from "react";
 import emailSent from "../../assets/sent-email.png";
 import style from "./ContactForm.module.css";
+
+//component displayed when form is successfully submitted
 const FormSuccess = () => {
 	return (
 		<div id={style.successContainer}>
