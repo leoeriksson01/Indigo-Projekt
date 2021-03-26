@@ -3,16 +3,20 @@ import style from "../css/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { UserContext } from "../components/contexts/UserContext";
+import { UsersContext } from "../components/contexts/UsersContext";
 import useOnclickOutside from "react-cool-onclickoutside";
 import { useHistory } from "react-router-dom";
+import SignUpModal from "../components/SignUp";
 
 const Login = ({ url, open, setOpen }) => {
 	const { isLoggedIn, login } = useContext(UserContext);
+	const [signupModalOpen, setSignupModalOpen] = useState(false);
+	const { users } = useContext(UsersContext);
 	const container = useOnclickOutside(close);
 	const history = useHistory();
-
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [errorMsg, setErrorMsg] = useState("");
 
 	if (isLoggedIn()) {
 		return null;
@@ -24,8 +28,24 @@ const Login = ({ url, open, setOpen }) => {
 
 	function handleLogin(e) {
 		e.preventDefault();
-		const success = login({ email, password });
-		if (success) close();
+
+		//Checks if user input (email and password) is valid/registrered 
+
+		const validation = users.find(
+			user => email === user.email && password === user.password
+		);
+
+		const getUser = users.find(user => {
+			return user.email === email;
+		});
+
+		if (validation) {
+			login(getUser);
+			close();
+		} else {
+			setErrorMsg("Wrong email or password. Try again!");
+		}
+
 		if (url) {
 			// User is always redirected to where they were
 			history.push(url);
@@ -42,7 +62,7 @@ const Login = ({ url, open, setOpen }) => {
 						</div>
 						<form onSubmit={handleLogin} className={style.login_form}>
 							<h1>Login</h1>
-
+							<p className={style.errorMsg}>{errorMsg}</p>
 							<label htmlFor="email">Email</label>
 							<input
 								required
@@ -66,13 +86,18 @@ const Login = ({ url, open, setOpen }) => {
 							<button type="submit">Login</button>
 						</form>
 						<div className={style.register}>
-							<h2>
-								Not a member? <a href="">Sign Up</a>
-							</h2>
+							<h2>Not a member?</h2>
+							<button
+								className={style.a}
+								onClick={() => setSignupModalOpen(true)}
+							>
+								Register now
+							</button>
 						</div>
 					</div>
 				</div>
 			)}
+			<SignUpModal open={signupModalOpen} setOpen={setSignupModalOpen} />
 		</div>
 	);
 };

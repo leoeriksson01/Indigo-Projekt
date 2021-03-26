@@ -7,6 +7,8 @@ import useOnclickOutside from "react-cool-onclickoutside";
 import { UserContext } from "./contexts/UserContext";
 
 function SignUp({ open, setOpen }) {
+
+	//useStates for every input field, used with onChange event handler in form
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -15,19 +17,24 @@ function SignUp({ open, setOpen }) {
 	const [county, setCounty] = useState("");
 	const [zip, setZip] = useState("");
 
+	//imported library, closes modal when clicking outside container
 	const container = useOnclickOutside(close);
 
-	const { createUser } = useContext(UsersContext);
-	const { login, isLoggedIn } = useContext(UserContext);
-
-	if (isLoggedIn()) {
-		return null;
-	}
-
+	//closes modal
 	function close() {
 		setOpen(false);
 	}
 
+	const { createUser } = useContext(UsersContext);
+	const { login, isLoggedIn } = useContext(UserContext);
+
+	//if user is logged in, nothing is returned
+	if (isLoggedIn()) {
+		return null;
+	}
+
+	//when registered, saves user data into createUser, and logs in user
+	//closes modal 
 	function register(e) {
 		e.preventDefault();
 		const user = { name, email, password, address, county, zip };
@@ -38,6 +45,7 @@ function SignUp({ open, setOpen }) {
 
 	return (
 		<>
+			{/*Opens SignUp modal*/}
 			{open && (
 				<div id={style.signUpBackground}>
 					<div id={style.SignUpContainer} ref={container}>
@@ -114,7 +122,7 @@ function SignUp({ open, setOpen }) {
 									/>
 								</div>
 							</div>
-							<button type="submit">Sign up</button>
+							<button type="submit" id={style.signUpBtn}>Sign up</button>
 						</form>
 					</div>
 				</div>

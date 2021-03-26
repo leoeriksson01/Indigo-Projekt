@@ -12,10 +12,12 @@ const ProfileMenu = ({ location }) => {
 
 	const url = location.state?.url ?? location.pathname;
 
+	// If user is not logged in, redirects to Unauthorized page.
 	const handleContactLink = () => {
 		window.scrollTo(0, document.body.scrollHeight);
 	};
 
+	// Logged in menu
 	const loggedInMenu = (
 		<div className={style.logged_in_menu}>
 			<div className={style.order_link_wrapper}>
@@ -23,10 +25,13 @@ const ProfileMenu = ({ location }) => {
 					My Profile
 				</NavLink>
 
-				<NavLink exact to="#" className={style.a}>
+				<br />
+
+				<NavLink exact to="/myorders" className={style.a}>
 					My Orders
 				</NavLink>
 
+				<br />
 				<NavLink
 					exact
 					to="/about"
@@ -45,6 +50,7 @@ const ProfileMenu = ({ location }) => {
 		</div>
 	);
 
+	// Logged out menu
 	const loggedOutMenu = (
 		<div className={style.logged_out_menu}>
 			<div className={style.button_login_wrapper}>
@@ -55,19 +61,19 @@ const ProfileMenu = ({ location }) => {
 					Log in
 				</button>
 			</div>
+			<hr className={style.hr} />
 			<div className={style.registration_wrapper}>
 				<p className={style.registration_text}>
-					<span className={style.registration_text}>Not a member?</span>
-					<NavLink className={style.a} exact to="#" onClick={() => setSignupModalOpen(true)} >
-						Sign up	
+					<span className={style.register}>Not a member?</span>
+					<NavLink
+						className={style.a}
+						exact
+						to="#"
+						onClick={() => setSignupModalOpen(true)}
+					>
+						Register now
 					</NavLink>
 				</p>
-			</div>
-			<hr className={style.hr} />
-			<div className={style.order_link_wrapper}>
-				<NavLink exact to="#" className={style.a}>
-					My orders
-				</NavLink>
 			</div>
 		</div>
 	);
