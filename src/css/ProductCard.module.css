@@ -108,6 +108,7 @@
 
 .card_text_heading {
 	display: flex;
+	height: 80px;
 	justify-content: space-between;
 	padding-bottom: 1rem;
 	font-weight: 500;
